@@ -389,6 +389,7 @@ namespace VnedorConnect_Service
                                    VendorId = v.VendorId,
                                    BusinessName = v.BusinesName,
                                    Category=v.Category,
+                                   MaxVendors=e.MaxVendors,
                                    Status = va.Status,
                                    AppliedAt = (DateTime)va.AppliedAt
                                }).ToList();

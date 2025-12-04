@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using VendorConnect_Frontend.ServiceReference1;
 
 namespace VendorConnect_Frontend
 {
@@ -11,7 +13,85 @@ namespace VendorConnect_Frontend
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                Service1Client client = new Service1Client();
 
+                int userID = Convert.ToInt32(Session["UserID"]);
+                var u = client.GetUser(userID);
+                if (u != null)
+                {
+                    var vName = u.FirstName;
+                    var vLName = u.LastName;
+                    OrgaNames.InnerText = vName + " " + vLName;
+
+
+                    string intialN = "";
+                    string intialLN = "";
+                    for (int i = 0; i < 1; i++)
+                    {
+                        intialN = Convert.ToString(vName[i]);
+                        intialLN = Convert.ToString(vLName[i]);
+                    }
+                    initials.InnerText = intialN.ToUpper() + intialLN.ToUpper();
+                }
+                else
+                {
+                    OrgaNames.InnerText = "Demo";
+                    initials.InnerText = "DD";
+                }
+
+                var organizerID = Convert.ToInt32(Session["OrganizerId"]);
+                dynamic allApplications = client.GetApplicationsPerOrganizer(organizerID);
+
+
+                var events = ((IEnumerable<dynamic>)allApplications)
+                             .GroupBy(a => a.EventId)
+                             .Select(g => g.First())
+                             .ToList();
+
+                ApplicationsData.DataSource = events;
+                ApplicationsData.DataBind();
+
+                client.Close();
+            }
+        
+        }
+
+        protected void ApplicationsData_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                int eventId = Convert.ToInt32(DataBinder.Eval(e.Item.DataItem, "EventId"));
+                Repeater nestedRepeater = (Repeater)e.Item.FindControl("VendorApplicationsRepeater");
+
+                if (nestedRepeater != null)
+                {
+                    Service1Client client = new Service1Client();
+                    try
+                    {
+                        int organizerID = Convert.ToInt32(Session["OrganizerId"]);
+                        dynamic allApplications = client.GetApplicationsPerOrganizer(organizerID);
+
+                        var applicationsForEvent = ((IEnumerable<dynamic>)allApplications)
+                                                   .Where(a => a.EventId == eventId)
+                                                   .ToList();
+
+                        nestedRepeater.DataSource = applicationsForEvent;
+                        nestedRepeater.DataBind();
+                    }
+                    finally
+                    {
+                        client.Close();
+                    }
+                }
+            }
+        }
+
+
+        protected void ApplicationsData_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            
         }
     }
 }

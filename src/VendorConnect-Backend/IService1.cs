@@ -136,6 +136,9 @@ namespace VnedorConnect_Service
 
         [DataMember]
         public string Category { get; set; }
+
+        [DataMember]
+        public int MaxVendors { get; set; }
     }
 
 }

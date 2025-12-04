@@ -83,6 +83,7 @@
     <Content Include="css\Admin.css" />
     <Content Include="css\style.css" />
     <Content Include="LogOut.aspx" />
+    <Content Include="OrganizerApplications.aspx" />
     <Content Include="OrganizerDashboard.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="VendorApplications.aspx" />
@@ -136,6 +137,13 @@
     </Compile>
     <Compile Include="Master.Master.designer.cs">
       <DependentUpon>Master.Master</DependentUpon>
+    </Compile>
+    <Compile Include="OrganizerApplications.aspx.cs">
+      <DependentUpon>OrganizerApplications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrganizerApplications.aspx.designer.cs">
+      <DependentUpon>OrganizerApplications.aspx</DependentUpon>
     </Compile>
     <Compile Include="OrganizerDashboard.aspx.cs">
       <DependentUpon>OrganizerDashboard.aspx</DependentUpon>

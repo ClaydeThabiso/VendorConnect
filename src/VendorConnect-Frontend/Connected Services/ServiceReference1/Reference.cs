@@ -1455,6 +1455,12 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         private System.DateTime AppliedAtField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BusinessNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CategoryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime EventDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1465,6 +1471,12 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LocationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int MaxVendorsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int OrganizerIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string StatusField;
@@ -1504,6 +1516,32 @@ namespace VendorConnect_Frontend.ServiceReference1 {
                 if ((this.AppliedAtField.Equals(value) != true)) {
                     this.AppliedAtField = value;
                     this.RaisePropertyChanged("AppliedAt");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BusinessName {
+            get {
+                return this.BusinessNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BusinessNameField, value) != true)) {
+                    this.BusinessNameField = value;
+                    this.RaisePropertyChanged("BusinessName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Category {
+            get {
+                return this.CategoryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CategoryField, value) != true)) {
+                    this.CategoryField = value;
+                    this.RaisePropertyChanged("Category");
                 }
             }
         }
@@ -1556,6 +1594,32 @@ namespace VendorConnect_Frontend.ServiceReference1 {
                 if ((object.ReferenceEquals(this.LocationField, value) != true)) {
                     this.LocationField = value;
                     this.RaisePropertyChanged("Location");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int MaxVendors {
+            get {
+                return this.MaxVendorsField;
+            }
+            set {
+                if ((this.MaxVendorsField.Equals(value) != true)) {
+                    this.MaxVendorsField = value;
+                    this.RaisePropertyChanged("MaxVendors");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int OrganizerID {
+            get {
+                return this.OrganizerIDField;
+            }
+            set {
+                if ((this.OrganizerIDField.Equals(value) != true)) {
+                    this.OrganizerIDField = value;
+                    this.RaisePropertyChanged("OrganizerID");
                 }
             }
         }
@@ -1707,6 +1771,12 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/deleteApplication", ReplyAction="http://tempuri.org/IService1/deleteApplicationResponse")]
         System.Threading.Tasks.Task<int> deleteApplicationAsync(int AppId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetApplicationsPerOrganizer", ReplyAction="http://tempuri.org/IService1/GetApplicationsPerOrganizerResponse")]
+        VendorConnect_Frontend.ServiceReference1.VendorApplicationDTO[] GetApplicationsPerOrganizer(int OrgaID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetApplicationsPerOrganizer", ReplyAction="http://tempuri.org/IService1/GetApplicationsPerOrganizerResponse")]
+        System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.VendorApplicationDTO[]> GetApplicationsPerOrganizerAsync(int OrgaID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1878,6 +1948,14 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<int> deleteApplicationAsync(int AppId) {
             return base.Channel.deleteApplicationAsync(AppId);
+        }
+        
+        public VendorConnect_Frontend.ServiceReference1.VendorApplicationDTO[] GetApplicationsPerOrganizer(int OrgaID) {
+            return base.Channel.GetApplicationsPerOrganizer(OrgaID);
+        }
+        
+        public System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.VendorApplicationDTO[]> GetApplicationsPerOrganizerAsync(int OrgaID) {
+            return base.Channel.GetApplicationsPerOrganizerAsync(OrgaID);
         }
     }
 }
