@@ -1,9 +1,9 @@
-VendorConnect
-Type: B2B Event Vendor Management Platform
-Tech Stack:
- Frontend: HTML5, CSS3, Bootstrap 5, JavaScript
- Backend: C# (ASP.NET)
- Database: LINQ(WCF services)
+# VendorConnect
+- Type: B2B Event Vendor Management Platform
+- Tech Stack:
+    --  Frontend: HTML5, CSS3, Bootstrap 5, JavaScript
+    --  Backend: C# (ASP.NET)
+    --  Database: LINQ(WCF services)
 # 💡 Concept Summary
 VendorConnect is a web platform that connects event organizers with small vendors
 (food stalls, artists, merch sellers, etc.) for expos, markets, and festivals.
