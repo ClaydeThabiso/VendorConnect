@@ -55,7 +55,7 @@ It’s essentially an event marketplace with three user roles:
       -  View event performance analytics
   
 - 🎨 3. Vendor
--  
+  
   Goal: Register, apply for events, and manage their participation.
   
   Key Pages:
@@ -71,7 +71,7 @@ It’s essentially an event marketplace with three user roles:
       -  Make payments securely
       -  Track space assignments
       -  Manage event participation
-💰 Payment System Overview
+- 💰 Payment System Overview
 
         - Vendors pay Organizers for stall spaces.
         - Admin (Owner) receives a platform commission per payment (e.g., 10%).
