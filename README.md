@@ -19,6 +19,7 @@ It’s essentially an event marketplace with three user roles:
 
 # 👥 User Roles and Dashboards
 - 1. Admin (System Owner)
+     
     Goal: Manage the entire platform.
 
     Key Pages:
@@ -31,6 +32,7 @@ It’s essentially an event marketplace with three user roles:
        -  Manage reports and metrics
        -  Platform fee/commission control
 - 🎪 2. Event Organizer
+  
   Goal: Manage events and the vendors attending them.
   
   Key Pages:
@@ -44,9 +46,12 @@ It’s essentially an event marketplace with three user roles:
       -  Add or modify event details
       -  View list of participating vendors
       -  Approve payments and participation
-       View event performance analytics
+      -  View event performance analytics
+  
 - 🎨 3. Vendor
+- 
   Goal: Register, apply for events, and manage their participation.
+  
   Key Pages:
       -  Vendor Dashboard: Overview of events joined, payments, and approvals.
       -  Browse Events: List of available events to apply for.
