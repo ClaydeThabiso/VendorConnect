@@ -352,28 +352,46 @@ namespace VnedorConnect_Service
                 return 0;
             }
         }
-        public List<VendorApplication> GetApplicationPerVendor(int vendorID)
+        public List<VendorApplicationDTO> GetApplicationPerVendor(int vendorID)
         {
-            List<VendorApplication> applications = new List<VendorApplication>();
-            dynamic TempApplication = (from va in db.VendorApplications where va.VendorId.Equals(vendorID) select va);
-
-            if(TempApplication != null)
-            {
-                foreach(VendorApplication vendorApp in TempApplication)
+            var applications =(from va in db.VendorApplications
+                join ev in db.Events on va.EventId equals ev.EventId
+                join v in db.Vendors on va.VendorId equals v.VendorId
+                where va.VendorId == vendorID
+                select new VendorApplicationDTO
                 {
-                    VendorApplication objApplication = new VendorApplication();
-                    objApplication.EventId = vendorApp.EventId;
-                    objApplication.VendorId = vendorApp.VendorId;
-                    objApplication.Status = vendorApp.Status;
-                    objApplication.AppliedAt = vendorApp.AppliedAt;
+                    ApplicationId=va.ApplicationId,
+                    EventId = ev.EventId,
+                    EventName = ev.EventName,
+                    EventDate = ev.EventDate,
+                    Location = ev.Location,
+                    VendorId = v.VendorId,
+                    Status = va.Status,
+                    AppliedAt = (DateTime)va.AppliedAt
+                }).ToList();
 
-                    applications.Add(objApplication);
+            return applications;
+        }
+        public int deleteApplication(int EventId)
+        {
+            var application = (from va in db.VendorApplications where va.ApplicationId.Equals(EventId) select va).FirstOrDefault();
+
+            if(application!=null)
+            {
+                db.VendorApplications.DeleteOnSubmit(application);
+                try
+                {
+                    db.SubmitChanges();
+                    return 1;
+                }catch(Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine("REGISTER ERROR: " + ex.GetBaseException().Message);
+                    throw;
                 }
-                return applications;
             }
             else
             {
-               return null;
+                return 0;
             }
         }
 

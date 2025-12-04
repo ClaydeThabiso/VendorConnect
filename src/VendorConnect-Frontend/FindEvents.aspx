@@ -35,7 +35,7 @@
                     </a>
                 </div>
                 <div class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="VendorApplications.aspx" class="nav-link">
                         <i class="bi bi-journal"></i>
                         <span>My Applications</span>
                     </a>
@@ -107,7 +107,6 @@
                                             <%# Eval("EventDate") %>
                                         </div>
                                     </div>
-
                                     <asp:Button
                                         CssClass="btn btn-outline-primary btn-sm ms-2"
                                         Text="Apply"

@@ -29,7 +29,13 @@ namespace VendorConnect_Frontend
                 Session["UserID"] = loggedIn.Id;
                 if (loggedIn.UserType == 'V')
                 {
-                    Response.Redirect("VendorDashboard.aspx");
+                    var vendorID = client.GetVendorByUserId(loggedIn.Id);
+                    if(vendorID!=null)
+                    {
+                        Session["VendorID"] = vendorID.VendorID;
+                        Response.Redirect("VendorDashboard.aspx");
+                    }
+                   
                 }
                 else if (loggedIn.UserType == 'A')
                 {

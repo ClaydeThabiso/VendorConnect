@@ -260,7 +260,7 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         private string ContactEmailField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime CreatedAtField;
+        private System.Nullable<System.DateTime> CreatedAtField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private VendorConnect_Frontend.ServiceReference1.Event[] EventsField;
@@ -304,7 +304,7 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime CreatedAt {
+        public System.Nullable<System.DateTime> CreatedAt {
             get {
                 return this.CreatedAtField;
             }
@@ -423,7 +423,7 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         private string ContactEmailField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime CreatedAtField;
+        private System.Nullable<System.DateTime> CreatedAtField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private VendorConnect_Frontend.ServiceReference1.Payment[] PaymentsField;
@@ -493,7 +493,7 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime CreatedAt {
+        public System.Nullable<System.DateTime> CreatedAt {
             get {
                 return this.CreatedAtField;
             }
@@ -603,7 +603,7 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime CreatedAtField;
+        private System.Nullable<System.DateTime> CreatedAtField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DescriptionField;
@@ -649,7 +649,7 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime CreatedAt {
+        public System.Nullable<System.DateTime> CreatedAt {
             get {
                 return this.CreatedAtField;
             }
@@ -1016,7 +1016,7 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         private int ApplicationIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime AppliedAtField;
+        private System.Nullable<System.DateTime> AppliedAtField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private VendorConnect_Frontend.ServiceReference1.Event EventField;
@@ -1060,7 +1060,7 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime AppliedAt {
+        public System.Nullable<System.DateTime> AppliedAt {
             get {
                 return this.AppliedAtField;
             }
@@ -1173,7 +1173,7 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         private int ApplicationIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime AssignedAtField;
+        private System.Nullable<System.DateTime> AssignedAtField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int AssignmentIdField;
@@ -1208,7 +1208,7 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime AssignedAt {
+        public System.Nullable<System.DateTime> AssignedAt {
             get {
                 return this.AssignedAtField;
             }
@@ -1439,6 +1439,163 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="VendorApplicationDTO", Namespace="http://schemas.datacontract.org/2004/07/VnedorConnect_Service")]
+    [System.SerializableAttribute()]
+    public partial class VendorApplicationDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ApplicationIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime AppliedAtField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime EventDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int EventIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EventNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LocationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int VendorIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ApplicationId {
+            get {
+                return this.ApplicationIdField;
+            }
+            set {
+                if ((this.ApplicationIdField.Equals(value) != true)) {
+                    this.ApplicationIdField = value;
+                    this.RaisePropertyChanged("ApplicationId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime AppliedAt {
+            get {
+                return this.AppliedAtField;
+            }
+            set {
+                if ((this.AppliedAtField.Equals(value) != true)) {
+                    this.AppliedAtField = value;
+                    this.RaisePropertyChanged("AppliedAt");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime EventDate {
+            get {
+                return this.EventDateField;
+            }
+            set {
+                if ((this.EventDateField.Equals(value) != true)) {
+                    this.EventDateField = value;
+                    this.RaisePropertyChanged("EventDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int EventId {
+            get {
+                return this.EventIdField;
+            }
+            set {
+                if ((this.EventIdField.Equals(value) != true)) {
+                    this.EventIdField = value;
+                    this.RaisePropertyChanged("EventId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EventName {
+            get {
+                return this.EventNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EventNameField, value) != true)) {
+                    this.EventNameField = value;
+                    this.RaisePropertyChanged("EventName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Location {
+            get {
+                return this.LocationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LocationField, value) != true)) {
+                    this.LocationField = value;
+                    this.RaisePropertyChanged("Location");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StatusField, value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int VendorId {
+            get {
+                return this.VendorIdField;
+            }
+            set {
+                if ((this.VendorIdField.Equals(value) != true)) {
+                    this.VendorIdField = value;
+                    this.RaisePropertyChanged("VendorId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1 {
@@ -1538,6 +1695,18 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/EventApplication", ReplyAction="http://tempuri.org/IService1/EventApplicationResponse")]
         System.Threading.Tasks.Task<int> EventApplicationAsync(int vendorID, int eventID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetApplicationPerVendor", ReplyAction="http://tempuri.org/IService1/GetApplicationPerVendorResponse")]
+        VendorConnect_Frontend.ServiceReference1.VendorApplicationDTO[] GetApplicationPerVendor(int vendorID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetApplicationPerVendor", ReplyAction="http://tempuri.org/IService1/GetApplicationPerVendorResponse")]
+        System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.VendorApplicationDTO[]> GetApplicationPerVendorAsync(int vendorID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/deleteApplication", ReplyAction="http://tempuri.org/IService1/deleteApplicationResponse")]
+        int deleteApplication(int AppId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/deleteApplication", ReplyAction="http://tempuri.org/IService1/deleteApplicationResponse")]
+        System.Threading.Tasks.Task<int> deleteApplicationAsync(int AppId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1693,6 +1862,22 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<int> EventApplicationAsync(int vendorID, int eventID) {
             return base.Channel.EventApplicationAsync(vendorID, eventID);
+        }
+        
+        public VendorConnect_Frontend.ServiceReference1.VendorApplicationDTO[] GetApplicationPerVendor(int vendorID) {
+            return base.Channel.GetApplicationPerVendor(vendorID);
+        }
+        
+        public System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.VendorApplicationDTO[]> GetApplicationPerVendorAsync(int vendorID) {
+            return base.Channel.GetApplicationPerVendorAsync(vendorID);
+        }
+        
+        public int deleteApplication(int AppId) {
+            return base.Channel.deleteApplication(AppId);
+        }
+        
+        public System.Threading.Tasks.Task<int> deleteApplicationAsync(int AppId) {
+            return base.Channel.deleteApplicationAsync(AppId);
         }
     }
 }

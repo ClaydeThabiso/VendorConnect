@@ -31,7 +31,7 @@
   <xs:complexType name="Organizer">
     <xs:sequence>
       <xs:element minOccurs="0" name="ContactEmail" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CreatedAt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedAt" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Events" nillable="true" type="tns:ArrayOfEvent" />
       <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="OrganizerId" type="xs:int" />
@@ -49,7 +49,7 @@
   <xs:element name="ArrayOfEvent" nillable="true" type="tns:ArrayOfEvent" />
   <xs:complexType name="Event">
     <xs:sequence>
-      <xs:element minOccurs="0" name="CreatedAt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedAt" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EventDate" type="xs:dateTime" />
       <xs:element minOccurs="0" name="EventId" type="xs:int" />
@@ -90,7 +90,7 @@
       <xs:element minOccurs="0" name="BusinesName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ContactEmail" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CreatedAt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedAt" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Payments" nillable="true" type="tns:ArrayOfPayment" />
       <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />
@@ -109,7 +109,7 @@
   <xs:complexType name="VendorApplication">
     <xs:sequence>
       <xs:element minOccurs="0" name="ApplicationId" type="xs:int" />
-      <xs:element minOccurs="0" name="AppliedAt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="AppliedAt" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Event" nillable="true" type="tns:Event" />
       <xs:element minOccurs="0" name="EventId" type="xs:int" />
       <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
@@ -128,7 +128,7 @@
   <xs:complexType name="VendorAssignment">
     <xs:sequence>
       <xs:element minOccurs="0" name="ApplicationId" type="xs:int" />
-      <xs:element minOccurs="0" name="AssignedAt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="AssignedAt" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="AssignmentId" type="xs:int" />
       <xs:element minOccurs="0" name="SpaceNumber" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="VendorApplication" nillable="true" type="tns:VendorApplication" />
@@ -164,4 +164,23 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="VendorDTO" nillable="true" type="tns:VendorDTO" />
+  <xs:complexType name="ArrayOfVendorApplicationDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VendorApplicationDTO" nillable="true" type="tns:VendorApplicationDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVendorApplicationDTO" nillable="true" type="tns:ArrayOfVendorApplicationDTO" />
+  <xs:complexType name="VendorApplicationDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationId" type="xs:int" />
+      <xs:element minOccurs="0" name="AppliedAt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EventDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EventId" type="xs:int" />
+      <xs:element minOccurs="0" name="EventName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VendorId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VendorApplicationDTO" nillable="true" type="tns:VendorApplicationDTO" />
 </xs:schema>

@@ -39,9 +39,45 @@ namespace VendorConnect_Frontend
                     VendorNames.InnerText = Convert.ToString(u);
                     initials.InnerText = "DD";
                 }
+
+                LoadApplications();
             }
+            
             client.Close();
 
+        }
+
+        private void LoadApplications()
+        {
+            Service1Client client = new Service1Client();
+            int VendorID = Convert.ToInt32(Session["VendorID"]);
+            var getApplication = client.GetApplicationPerVendor(VendorID);
+
+            if (getApplication != null)
+            {
+                RepeaterApps.DataSource = getApplication;
+                RepeaterApps.DataBind();
+
+            }
+            else
+            {
+                RepeaterApps.DataSource = null;
+            }
+            client.Close();
+        }
+        protected void RepeaterApps_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if(e.CommandName=="Cancel")
+            {
+                Service1Client client = new Service1Client();
+                var eventId =Convert.ToInt32(e.CommandArgument);
+                var deleteApp = client.deleteApplication(eventId);
+                if(deleteApp ==1)
+                {
+
+                    LoadApplications();
+                }
+            }
         }
     }
 }

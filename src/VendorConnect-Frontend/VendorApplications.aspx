@@ -1,10 +1,26 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="VendorApplications.aspx.cs" Inherits="VendorConnect_Frontend.VendorApplications" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="DashboardStyling" runat="server">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="css/Admin.css" rel="stylesheet" />
+    <style type="text/css">
+        .auto-style1 {
+            height: 25px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <div class="dashboard-container">
+    <div class="dashboard-container">
         <!-- Sidebar Navigation -->
         <div class="sidebar">
             <div class="sidebar-header">
@@ -69,7 +85,7 @@
                     <div class="user-info">
                         <div class="user-avatar" runat="server" id="initials"></div>
                         <div>
-                            <div class="fw-bold" runat="server" id="VendorNames"> </div>
+                            <div class="fw-bold" runat="server" id="VendorNames"></div>
                             <small class="text-muted">Vendor</small>
                         </div>
                     </div>
@@ -81,26 +97,60 @@
                 <!-- Recent Activity Section -->
                 <h3 class="section-title">My Applications</h3>
                 <div class="recent-activity">
-                    <div class="activity-item">
-                        <div class="activity-icon" style="background-color: var(--primary);">
-                            <i class="bi bi-window-stack"></i>
-                        </div>
-                        <div class="activity-details">
-                            <div class="activity-title">Spring Art Market</div>
-                            <div class="activity-time">
-                                <i class="bi bi-geo-alt"></i>
-                                Johannesburg Expo Centre
-                            </div>
-                            <div class="activity-time">
-                                <i class="bi bi-calendar"></i>
-                                12 Nov 2025
-                            </div>
-                        </div>
-                        <span class="badge bg-success">Confirmed</span>
-                        <a href="#">
-                        <button class="btn btn-outline-primary btn-sm ms-2">Details</button>
-                        </a>
-                    </div>
+                    <table class="table table-hover ">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="auto-style1">Event Name</th>
+                                <th scope="col" class="auto-style1">Event Date</th>
+                                <th scope="col" class="auto-style1">Event Location</th>
+                                <th scope="col" class="auto-style1">Applied at</th>
+                                <th scope="col" class="auto-style1">Status</th>
+                                <th scope="col" class="auto-style1">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <asp:Repeater ID="RepeaterApps" runat="server"  OnItemCommand="RepeaterApps_ItemCommand">
+                                <ItemTemplate>
+                                    <tr>
+                                        <td><%# Eval("EventName") %></td>
+
+                                        <td>
+                                            <%# Convert.ToDateTime(Eval("EventDate")).ToString("d MMM yyyy").ToUpper() %>
+                                        </td>
+                                        <td><%# Eval("Location") %></td>
+                                        <td>
+                                            <%# Convert.ToDateTime(Eval("AppliedAt")).ToString("d MMM yyyy").ToUpper() %>
+                                        </td>
+                                        <td>
+                                                <span class="badge 
+                                                <%# 
+                                                    Eval("Status").ToString() == "Pending" ? "bg-warning" :
+                                                    Eval("Status").ToString() == "Approved" ? "bg-success" :
+                                                    Eval("Status").ToString() == "Cancelled" ? "bg-danger" :
+                                                    "bg-secondary"
+                                                %>">
+                                                <%# Eval("Status")%>
+                                            </span>
+
+                                        </td>
+
+                                        <td>
+                                            <asp:Button ID="btnCancel"
+                                                runat="server"
+                                               
+                                                CssClass="btn btn-danger btn-sm ms-1"
+                                                Text="Cancel"
+                                                CommandName="Cancel"
+                                                CommandArgument='<%# Eval("ApplicationId") %>'
+                                                Enabled='<%# Eval("Status").ToString() != "Cancelled" %>'
+                                                />
+                                        </td>
+                                    </tr>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </tbody>
+
+                    </table>
                 </div>
             </div>
         </div>
@@ -111,6 +161,8 @@
         document.querySelector('.toggle-sidebar').addEventListener('click', function () {
             document.querySelector('.sidebar').classList.toggle('active');
         });
+
+       
 
         // Close sidebar when clicking outside on mobile
         document.addEventListener('click', function (event) {

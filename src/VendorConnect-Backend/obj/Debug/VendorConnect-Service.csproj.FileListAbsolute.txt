@@ -5,3 +5,10 @@ C:\Users\thabi\OneDrive\Desktop\VnedorConnect-Service\obj\Debug\VendorConnect-Se
 C:\Users\thabi\OneDrive\Desktop\VnedorConnect-Service\obj\Debug\VnedorConnect-Service.dll
 C:\Users\thabi\OneDrive\Desktop\VnedorConnect-Service\obj\Debug\VnedorConnect-Service.pdb
 C:\Users\thabi\OneDrive\Desktop\VnedorConnect-Service\obj\Debug\VendorConnect-Service.csproj.AssemblyReference.cache
+C:\Users\thabi\OneDrive\Documents\GitHub\VendorConnect\src\VendorConnect-Backend\bin\VnedorConnect-Service.dll.config
+C:\Users\thabi\OneDrive\Documents\GitHub\VendorConnect\src\VendorConnect-Backend\bin\VnedorConnect-Service.dll
+C:\Users\thabi\OneDrive\Documents\GitHub\VendorConnect\src\VendorConnect-Backend\bin\VnedorConnect-Service.pdb
+C:\Users\thabi\OneDrive\Documents\GitHub\VendorConnect\src\VendorConnect-Backend\obj\Debug\VendorConnect-Service.csproj.CoreCompileInputs.cache
+C:\Users\thabi\OneDrive\Documents\GitHub\VendorConnect\src\VendorConnect-Backend\obj\Debug\VnedorConnect-Service.dll
+C:\Users\thabi\OneDrive\Documents\GitHub\VendorConnect\src\VendorConnect-Backend\obj\Debug\VnedorConnect-Service.pdb
+C:\Users\thabi\OneDrive\Documents\GitHub\VendorConnect\src\VendorConnect-Backend\obj\Debug\VendorConnect-Service.csproj.AssemblyReference.cache

@@ -194,6 +194,9 @@
     <Content Include="Connected Services\ServiceReference1\VendorConnect_Frontend.ServiceReference1.VendorDTO.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\ServiceReference1\VendorConnect_Frontend.ServiceReference1.VendorApplicationDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -35,7 +35,7 @@
                     </a>
                 </div>
                 <div class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="VendorApplications.aspx" class="nav-link">
                         <i class="bi bi-journal"></i>
                         <span>My Applications</span>
                     </a>

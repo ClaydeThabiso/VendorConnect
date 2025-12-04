@@ -103,6 +103,18 @@
   <wsdl:message name="IService1_EventApplication_OutputMessage">
     <wsdl:part name="parameters" element="tns:EventApplicationResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetApplicationPerVendor_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationPerVendor" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetApplicationPerVendor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationPerVendorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_deleteApplication_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteApplication" />
+  </wsdl:message>
+  <wsdl:message name="IService1_deleteApplication_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteApplicationResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="RegisterUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/RegisterUser" message="tns:IService1_RegisterUser_InputMessage" />
@@ -167,6 +179,14 @@
     <wsdl:operation name="EventApplication">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/EventApplication" message="tns:IService1_EventApplication_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/EventApplicationResponse" message="tns:IService1_EventApplication_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationPerVendor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetApplicationPerVendor" message="tns:IService1_GetApplicationPerVendor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetApplicationPerVendorResponse" message="tns:IService1_GetApplicationPerVendor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteApplication">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/deleteApplication" message="tns:IService1_deleteApplication_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/deleteApplicationResponse" message="tns:IService1_deleteApplication_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -308,6 +328,24 @@
     </wsdl:operation>
     <wsdl:operation name="EventApplication">
       <soap:operation soapAction="http://tempuri.org/IService1/EventApplication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationPerVendor">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetApplicationPerVendor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteApplication">
+      <soap:operation soapAction="http://tempuri.org/IService1/deleteApplication" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

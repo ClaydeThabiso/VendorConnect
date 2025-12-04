@@ -60,8 +60,11 @@ namespace VnedorConnect_Service
         int EventApplication(int vendorID, int eventID);
 
         [OperationContract]
-        List<VendorApplication> GetApplicationPerVendor(int vendorID);
-  
+        List<VendorApplicationDTO> GetApplicationPerVendor(int vendorID);
+
+        [OperationContract]
+        int deleteApplication(int AppId);
+
 
 
     }
@@ -93,8 +96,8 @@ namespace VnedorConnect_Service
         [DataMember]
         public string Phone { get; set; }
     }
-    [DataContract]
 
+    [DataContract]
     public class VendorDTO
     {
         [DataMember]
@@ -103,6 +106,28 @@ namespace VnedorConnect_Service
         [DataMember]
         public int VendorID { get; set; }
     
+    }
+
+    [DataContract]
+    public class VendorApplicationDTO
+    {
+        [DataMember]
+        public int ApplicationId { get; set; }
+        [DataMember]
+        public int EventId { get; set; }
+        [DataMember]
+        public string EventName { get; set; }
+        [DataMember]
+        public DateTime EventDate { get; set; }
+        [DataMember]
+        public string Location { get; set; }
+
+        [DataMember]
+        public int VendorId { get; set; }
+        [DataMember]
+        public string Status { get; set; }
+        [DataMember]
+        public DateTime AppliedAt { get; set; }
     }
 
 }
