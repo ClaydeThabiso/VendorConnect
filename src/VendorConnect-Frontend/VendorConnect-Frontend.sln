@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.36227.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VendorConnect-Frontend", "VendorConnect-Frontend.csproj", "{FFCD9970-131E-40A6-BF3E-2B253C762C4F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FFCD9970-131E-40A6-BF3E-2B253C762C4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFCD9970-131E-40A6-BF3E-2B253C762C4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFCD9970-131E-40A6-BF3E-2B253C762C4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFCD9970-131E-40A6-BF3E-2B253C762C4F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {97A0D906-2782-40FA-9E58-A9B6A66386B2}
+	EndGlobalSection
+EndGlobal

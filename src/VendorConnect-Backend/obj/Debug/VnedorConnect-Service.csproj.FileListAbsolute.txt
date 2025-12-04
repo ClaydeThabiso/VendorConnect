@@ -1,0 +1,7 @@
+C:\Users\thabi\OneDrive\Desktop\VnedorConnect-Service\bin\VnedorConnect-Service.dll.config
+C:\Users\thabi\OneDrive\Desktop\VnedorConnect-Service\bin\VnedorConnect-Service.dll
+C:\Users\thabi\OneDrive\Desktop\VnedorConnect-Service\bin\VnedorConnect-Service.pdb
+C:\Users\thabi\OneDrive\Desktop\VnedorConnect-Service\obj\Debug\VnedorConnect-Service.csproj.AssemblyReference.cache
+C:\Users\thabi\OneDrive\Desktop\VnedorConnect-Service\obj\Debug\VnedorConnect-Service.csproj.CoreCompileInputs.cache
+C:\Users\thabi\OneDrive\Desktop\VnedorConnect-Service\obj\Debug\VnedorConnect-Service.dll
+C:\Users\thabi\OneDrive\Desktop\VnedorConnect-Service\obj\Debug\VnedorConnect-Service.pdb
