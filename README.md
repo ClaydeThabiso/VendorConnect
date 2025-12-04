@@ -23,6 +23,7 @@ It’s essentially an event marketplace with three user roles:
     Goal: Manage the entire platform.
 
     Key Pages:
+  
       -  Dashboard: View total users, vendors, events, and payments.
       -  Manage Users: Approve or deactivate vendor/organizer accounts.
       -  Platform Analytics: View total revenue and system growth.
@@ -49,7 +50,7 @@ It’s essentially an event marketplace with three user roles:
       -  View event performance analytics
   
 - 🎨 3. Vendor
-- 
+-  
   Goal: Register, apply for events, and manage their participation.
   
   Key Pages:
