@@ -45,31 +45,16 @@ namespace VendorConnect_Frontend
                 totalEvent.InnerText = Convert.ToString(getTotalEvents);
 
                 dynamic ListEvents = client.GetEventPerOrganizer(Convert.ToInt32(Session["OrganizerId"]));
-                StringBuilder display = new StringBuilder();
-                if (ListEvents != null)
+                if(ListEvents!=null)
                 {
-
-
-                    foreach (Event eve in ListEvents)
-                    {
-                        display.Append("<tr>");
-                        display.Append("<td>" + eve.EventName + "</td>");
-                        display.Append("<td>" + eve.EventDate + "</td>");
-                        display.Append("<td>" + eve.Location + "</td>");
-                        display.Append("<td>" + eve.MaxVendors + "</td>");
-                        display.Append("<td><span class=\"badge bg-success\">" + eve.status + "</span></td>");
-                        display.Append("<a href=\"AboutEvent.aspx?Id=" + eve.EventId + "\">");
-                        display.Append("<td><button class=\"btn btn-outline-primary btn-sm\">Manage</button></td>");
-                        display.Append("</a>");
-                        display.Append("</tr>");
-                    }
-                    TableData.InnerHtml = display.ToString();
+                    RepeaterEvents.DataSource = ListEvents;
+                    RepeaterEvents.DataBind();
                 }
                 else
                 {
-                    TableData.InnerText = "No Events created yet";
+                    RepeaterEvents = null;
                 }
-
+               
                 client.Close();
             }
         }
@@ -77,6 +62,10 @@ namespace VendorConnect_Frontend
         protected void btnCreate_Click(object sender, EventArgs e)
         {
             Response.Redirect("CreateEvent.aspx");
+        }
+        protected void RepeaterEvents_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+
         }
     }
 }

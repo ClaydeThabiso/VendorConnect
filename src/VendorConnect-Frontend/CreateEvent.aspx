@@ -202,7 +202,7 @@
                                     placeholder="Number of vendors" runat="server">
                             </div>
                              <asp:Label runat="server" ID="lblMsg" Text=" " class="m-1"></asp:Label>
-                            <asp:Button id="btnCreateEvent" class="btn btn-primary w-100 mt-4" runat="server" Text="+ Create" OnClick="btnCreateEvent_Click"> </asp:Button>
+                            <asp:Button id="btnCreateEvent" class="btn btn-primary w-100 mt-4" runat="server" Text="+ Create" OnClick="btnCreateEvent_Click"/> 
                         </div>
                     </div>
                 </div>

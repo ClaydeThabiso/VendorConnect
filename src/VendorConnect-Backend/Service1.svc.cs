@@ -372,6 +372,28 @@ namespace VnedorConnect_Service
 
             return applications;
         }
+        public List<VendorApplicationDTO> GetApplicationsPerOrganizer(int OrgaID)
+        {
+            var application = (from o in db.Organizers
+                               join e in db.Events on o.OrganizerId equals e.OrganizerId
+                               join va in db.VendorApplications on e.EventId equals va.EventId
+                               join v in db.Vendors on va.VendorId equals v.VendorId
+                               where o.OrganizerId == OrgaID
+                               select new VendorApplicationDTO
+                               {
+                                   ApplicationId = va.ApplicationId,
+                                   EventId = e.EventId,
+                                   EventName = e.EventName,
+                                   EventDate = e.EventDate,
+                                   Location = e.Location,
+                                   VendorId = v.VendorId,
+                                   BusinessName = v.BusinesName,
+                                   Category=v.Category,
+                                   Status = va.Status,
+                                   AppliedAt = (DateTime)va.AppliedAt
+                               }).ToList();
+            return application;
+        }
         public int deleteApplication(int EventId)
         {
             var application = (from va in db.VendorApplications where va.ApplicationId.Equals(EventId) select va).FirstOrDefault();

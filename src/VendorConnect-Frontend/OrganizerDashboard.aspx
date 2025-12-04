@@ -23,7 +23,7 @@
             </div>
             <div class="sidebar-menu">
                 <div class="nav-item">
-                    <a href="OrganizerDashboard.html" class="nav-link active">
+                    <a href="#" class="nav-link active">
                         <i class="fas fa-tachometer-alt"></i>
                         <span>Dashboard</span>
                     </a>
@@ -153,15 +153,50 @@
                         <thead>
                             <tr>
                                 <th scope="col">Event Name</th>
-                                <th scope="col">Date</th>
-                                <th scope="col">Location</th>
-                                <th scope="col">Vendors</th>
+                                <th scope="col"> Event Date</th>
+                                <th scope="col">Event Location</th>
+                                <th scope="col"> Max Vendors</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Actions</th>
                             </tr>
                         </thead>
                         <tbody runat="server" id="TableData">
-                           
+                           <asp:Repeater runat="server" ID="RepeaterEvents" OnItemCommand="RepeaterEvents_ItemCommand">
+                               <ItemTemplate>
+                                    <tr>
+                                        <td><%# Eval("EventName") %></td>
+
+                                        <td>
+                                            <%# Convert.ToDateTime(Eval("EventDate")).ToString("d MMM yyyy").ToUpper() %>
+                                        </td>
+                                        <td><%# Eval("Location") %></td>
+                                        <td>
+                                            <%# Eval("MaxVendors") %>
+                                        </td>
+                                        <td>
+                                                <span class="badge 
+                                                <%# 
+                                                    Eval("Status").ToString() == "Completed" ? "bg-warning" :
+                                                    Eval("Status").ToString() == "Active" ? "bg-success" :
+                                                    "bg-secondary"
+                                                %>">
+                                                <%# Eval("Status")%>
+                                            </span>
+
+                                        </td>
+
+                                        <td>
+                                            <asp:Button ID="btnManage"
+                                                runat="server"
+                                                CssClass="btn btn-outline-primary btn-sm ms-1"
+                                                Text="Manage"
+                                                CommandName="Manage"
+                                                CommandArgument='<%# Eval("EventId") %>'
+                                                />
+                                        </td>
+                                    </tr>
+                               </ItemTemplate>
+                           </asp:Repeater>
                         </tbody>
                     </table>
                 </div>

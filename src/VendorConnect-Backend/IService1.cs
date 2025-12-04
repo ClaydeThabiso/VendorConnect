@@ -65,8 +65,8 @@ namespace VnedorConnect_Service
         [OperationContract]
         int deleteApplication(int AppId);
 
-
-
+        [OperationContract]
+        List<VendorApplicationDTO> GetApplicationsPerOrganizer(int OrgaID);
     }
     [DataContract]
     public class UserDTO
@@ -112,6 +112,8 @@ namespace VnedorConnect_Service
     public class VendorApplicationDTO
     {
         [DataMember]
+        public int OrganizerID { get; set; }
+        [DataMember]
         public int ApplicationId { get; set; }
         [DataMember]
         public int EventId { get; set; }
@@ -128,6 +130,12 @@ namespace VnedorConnect_Service
         public string Status { get; set; }
         [DataMember]
         public DateTime AppliedAt { get; set; }
+        
+        [DataMember]
+        public  string BusinessName { get; set; }
+
+        [DataMember]
+        public string Category { get; set; }
     }
 
 }
