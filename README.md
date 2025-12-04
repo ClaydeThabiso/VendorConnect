@@ -1,9 +1,11 @@
 # VendorConnect
 - Type: B2B Event Vendor Management Platform
 - Tech Stack:
-    --  Frontend: HTML5, CSS3, Bootstrap 5, JavaScript
-    --  Backend: C# (ASP.NET)
-    --  Database: LINQ(WCF services)
+  
+      - Frontend: HTML5, CSS3, Bootstrap 5, JavaScript
+      - Backend: C# (ASP.NET)
+      - Database: LINQ(WCF services)
+    
 # 💡 Concept Summary
 VendorConnect is a web platform that connects event organizers with small vendors
 (food stalls, artists, merch sellers, etc.) for expos, markets, and festivals.
@@ -29,6 +31,7 @@ It’s essentially an event marketplace with three user roles:
       -  Platform Analytics: View total revenue and system growth.
       -  Settings: Manage commission rate, space pricing, and global configurations.
     Features:
+  
       - System-wide visibility
        -  Manage reports and metrics
        -  Platform fee/commission control
@@ -37,6 +40,7 @@ It’s essentially an event marketplace with three user roles:
   Goal: Manage events and the vendors attending them.
   
   Key Pages:
+  
       -  Organizer Dashboard: Event stats and summaries.
       -  My Events: Create, edit, and delete events.
       -  Vendor Applications: Approve or reject vendor requests.
@@ -44,6 +48,7 @@ It’s essentially an event marketplace with three user roles:
       -  Reports: Track revenue per event.
   
   Features:
+  
       -  Add or modify event details
       -  View list of participating vendors
       -  Approve payments and participation
@@ -54,17 +59,20 @@ It’s essentially an event marketplace with three user roles:
   Goal: Register, apply for events, and manage their participation.
   
   Key Pages:
+  
       -  Vendor Dashboard: Overview of events joined, payments, and approvals.
       -  Browse Events: List of available events to apply for.
       -  My Applications: See approval status and payment requirements.
       -  My Payments: View all past and pending payments.
       -  Profile: Edit business and contact information.
   Features:
+  
       -  Apply to attend events
       -  Make payments securely
       -  Track space assignments
       -  Manage event participation
 💰 Payment System Overview
+
         - Vendors pay Organizers for stall spaces.
         - Admin (Owner) receives a platform commission per payment (e.g., 10%).
         - Payments are tracked per event, and analytics are displayed to Admin and Organizers.
