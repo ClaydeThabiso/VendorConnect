@@ -1805,6 +1805,12 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AccepptApplication", ReplyAction="http://tempuri.org/IService1/AccepptApplicationResponse")]
         System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.VendorApplicationDTO> AccepptApplicationAsync(int ApplicationId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getApprovedApplication", ReplyAction="http://tempuri.org/IService1/getApprovedApplicationResponse")]
+        int getApprovedApplication(int eventId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getApprovedApplication", ReplyAction="http://tempuri.org/IService1/getApprovedApplicationResponse")]
+        System.Threading.Tasks.Task<int> getApprovedApplicationAsync(int eventId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2000,6 +2006,14 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.VendorApplicationDTO> AccepptApplicationAsync(int ApplicationId) {
             return base.Channel.AccepptApplicationAsync(ApplicationId);
+        }
+        
+        public int getApprovedApplication(int eventId) {
+            return base.Channel.getApprovedApplication(eventId);
+        }
+        
+        public System.Threading.Tasks.Task<int> getApprovedApplicationAsync(int eventId) {
+            return base.Channel.getApprovedApplicationAsync(eventId);
         }
     }
 }

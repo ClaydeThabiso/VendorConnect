@@ -74,6 +74,9 @@ namespace VnedorConnect_Service
         [OperationContract]
         VendorApplicationDTO AccepptApplication(int ApplicationId);
 
+        [OperationContract]
+        int getApprovedApplication(int eventId);
+
     }
     [DataContract]
     public class UserDTO

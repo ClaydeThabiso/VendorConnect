@@ -11,3 +11,4 @@ C:\Users\thabi\OneDrive\Documents\GitHub\VendorConnect\src\VendorConnect-Backend
 C:\Users\thabi\OneDrive\Documents\GitHub\VendorConnect\src\VendorConnect-Backend\obj\Debug\VendorConnect-Service.csproj.CoreCompileInputs.cache
 C:\Users\thabi\OneDrive\Documents\GitHub\VendorConnect\src\VendorConnect-Backend\obj\Debug\VnedorConnect-Service.dll
 C:\Users\thabi\OneDrive\Documents\GitHub\VendorConnect\src\VendorConnect-Backend\obj\Debug\VnedorConnect-Service.pdb
+C:\Users\thabi\OneDrive\Documents\GitHub\VendorConnect\src\VendorConnect-Backend\obj\Debug\VendorConnect-Service.csproj.AssemblyReference.cache

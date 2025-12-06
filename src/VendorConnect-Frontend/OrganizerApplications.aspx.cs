@@ -70,6 +70,7 @@ namespace VendorConnect_Frontend
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 int eventId = Convert.ToInt32(DataBinder.Eval(e.Item.DataItem, "EventId"));
+                int maxVendors = Convert.ToInt32(DataBinder.Eval(e.Item.DataItem, "MaxVendors"));
                 Repeater nestedRepeater = (Repeater)e.Item.FindControl("VendorApplicationsRepeater");
 
                 if (nestedRepeater != null)
@@ -77,6 +78,12 @@ namespace VendorConnect_Frontend
                     Service1Client client = new Service1Client();
                     try
                     {
+                        var approvedVendors = client.getApprovedApplication(eventId);
+                        Literal maxVendorLiteral = (Literal)e.Item.FindControl("MaxVendorLiteral");
+                        if (maxVendorLiteral != null)
+                        {
+                            maxVendorLiteral.Text = $"Max Vendors: {approvedVendors}/{maxVendors}";
+                        }
                         int organizerID = Convert.ToInt32(Session["OrganizerId"]);
                         dynamic allApplications = client.GetApplicationsPerOrganizer(organizerID);
 

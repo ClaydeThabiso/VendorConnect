@@ -133,6 +133,12 @@
   <wsdl:message name="IService1_AccepptApplication_OutputMessage">
     <wsdl:part name="parameters" element="tns:AccepptApplicationResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_getApprovedApplication_InputMessage">
+    <wsdl:part name="parameters" element="tns:getApprovedApplication" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getApprovedApplication_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getApprovedApplicationResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="RegisterUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/RegisterUser" message="tns:IService1_RegisterUser_InputMessage" />
@@ -217,6 +223,10 @@
     <wsdl:operation name="AccepptApplication">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/AccepptApplication" message="tns:IService1_AccepptApplication_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/AccepptApplicationResponse" message="tns:IService1_AccepptApplication_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getApprovedApplication">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getApprovedApplication" message="tns:IService1_getApprovedApplication_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getApprovedApplicationResponse" message="tns:IService1_getApprovedApplication_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -403,6 +413,15 @@
     </wsdl:operation>
     <wsdl:operation name="AccepptApplication">
       <soap:operation soapAction="http://tempuri.org/IService1/AccepptApplication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getApprovedApplication">
+      <soap:operation soapAction="http://tempuri.org/IService1/getApprovedApplication" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

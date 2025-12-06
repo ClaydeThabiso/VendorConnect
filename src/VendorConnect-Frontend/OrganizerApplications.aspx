@@ -127,8 +127,10 @@
 
                                                 </div>
                                                 <div class="activity-time">
-                                                    <i class="fas fa-user"></i>Max Vendor: <%# Eval("MaxVendors") %>
+                                                    <i class="fas fa-user"></i>
+                                                    <asp:Literal ID="MaxVendorLiteral" runat="server"></asp:Literal>
                                                 </div>
+
                                             </div>
                                         </div>
                                     </button>
