@@ -53,7 +53,6 @@ namespace VendorConnect_Frontend
 
             int organizerID = Convert.ToInt32(Session["OrganizerId"]);
             dynamic allApplications = client.GetApplicationsPerOrganizer(organizerID);
-
             var events = ((IEnumerable<dynamic>)allApplications)
                          .GroupBy(a => a.EventId)
                          .Select(g => g.First())

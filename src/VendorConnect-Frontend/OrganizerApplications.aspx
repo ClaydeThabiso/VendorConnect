@@ -119,10 +119,10 @@
                                                 </div>
                                                 <div class="activity-time">
                                                     <span class="badge <%# 
-                                                        Eval("status").ToString() == "Completed" ? "bg-warning" :
-                                                        Eval("status").ToString() == "Active" ? "bg-success" :
+                                                        Eval("Eventstatus").ToString() == "Completed" ? "bg-warning" :
+                                                        Eval("Eventstatus").ToString() == "Active" ? "bg-success" :
                                                         "bg-secondary" %>">
-                                                        <%# Eval("status") %>
+                                                        <%# Eval("Eventstatus") %>
                                                     </span>
 
                                                 </div>
@@ -159,12 +159,22 @@
                                                         Text="Accept"
                                                         CommandName="Accept"
                                                         CommandArgument='<%# Eval("ApplicationId") %>'
-                                                        runat="server" />
+                                                        runat="server"
+                                                        Visible='<%# Eval("Status").ToString() == "Pending" %>' />
+
                                                     <asp:Button CssClass="btn btn-outline-danger btn-sm ms-2"
                                                         Text="Decline"
                                                         CommandName="Decline"
                                                         CommandArgument='<%# Eval("ApplicationId") %>'
-                                                        runat="server" />
+                                                        runat="server"
+                                                        Visible='<%# Eval("Status").ToString() == "Pending" %>' />
+
+                                                    <asp:PlaceHolder runat="server" Visible='<%# Eval("Status").ToString() != "Pending" %>'>
+                                                        <span class="badge <%# Eval("Status").ToString() == "Approved" ? "bg-success" : "bg-danger" %>">
+                                                            <%# Eval("Status") %>
+                                                        </span>
+                                                    </asp:PlaceHolder>
+
                                                 </div>
                                             </ItemTemplate>
                                         </asp:Repeater>

@@ -179,6 +179,7 @@
       <xs:element minOccurs="0" name="EventDate" type="xs:dateTime" />
       <xs:element minOccurs="0" name="EventId" type="xs:int" />
       <xs:element minOccurs="0" name="EventName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Eventstatus" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="MaxVendors" type="xs:int" />
       <xs:element minOccurs="0" name="OrganizerID" type="xs:int" />

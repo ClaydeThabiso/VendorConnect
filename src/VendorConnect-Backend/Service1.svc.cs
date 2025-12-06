@@ -354,21 +354,22 @@ namespace VnedorConnect_Service
         }
         public List<VendorApplicationDTO> GetApplicationPerVendor(int vendorID)
         {
-            var applications =(from va in db.VendorApplications
-                join ev in db.Events on va.EventId equals ev.EventId
-                join v in db.Vendors on va.VendorId equals v.VendorId
-                where va.VendorId == vendorID
-                select new VendorApplicationDTO
-                {
-                    ApplicationId=va.ApplicationId,
-                    EventId = ev.EventId,
-                    EventName = ev.EventName,
-                    EventDate = ev.EventDate,
-                    Location = ev.Location,
-                    VendorId = v.VendorId,
-                    Status = va.Status,
-                    AppliedAt = (DateTime)va.AppliedAt
-                }).ToList();
+            var applications = (from va in db.VendorApplications
+                                join ev in db.Events on va.EventId equals ev.EventId
+                                join v in db.Vendors on va.VendorId equals v.VendorId
+                                where va.VendorId == vendorID
+                                select new VendorApplicationDTO
+                                {
+                                    ApplicationId = va.ApplicationId,
+                                    EventId = ev.EventId,
+                                    EventName = ev.EventName,
+                                    EventDate = ev.EventDate,
+                                    Location = ev.Location,
+                                    VendorId = v.VendorId,
+                                    Status = va.Status,
+                                    
+                                    AppliedAt = (DateTime)va.AppliedAt
+                                }).ToList();
 
             return applications;
         }
@@ -391,6 +392,7 @@ namespace VnedorConnect_Service
                                    Category = v.Category,
                                    MaxVendors = e.MaxVendors,
                                    Status = va.Status,
+                                   Eventstatus = e.status,
                                    AppliedAt = (DateTime)va.AppliedAt
                                }).ToList();
             return application;

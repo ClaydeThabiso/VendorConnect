@@ -1470,6 +1470,9 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         private string EventNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EventstatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LocationField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1581,6 +1584,19 @@ namespace VendorConnect_Frontend.ServiceReference1 {
                 if ((object.ReferenceEquals(this.EventNameField, value) != true)) {
                     this.EventNameField = value;
                     this.RaisePropertyChanged("EventName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Eventstatus {
+            get {
+                return this.EventstatusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EventstatusField, value) != true)) {
+                    this.EventstatusField = value;
+                    this.RaisePropertyChanged("Eventstatus");
                 }
             }
         }

@@ -128,6 +128,11 @@ namespace VnedorConnect_Service
         public string EventName { get; set; }
         [DataMember]
         public DateTime EventDate { get; set; }
+       
+        
+        [DataMember]
+        public string Eventstatus { get; set; }
+
         [DataMember]
         public string Location { get; set; }
 
