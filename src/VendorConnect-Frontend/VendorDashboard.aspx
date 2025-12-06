@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="VendorDashboard.aspx.cs" Inherits="VendorConnect_Frontend.VendorDashboard" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="DashboardStyling" runat="server">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <!-- Google Fonts -->
     <link
@@ -11,7 +12,7 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-           <link href="css/Admin.css" rel="stylesheet" />
+    <link href="css/Admin.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="dashboard-container">
@@ -23,7 +24,7 @@
             </div>
             <div class="sidebar-menu">
                 <div class="nav-item">
-                    <a href="#" class="nav-link active">
+                    <a href="VendorDashboard.aspx" class="nav-link active">
                         <i class="fas fa-tachometer-alt"></i>
                         <span>Dashboard</span>
                     </a>
@@ -79,7 +80,7 @@
                     <div class="user-info">
                         <div class="user-avatar" runat="server" id="initials"></div>
                         <div>
-                            <div class="fw-bold" runat="server" id="VendorNames"> </div>
+                            <div class="fw-bold" runat="server" id="VendorNames"></div>
                             <small class="text-muted">Vendor</small>
                         </div>
                     </div>
@@ -98,7 +99,7 @@
                             <div class="card-title">Total Vendors</div>
                             <div class="card-value">142</div>
                             <div class="card-change positive">
-                                <i class="fas fa-arrow-up me-1"></i> 12% increase
+                                <i class="fas fa-arrow-up me-1"></i>12% increase
                             </div>
                         </div>
                     </div>
@@ -111,7 +112,7 @@
                             <div class="card-title">All Events</div>
                             <div class="card-value">28</div>
                             <div class="card-change positive">
-                                <i class="fas fa-arrow-up me-1"></i> 5% increase
+                                <i class="fas fa-arrow-up me-1"></i>5% increase
                             </div>
                         </div>
                     </div>
@@ -124,7 +125,7 @@
                             <div class="card-title">Applications</div>
                             <div class="card-value">67</div>
                             <div class="card-change positive">
-                                <i class="fas fa-arrow-up me-1"></i> 8% increase
+                                <i class="fas fa-arrow-up me-1"></i>8% increase
                             </div>
                         </div>
                     </div>
@@ -137,7 +138,7 @@
                             <div class="card-title">Total Revenue</div>
                             <div class="card-value">$24,580</div>
                             <div class="card-change positive">
-                                <i class="fas fa-arrow-up me-1"></i> 15% increase
+                                <i class="fas fa-arrow-up me-1"></i>15% increase
                             </div>
                         </div>
                     </div>
@@ -146,68 +147,34 @@
                 <!-- Recent Activity Section -->
                 <h3 class="section-title">Upcoming events</h3>
                 <div class="recent-activity">
-                    <div class="activity-item">
-                        <div class="activity-icon" style="background-color: var(--primary);">
-                            <i class="fas fa-calendar-check"></i>
-                        </div>
-                        <div class="activity-details">
-                            <div class="activity-title">Spring Art Market</div>
-                            <div class="activity-time">
-                                <i class="bi bi-geo-alt"></i>
-                                Johannesburg Expo Centre
+                    <asp:Repeater runat="server" ID="UpcomingEvents">
+                        <ItemTemplate>
+                            <div class="activity-item">
+                                <div class="activity-icon" style="background-color: var(--primary);">
+                                    <i class="fas fa-calendar-check"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <div class="activity-title"><%# Eval("EventName") %></div>
+                                    <div class="activity-time">
+                                        <i class="bi bi-geo-alt"></i>
+                                        <%# Eval("Location") %>
+                                    </div>
+                                    <div class="activity-time">
+                                        <i class="bi bi-calendar"></i>
+                                        <%# Convert.ToDateTime(Eval("EventDate")).ToString("d MMM yyyy").ToUpper() %>
+                                    </div>
+                                    <div class="activity-time">
+                                    </div>
+                                </div>
+                                <span class="badge <%# 
+                                                        Eval("Status").ToString() == "Approved" ? "bg-success" :
+                                                        Eval("Status").ToString() == "Declined" ? "bg-danger" :
+                                                        "bg-secondary" %>">
+                                    <%# Eval("Status") %>
+                                </span>
                             </div>
-                            <div class="activity-time">
-                                <i class="bi bi-calendar"></i>
-                                12 Nov 2025
-                            </div>
-                        </div>
-                        <span class="badge bg-success">Confirmed</span>
-                        <a href="#">
-                        <button class="btn btn-outline-primary btn-sm ms-2">Details</button>
-                        </a>
-                    </div>
-
-                    <div class="activity-item">
-                        <div class="activity-icon" style="background-color: var(--primary);">
-                            <i class="fas fa-calendar-check"></i>
-                        </div>
-                        <div class="activity-details">
-                            <div class="activity-title">Spring Art Market</div>
-                            <div class="activity-time">
-                                <i class="bi bi-geo-alt"></i>
-                                Johannesburg Expo Centre
-                            </div>
-                            <div class="activity-time">
-                                <i class="bi bi-calendar"></i>
-                                12 Nov 2025
-                            </div>
-                        </div>
-                        <span class="badge bg-warning">Pending</span>
-                        <a href="#">
-                        <button class="btn btn-outline-primary btn-sm ms-2">Details</button>
-                        </a>
-                    </div>
-
-                   <div class="activity-item">
-                        <div class="activity-icon" style="background-color: var(--primary);">
-                            <i class="fas fa-calendar-check"></i>
-                        </div>
-                        <div class="activity-details">
-                            <div class="activity-title">Spring Art Market</div>
-                            <div class="activity-time">
-                                <i class="bi bi-geo-alt"></i>
-                                Johannesburg Expo Centre
-                            </div>
-                            <div class="activity-time">
-                                <i class="bi bi-calendar"></i>
-                                12 Nov 2025
-                            </div>
-                        </div>
-                        <span class="badge bg-secondary">Applied</span>
-                        <a href="#">
-                        <button class="btn btn-outline-primary btn-sm ms-2">Details</button>
-                        </a>
-                    </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
                 </div>
             </div>
         </div>

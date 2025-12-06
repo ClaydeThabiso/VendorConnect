@@ -39,7 +39,20 @@ namespace VendorConnect_Frontend
                     VendorNames.InnerText = Convert.ToString(u);
                     initials.InnerText = "DD";
                 }
-               
+
+                int VendorID = Convert.ToInt32(Session["VendorID"]);
+                var getApplication = client.GetApplicationPerVendor(VendorID);
+
+                if (getApplication != null)
+                {
+                    UpcomingEvents.DataSource = getApplication;
+                    UpcomingEvents.DataBind();
+
+                }
+                else
+                {
+                    UpcomingEvents.DataSource = null;
+                }
 
                 client.Close();
             }
