@@ -93,8 +93,7 @@
                 <h3 class="section-title">My Applications</h3>
                 <div class="accordion" id="accordionContainer">
                     <asp:Repeater ID="ApplicationsData" runat="server"
-                        OnItemDataBound="ApplicationsData_ItemDataBound"
-                        OnItemCommand="ApplicationsData_ItemCommand">
+                        OnItemDataBound="ApplicationsData_ItemDataBound">
                         <ItemTemplate>
                             <div class="accordion-item mb-2">
                                 <!-- Accordion Header -->
@@ -120,9 +119,9 @@
                                                 </div>
                                                 <div class="activity-time">
                                                     <span class="badge <%# 
-    Eval("status").ToString() == "Completed" ? "bg-warning" :
-    Eval("status").ToString() == "Active" ? "bg-success" :
-    "bg-secondary" %>">
+                                                        Eval("status").ToString() == "Completed" ? "bg-warning" :
+                                                        Eval("status").ToString() == "Active" ? "bg-success" :
+                                                        "bg-secondary" %>">
                                                         <%# Eval("status") %>
                                                     </span>
 
@@ -139,7 +138,7 @@
                                     aria-labelledby="heading<%# Container.ItemIndex %>"
                                     data-bs-parent="#accordionContainer">
                                     <div class="accordion-body">
-                                        <asp:Repeater ID="VendorApplicationsRepeater" runat="server">
+                                        <asp:Repeater ID="VendorApplicationsRepeater" runat="server" OnItemCommand="VendorApplicationsRepeater_ItemCommand">
                                             <ItemTemplate>
                                                 <div class="activity-item mb-2">
                                                     <div class="activity-icon" style="background-color: red;">

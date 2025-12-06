@@ -378,7 +378,7 @@ namespace VnedorConnect_Service
                                join e in db.Events on o.OrganizerId equals e.OrganizerId
                                join va in db.VendorApplications on e.EventId equals va.EventId
                                join v in db.Vendors on va.VendorId equals v.VendorId
-                               where o.OrganizerId == OrgaID
+                               where o.OrganizerId == OrgaID 
                                select new VendorApplicationDTO
                                {
                                    ApplicationId = va.ApplicationId,
@@ -388,8 +388,8 @@ namespace VnedorConnect_Service
                                    Location = e.Location,
                                    VendorId = v.VendorId,
                                    BusinessName = v.BusinesName,
-                                   Category=v.Category,
-                                   MaxVendors=e.MaxVendors,
+                                   Category = v.Category,
+                                   MaxVendors = e.MaxVendors,
                                    Status = va.Status,
                                    AppliedAt = (DateTime)va.AppliedAt
                                }).ToList();
@@ -416,6 +416,71 @@ namespace VnedorConnect_Service
             {
                 return 0;
             }
+        }
+        public VendorApplicationDTO DeclineApplication(int ApplicationId)
+        {
+            var application = db.VendorApplications
+                                .FirstOrDefault(va => va.ApplicationId == ApplicationId);
+
+            if (application != null)
+            {
+                try
+                {
+                    application.Status = "Declined";
+
+                    db.SubmitChanges();
+
+                    VendorApplicationDTO objApplication = new VendorApplicationDTO
+                    {
+                        ApplicationId = application.ApplicationId,
+                        VendorId = application.VendorId,
+                        EventId = application.EventId,
+                        Status = application.Status
+                    };
+
+                    return objApplication;
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine("DECLINE ERROR: " + ex.GetBaseException().Message);
+                    throw;
+                }
+            }
+
+            return null;
+        }
+
+        public VendorApplicationDTO AccepptApplication(int ApplicationId)
+        {
+            var application = db.VendorApplications
+                                .FirstOrDefault(va => va.ApplicationId == ApplicationId);
+
+            if (application != null)
+            {
+                try
+                {
+                    application.Status = "Approved";
+
+                    db.SubmitChanges();
+
+                    VendorApplicationDTO objApplication = new VendorApplicationDTO
+                    {
+                        ApplicationId = application.ApplicationId,
+                        VendorId = application.VendorId,
+                        EventId = application.EventId,
+                        Status = application.Status
+                    };
+
+                    return objApplication;
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine("DECLINE ERROR: " + ex.GetBaseException().Message);
+                    throw;
+                }
+            }
+
+            return null;
         }
 
     }

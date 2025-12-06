@@ -67,6 +67,13 @@ namespace VnedorConnect_Service
 
         [OperationContract]
         List<VendorApplicationDTO> GetApplicationsPerOrganizer(int OrgaID);
+
+        [OperationContract]
+        VendorApplicationDTO DeclineApplication(int ApplicationId);
+
+        [OperationContract]
+        VendorApplicationDTO AccepptApplication(int ApplicationId);
+
     }
     [DataContract]
     public class UserDTO

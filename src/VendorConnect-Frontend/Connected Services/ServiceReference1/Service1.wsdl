@@ -121,6 +121,18 @@
   <wsdl:message name="IService1_GetApplicationsPerOrganizer_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetApplicationsPerOrganizerResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_DeclineApplication_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeclineApplication" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeclineApplication_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeclineApplicationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AccepptApplication_InputMessage">
+    <wsdl:part name="parameters" element="tns:AccepptApplication" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AccepptApplication_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AccepptApplicationResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="RegisterUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/RegisterUser" message="tns:IService1_RegisterUser_InputMessage" />
@@ -197,6 +209,14 @@
     <wsdl:operation name="GetApplicationsPerOrganizer">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetApplicationsPerOrganizer" message="tns:IService1_GetApplicationsPerOrganizer_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetApplicationsPerOrganizerResponse" message="tns:IService1_GetApplicationsPerOrganizer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeclineApplication">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeclineApplication" message="tns:IService1_DeclineApplication_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeclineApplicationResponse" message="tns:IService1_DeclineApplication_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AccepptApplication">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AccepptApplication" message="tns:IService1_AccepptApplication_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AccepptApplicationResponse" message="tns:IService1_AccepptApplication_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -365,6 +385,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetApplicationsPerOrganizer">
       <soap:operation soapAction="http://tempuri.org/IService1/GetApplicationsPerOrganizer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeclineApplication">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeclineApplication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AccepptApplication">
+      <soap:operation soapAction="http://tempuri.org/IService1/AccepptApplication" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

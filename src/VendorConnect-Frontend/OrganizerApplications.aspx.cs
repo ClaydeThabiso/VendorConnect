@@ -41,22 +41,30 @@ namespace VendorConnect_Frontend
                     initials.InnerText = "DD";
                 }
 
-                var organizerID = Convert.ToInt32(Session["OrganizerId"]);
-                dynamic allApplications = client.GetApplicationsPerOrganizer(organizerID);
-
-
-                var events = ((IEnumerable<dynamic>)allApplications)
-                             .GroupBy(a => a.EventId)
-                             .Select(g => g.First())
-                             .ToList();
-
-                ApplicationsData.DataSource = events;
-                ApplicationsData.DataBind();
+                BindApplications();
 
                 client.Close();
             }
         
         }
+        private void BindApplications()
+        {
+            Service1Client client = new Service1Client();
+
+            int organizerID = Convert.ToInt32(Session["OrganizerId"]);
+            dynamic allApplications = client.GetApplicationsPerOrganizer(organizerID);
+
+            var events = ((IEnumerable<dynamic>)allApplications)
+                         .GroupBy(a => a.EventId)
+                         .Select(g => g.First())
+                         .ToList();
+
+            ApplicationsData.DataSource = events;
+            ApplicationsData.DataBind();
+
+            client.Close();
+        }
+
 
         protected void ApplicationsData_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
@@ -89,9 +97,61 @@ namespace VendorConnect_Frontend
         }
 
 
-        protected void ApplicationsData_ItemCommand(object source, RepeaterCommandEventArgs e)
+        protected void VendorApplicationsRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            
+            Service1Client client = new Service1Client();
+            var applicationId = Convert.ToInt32(e.CommandArgument);
+            if (e.CommandName=="Accept")
+            {
+               
+                var acceptApplication = client.AccepptApplication(applicationId);
+
+                if(acceptApplication !=null)
+                {
+                    ScriptManager.RegisterStartupScript(
+                        this, this.GetType(),
+                        "successAlert",
+                        "alert('Successfully accepted the application!');",
+                        true
+                    );
+                }
+                else {
+                    ScriptManager.RegisterStartupScript(
+                        this, this.GetType(),
+                        "technicalIssue",
+                        "alert('Couldnt accept application!');",
+                        true
+                    );
+                }
+
+                
+            }
+            else if(e.CommandName=="Decline")
+            {
+               
+                var declineApplication = client.DeclineApplication(applicationId);
+                if(declineApplication !=null)
+                {
+                    ScriptManager.RegisterStartupScript(
+                       this, this.GetType(),
+                       "successAlert",
+                       "alert('Successfully declined the application!');",
+                       true
+                   );
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(
+                       this, this.GetType(),
+                       "technicalIssue",
+                       "alert('Couldnt accept application!');",
+                       true
+                   );
+                }
+            }
+
+            BindApplications();
+            client.Close();
         }
     }
 }

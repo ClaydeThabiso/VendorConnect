@@ -1777,6 +1777,18 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetApplicationsPerOrganizer", ReplyAction="http://tempuri.org/IService1/GetApplicationsPerOrganizerResponse")]
         System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.VendorApplicationDTO[]> GetApplicationsPerOrganizerAsync(int OrgaID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeclineApplication", ReplyAction="http://tempuri.org/IService1/DeclineApplicationResponse")]
+        VendorConnect_Frontend.ServiceReference1.VendorApplicationDTO DeclineApplication(int ApplicationId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeclineApplication", ReplyAction="http://tempuri.org/IService1/DeclineApplicationResponse")]
+        System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.VendorApplicationDTO> DeclineApplicationAsync(int ApplicationId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AccepptApplication", ReplyAction="http://tempuri.org/IService1/AccepptApplicationResponse")]
+        VendorConnect_Frontend.ServiceReference1.VendorApplicationDTO AccepptApplication(int ApplicationId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AccepptApplication", ReplyAction="http://tempuri.org/IService1/AccepptApplicationResponse")]
+        System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.VendorApplicationDTO> AccepptApplicationAsync(int ApplicationId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1956,6 +1968,22 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.VendorApplicationDTO[]> GetApplicationsPerOrganizerAsync(int OrgaID) {
             return base.Channel.GetApplicationsPerOrganizerAsync(OrgaID);
+        }
+        
+        public VendorConnect_Frontend.ServiceReference1.VendorApplicationDTO DeclineApplication(int ApplicationId) {
+            return base.Channel.DeclineApplication(ApplicationId);
+        }
+        
+        public System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.VendorApplicationDTO> DeclineApplicationAsync(int ApplicationId) {
+            return base.Channel.DeclineApplicationAsync(ApplicationId);
+        }
+        
+        public VendorConnect_Frontend.ServiceReference1.VendorApplicationDTO AccepptApplication(int ApplicationId) {
+            return base.Channel.AccepptApplication(ApplicationId);
+        }
+        
+        public System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.VendorApplicationDTO> AccepptApplicationAsync(int ApplicationId) {
+            return base.Channel.AccepptApplicationAsync(ApplicationId);
         }
     }
 }
