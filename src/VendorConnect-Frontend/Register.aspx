@@ -23,19 +23,19 @@
                 <h4 class="text-center mb-4">Register Here</h4>
                 <div class="mb-3 input-icon">
                     <i class="fas fa-user"></i>
-                    <input type="text" class="form-control ps-5" id="FirstName" placeholder="First Name" runat="server">
+                    <input type="text" class="form-control ps-5" id="FirstName" placeholder="First Name" runat="server" required>
                 </div>
                 <div class="mb-3 input-icon">
                     <i class="fas fa-user"></i>
-                    <input type="text" class="form-control ps-5" id="LastName" placeholder="Last Name" runat="server">
+                    <input type="text" class="form-control ps-5" id="LastName" placeholder="Last Name" runat="server" required>
                 </div>
                 <div class="mb-3 input-icon">
                     <i class="bi bi-envelope-fill"></i>
-                    <input type="text" class="form-control ps-5" id="email" placeholder="Username or Email" runat="server">
+                    <input type="text" class="form-control ps-5" id="email" placeholder="Username or Email" runat="server" required>
                 </div>
                 <div class="mb-3 input-icon">
                     <i class="bi bi-option"></i>
-                    <select class="form-select ps-5" id="roleSelect" runat="server" ClientIDMode="Static">
+                    <select class="form-select ps-5" id="roleSelect" runat="server" ClientIDMode="Static" required>
                         <option value=" ">Select a Role</option>
                         <option value="A">Admin</option>
                         <option value="V">Vendor</option>
@@ -45,7 +45,7 @@
                 <div id="additionalFields"></div>
                 <div class="mb-3 input-icon">
                     <i class="fas fa-lock"></i>
-                    <input type="password" class="form-control ps-5" id="password" placeholder="Password" runat="server">
+                    <input type="password" class="form-control ps-5" id="password" placeholder="Password" runat="server" required>
                 </div> 
                  <asp:Label runat="server" ID="lblMsg" Text=" " class="m-1"></asp:Label>
                 <asp:Button class="btn btn-primary w-100 mt-4" runat="server" Text="Register" ID="btnRegister" OnClick="btnRegister_Click"></asp:Button>

@@ -25,12 +25,12 @@
                 <h4 class="text-center mb-4">Login Here</h4>
                <div class="mb-3 input-icon">
                     <i class="fas fa-user"></i>
-                    <input type="text" class="form-control ps-5" id="username" placeholder="Username or Email" runat="server">
+                    <input type="text" class="form-control ps-5" id="username" placeholder="Username or Email" runat="server" required>
                 </div>
                 
                 <div class="mb-3 input-icon">
                     <i class="fas fa-lock"></i>
-                    <input type="password" class="form-control ps-5" id="password" placeholder="Password" runat="server">
+                    <input type="password" class="form-control ps-5" id="password" placeholder="Password" runat="server" required>
                 </div>
                 <asp:Label runat="server" ID="lblMsg" Text=" " class="m-1"></asp:Label>
                 <asp:Button class="btn btn-primary w-100 mt-4" Text="Login" runat="server" ID="btnLgin" OnClick="btnLgin_Click"></asp:Button>
