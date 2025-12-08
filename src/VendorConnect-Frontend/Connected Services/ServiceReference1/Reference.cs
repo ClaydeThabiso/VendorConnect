@@ -1811,6 +1811,24 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getApprovedApplication", ReplyAction="http://tempuri.org/IService1/getApprovedApplicationResponse")]
         System.Threading.Tasks.Task<int> getApprovedApplicationAsync(int eventId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getTotalVendorApplicationPerVendo", ReplyAction="http://tempuri.org/IService1/getTotalVendorApplicationPerVendoResponse")]
+        int getTotalVendorApplicationPerVendo(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getTotalVendorApplicationPerVendo", ReplyAction="http://tempuri.org/IService1/getTotalVendorApplicationPerVendoResponse")]
+        System.Threading.Tasks.Task<int> getTotalVendorApplicationPerVendoAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getTotAcceptVendorApplication", ReplyAction="http://tempuri.org/IService1/getTotAcceptVendorApplicationResponse")]
+        int getTotAcceptVendorApplication(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getTotAcceptVendorApplication", ReplyAction="http://tempuri.org/IService1/getTotAcceptVendorApplicationResponse")]
+        System.Threading.Tasks.Task<int> getTotAcceptVendorApplicationAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CancelEvent", ReplyAction="http://tempuri.org/IService1/CancelEventResponse")]
+        int CancelEvent(int eventId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CancelEvent", ReplyAction="http://tempuri.org/IService1/CancelEventResponse")]
+        System.Threading.Tasks.Task<int> CancelEventAsync(int eventId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2014,6 +2032,30 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<int> getApprovedApplicationAsync(int eventId) {
             return base.Channel.getApprovedApplicationAsync(eventId);
+        }
+        
+        public int getTotalVendorApplicationPerVendo(int id) {
+            return base.Channel.getTotalVendorApplicationPerVendo(id);
+        }
+        
+        public System.Threading.Tasks.Task<int> getTotalVendorApplicationPerVendoAsync(int id) {
+            return base.Channel.getTotalVendorApplicationPerVendoAsync(id);
+        }
+        
+        public int getTotAcceptVendorApplication(int id) {
+            return base.Channel.getTotAcceptVendorApplication(id);
+        }
+        
+        public System.Threading.Tasks.Task<int> getTotAcceptVendorApplicationAsync(int id) {
+            return base.Channel.getTotAcceptVendorApplicationAsync(id);
+        }
+        
+        public int CancelEvent(int eventId) {
+            return base.Channel.CancelEvent(eventId);
+        }
+        
+        public System.Threading.Tasks.Task<int> CancelEventAsync(int eventId) {
+            return base.Channel.CancelEventAsync(eventId);
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -9,7 +8,7 @@ using VendorConnect_Frontend.ServiceReference1;
 
 namespace VendorConnect_Frontend
 {
-    public partial class OrganizerDashboard : System.Web.UI.Page
+    public partial class Events : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -42,40 +41,32 @@ namespace VendorConnect_Frontend
                 }
 
                 var getTotalEvents = client.getTotalEventPerOrganizer(Convert.ToInt32(Session["OrganizerId"]));
-                totalEvent.InnerText = Convert.ToString(getTotalEvents);
 
                 dynamic ListEvents = client.GetEventPerOrganizer(Convert.ToInt32(Session["OrganizerId"]));
-                if(ListEvents!=null)
+                if (ListEvents != null)
                 {
-                    RepeaterEvents.DataSource = ListEvents;
-                    RepeaterEvents.DataBind();
+                    EventsRepeater.DataSource = ListEvents;
+                    EventsRepeater.DataBind();
                 }
                 else
                 {
-                    RepeaterEvents = null;
+                    EventsRepeater = null;
                 }
-               
+
                 client.Close();
             }
         }
-
         protected void btnCreate_Click(object sender, EventArgs e)
         {
             Response.Redirect("CreateEvent.aspx");
         }
-        protected void RepeaterEvents_ItemCommand(object source, RepeaterCommandEventArgs e)
+        protected void EventsRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            Service1Client client = new Service1Client();
-            int eventId = Convert.ToInt32(e.CommandArgument);
-            int maxVendors = Convert.ToInt32(DataBinder.Eval(e.Item.DataItem, "MaxVendors"));
-
-            var approvedVendors = client.getApprovedApplication(eventId);
-            Literal maxVendorLiteral = (Literal)e.Item.FindControl("MaxVendorLiteral");
-            if (maxVendorLiteral != null)
+            if (e.CommandName == "Manage")
             {
-                maxVendorLiteral.Text = approvedVendors+"/"+maxVendors;
+                int eventId = Convert.ToInt32(e.CommandArgument);
+                Response.Redirect("ManageEvent.aspx?EventId=" + eventId);
             }
-            client.Close();
         }
     }
 }

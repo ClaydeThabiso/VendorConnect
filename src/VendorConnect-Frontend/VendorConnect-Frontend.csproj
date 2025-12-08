@@ -78,11 +78,13 @@
     </None>
     <Content Include="AdminDashoard.aspx" />
     <Content Include="CreateEvent.aspx" />
+    <Content Include="Events.aspx" />
     <Content Include="FindEvents.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="css\Admin.css" />
     <Content Include="css\style.css" />
     <Content Include="LogOut.aspx" />
+    <Content Include="ManageEvent.aspx" />
     <Content Include="OrganizerApplications.aspx" />
     <Content Include="OrganizerDashboard.aspx" />
     <Content Include="Register.aspx" />
@@ -110,6 +112,13 @@
     <Compile Include="CreateEvent.aspx.designer.cs">
       <DependentUpon>CreateEvent.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Events.aspx.cs">
+      <DependentUpon>Events.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Events.aspx.designer.cs">
+      <DependentUpon>Events.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FindEvents.aspx.cs">
       <DependentUpon>FindEvents.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -130,6 +139,13 @@
     </Compile>
     <Compile Include="LogOut.aspx.designer.cs">
       <DependentUpon>LogOut.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageEvent.aspx.cs">
+      <DependentUpon>ManageEvent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageEvent.aspx.designer.cs">
+      <DependentUpon>ManageEvent.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master.Master.cs">
       <DependentUpon>Master.Master</DependentUpon>

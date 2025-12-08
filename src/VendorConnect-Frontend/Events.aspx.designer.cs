@@ -11,7 +11,7 @@ namespace VendorConnect_Frontend
 {
 
 
-    public partial class VendorDashboard
+    public partial class Events
     {
 
         /// <summary>
@@ -24,39 +24,30 @@ namespace VendorConnect_Frontend
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl initials;
 
         /// <summary>
-        /// VendorNames control.
+        /// OrgaNames control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl VendorNames;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl OrgaNames;
 
         /// <summary>
-        /// displayTotEve control.
+        /// btnCreate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl displayTotEve;
+        protected global::System.Web.UI.WebControls.Button btnCreate;
 
         /// <summary>
-        /// displayTotAppli control.
+        /// EventsRepeater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl displayTotAppli;
-
-        /// <summary>
-        /// UpcomingEvents control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater UpcomingEvents;
+        protected global::System.Web.UI.WebControls.Repeater EventsRepeater;
     }
 }

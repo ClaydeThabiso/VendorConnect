@@ -117,7 +117,7 @@
                     </a>
                 </div>
                 <div class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="Events.aspx" class="nav-link">
                         <i class="bi bi-calendar"></i>
                         <span>My Events</span>
                     </a>

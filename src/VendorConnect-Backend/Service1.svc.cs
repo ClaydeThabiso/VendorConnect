@@ -249,6 +249,7 @@ namespace VnedorConnect_Service
                     objEvent.EventName = tempEvent.EventName;
                     objEvent.EventDate = tempEvent.EventDate;
                     objEvent.Location = tempEvent.Location;
+                    objEvent.Description = tempEvent.Description;
                     objEvent.MaxVendors = tempEvent.MaxVendors;
                     objEvent.status = tempEvent.status;        
                 return objEvent;
@@ -267,6 +268,7 @@ namespace VnedorConnect_Service
             {
                 foreach (Event eve in tempEvent)
                 {
+                    UpdateEventStatus(eve);
                     Event objEvent = new Event();
                     objEvent.EventId = eve.EventId;
                     objEvent.EventName = eve.EventName;
@@ -277,12 +279,24 @@ namespace VnedorConnect_Service
 
                     events.Add(objEvent);
                 }
+                db.SubmitChanges();
                 return events;
             }
             else
             {
                 return null;
             }
+        }
+        public int CancelEvent(int eventId)
+        {
+            var ev = db.Events.FirstOrDefault(e => e.EventId == eventId);
+            if (ev != null)
+            {
+                ev.status = "Cancelled";
+                db.SubmitChanges();
+                return 1;
+            }
+            return 0;
         }
         public OrganizerDTO GetOrganizerByUserId(int userId)
         {
@@ -305,7 +319,16 @@ namespace VnedorConnect_Service
             var totEvent = (from e in db.Events where e.OrganizerId.Equals(id) select e).Count();
             return totEvent;
         }
-
+        public int getTotalVendorApplicationPerVendo(int id)
+        {
+            var tot = (from va in db.VendorApplications where va.VendorId.Equals(id) select va).Count();
+            return tot;
+        }
+        public int getTotAcceptVendorApplication(int id)
+        {
+            var tot = (from va in db.VendorApplications where va.VendorId.Equals(id) && va.Status.Equals("Approved") select va).Count();
+            return tot;
+        }
         public VendorDTO GetVendorByUserId(int userID)
         {
             var vendor = (from v in db.Vendors where v.UserId.Equals(userID) select v).FirstOrDefault();
@@ -379,7 +402,7 @@ namespace VnedorConnect_Service
                                join e in db.Events on o.OrganizerId equals e.OrganizerId
                                join va in db.VendorApplications on e.EventId equals va.EventId
                                join v in db.Vendors on va.VendorId equals v.VendorId
-                               where o.OrganizerId == OrgaID 
+                               where o.OrganizerId == OrgaID && e.status!="Completed" 
                                select new VendorApplicationDTO
                                {
                                    ApplicationId = va.ApplicationId,
@@ -488,6 +511,26 @@ namespace VnedorConnect_Service
         {
             var application = (from va in db.VendorApplications where va.EventId==eventId && va.Status == "Approved" select va).Count();
             return application;
+        }
+        private void UpdateEventStatus(Event eve)
+        {
+            DateTime today = DateTime.Now.Date;
+
+            if (eve.status != "Cancelled") // Don't touch cancelled events
+            {
+                if (eve.EventDate.Date < today)
+                {
+                    eve.status = "Completed";
+                }
+                else if (eve.EventDate.Date == today)
+                {
+                    eve.status = "Active";
+                }
+                else
+                {
+                    eve.status = "Upcoming";
+                }
+            }
         }
 
     }

@@ -110,7 +110,7 @@
                                 <i class="fas fa-calendar-alt"></i>
                             </div>
                             <div class="card-title">All Events</div>
-                            <div class="card-value">28</div>
+                            <div class="card-value" runat="server" id="displayTotEve"></div>
                             <div class="card-change positive">
                                 <i class="fas fa-arrow-up me-1"></i>5% increase
                             </div>
@@ -123,7 +123,7 @@
                                 <i class="fas fa-users"></i>
                             </div>
                             <div class="card-title">Applications</div>
-                            <div class="card-value">67</div>
+                            <div class="card-value" runat="server" id="displayTotAppli"></div>
                             <div class="card-change positive">
                                 <i class="fas fa-arrow-up me-1"></i>8% increase
                             </div>

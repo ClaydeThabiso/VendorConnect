@@ -29,7 +29,7 @@
                     </a>
                 </div>
                 <div class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="Events.aspx" class="nav-link">
                         <i class="bi bi-calendar"></i>
                         <span>My Events</span>
                     </a>
@@ -160,7 +160,7 @@
                                 <th scope="col">Actions</th>
                             </tr>
                         </thead>
-                        <tbody runat="server" id="TableData">
+                        <tbody>
                            <asp:Repeater runat="server" ID="RepeaterEvents" OnItemCommand="RepeaterEvents_ItemCommand">
                                <ItemTemplate>
                                     <tr>
@@ -171,7 +171,7 @@
                                         </td>
                                         <td><%# Eval("Location") %></td>
                                         <td>
-                                            <%# Eval("MaxVendors") %>
+                                          <asp:Literal ID="MaxVendorLiteral" runat="server"></asp:Literal>
                                         </td>
                                         <td>
                                                 <span class="badge 

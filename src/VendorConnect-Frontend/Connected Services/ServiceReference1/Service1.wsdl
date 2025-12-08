@@ -139,6 +139,24 @@
   <wsdl:message name="IService1_getApprovedApplication_OutputMessage">
     <wsdl:part name="parameters" element="tns:getApprovedApplicationResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_getTotalVendorApplicationPerVendo_InputMessage">
+    <wsdl:part name="parameters" element="tns:getTotalVendorApplicationPerVendo" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getTotalVendorApplicationPerVendo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getTotalVendorApplicationPerVendoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getTotAcceptVendorApplication_InputMessage">
+    <wsdl:part name="parameters" element="tns:getTotAcceptVendorApplication" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getTotAcceptVendorApplication_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getTotAcceptVendorApplicationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CancelEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelEvent" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CancelEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelEventResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="RegisterUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/RegisterUser" message="tns:IService1_RegisterUser_InputMessage" />
@@ -227,6 +245,18 @@
     <wsdl:operation name="getApprovedApplication">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/getApprovedApplication" message="tns:IService1_getApprovedApplication_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/getApprovedApplicationResponse" message="tns:IService1_getApprovedApplication_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getTotalVendorApplicationPerVendo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getTotalVendorApplicationPerVendo" message="tns:IService1_getTotalVendorApplicationPerVendo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getTotalVendorApplicationPerVendoResponse" message="tns:IService1_getTotalVendorApplicationPerVendo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getTotAcceptVendorApplication">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getTotAcceptVendorApplication" message="tns:IService1_getTotAcceptVendorApplication_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getTotAcceptVendorApplicationResponse" message="tns:IService1_getTotAcceptVendorApplication_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CancelEvent" message="tns:IService1_CancelEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CancelEventResponse" message="tns:IService1_CancelEvent_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -422,6 +452,33 @@
     </wsdl:operation>
     <wsdl:operation name="getApprovedApplication">
       <soap:operation soapAction="http://tempuri.org/IService1/getApprovedApplication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTotalVendorApplicationPerVendo">
+      <soap:operation soapAction="http://tempuri.org/IService1/getTotalVendorApplicationPerVendo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTotAcceptVendorApplication">
+      <soap:operation soapAction="http://tempuri.org/IService1/getTotAcceptVendorApplication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelEvent">
+      <soap:operation soapAction="http://tempuri.org/IService1/CancelEvent" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

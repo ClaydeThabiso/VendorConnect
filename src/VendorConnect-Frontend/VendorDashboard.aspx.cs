@@ -54,6 +54,13 @@ namespace VendorConnect_Frontend
                     UpcomingEvents.DataSource = null;
                 }
 
+                var totEvents = client.getTotAcceptVendorApplication(VendorID);
+                displayTotEve.InnerText = Convert.ToString(totEvents);
+
+                var totApp = client.getTotalVendorApplicationPerVendo(VendorID);
+                displayTotAppli.InnerText = Convert.ToString(totApp);
+                
+
                 client.Close();
             }
 
