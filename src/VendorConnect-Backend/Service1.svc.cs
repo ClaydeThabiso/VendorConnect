@@ -321,7 +321,7 @@ namespace VnedorConnect_Service
         }
         public int getTotalUpcomingEvents(int id)
         {
-            var tot=(from e in db.Events where e.OrganizerId.Equals(id) && e.status.Equals("Upcoming") select e).Count()
+            var tot = (from e in db.Events where e.OrganizerId.Equals(id) && e.status.Equals("Upcoming") select e).Count();
                 return tot;
         }
         public int getTotalVendorApplicationPerVendo(int id)
