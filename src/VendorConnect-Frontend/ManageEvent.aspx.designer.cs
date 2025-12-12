@@ -33,75 +33,66 @@ namespace VendorConnect_Frontend
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl OrgaNames;
 
         /// <summary>
-        /// lblEventName control.
+        /// EventName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEventName;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText EventName;
 
         /// <summary>
-        /// lblEventDate control.
+        /// EventDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEventDate;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl EventDate;
 
         /// <summary>
-        /// lblLocation control.
+        /// EventDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLocation;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText EventDescription;
 
         /// <summary>
-        /// lblDescription control.
+        /// EventLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDescription;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText EventLocation;
 
         /// <summary>
-        /// lblStatus control.
+        /// NumVendors control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStatus;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText NumVendors;
 
         /// <summary>
-        /// lblMaxVendors control.
+        /// lblMsg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMaxVendors;
+        protected global::System.Web.UI.WebControls.Label lblMsg;
 
         /// <summary>
-        /// btnEdit control.
+        /// btnCreateEvent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEdit;
-
-        /// <summary>
-        /// btnCancelEvent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelEvent;
+        protected global::System.Web.UI.WebControls.Button btnCreateEvent;
     }
 }

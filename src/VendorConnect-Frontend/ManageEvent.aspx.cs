@@ -43,22 +43,14 @@ namespace VendorConnect_Frontend
 
             if (ev != null)
             {
-                lblEventName.Text = "Event: " + ev.EventName;
-                lblEventDate.Text = "Date: " + ev.EventDate.ToString("d MMM yyyy").ToUpper();
-                lblLocation.Text = "Location: " + ev.Location;
-                lblDescription.Text = "Description: " + ev.Description;
-                lblStatus.Text = "Status: " + ev.status;
-                lblMaxVendors.Text = "Max Vendors: " + ev.MaxVendors;
+                EventName.Value = ev.EventName;
+                EventDate.Value = Convert.ToString(ev.EventDate);
+                EventDescription.Value = ev.Description;
+                EventLocation.Value = ev.Location;
+                NumVendors.Value = Convert.ToString(ev.MaxVendors);
+                    
             }
         }
-        protected void btnCancelEvent_Click(object sender, EventArgs e)
-        {
-            Service1Client client = new Service1Client();
-            int eventId = Convert.ToInt32(Request.QueryString["EventId"]);
-            var result = client.CancelEvent(eventId);
-
-            if (result == 1)
-                lblStatus.Text = "Status: Cancelled";
-        }
+       
     }
 }

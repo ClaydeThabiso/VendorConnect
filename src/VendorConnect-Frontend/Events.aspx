@@ -23,7 +23,7 @@
             </div>
             <div class="sidebar-menu">
                 <div class="nav-item">
-                    <a href="#" class="nav-link active">
+                    <a href="OrganizerDashboard.aspx" class="nav-link active">
                         <i class="fas fa-tachometer-alt"></i>
                         <span>Dashboard</span>
                     </a>
@@ -107,7 +107,7 @@
                                         </div>
                                         <div class="activity-time">
                                             <i class="bi bi-calendar"></i>
-                                            <%# Eval("EventDate") %>
+                                            <%#  Convert.ToDateTime(Eval("EventDate")).ToString("d MMM yyyy").ToUpper() %>
                                         </div>
                                     </div>
                                     <asp:Button

@@ -1,6 +1,91 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ManageEvent.aspx.cs" Inherits="VendorConnect_Frontend.ManageEvent" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+            .login-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            width: 100%;
+            border-radius: 10px;
+        }
+         .login-card {
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+            width: 100%;
+            max-width: 400px;
+            background-color: var(--light);
+        }
+        
+        .login-header {
+            background: var(--primary);
+            color: var(--light);
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .login-header h2 {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .login-header p {
+            opacity: 0.9;
+            font-weight: 300;
+            margin-bottom: 0;
+        }
+        
+        .card-body {
+            padding: 2rem;
+        }
+        
+        .input-icon {
+            position: relative;
+        }
+        
+        .input-icon i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary);
+            z-index: 2;
+            width: 16px;
+
+        }
+        
+        .form-control {
+            padding: 0.75rem 1rem 0.75rem 3rem; 
+            border-radius: 10px;
+            border: 1px solid #e1e5ee;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            background-color: var(--light);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 0.2rem rgba(75, 73, 172, 0.25);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            border: none;
+            padding: 0.75rem;
+            border-radius: 10px;
+            font-weight: 500;
+            transition: all 0.3s;
+            color: var(--light);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(75, 73, 172, 0.4);
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+            color: var(--light);
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="DashboardStyling" runat="server">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -89,20 +174,34 @@
 
             <!-- Content Area -->
             <div class="content-area">
-                <div class="card p-4">
-                    <h3>Manage Event</h3>
-                    <hr />
-
-                    <asp:Label ID="lblEventName" runat="server" Font-Bold="true"></asp:Label><br />
-                    <asp:Label ID="lblEventDate" runat="server"></asp:Label><br />
-                    <asp:Label ID="lblLocation" runat="server"></asp:Label><br />
-                    <asp:Label ID="lblDescription" runat="server"></asp:Label><br />
-                    <asp:Label ID="lblStatus" runat="server"></asp:Label><br />
-                    <asp:Label ID="lblMaxVendors" runat="server"></asp:Label><br />
-                    <br />
-
-                    <asp:Button ID="btnEdit" runat="server" Text="Edit Event" CssClass="btn btn-warning" />
-                    <asp:Button ID="btnCancelEvent" runat="server" Text="Cancel Event" CssClass="btn btn-danger" OnClick="btnCancelEvent_Click" />
+                <div id="login-page" class="login-container">
+                    <div class="login-card">
+                        <div class="card-body p-4">
+                            <div class="mb-3 input-icon">
+                                <i class="fas fa-user"></i>
+                                <input type="text" class="form-control ps-5" id="EventName" placeholder="Event Name" runat="server">
+                            </div>
+                            <div class="mb-3 input-icon">
+                                <i class="bi bi-calendar"></i>
+                                <input type="date" class="form-control ps-5" id="EventDate" placeholder="Event date" runat="server">
+                            </div>
+                             <div class="mb-3 input-icon">
+                                <i class="bi bi-pencil-square"></i>
+                                <input type="text" class="form-control ps-5" id="EventDescription" placeholder="Event Description" runat="server">
+                            </div>
+                            <div class="mb-3 input-icon">
+                                <i class="bi bi-geo-alt"></i>
+                                <input type="text" class="form-control ps-5" id="EventLocation" placeholder="Event Location" runat="server">
+                            </div>
+                            <div class="mb-3 input-icon">
+                                <i class="fas fa-users"></i>
+                                <input type="text" class="form-control ps-5" id="NumVendors"
+                                    placeholder="Number of vendors" runat="server">
+                            </div>
+                             <asp:Label runat="server" ID="lblMsg" Text=" " class="m-1"></asp:Label>
+                            <asp:Button id="btnCreateEvent" class="btn btn-primary w-100 mt-4" runat="server" Text=" Save changes" /> 
+                        </div>
+                    </div>
                 </div>
 
             </div>
