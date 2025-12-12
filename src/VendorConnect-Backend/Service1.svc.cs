@@ -218,7 +218,7 @@ namespace VnedorConnect_Service
         public List<Event> GetEvents()
         {
             List<Event> events = new List<Event>();
-            dynamic tempEvent = (from e in db.Events where e.status.Equals("Active") select e);
+            dynamic tempEvent = (from e in db.Events where e.status.Equals("Upcoming") select e);
 
             if(tempEvent!=null)
             {

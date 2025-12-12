@@ -104,7 +104,7 @@
                                         </div>
                                         <div class="activity-time">
                                             <i class="bi bi-calendar"></i>
-                                            <%# Eval("EventDate") %>
+                                            <%# Convert.ToDateTime(Eval("EventDate")).ToString("d MMM yyyy").ToUpper() %>
                                         </div>
                                     </div>
                                     <asp:Button
