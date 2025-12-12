@@ -68,5 +68,28 @@ namespace VendorConnect_Frontend
                 Response.Redirect("ManageEvent.aspx?EventId=" + eventId);
             }
         }
+        protected void EventsRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                dynamic dataItem = e.Item.DataItem;
+
+                Label lbl = (Label)e.Item.FindControl("lblCompleted");
+                Button btn = (Button)e.Item.FindControl("btnManage");
+
+                if (dataItem.status.ToString() == "Completed" || dataItem.status.ToString()== "Cancelled")
+                {
+                    lbl.Text = dataItem.status;
+                    lbl.Visible = true;
+                    btn.Visible = false;
+                }
+                else
+                {
+                    lbl.Visible = false;
+                    btn.Visible = true;
+                }
+            }
+        }
+
     }
 }

@@ -66,16 +66,44 @@ namespace VendorConnect_Frontend
         protected void RepeaterEvents_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             Service1Client client = new Service1Client();
-            int eventId = Convert.ToInt32(e.CommandArgument);
-            int maxVendors = Convert.ToInt32(DataBinder.Eval(e.Item.DataItem, "MaxVendors"));
 
-            var approvedVendors = client.getApprovedApplication(eventId);
-            Literal maxVendorLiteral = (Literal)e.Item.FindControl("MaxVendorLiteral");
-            if (maxVendorLiteral != null)
+            string[] args = e.CommandArgument.ToString().Split('|');
+            int eventId = Convert.ToInt32(args[0]);
+           
+            if (e.CommandName == "Manage")
             {
-                maxVendorLiteral.Text = approvedVendors+"/"+maxVendors;
+                Response.Redirect("ManageEvent.aspx?EventId=" + eventId);
             }
+
             client.Close();
         }
+        protected void RepeaterEvents_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                Service1Client client = new Service1Client();
+
+                // Get the current row data
+                var data = (dynamic)e.Item.DataItem;
+
+                int eventId = Convert.ToInt32(data.EventId);
+                int maxVendors = Convert.ToInt32(data.MaxVendors);
+
+                // Get approved vendor count
+                int approved = client.getApprovedApplication(eventId);
+
+                // Find literal
+                Literal maxVendorLiteral = (Literal)e.Item.FindControl("MaxVendorLiteral");
+
+                if (maxVendorLiteral != null)
+                {
+                    maxVendorLiteral.Text = approved + "/" + maxVendors;
+                }
+
+                client.Close();
+            }
+        }
+
+
     }
 }

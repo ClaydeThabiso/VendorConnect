@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Events.aspx.cs" Inherits="VendorConnect_Frontend.Events" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="DashboardStyling" runat="server">
@@ -11,10 +12,10 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-           <link href="css/Admin.css" rel="stylesheet" />
+    <link href="css/Admin.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <div class="dashboard-container">
+    <div class="dashboard-container">
         <!-- Sidebar Navigation -->
         <div class="sidebar">
             <div class="sidebar-header">
@@ -89,40 +90,58 @@
             <!-- Content Area -->
             <div class="content-area">
                 <h3 class="section-title">My events</h3>
+
                 <div class="d-flex justify-content-end">
-                    <asp:Button class="btn btn-outline-primary btn-sm mb-3" runat="server" Text="+ Create event" ID="btnCreate" OnClick="btnCreate_Click"> </asp:Button>
+                    <asp:Button class="btn btn-outline-primary btn-sm mb-3"
+                        runat="server" Text="+ Create event"
+                        ID="btnCreate" OnClick="btnCreate_Click" />
                 </div>
+
                 <div class="recent-activity">
-                <asp:Repeater ID="EventsRepeater" runat="server" OnItemCommand="EventsRepeater_ItemCommand">
+                    <asp:Repeater ID="EventsRepeater" runat="server" OnItemCommand="EventsRepeater_ItemCommand" OnItemDataBound="EventsRepeater_ItemDataBound">
                         <ItemTemplate>
-                                <div class="activity-item">
-                                    <div class="activity-icon" style="background-color: var(--primary);">
-                                        <i class="fas fa-calendar-check"></i>
-                                    </div>
-                                    <div class="activity-details">
-                                        <div class="activity-title"><%# Eval("EventName") %></div>
-                                        <div class="activity-time">
-                                            <i class="bi bi-geo-alt"></i>
-                                            <%# Eval("Location") %>
-                                        </div>
-                                        <div class="activity-time">
-                                            <i class="bi bi-calendar"></i>
-                                            <%#  Convert.ToDateTime(Eval("EventDate")).ToString("d MMM yyyy").ToUpper() %>
-                                        </div>
-                                    </div>
-                                    <asp:Button
-                                        CssClass="btn btn-outline-primary btn-sm ms-2"
-                                        Text="Manage"
-                                        CommandName="Manage"
-                                        CommandArgument='<%# Eval("EventId") %>'
-                                        runat="server" />
+                            <div class="activity-item">
+
+                                <div class="activity-icon" style="background-color: var(--primary);">
+                                    <i class="fas fa-calendar-check"></i>
                                 </div>
+
+                                <div class="activity-details">
+                                    <div class="activity-title"><%# Eval("EventName") %></div>
+
+                                    <div class="activity-time">
+                                        <i class="bi bi-geo-alt"></i>
+                                        <%# Eval("Location") %>
+                                    </div>
+
+                                    <div class="activity-time">
+                                        <i class="bi bi-calendar"></i>
+                                        <%# Convert.ToDateTime(Eval("EventDate")).ToString("d MMM yyyy").ToUpper() %>
+                                    </div>
+                                    <div class="activity-time">
+                                        <span class="badge <%# Eval("status").ToString() == "Active" ? "bg-success" :
+                                                 Eval("status").ToString() == "Upcoming" ? "bg-warning":
+                                                "bg-secondary" %>">
+                                            <%# Eval("status") %>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- Badge -->
+                                <asp:Label ID="lblCompleted" runat="server" CssClass="badge bg-secondary ms-2" Text="" />
+
+                                <!-- Manage Button -->
+                                <asp:Button ID="btnManage" runat="server" CssClass="btn btn-outline-primary btn-sm ms-2"
+                                    Text="Manage" CommandName="Manage" CommandArgument='<%# Eval("EventId") %>' />
+                            </div>
                         </ItemTemplate>
-                </asp:Repeater>
+                    </asp:Repeater>
+
                 </div>
             </div>
         </div>
     </div>
+
 
     <script>
         // Toggle sidebar on mobile

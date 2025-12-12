@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="OrganizerDashboard.aspx.cs" Inherits="VendorConnect_Frontend.OrganizerDashboard" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="DashboardStyling" runat="server">
@@ -11,10 +12,10 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-           <link href="css/Admin.css" rel="stylesheet" />
+    <link href="css/Admin.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <div class="dashboard-container">
+    <div class="dashboard-container">
         <!-- Sidebar Navigation -->
         <div class="sidebar">
             <div class="sidebar-header">
@@ -98,7 +99,7 @@
                             <div class="card-title">Total Events</div>
                             <div class="card-value" runat="server" id="totalEvent"></div>
                             <div class="card-change positive">
-                                <i class="fas fa-arrow-up me-1"></i> 12% increase
+                                <i class="fas fa-arrow-up me-1"></i>12% increase
                             </div>
                         </div>
                     </div>
@@ -111,7 +112,7 @@
                             <div class="card-title">Upcoming Events</div>
                             <div class="card-value"></div>
                             <div class="card-change positive">
-                                <i class="fas fa-arrow-up me-1"></i> 5% increase
+                                <i class="fas fa-arrow-up me-1"></i>5% increase
                             </div>
                         </div>
                     </div>
@@ -124,7 +125,7 @@
                             <div class="card-title">Active Vendors</div>
                             <div class="card-value">67</div>
                             <div class="card-change positive">
-                                <i class="fas fa-arrow-up me-1"></i> 8% increase
+                                <i class="fas fa-arrow-up me-1"></i>8% increase
                             </div>
                         </div>
                     </div>
@@ -137,7 +138,7 @@
                             <div class="card-title">Total Revenue</div>
                             <div class="card-value">$24,580</div>
                             <div class="card-change positive">
-                                <i class="fas fa-arrow-up me-1"></i> 15% increase
+                                <i class="fas fa-arrow-up me-1"></i>15% increase
                             </div>
                         </div>
                     </div>
@@ -146,23 +147,23 @@
                 <!-- Recent Activity Section -->
                 <h3 class="section-title">My events</h3>
                 <div class="d-flex justify-content-end">
-                    <asp:Button class="btn btn-outline-primary btn-sm mb-3" runat="server" Text="+ Create event" ID="btnCreate" OnClick="btnCreate_Click"> </asp:Button>
+                    <asp:Button class="btn btn-outline-primary btn-sm mb-3" runat="server" Text="+ Create event" ID="btnCreate" OnClick="btnCreate_Click"></asp:Button>
                 </div>
                 <div class="recent-activity">
                     <table class="table table-hover ">
                         <thead>
                             <tr>
                                 <th scope="col">Event Name</th>
-                                <th scope="col"> Event Date</th>
+                                <th scope="col">Event Date</th>
                                 <th scope="col">Event Location</th>
-                                <th scope="col"> Max Vendors</th>
+                                <th scope="col">Max Vendors</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                           <asp:Repeater runat="server" ID="RepeaterEvents" OnItemCommand="RepeaterEvents_ItemCommand">
-                               <ItemTemplate>
+                            <asp:Repeater runat="server" ID="RepeaterEvents" OnItemCommand="RepeaterEvents_ItemCommand" OnItemDataBound="RepeaterEvents_ItemDataBound">
+                                <ItemTemplate>
                                     <tr>
                                         <td><%# Eval("EventName") %></td>
 
@@ -171,32 +172,30 @@
                                         </td>
                                         <td><%# Eval("Location") %></td>
                                         <td>
-                                          <asp:Literal ID="MaxVendorLiteral" runat="server"></asp:Literal>
+                                            <asp:Literal ID="MaxVendorLiteral" runat="server"></asp:Literal>
                                         </td>
                                         <td>
-                                                <span class="badge 
-                                                <%# 
-                                                    Eval("Status").ToString() == "Completed" ? "bg-warning" :
-                                                    Eval("Status").ToString() == "Active" ? "bg-success" :
-                                                    "bg-secondary"
-                                                %>">
-                                                <%# Eval("Status")%>
-                                            </span>
+                                            <span class="badge <%# 
+                                                        Eval("Status").ToString() == "Completed" ? "bg-secondary" :
+                                                        Eval("Status").ToString() == "Active" ? "bg-success" :
+                                                         Eval("Status").ToString()=="Cancelled" ? "bg-danger" :
+                                                         "bg-warning" %>">
+                                                        <%# Eval("Status") %>
+                                                    </span>                      
 
                                         </td>
-
                                         <td>
                                             <asp:Button ID="btnManage"
                                                 runat="server"
                                                 CssClass="btn btn-outline-primary btn-sm ms-1"
                                                 Text="Manage"
                                                 CommandName="Manage"
-                                                CommandArgument='<%# Eval("EventId") %>'
-                                                />
+                                                CommandArgument='<%# Eval("EventId") + "|" + Eval("MaxVendors") %>' />
+
                                         </td>
                                     </tr>
-                               </ItemTemplate>
-                           </asp:Repeater>
+                                </ItemTemplate>
+                            </asp:Repeater>
                         </tbody>
                     </table>
                 </div>

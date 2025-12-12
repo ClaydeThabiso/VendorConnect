@@ -319,6 +319,11 @@ namespace VnedorConnect_Service
             var totEvent = (from e in db.Events where e.OrganizerId.Equals(id) select e).Count();
             return totEvent;
         }
+        public int getTotalUpcomingEvents(int id)
+        {
+            var tot=(from e in db.Events where e.OrganizerId.Equals(id) && e.status.Equals("Upcoming") select e).Count()
+                return tot;
+        }
         public int getTotalVendorApplicationPerVendo(int id)
         {
             var tot = (from va in db.VendorApplications where va.VendorId.Equals(id) select va).Count();

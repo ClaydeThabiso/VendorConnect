@@ -119,9 +119,10 @@
                                                 </div>
                                                 <div class="activity-time">
                                                     <span class="badge <%# 
-                                                        Eval("Eventstatus").ToString() == "Completed" ? "bg-warning" :
+                                                        Eval("Eventstatus").ToString() == "Completed" ? "bg-secondary" :
                                                         Eval("Eventstatus").ToString() == "Active" ? "bg-success" :
-                                                        "bg-secondary" %>">
+                                                         Eval("Eventstatus").ToString()=="Cancelled" ? "bg-danger" :
+                                                         "bg-warning" %>">
                                                         <%# Eval("Eventstatus") %>
                                                     </span>
 
@@ -151,10 +152,6 @@
                                                         <div class="activity-time">
                                                             <i class="bi bi-option"></i>
                                                             <%# Eval("Category") %>
-                                                        </div>
-                                                        <div class="activity-time">
-                                                            <i class="bi bi-calendar"></i>
-                                                            <%# Convert.ToDateTime(Eval("AppliedAt")).ToString("d MMM yyyy").ToUpper() %>
                                                         </div>
                                                     </div>
                                                     <asp:Button CssClass="btn btn-outline-primary btn-sm ms-2"

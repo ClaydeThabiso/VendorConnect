@@ -88,6 +88,9 @@ namespace VnedorConnect_Service
 
         [OperationContract]
         int UpdateEvent(int eventId, string name, DateTime date, string location, string description, int maxVendors);
+
+        [OperationContract]
+        int getTotalUpcomingEvents(int id);
     }
     [DataContract]
     public class UserDTO
