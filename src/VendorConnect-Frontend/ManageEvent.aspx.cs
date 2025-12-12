@@ -13,42 +13,46 @@ namespace VendorConnect_Frontend
         protected void Page_Load(object sender, EventArgs e)
         {
             Service1Client client = new Service1Client();
-
-            int userID = Convert.ToInt32(Session["UserID"]);
-            var u = client.GetUser(userID);
-            if (u != null)
+            if (!IsPostBack)
             {
-                var vName = u.FirstName;
-                var vLName = u.LastName;
-                OrgaNames.InnerText = vName + " " + vLName;
 
 
-                string intialN = "";
-                string intialLN = "";
-                for (int i = 0; i < 1; i++)
+                int userID = Convert.ToInt32(Session["UserID"]);
+                var u = client.GetUser(userID);
+                if (u != null)
                 {
-                    intialN = Convert.ToString(vName[i]);
-                    intialLN = Convert.ToString(vLName[i]);
+                    var vName = u.FirstName;
+                    var vLName = u.LastName;
+                    OrgaNames.InnerText = vName + " " + vLName;
+
+
+                    string intialN = "";
+                    string intialLN = "";
+                    for (int i = 0; i < 1; i++)
+                    {
+                        intialN = Convert.ToString(vName[i]);
+                        intialLN = Convert.ToString(vLName[i]);
+                    }
+                    initials.InnerText = intialN.ToUpper() + intialLN.ToUpper();
                 }
-                initials.InnerText = intialN.ToUpper() + intialLN.ToUpper();
-            }
-            else
-            {
-                OrgaNames.InnerText = "Demo";
-                initials.InnerText = "DD";
-            }
+                else
+                {
+                    OrgaNames.InnerText = "Demo";
+                    initials.InnerText = "DD";
+                }
 
-            int eventId = Convert.ToInt32(Request.QueryString["EventId"]);
-            var ev = client.GetEvent(eventId);
+                int eventId = Convert.ToInt32(Request.QueryString["EventId"]);
+                var ev = client.GetEvent(eventId);
 
-            if (ev != null)
-            {
-                EventName.Value = ev.EventName;
-                EventDate.Value = Convert.ToString(ev.EventDate);
-                EventDescription.Value = ev.Description;
-                EventLocation.Value = ev.Location;
-                NumVendors.Value = Convert.ToString(ev.MaxVendors);
-                    
+                if (ev != null)
+                {
+                    EventName.Value = ev.EventName;
+                    EventDate.Value = ev.EventDate.ToString("yyyy-MM-dd");
+                    EventDescription.Value = ev.Description;
+                    EventLocation.Value = ev.Location;
+                    NumVendors.Value = Convert.ToString(ev.MaxVendors);
+
+                }
             }
             client.Close();
         }
