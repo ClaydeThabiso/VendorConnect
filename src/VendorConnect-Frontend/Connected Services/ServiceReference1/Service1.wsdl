@@ -163,6 +163,12 @@
   <wsdl:message name="IService1_UpdateEvent_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateEventResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_getTotalUpcomingEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:getTotalUpcomingEvents" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getTotalUpcomingEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getTotalUpcomingEventsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="RegisterUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/RegisterUser" message="tns:IService1_RegisterUser_InputMessage" />
@@ -267,6 +273,10 @@
     <wsdl:operation name="UpdateEvent">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateEvent" message="tns:IService1_UpdateEvent_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateEventResponse" message="tns:IService1_UpdateEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getTotalUpcomingEvents">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getTotalUpcomingEvents" message="tns:IService1_getTotalUpcomingEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getTotalUpcomingEventsResponse" message="tns:IService1_getTotalUpcomingEvents_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -498,6 +508,15 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateEvent">
       <soap:operation soapAction="http://tempuri.org/IService1/UpdateEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTotalUpcomingEvents">
+      <soap:operation soapAction="http://tempuri.org/IService1/getTotalUpcomingEvents" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

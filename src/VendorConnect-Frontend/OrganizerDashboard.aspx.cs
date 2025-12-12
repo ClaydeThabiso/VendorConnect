@@ -41,6 +41,8 @@ namespace VendorConnect_Frontend
                     initials.InnerText = "DD";
                 }
 
+                var getTotalUpcomingEevnts = client.getTotalUpcomingEvents(Convert.ToInt32(Session["OrganizerId"]));
+                displayUpcomingEve.InnerText = Convert.ToString(getTotalUpcomingEevnts);
                 var getTotalEvents = client.getTotalEventPerOrganizer(Convert.ToInt32(Session["OrganizerId"]));
                 totalEvent.InnerText = Convert.ToString(getTotalEvents);
 

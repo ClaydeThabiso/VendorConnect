@@ -110,7 +110,7 @@
                                 <i class="fas fa-calendar-alt"></i>
                             </div>
                             <div class="card-title">Upcoming Events</div>
-                            <div class="card-value"></div>
+                            <div class="card-value" runat="server" id="displayUpcomingEve"></div>
                             <div class="card-change positive">
                                 <i class="fas fa-arrow-up me-1"></i>5% increase
                             </div>

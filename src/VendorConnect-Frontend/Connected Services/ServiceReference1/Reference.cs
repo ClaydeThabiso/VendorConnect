@@ -1835,6 +1835,12 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateEvent", ReplyAction="http://tempuri.org/IService1/UpdateEventResponse")]
         System.Threading.Tasks.Task<int> UpdateEventAsync(int eventId, string name, System.DateTime date, string location, string description, int maxVendors);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getTotalUpcomingEvents", ReplyAction="http://tempuri.org/IService1/getTotalUpcomingEventsResponse")]
+        int getTotalUpcomingEvents(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getTotalUpcomingEvents", ReplyAction="http://tempuri.org/IService1/getTotalUpcomingEventsResponse")]
+        System.Threading.Tasks.Task<int> getTotalUpcomingEventsAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2070,6 +2076,14 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<int> UpdateEventAsync(int eventId, string name, System.DateTime date, string location, string description, int maxVendors) {
             return base.Channel.UpdateEventAsync(eventId, name, date, location, description, maxVendors);
+        }
+        
+        public int getTotalUpcomingEvents(int id) {
+            return base.Channel.getTotalUpcomingEvents(id);
+        }
+        
+        public System.Threading.Tasks.Task<int> getTotalUpcomingEventsAsync(int id) {
+            return base.Channel.getTotalUpcomingEventsAsync(id);
         }
     }
 }
