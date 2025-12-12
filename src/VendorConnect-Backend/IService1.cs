@@ -85,6 +85,9 @@ namespace VnedorConnect_Service
 
         [OperationContract]
         int CancelEvent(int eventId);
+
+        [OperationContract]
+        int UpdateEvent(int eventId, string name, DateTime date, string location, string description, int maxVendors);
     }
     [DataContract]
     public class UserDTO

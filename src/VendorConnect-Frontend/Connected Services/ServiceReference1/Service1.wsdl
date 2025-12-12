@@ -157,6 +157,12 @@
   <wsdl:message name="IService1_CancelEvent_OutputMessage">
     <wsdl:part name="parameters" element="tns:CancelEventResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_UpdateEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEvent" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEventResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="RegisterUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/RegisterUser" message="tns:IService1_RegisterUser_InputMessage" />
@@ -257,6 +263,10 @@
     <wsdl:operation name="CancelEvent">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/CancelEvent" message="tns:IService1_CancelEvent_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/CancelEventResponse" message="tns:IService1_CancelEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateEvent" message="tns:IService1_UpdateEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateEventResponse" message="tns:IService1_UpdateEvent_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -479,6 +489,15 @@
     </wsdl:operation>
     <wsdl:operation name="CancelEvent">
       <soap:operation soapAction="http://tempuri.org/IService1/CancelEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEvent">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateEvent" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -50,7 +50,27 @@ namespace VendorConnect_Frontend
                 NumVendors.Value = Convert.ToString(ev.MaxVendors);
                     
             }
+            client.Close();
         }
-       
+
+        protected void btnCreateEvent_Click(object sender, EventArgs e)
+        {
+            int eventId = Convert.ToInt32(Request.QueryString["EventId"]);
+            Service1Client client = new Service1Client();
+
+            var result = client.UpdateEvent(eventId, EventName.Value, Convert.ToDateTime(EventDate.Value), EventLocation.Value, EventDescription.Value, Convert.ToInt32(NumVendors.Value));
+
+            if(result==1)
+            {
+                ScriptManager.RegisterStartupScript(
+                       this, this.GetType(),
+                       "successAlert",
+                       "alert('Successfully updated the event');",
+                       true
+                   );
+            }
+
+            client.Close();
+        }
     }
 }

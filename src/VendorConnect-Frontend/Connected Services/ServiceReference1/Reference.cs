@@ -93,7 +93,7 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         private string LastNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private VendorConnect_Frontend.ServiceReference1.Organizer[] OrganizersField;
+        private System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.Organizer> OrganizersField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PasswordField;
@@ -108,7 +108,7 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         private string UsernameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private VendorConnect_Frontend.ServiceReference1.Vendor[] VendorsField;
+        private System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.Vendor> VendorsField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -160,7 +160,7 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public VendorConnect_Frontend.ServiceReference1.Organizer[] Organizers {
+        public System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.Organizer> Organizers {
             get {
                 return this.OrganizersField;
             }
@@ -225,7 +225,7 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public VendorConnect_Frontend.ServiceReference1.Vendor[] Vendors {
+        public System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.Vendor> Vendors {
             get {
                 return this.VendorsField;
             }
@@ -263,7 +263,7 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         private System.Nullable<System.DateTime> CreatedAtField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private VendorConnect_Frontend.ServiceReference1.Event[] EventsField;
+        private System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.Event> EventsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string OrganizationNameField;
@@ -317,7 +317,7 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public VendorConnect_Frontend.ServiceReference1.Event[] Events {
+        public System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.Event> Events {
             get {
                 return this.EventsField;
             }
@@ -426,7 +426,7 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         private System.Nullable<System.DateTime> CreatedAtField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private VendorConnect_Frontend.ServiceReference1.Payment[] PaymentsField;
+        private System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.Payment> PaymentsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PhoneField;
@@ -438,7 +438,7 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         private int UserIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private VendorConnect_Frontend.ServiceReference1.VendorApplication[] VendorApplicationsField;
+        private System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.VendorApplication> VendorApplicationsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int VendorIdField;
@@ -506,7 +506,7 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public VendorConnect_Frontend.ServiceReference1.Payment[] Payments {
+        public System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.Payment> Payments {
             get {
                 return this.PaymentsField;
             }
@@ -558,7 +558,7 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public VendorConnect_Frontend.ServiceReference1.VendorApplication[] VendorApplications {
+        public System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.VendorApplication> VendorApplications {
             get {
                 return this.VendorApplicationsField;
             }
@@ -630,10 +630,10 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         private int OrganizerIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private VendorConnect_Frontend.ServiceReference1.Payment[] PaymentsField;
+        private System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.Payment> PaymentsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private VendorConnect_Frontend.ServiceReference1.VendorApplication[] VendorApplicationsField;
+        private System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.VendorApplication> VendorApplicationsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string statusField;
@@ -766,7 +766,7 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public VendorConnect_Frontend.ServiceReference1.Payment[] Payments {
+        public System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.Payment> Payments {
             get {
                 return this.PaymentsField;
             }
@@ -779,7 +779,7 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public VendorConnect_Frontend.ServiceReference1.VendorApplication[] VendorApplications {
+        public System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.VendorApplication> VendorApplications {
             get {
                 return this.VendorApplicationsField;
             }
@@ -1031,7 +1031,7 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         private VendorConnect_Frontend.ServiceReference1.Vendor VendorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private VendorConnect_Frontend.ServiceReference1.VendorAssignment[] VendorAssignmentsField;
+        private System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.VendorAssignment> VendorAssignmentsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int VendorIdField;
@@ -1125,7 +1125,7 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public VendorConnect_Frontend.ServiceReference1.VendorAssignment[] VendorAssignments {
+        public System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.VendorAssignment> VendorAssignments {
             get {
                 return this.VendorAssignmentsField;
             }
@@ -1711,10 +1711,10 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.User> GetUserAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUsers", ReplyAction="http://tempuri.org/IService1/GetUsersResponse")]
-        VendorConnect_Frontend.ServiceReference1.User[] GetUsers();
+        System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.User> GetUsers();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUsers", ReplyAction="http://tempuri.org/IService1/GetUsersResponse")]
-        System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.User[]> GetUsersAsync();
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.User>> GetUsersAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/totalVendors", ReplyAction="http://tempuri.org/IService1/totalVendorsResponse")]
         int totalVendors();
@@ -1735,10 +1735,10 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         System.Threading.Tasks.Task<int> CreateEventAsync(string name, System.DateTime eventDate, string location, int maxVendors, string description, int OrganizerID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetEvents", ReplyAction="http://tempuri.org/IService1/GetEventsResponse")]
-        VendorConnect_Frontend.ServiceReference1.Event[] GetEvents();
+        System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.Event> GetEvents();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetEvents", ReplyAction="http://tempuri.org/IService1/GetEventsResponse")]
-        System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.Event[]> GetEventsAsync();
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.Event>> GetEventsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetEvent", ReplyAction="http://tempuri.org/IService1/GetEventResponse")]
         VendorConnect_Frontend.ServiceReference1.Event GetEvent(int id);
@@ -1747,10 +1747,10 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.Event> GetEventAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetEventPerOrganizer", ReplyAction="http://tempuri.org/IService1/GetEventPerOrganizerResponse")]
-        VendorConnect_Frontend.ServiceReference1.Event[] GetEventPerOrganizer(int id);
+        System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.Event> GetEventPerOrganizer(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetEventPerOrganizer", ReplyAction="http://tempuri.org/IService1/GetEventPerOrganizerResponse")]
-        System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.Event[]> GetEventPerOrganizerAsync(int id);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.Event>> GetEventPerOrganizerAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetOrganizerByUserId", ReplyAction="http://tempuri.org/IService1/GetOrganizerByUserIdResponse")]
         VendorConnect_Frontend.ServiceReference1.OrganizerDTO GetOrganizerByUserId(int userId);
@@ -1777,10 +1777,10 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         System.Threading.Tasks.Task<int> EventApplicationAsync(int vendorID, int eventID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetApplicationPerVendor", ReplyAction="http://tempuri.org/IService1/GetApplicationPerVendorResponse")]
-        VendorConnect_Frontend.ServiceReference1.VendorApplicationDTO[] GetApplicationPerVendor(int vendorID);
+        System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.VendorApplicationDTO> GetApplicationPerVendor(int vendorID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetApplicationPerVendor", ReplyAction="http://tempuri.org/IService1/GetApplicationPerVendorResponse")]
-        System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.VendorApplicationDTO[]> GetApplicationPerVendorAsync(int vendorID);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.VendorApplicationDTO>> GetApplicationPerVendorAsync(int vendorID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/deleteApplication", ReplyAction="http://tempuri.org/IService1/deleteApplicationResponse")]
         int deleteApplication(int AppId);
@@ -1789,10 +1789,10 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         System.Threading.Tasks.Task<int> deleteApplicationAsync(int AppId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetApplicationsPerOrganizer", ReplyAction="http://tempuri.org/IService1/GetApplicationsPerOrganizerResponse")]
-        VendorConnect_Frontend.ServiceReference1.VendorApplicationDTO[] GetApplicationsPerOrganizer(int OrgaID);
+        System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.VendorApplicationDTO> GetApplicationsPerOrganizer(int OrgaID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetApplicationsPerOrganizer", ReplyAction="http://tempuri.org/IService1/GetApplicationsPerOrganizerResponse")]
-        System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.VendorApplicationDTO[]> GetApplicationsPerOrganizerAsync(int OrgaID);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.VendorApplicationDTO>> GetApplicationsPerOrganizerAsync(int OrgaID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeclineApplication", ReplyAction="http://tempuri.org/IService1/DeclineApplicationResponse")]
         VendorConnect_Frontend.ServiceReference1.VendorApplicationDTO DeclineApplication(int ApplicationId);
@@ -1829,6 +1829,12 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CancelEvent", ReplyAction="http://tempuri.org/IService1/CancelEventResponse")]
         System.Threading.Tasks.Task<int> CancelEventAsync(int eventId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateEvent", ReplyAction="http://tempuri.org/IService1/UpdateEventResponse")]
+        int UpdateEvent(int eventId, string name, System.DateTime date, string location, string description, int maxVendors);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateEvent", ReplyAction="http://tempuri.org/IService1/UpdateEventResponse")]
+        System.Threading.Tasks.Task<int> UpdateEventAsync(int eventId, string name, System.DateTime date, string location, string description, int maxVendors);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1898,11 +1904,11 @@ namespace VendorConnect_Frontend.ServiceReference1 {
             return base.Channel.GetUserAsync(id);
         }
         
-        public VendorConnect_Frontend.ServiceReference1.User[] GetUsers() {
+        public System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.User> GetUsers() {
             return base.Channel.GetUsers();
         }
         
-        public System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.User[]> GetUsersAsync() {
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.User>> GetUsersAsync() {
             return base.Channel.GetUsersAsync();
         }
         
@@ -1930,11 +1936,11 @@ namespace VendorConnect_Frontend.ServiceReference1 {
             return base.Channel.CreateEventAsync(name, eventDate, location, maxVendors, description, OrganizerID);
         }
         
-        public VendorConnect_Frontend.ServiceReference1.Event[] GetEvents() {
+        public System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.Event> GetEvents() {
             return base.Channel.GetEvents();
         }
         
-        public System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.Event[]> GetEventsAsync() {
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.Event>> GetEventsAsync() {
             return base.Channel.GetEventsAsync();
         }
         
@@ -1946,11 +1952,11 @@ namespace VendorConnect_Frontend.ServiceReference1 {
             return base.Channel.GetEventAsync(id);
         }
         
-        public VendorConnect_Frontend.ServiceReference1.Event[] GetEventPerOrganizer(int id) {
+        public System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.Event> GetEventPerOrganizer(int id) {
             return base.Channel.GetEventPerOrganizer(id);
         }
         
-        public System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.Event[]> GetEventPerOrganizerAsync(int id) {
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.Event>> GetEventPerOrganizerAsync(int id) {
             return base.Channel.GetEventPerOrganizerAsync(id);
         }
         
@@ -1986,11 +1992,11 @@ namespace VendorConnect_Frontend.ServiceReference1 {
             return base.Channel.EventApplicationAsync(vendorID, eventID);
         }
         
-        public VendorConnect_Frontend.ServiceReference1.VendorApplicationDTO[] GetApplicationPerVendor(int vendorID) {
+        public System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.VendorApplicationDTO> GetApplicationPerVendor(int vendorID) {
             return base.Channel.GetApplicationPerVendor(vendorID);
         }
         
-        public System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.VendorApplicationDTO[]> GetApplicationPerVendorAsync(int vendorID) {
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.VendorApplicationDTO>> GetApplicationPerVendorAsync(int vendorID) {
             return base.Channel.GetApplicationPerVendorAsync(vendorID);
         }
         
@@ -2002,11 +2008,11 @@ namespace VendorConnect_Frontend.ServiceReference1 {
             return base.Channel.deleteApplicationAsync(AppId);
         }
         
-        public VendorConnect_Frontend.ServiceReference1.VendorApplicationDTO[] GetApplicationsPerOrganizer(int OrgaID) {
+        public System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.VendorApplicationDTO> GetApplicationsPerOrganizer(int OrgaID) {
             return base.Channel.GetApplicationsPerOrganizer(OrgaID);
         }
         
-        public System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.VendorApplicationDTO[]> GetApplicationsPerOrganizerAsync(int OrgaID) {
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.VendorApplicationDTO>> GetApplicationsPerOrganizerAsync(int OrgaID) {
             return base.Channel.GetApplicationsPerOrganizerAsync(OrgaID);
         }
         
@@ -2056,6 +2062,14 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<int> CancelEventAsync(int eventId) {
             return base.Channel.CancelEventAsync(eventId);
+        }
+        
+        public int UpdateEvent(int eventId, string name, System.DateTime date, string location, string description, int maxVendors) {
+            return base.Channel.UpdateEvent(eventId, name, date, location, description, maxVendors);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdateEventAsync(int eventId, string name, System.DateTime date, string location, string description, int maxVendors) {
+            return base.Channel.UpdateEventAsync(eventId, name, date, location, description, maxVendors);
         }
     }
 }

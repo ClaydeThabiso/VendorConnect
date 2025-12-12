@@ -532,6 +532,25 @@ namespace VnedorConnect_Service
                 }
             }
         }
+        public int UpdateEvent(int eventId, string name, DateTime date, string location, string description, int maxVendors)
+        {
+            var ev = db.Events.FirstOrDefault(e => e.EventId == eventId);
+
+            if (ev != null)
+            {
+                ev.EventName = name;
+                ev.EventDate = date;
+                ev.Location = location;
+                ev.Description = description;
+                ev.MaxVendors = maxVendors;
+
+                db.SubmitChanges();
+                return 1;
+            }
+
+            return 0;
+        }
+
 
     }
 }
