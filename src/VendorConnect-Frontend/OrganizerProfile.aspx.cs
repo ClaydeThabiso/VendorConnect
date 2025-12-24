@@ -8,7 +8,7 @@ using VendorConnect_Frontend.ServiceReference1;
 
 namespace VendorConnect_Frontend
 {
-    public partial class CreateEvent : System.Web.UI.Page
+    public partial class OrganizerProfile : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -22,7 +22,7 @@ namespace VendorConnect_Frontend
                 {
                     var vName = u.FirstName;
                     var vLName = u.LastName;
-                    OrgaNames.InnerText = vName + "" + vLName;
+                    OrgaNames.InnerText = vName + " " + vLName;
 
 
                     string intialN = "";
@@ -40,45 +40,46 @@ namespace VendorConnect_Frontend
                     initials.InnerText = "DD";
                 }
 
+                
+                var org = client.GetOrganizer(Convert.ToInt32(Session["OrganizerId"]));
+                if(org!=null)
+                {
+                    FirstName.Value = u.FirstName;
+                    LastName.Value = u.LastName;
+                    password.Value = u.Password;
+                    email.Value = u.Username;
+                    OrgaEmail.Value = org.ContactEmail;
+                    OrgaName.Value = org.OrganizationName;
+                    OrgaPhone.Value = org.Phone;
+                }
+               
+
 
                 client.Close();
             }
         }
 
-        protected void btnCreateEvent_Click(object sender, EventArgs e)
+        protected void btnSave_Click(object sender, EventArgs e)
         {
             Service1Client client = new Service1Client();
-            var EName = EventName.Value;
-            var EDate = EventDate.Value;
-            var EDesc = EventDescription.Value;
-            var numVendor = NumVendors.Value;
-            var ELocation = EventLocation.Value;
-            var orgaID=Convert.ToInt32(Session["OrganizerId"]);
-            var createEvent = client.CreateEvent(EName, Convert.ToDateTime(EDate), ELocation, Convert.ToInt32(numVendor), EDesc, orgaID);
-            if(createEvent== 1)
+
+            int userID = Convert.ToInt32(Session["UserID"]);
+            var organizer = client.updateOrganizerProfile(userID, FirstName.Value, LastName.Value, password.Value, email.Value, OrgaName.Value, OrgaEmail.Value, OrgaPhone.Value);
+            if(organizer==true)
             {
                 ScriptManager.RegisterStartupScript(
-                      this, this.GetType(),
-                      "successAlert",
-                      "alert('Successfully created an event');",
-                      true
-                  );
-            }
-            else if(createEvent==0)
-            {
-                ScriptManager.RegisterStartupScript(
-                      this, this.GetType(),
-                      "successAlert",
-                      "alert('Event already exists');",
-                      true
-                  );
+                     this, this.GetType(),
+                     "successAlert",
+                     "alert('Successfully updated the profile');",
+                     true
+                 );
             }
             else
             {
                 ScriptManager.RegisterStartupScript(
                       this, this.GetType(),
                       "successAlert",
-                      "alert('Unsuccessfully,could not create event');",
+                      "alert('Unsuccessfully!!');",
                       true
                   );
             }

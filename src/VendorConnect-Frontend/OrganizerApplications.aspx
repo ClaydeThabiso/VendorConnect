@@ -54,7 +54,7 @@
                     </a>
                 </div>
                 <div class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="OrganizerProfile.aspx" class="nav-link">
                         <i class="bi bi-person-lines-fill"></i>
                         <span>profile</span>
                     </a>
@@ -92,6 +92,7 @@
                 <!-- Recent Activity Section -->
                 <h3 class="section-title">My Applications</h3>
                 <div class="accordion" id="accordionContainer">
+                    <asp:Label ID="Display" runat="server" Text=""></asp:Label>
                     <asp:Repeater ID="ApplicationsData" runat="server"
                         OnItemDataBound="ApplicationsData_ItemDataBound">
                         <ItemTemplate>

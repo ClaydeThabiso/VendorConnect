@@ -141,12 +141,17 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfVendor" nillable="true" type="tns:ArrayOfVendor" />
-  <xs:complexType name="ArrayOfUser">
+  <xs:complexType name="VendorDTO">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />
+      <xs:element minOccurs="0" name="BusinessName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+      <xs:element minOccurs="0" name="VendorID" type="xs:int" />
+      <xs:element minOccurs="0" name="phone" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfUser" nillable="true" type="tns:ArrayOfUser" />
+  <xs:element name="VendorDTO" nillable="true" type="tns:VendorDTO" />
   <xs:complexType name="OrganizerDTO">
     <xs:sequence>
       <xs:element minOccurs="0" name="ContactEmail" nillable="true" type="xs:string" />
@@ -157,13 +162,12 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="OrganizerDTO" nillable="true" type="tns:OrganizerDTO" />
-  <xs:complexType name="VendorDTO">
+  <xs:complexType name="ArrayOfUser">
     <xs:sequence>
-      <xs:element minOccurs="0" name="UserID" type="xs:int" />
-      <xs:element minOccurs="0" name="VendorID" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="VendorDTO" nillable="true" type="tns:VendorDTO" />
+  <xs:element name="ArrayOfUser" nillable="true" type="tns:ArrayOfUser" />
   <xs:complexType name="ArrayOfVendorApplicationDTO">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="VendorApplicationDTO" nillable="true" type="tns:VendorApplicationDTO" />

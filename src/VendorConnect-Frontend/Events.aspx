@@ -54,7 +54,7 @@
                     </a>
                 </div>
                 <div class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="OrganizerProfile.aspx" class="nav-link">
                         <i class="bi bi-person-lines-fill"></i>
                         <span>profile</span>
                     </a>
@@ -121,6 +121,7 @@
                                     <div class="activity-time">
                                         <span class="badge <%# Eval("status").ToString() == "Active" ? "bg-success" :
                                                  Eval("status").ToString() == "Upcoming" ? "bg-warning":
+                                                 Eval("status").ToString() == "Cancelled" ? "bg-danger":
                                                 "bg-secondary" %>">
                                             <%# Eval("status") %>
                                         </span>
@@ -128,7 +129,7 @@
                                 </div>
 
                                 <!-- Badge -->
-                                <asp:Label ID="lblCompleted" runat="server" CssClass="badge bg-secondary ms-2" Text="" />
+                                <asp:Label ID="lblCompleted" runat="server" Text="" />
 
                                 <!-- Manage Button -->
                                 <asp:Button ID="btnManage" runat="server" CssClass="btn btn-outline-primary btn-sm ms-2"

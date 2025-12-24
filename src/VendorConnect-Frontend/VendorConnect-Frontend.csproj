@@ -87,9 +87,11 @@
     <Content Include="ManageEvent.aspx" />
     <Content Include="OrganizerApplications.aspx" />
     <Content Include="OrganizerDashboard.aspx" />
+    <Content Include="OrganizerProfile.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="VendorApplications.aspx" />
     <Content Include="VendorDashboard.aspx" />
+    <Content Include="VendorProfile.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -168,6 +170,13 @@
     <Compile Include="OrganizerDashboard.aspx.designer.cs">
       <DependentUpon>OrganizerDashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="OrganizerProfile.aspx.cs">
+      <DependentUpon>OrganizerProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrganizerProfile.aspx.designer.cs">
+      <DependentUpon>OrganizerProfile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
@@ -189,6 +198,13 @@
     </Compile>
     <Compile Include="VendorDashboard.aspx.designer.cs">
       <DependentUpon>VendorDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VendorProfile.aspx.cs">
+      <DependentUpon>VendorProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VendorProfile.aspx.designer.cs">
+      <DependentUpon>VendorProfile.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

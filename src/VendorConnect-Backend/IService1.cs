@@ -27,6 +27,12 @@ namespace VnedorConnect_Service
         User GetUser(int id);
 
         [OperationContract]
+        VendorDTO GetVendor(int id);
+
+        [OperationContract]
+        OrganizerDTO GetOrganizer(int id);
+
+        [OperationContract]
         List<User> GetUsers();
 
         [OperationContract]
@@ -91,6 +97,14 @@ namespace VnedorConnect_Service
 
         [OperationContract]
         int getTotalUpcomingEvents(int id);
+
+        [OperationContract]
+        bool updateVendorProfile(int id, string FirstName, string LastName, string password,string email, string BusinessName, string category, string ContactEmail, string phone);
+
+        [OperationContract]
+        bool updateOrganizerProfile(int id, string FirstName, string LastName, string password,string email, string OrganizationName, string ContactEmail, string phone);
+        
+        
     }
     [DataContract]
     public class UserDTO
@@ -129,7 +143,19 @@ namespace VnedorConnect_Service
 
         [DataMember]
         public int VendorID { get; set; }
-    
+
+        [DataMember]
+        public string BusinessName { get; set; }
+
+        [DataMember]
+        public string Category { get; set; }
+
+        [DataMember]
+        public string ContactEmail { get; set; }
+
+        [DataMember]
+        public string phone { get; set; }
+
     }
 
     [DataContract]
@@ -169,7 +195,72 @@ namespace VnedorConnect_Service
         [DataMember]
         public int MaxVendors { get; set; }
     }
+    [DataContract]
+    public class VendorProfileDTO
+    {
+        [DataMember]
+        public int UserID { get; set; }
 
+        [DataMember]
+        public int VendorID { get; set; }
+
+        [DataMember]
+        public string FirstName { get; set; }
+
+        [DataMember]
+        public string LastName { get; set; }
+
+        [DataMember]
+        public string Email { get; set; }
+
+        [DataMember]
+        public string BusinessName { get; set; }
+
+        [DataMember]
+        public string Category { get; set; }
+
+        [DataMember]
+        public string password { get; set; }
+
+        [DataMember]
+        public string ContactEmail { get; set; }
+
+        [DataMember]
+        public string phone { get; set; }
+    }
+
+    [DataContract]
+    public class OrganizerProfileDTO
+    {
+        [DataMember]
+        public int OrganizerID { get; set; }
+
+        [DataMember]
+        public int UserID { get; set; }
+
+        [DataMember]
+        public string FirstName { get; set; }
+
+        [DataMember]
+        public string LastName { get; set; }
+
+        [DataMember]
+        public string Email { get; set; }
+        [DataMember]
+        public string OrganizationName { get; set; }
+
+        [DataMember]
+        public string ContactEmail { get; set; }
+
+        [DataMember]
+        public string Phone { get; set; }
+
+        [DataMember]
+        public string password { get; set; }
+
+        [DataMember]
+        public string phone { get; set; }
+    }
 }
 
 

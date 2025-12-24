@@ -136,12 +136,40 @@ namespace VnedorConnect_Service
 
                 objUser.FirstName = user.FirstName;
                 objUser.LastName = user.LastName;
+                objUser.Password = user.Password;
+                objUser.Role = user.Role;
+                objUser.Username = user.Username;
                 return objUser;
             }
             else
             {
                 return null;
             }
+        }
+        public VendorDTO GetVendor(int id)
+        {
+            return db.Vendors
+               .Where(v => v.VendorId == id)
+               .Select(v => new VendorDTO
+               {
+                   BusinessName = v.BusinesName,
+                   ContactEmail = v.ContactEmail,
+                   Category = v.Category,
+                   phone = v.Phone
+               })
+               .FirstOrDefault();
+        }
+        public OrganizerDTO GetOrganizer(int id)
+        {
+            return db.Organizers
+                 .Where(o => o.OrganizerId == id)
+                 .Select(o => new OrganizerDTO
+                 {
+                     OrganizationName = o.OrganizationName,
+                     ContactEmail=o.ContactEmail,
+                     Phone=o.Phone
+                 })
+            .FirstOrDefault();
         }
 
         public List<User> GetUsers()
@@ -556,6 +584,61 @@ namespace VnedorConnect_Service
             return 0;
         }
 
+        public bool updateVendorProfile(int id, string FirstName, string LastName, string password, string email, string BusinessName, string category, string ContactEmail, string phone)
+        {
+            var user = (from u in db.Users where u.UserId.Equals(id) select u).FirstOrDefault();
+            var vendor = (from v in db.Vendors where v.UserId.Equals(id) select v).FirstOrDefault();
+
+            if(user !=null && vendor!=null )
+            {
+                user.FirstName = FirstName;
+                user.LastName = LastName;
+                if (!string.IsNullOrWhiteSpace(password))
+                {
+                    user.Password = Secrecy.HashPassword(password);
+                }
+                user.Username = email;
+
+                vendor.BusinesName = BusinessName;
+                vendor.Category = category;
+                vendor.ContactEmail = ContactEmail;
+                vendor.Phone = phone;
+
+                db.SubmitChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool updateOrganizerProfile(int id, string FirstName, string LastName, string password,string email, string OrganizationName, string ContactEmail, string phone)
+        {
+            var user = (from u in db.Users where u.UserId.Equals(id) select u).FirstOrDefault();
+            var organizer = (from o in db.Organizers where o.UserId.Equals(id) select o).FirstOrDefault();
+
+            if(user!= null && organizer!=null)
+            {
+                user.FirstName = FirstName;
+                user.LastName = LastName;
+                if (!string.IsNullOrWhiteSpace(password))
+                {
+                    user.Password = Secrecy.HashPassword(password);
+                }
+                user.Username = email;
+
+                organizer.OrganizationName = OrganizationName;
+                organizer.ContactEmail = ContactEmail;
+                organizer.Phone = phone;
+
+                db.SubmitChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
     }
 }

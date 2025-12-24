@@ -57,9 +57,16 @@ namespace VendorConnect_Frontend
                          .GroupBy(a => a.EventId)
                          .Select(g => g.First())
                          .ToList();
-
-            ApplicationsData.DataSource = events;
-            ApplicationsData.DataBind();
+            if(events!=null)
+            {
+                ApplicationsData.DataSource = events;
+                ApplicationsData.DataBind();
+            }
+            else
+            {
+                Display.Text = "No Applications yet";
+            }
+           
 
             client.Close();
         }

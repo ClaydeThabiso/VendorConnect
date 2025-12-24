@@ -11,7 +11,7 @@ namespace VendorConnect_Frontend
 {
 
 
-    public partial class ManageEvent
+    public partial class VendorProfile
     {
 
         /// <summary>
@@ -24,58 +24,85 @@ namespace VendorConnect_Frontend
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl initials;
 
         /// <summary>
-        /// OrgaNames control.
+        /// VendorNames control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl OrgaNames;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl VendorNames;
 
         /// <summary>
-        /// EventName control.
+        /// FirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText EventName;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText FirstName;
 
         /// <summary>
-        /// EventDate control.
+        /// LastName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl EventDate;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText LastName;
 
         /// <summary>
-        /// EventDescription control.
+        /// email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText EventDescription;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText email;
 
         /// <summary>
-        /// EventLocation control.
+        /// password control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText EventLocation;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword password;
 
         /// <summary>
-        /// NumVendors control.
+        /// CompanyName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText NumVendors;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText CompanyName;
+
+        /// <summary>
+        /// categorySelect control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText categorySelect;
+
+        /// <summary>
+        /// businessPhone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText businessPhone;
+
+        /// <summary>
+        /// businessEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl businessEmail;
 
         /// <summary>
         /// lblMsg control.
@@ -87,21 +114,12 @@ namespace VendorConnect_Frontend
         protected global::System.Web.UI.WebControls.Label lblMsg;
 
         /// <summary>
-        /// btnCreateEvent control.
+        /// btnSave control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCreateEvent;
-
-        /// <summary>
-        /// CancelEvent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CancelEvent;
+        protected global::System.Web.UI.WebControls.Button btnSave;
     }
 }

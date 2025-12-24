@@ -54,7 +54,7 @@
                     </a>
                 </div>
                 <div class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="OrganizerProfile.aspx" class="nav-link">
                         <i class="bi bi-person-lines-fill"></i>
                         <span>profile</span>
                     </a>
@@ -190,7 +190,16 @@
                                                 CssClass="btn btn-outline-primary btn-sm ms-1"
                                                 Text="Manage"
                                                 CommandName="Manage"
-                                                CommandArgument='<%# Eval("EventId") + "|" + Eval("MaxVendors") %>' />
+                                                CommandArgument='<%# Eval("EventId") + "|" + Eval("MaxVendors") %>' 
+                                                 Visible='<%# Eval("Status").ToString() != "Completed" && Eval("Status").ToString() != "Cancelled"%>'/>
+
+                                             <asp:PlaceHolder runat="server" Visible='<%# Eval("Status").ToString()  != "Upcoming" %>'>
+                                                        <span class="badge <%# Eval("Status").ToString() == "Active" ? "bg-success" :
+                                                                Eval("Status").ToString() == "Cancelled" ? "bg-danger" :
+                                                                "bg-secondary" %>">
+                                                            <%# Eval("Status") %>
+                                                        </span>
+                                                    </asp:PlaceHolder>
 
                                         </td>
                                     </tr>

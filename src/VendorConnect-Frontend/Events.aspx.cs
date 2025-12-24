@@ -40,7 +40,7 @@ namespace VendorConnect_Frontend
                     initials.InnerText = "DD";
                 }
 
-                var getTotalEvents = client.getTotalEventPerOrganizer(Convert.ToInt32(Session["OrganizerId"]));
+                
 
                 dynamic ListEvents = client.GetEventPerOrganizer(Convert.ToInt32(Session["OrganizerId"]));
                 if (ListEvents != null)
@@ -77,9 +77,19 @@ namespace VendorConnect_Frontend
                 Label lbl = (Label)e.Item.FindControl("lblCompleted");
                 Button btn = (Button)e.Item.FindControl("btnManage");
 
-                if (dataItem.status.ToString() == "Completed" || dataItem.status.ToString()== "Cancelled")
+                if (dataItem.status.ToString() == "Completed")
                 {
                     lbl.Text = dataItem.status;
+                    lbl.CssClass="badge bg-secondary ms-2";
+                    lbl.Visible = true;
+                    btn.Visible = false;
+
+
+                }
+                else if (dataItem.status.ToString() == "Cancelled")
+                {
+                    lbl.Text = dataItem.status;
+                    lbl.CssClass = "badge bg-danger ms-2";
                     lbl.Visible = true;
                     btn.Visible = false;
                 }

@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ManageEvent.aspx.cs" Inherits="VendorConnect_Frontend.ManageEvent" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="OrganizerProfile.aspx.cs" Inherits="VendorConnect_Frontend.OrganizerProfile" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
-            .login-container {
+        .login-container {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -10,7 +10,8 @@
             width: 100%;
             border-radius: 10px;
         }
-         .login-card {
+
+        .login-card {
             border-radius: 16px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             overflow: hidden;
@@ -18,46 +19,45 @@
             max-width: 400px;
             background-color: var(--light);
         }
-        
+
         .login-header {
             background: var(--primary);
             color: var(--light);
             padding: 2rem;
             text-align: center;
         }
-        
-        .login-header h2 {
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-        
-        .login-header p {
-            opacity: 0.9;
-            font-weight: 300;
-            margin-bottom: 0;
-        }
-        
+
+            .login-header h2 {
+                font-weight: 700;
+                margin-bottom: 0.5rem;
+            }
+
+            .login-header p {
+                opacity: 0.9;
+                font-weight: 300;
+                margin-bottom: 0;
+            }
+
         .card-body {
             padding: 2rem;
         }
-        
+
         .input-icon {
             position: relative;
         }
-        
-        .input-icon i {
-            position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--primary);
-            z-index: 2;
-            width: 16px;
 
-        }
-        
+            .input-icon i {
+                position: absolute;
+                left: 1rem;
+                top: 50%;
+                transform: translateY(-50%);
+                color: var(--primary);
+                z-index: 2;
+                width: 16px;
+            }
+
         .form-control {
-            padding: 0.75rem 1rem 0.75rem 3rem; 
+            padding: 0.75rem 1rem 0.75rem 3rem;
             border-radius: 10px;
             border: 1px solid #e1e5ee;
             transition: all 0.3s;
@@ -65,26 +65,27 @@
             background-color: var(--light);
         }
 
-        .form-control:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 0.2rem rgba(75, 73, 172, 0.25);
-        }
+            .form-control:focus {
+                border-color: var(--primary);
+                box-shadow: 0 0 0 0.2rem rgba(75, 73, 172, 0.25);
+            }
+
         .btn-primary {
             background: linear-gradient(135deg, var(--primary), var(--dark));
             border: none;
+            padding: 0.75rem;
             border-radius: 10px;
             font-weight: 500;
             transition: all 0.3s;
             color: var(--light);
         }
-      
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(75, 73, 172, 0.4);
-            background: linear-gradient(135deg, var(--dark), var(--primary));
-            color: var(--light);
-        }
+
+            .btn-primary:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(75, 73, 172, 0.4);
+                background: linear-gradient(135deg, var(--dark), var(--primary));
+                color: var(--light);
+            }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="DashboardStyling" runat="server">
@@ -102,7 +103,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="dashboard-container">
         <!-- Sidebar Navigation -->
-        <div class="sidebar">
+          <div class="sidebar">
             <div class="sidebar-header">
                 <h3><i class="fas fa-handshake me-2"></i>VendorConnect</h3>
                 <small class="text-light">Event Organizer Panel</small>
@@ -139,7 +140,7 @@
                     </a>
                 </div>
                 <div class="nav-item">
-                    <a href="OrganizerProfile.aspx" class="nav-link">
+                    <a href="#" class="nav-link">
                         <i class="bi bi-person-lines-fill"></i>
                         <span>profile</span>
                     </a>
@@ -160,9 +161,9 @@
                 <button class="toggle-sidebar">
                     <i class="fas fa-bars"></i>
                 </button>
-                <h1>Event Organizer Dashboard — VendorConnect</h1>
+                <h1>Organizer Dashboard — VendorConnect</h1>
                 <div class="header-actions">
-                    <div class="user-info">
+                     <div class="user-info">
                         <div class="user-avatar" runat="server" id="initials"></div>
                         <div>
                             <div class="fw-bold" runat="server" id="OrgaNames"></div>
@@ -174,37 +175,52 @@
 
             <!-- Content Area -->
             <div class="content-area">
-                <div id="login-page" class="login-container">
-                    <div class="login-card">
-                        <div class="card-body p-4">
-                            <div class="mb-3 input-icon">
-                                <i class="fas fa-user"></i>
-                                <input type="text" class="form-control ps-5" id="EventName" placeholder="Event Name" runat="server">
+                <!-- Dashboard Cards -->
+                <div class="recent-activity">
+                    <div id="login-page" class="login-container">
+                        <div class="login-card">
+                            <div class="card-body p-4">
+                                <h6 class="text-center">Personal Information</h6>
+                                <div class="mb-3 input-icon">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" class="form-control ps-5" id="FirstName" placeholder="First Name" runat="server" required>
+                                </div>
+                                <div class="mb-3 input-icon">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" class="form-control ps-5" id="LastName" placeholder="Last Name" runat="server" required>
+                                </div>
+                                <div class="mb-3 input-icon">
+                                    <i class="bi bi-envelope-fill"></i>
+                                    <input type="text" class="form-control ps-5" id="email" placeholder="Username or Email" runat="server" required>
+                                </div>
+                                <div class="mb-3 input-icon">
+                                    <i class="fas fa-lock"></i>
+                                    <input type="password" class="form-control ps-5" id="password" placeholder="Password" runat="server" required>
+                                </div>
+                                <div id="additionalFields">
+                                    <div class="additional-fields fade-in">
+                                        <h6 class="text-center"><i class="fas fa-calendar-alt role-icon pe-2"></i>Organizer Information</h6>
+                                        <div class="mb-3 input-icon">
+                                            <i class="fas fa-building"></i>
+                                            <input type="text" class="form-control ps-5" placeholder="Organization Name" id="OrgaName" runat="server">
+                                        </div>
+                                        <div class="mb-3 input-icon">
+                                            <i class="bi bi-telephone-fill"></i>
+                                            <input type="text" class="form-control ps-5" placeholder="Oragnization Number" id="OrgaPhone" runat="server">
+                                        </div>
+                                        <div class="mb-3 input-icon">
+                                            <i class="bi bi-envelope-fill"></i>
+                                            <input type="email" class="form-control ps-5" placeholder="Oragnization Email" id="OrgaEmail" runat="server">
+                                        </div>
+                                    </div>
+                                </div>
+                                <asp:Label runat="server" ID="lblMsg" Text=" " class="m-1"></asp:Label>
+                                <asp:Button class="btn btn-primary w-100 mt-4" runat="server" Text="Save changes" ID="btnSave" OnClick="btnSave_Click"></asp:Button>
                             </div>
-                            <div class="mb-3 input-icon">
-                                <i class="bi bi-calendar"></i>
-                                <input type="date" class="form-control ps-5" id="EventDate" placeholder="Event date" runat="server">
-                            </div>
-                             <div class="mb-3 input-icon">
-                                <i class="bi bi-pencil-square"></i>
-                                <input type="text" class="form-control ps-5" id="EventDescription" placeholder="Event Description" runat="server">
-                            </div>
-                            <div class="mb-3 input-icon">
-                                <i class="bi bi-geo-alt"></i>
-                                <input type="text" class="form-control ps-5" id="EventLocation" placeholder="Event Location" runat="server">
-                            </div>
-                            <div class="mb-3 input-icon">
-                                <i class="fas fa-users"></i>
-                                <input type="text" class="form-control ps-5" id="NumVendors"
-                                    placeholder="Number of vendors" runat="server">
-                            </div>
-                             <asp:Label runat="server" ID="lblMsg" Text=" " class="m-1"></asp:Label>
-                            <asp:Button id="btnCreateEvent" class="btn btn-primary w-100 mt-4" runat="server" Text=" Save changes" OnClick="btnCreateEvent_Click" />
-                             <asp:Button id="CancelEvent" class="btn btn-outline-danger w-100 mt-2 ms-2" runat="server" Text="Cancel Event" OnClick="CancelEvent_Click"/> 
                         </div>
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
     </div>

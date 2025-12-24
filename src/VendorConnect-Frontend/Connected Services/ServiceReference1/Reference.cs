@@ -1271,6 +1271,131 @@ namespace VendorConnect_Frontend.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="VendorDTO", Namespace="http://schemas.datacontract.org/2004/07/VnedorConnect_Service")]
+    [System.SerializableAttribute()]
+    public partial class VendorDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BusinessNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CategoryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ContactEmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int UserIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int VendorIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string phoneField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BusinessName {
+            get {
+                return this.BusinessNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BusinessNameField, value) != true)) {
+                    this.BusinessNameField = value;
+                    this.RaisePropertyChanged("BusinessName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Category {
+            get {
+                return this.CategoryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CategoryField, value) != true)) {
+                    this.CategoryField = value;
+                    this.RaisePropertyChanged("Category");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ContactEmail {
+            get {
+                return this.ContactEmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ContactEmailField, value) != true)) {
+                    this.ContactEmailField = value;
+                    this.RaisePropertyChanged("ContactEmail");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UserID {
+            get {
+                return this.UserIDField;
+            }
+            set {
+                if ((this.UserIDField.Equals(value) != true)) {
+                    this.UserIDField = value;
+                    this.RaisePropertyChanged("UserID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int VendorID {
+            get {
+                return this.VendorIDField;
+            }
+            set {
+                if ((this.VendorIDField.Equals(value) != true)) {
+                    this.VendorIDField = value;
+                    this.RaisePropertyChanged("VendorID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string phone {
+            get {
+                return this.phoneField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.phoneField, value) != true)) {
+                    this.phoneField = value;
+                    this.RaisePropertyChanged("phone");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="OrganizerDTO", Namespace="http://schemas.datacontract.org/2004/07/VnedorConnect_Service")]
     [System.SerializableAttribute()]
     public partial class OrganizerDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -1364,67 +1489,6 @@ namespace VendorConnect_Frontend.ServiceReference1 {
                 if ((this.UserIdField.Equals(value) != true)) {
                     this.UserIdField = value;
                     this.RaisePropertyChanged("UserId");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="VendorDTO", Namespace="http://schemas.datacontract.org/2004/07/VnedorConnect_Service")]
-    [System.SerializableAttribute()]
-    public partial class VendorDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int UserIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int VendorIDField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int UserID {
-            get {
-                return this.UserIDField;
-            }
-            set {
-                if ((this.UserIDField.Equals(value) != true)) {
-                    this.UserIDField = value;
-                    this.RaisePropertyChanged("UserID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int VendorID {
-            get {
-                return this.VendorIDField;
-            }
-            set {
-                if ((this.VendorIDField.Equals(value) != true)) {
-                    this.VendorIDField = value;
-                    this.RaisePropertyChanged("VendorID");
                 }
             }
         }
@@ -1710,6 +1774,18 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUser", ReplyAction="http://tempuri.org/IService1/GetUserResponse")]
         System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.User> GetUserAsync(int id);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetVendor", ReplyAction="http://tempuri.org/IService1/GetVendorResponse")]
+        VendorConnect_Frontend.ServiceReference1.VendorDTO GetVendor(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetVendor", ReplyAction="http://tempuri.org/IService1/GetVendorResponse")]
+        System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.VendorDTO> GetVendorAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetOrganizer", ReplyAction="http://tempuri.org/IService1/GetOrganizerResponse")]
+        VendorConnect_Frontend.ServiceReference1.OrganizerDTO GetOrganizer(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetOrganizer", ReplyAction="http://tempuri.org/IService1/GetOrganizerResponse")]
+        System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.OrganizerDTO> GetOrganizerAsync(int id);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUsers", ReplyAction="http://tempuri.org/IService1/GetUsersResponse")]
         System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.User> GetUsers();
         
@@ -1841,6 +1917,18 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getTotalUpcomingEvents", ReplyAction="http://tempuri.org/IService1/getTotalUpcomingEventsResponse")]
         System.Threading.Tasks.Task<int> getTotalUpcomingEventsAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/updateVendorProfile", ReplyAction="http://tempuri.org/IService1/updateVendorProfileResponse")]
+        bool updateVendorProfile(int id, string FirstName, string LastName, string password, string email, string BusinessName, string category, string ContactEmail, string phone);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/updateVendorProfile", ReplyAction="http://tempuri.org/IService1/updateVendorProfileResponse")]
+        System.Threading.Tasks.Task<bool> updateVendorProfileAsync(int id, string FirstName, string LastName, string password, string email, string BusinessName, string category, string ContactEmail, string phone);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/updateOrganizerProfile", ReplyAction="http://tempuri.org/IService1/updateOrganizerProfileResponse")]
+        bool updateOrganizerProfile(int id, string FirstName, string LastName, string password, string email, string OrganizationName, string ContactEmail, string phone);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/updateOrganizerProfile", ReplyAction="http://tempuri.org/IService1/updateOrganizerProfileResponse")]
+        System.Threading.Tasks.Task<bool> updateOrganizerProfileAsync(int id, string FirstName, string LastName, string password, string email, string OrganizationName, string ContactEmail, string phone);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1908,6 +1996,22 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.User> GetUserAsync(int id) {
             return base.Channel.GetUserAsync(id);
+        }
+        
+        public VendorConnect_Frontend.ServiceReference1.VendorDTO GetVendor(int id) {
+            return base.Channel.GetVendor(id);
+        }
+        
+        public System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.VendorDTO> GetVendorAsync(int id) {
+            return base.Channel.GetVendorAsync(id);
+        }
+        
+        public VendorConnect_Frontend.ServiceReference1.OrganizerDTO GetOrganizer(int id) {
+            return base.Channel.GetOrganizer(id);
+        }
+        
+        public System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.OrganizerDTO> GetOrganizerAsync(int id) {
+            return base.Channel.GetOrganizerAsync(id);
         }
         
         public System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.User> GetUsers() {
@@ -2084,6 +2188,22 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<int> getTotalUpcomingEventsAsync(int id) {
             return base.Channel.getTotalUpcomingEventsAsync(id);
+        }
+        
+        public bool updateVendorProfile(int id, string FirstName, string LastName, string password, string email, string BusinessName, string category, string ContactEmail, string phone) {
+            return base.Channel.updateVendorProfile(id, FirstName, LastName, password, email, BusinessName, category, ContactEmail, phone);
+        }
+        
+        public System.Threading.Tasks.Task<bool> updateVendorProfileAsync(int id, string FirstName, string LastName, string password, string email, string BusinessName, string category, string ContactEmail, string phone) {
+            return base.Channel.updateVendorProfileAsync(id, FirstName, LastName, password, email, BusinessName, category, ContactEmail, phone);
+        }
+        
+        public bool updateOrganizerProfile(int id, string FirstName, string LastName, string password, string email, string OrganizationName, string ContactEmail, string phone) {
+            return base.Channel.updateOrganizerProfile(id, FirstName, LastName, password, email, OrganizationName, ContactEmail, phone);
+        }
+        
+        public System.Threading.Tasks.Task<bool> updateOrganizerProfileAsync(int id, string FirstName, string LastName, string password, string email, string OrganizationName, string ContactEmail, string phone) {
+            return base.Channel.updateOrganizerProfileAsync(id, FirstName, LastName, password, email, OrganizationName, ContactEmail, phone);
         }
     }
 }

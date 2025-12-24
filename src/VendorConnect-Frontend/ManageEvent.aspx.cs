@@ -76,5 +76,33 @@ namespace VendorConnect_Frontend
 
             client.Close();
         }
+
+        protected void CancelEvent_Click(object sender, EventArgs e)
+        {
+            int eventId = Convert.ToInt32(Request.QueryString["EventId"]);
+            Service1Client client = new Service1Client();
+
+            var cancel = client.CancelEvent(eventId);
+            if(cancel==1)
+            {
+                ScriptManager.RegisterStartupScript(
+                      this, this.GetType(),
+                      "successAlert",
+                      "alert('Successfully cancelled the event');",
+                      true
+                  );
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(
+                      this, this.GetType(),
+                      "successAlert",
+                      "alert('Unsuccessfully ,couldnt cancel the event');",
+                      true
+                  );
+
+            }
+            client.Close();
+        }
     }
 }
