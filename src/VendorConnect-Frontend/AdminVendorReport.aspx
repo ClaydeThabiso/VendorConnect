@@ -122,8 +122,7 @@
                                         <td><%# Eval("BusinessName") %></td>
                                         <td><%# Eval("Category") %></td>
                                         <td>
-                                            <%# Convert.ToDateTime(Eval("CreatedAt"))
-                    .ToString("d MMM yyyy").ToUpper() %>
+                                            <%# Convert.ToDateTime(Eval("CreatedAt")).ToString("d MMM yyyy").ToUpper() %>
                                         </td>
                                         <td>
                                             <asp:Literal ID="litApproved" runat="server" />
