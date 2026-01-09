@@ -28,7 +28,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--primary), #02585c);
+   
     padding: 20px;
     width: 100%;
 }

@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="VendorConnect_Frontend.Login" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>VendorConnect - Login</title>
+     <link rel="stylesheet" href="css/style.css">
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <!-- Google Fonts -->
@@ -10,9 +11,7 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-         <link rel="stylesheet" href="css/style.css">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="DashboardStyling" runat="server">
+        
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="login-page" class="login-container">
