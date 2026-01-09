@@ -192,4 +192,19 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="VendorApplicationDTO" nillable="true" type="tns:VendorApplicationDTO" />
+  <xs:complexType name="ArrayOfAdminVendorReportDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AdminVendorReportDTO" nillable="true" type="tns:AdminVendorReportDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAdminVendorReportDTO" nillable="true" type="tns:ArrayOfAdminVendorReportDTO" />
+  <xs:complexType name="AdminVendorReportDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BusinessName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreatedAt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="VendorID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AdminVendorReportDTO" nillable="true" type="tns:AdminVendorReportDTO" />
 </xs:schema>

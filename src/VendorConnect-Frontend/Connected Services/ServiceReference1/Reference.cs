@@ -1740,6 +1740,99 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdminVendorReportDTO", Namespace="http://schemas.datacontract.org/2004/07/VnedorConnect_Service")]
+    [System.SerializableAttribute()]
+    public partial class AdminVendorReportDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BusinessNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CategoryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime CreatedAtField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int VendorIDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BusinessName {
+            get {
+                return this.BusinessNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BusinessNameField, value) != true)) {
+                    this.BusinessNameField = value;
+                    this.RaisePropertyChanged("BusinessName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Category {
+            get {
+                return this.CategoryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CategoryField, value) != true)) {
+                    this.CategoryField = value;
+                    this.RaisePropertyChanged("Category");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime CreatedAt {
+            get {
+                return this.CreatedAtField;
+            }
+            set {
+                if ((this.CreatedAtField.Equals(value) != true)) {
+                    this.CreatedAtField = value;
+                    this.RaisePropertyChanged("CreatedAt");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int VendorID {
+            get {
+                return this.VendorIDField;
+            }
+            set {
+                if ((this.VendorIDField.Equals(value) != true)) {
+                    this.VendorIDField = value;
+                    this.RaisePropertyChanged("VendorID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1 {
@@ -1935,6 +2028,24 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getUpcomingEvents", ReplyAction="http://tempuri.org/IService1/getUpcomingEventsResponse")]
         System.Threading.Tasks.Task<int> getUpcomingEventsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/VendorReport", ReplyAction="http://tempuri.org/IService1/VendorReportResponse")]
+        System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.AdminVendorReportDTO> VendorReport();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/VendorReport", ReplyAction="http://tempuri.org/IService1/VendorReportResponse")]
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.AdminVendorReportDTO>> VendorReportAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTotalDeclinedApplicationPerVendor", ReplyAction="http://tempuri.org/IService1/GetTotalDeclinedApplicationPerVendorResponse")]
+        int GetTotalDeclinedApplicationPerVendor(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTotalDeclinedApplicationPerVendor", ReplyAction="http://tempuri.org/IService1/GetTotalDeclinedApplicationPerVendorResponse")]
+        System.Threading.Tasks.Task<int> GetTotalDeclinedApplicationPerVendorAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTotalApprovedApplicationPerVendor", ReplyAction="http://tempuri.org/IService1/GetTotalApprovedApplicationPerVendorResponse")]
+        int GetTotalApprovedApplicationPerVendor(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTotalApprovedApplicationPerVendor", ReplyAction="http://tempuri.org/IService1/GetTotalApprovedApplicationPerVendorResponse")]
+        System.Threading.Tasks.Task<int> GetTotalApprovedApplicationPerVendorAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2218,6 +2329,30 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<int> getUpcomingEventsAsync() {
             return base.Channel.getUpcomingEventsAsync();
+        }
+        
+        public System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.AdminVendorReportDTO> VendorReport() {
+            return base.Channel.VendorReport();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.AdminVendorReportDTO>> VendorReportAsync() {
+            return base.Channel.VendorReportAsync();
+        }
+        
+        public int GetTotalDeclinedApplicationPerVendor(int id) {
+            return base.Channel.GetTotalDeclinedApplicationPerVendor(id);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetTotalDeclinedApplicationPerVendorAsync(int id) {
+            return base.Channel.GetTotalDeclinedApplicationPerVendorAsync(id);
+        }
+        
+        public int GetTotalApprovedApplicationPerVendor(int id) {
+            return base.Channel.GetTotalApprovedApplicationPerVendor(id);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetTotalApprovedApplicationPerVendorAsync(int id) {
+            return base.Channel.GetTotalApprovedApplicationPerVendorAsync(id);
         }
     }
 }

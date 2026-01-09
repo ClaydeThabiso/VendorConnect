@@ -106,6 +106,15 @@ namespace VnedorConnect_Service
 
         [OperationContract]
         int getUpcomingEvents();
+
+        [OperationContract]
+        List<AdminVendorReportDTO> VendorReport();
+
+        [OperationContract]
+        int GetTotalDeclinedApplicationPerVendor(int id);
+
+        [OperationContract]
+        int GetTotalApprovedApplicationPerVendor(int id);
         
     }
     [DataContract]
@@ -263,6 +272,23 @@ namespace VnedorConnect_Service
         [DataMember]
         public string phone { get; set; }
     }
+
+    [DataContract]
+    public class AdminVendorReportDTO
+    {
+        [DataMember]
+        public int VendorID { get; set; }
+
+        [DataMember]
+        public string BusinessName { get; set; }
+
+        [DataMember]
+        public string Category { get; set; }
+
+        [DataMember]
+        public DateTime CreatedAt { get; set; }
+    }
+
 }
 
 

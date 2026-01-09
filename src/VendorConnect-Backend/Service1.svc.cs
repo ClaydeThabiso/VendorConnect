@@ -13,7 +13,7 @@ namespace VnedorConnect_Service
     public class Service1 : IService1
     {
         DataClasses1DataContext db = new DataClasses1DataContext();
-        public int RegisterUser(string name, string lastName ,string username, string password, char role)
+        public int RegisterUser(string name, string lastName, string username, string password, char role)
         {
             var HashedPassword = Secrecy.HashPassword(password);
             var user = (from u in db.Users
@@ -66,11 +66,11 @@ namespace VnedorConnect_Service
                 UserType = tempUser.Role
             };
         }
-        public int registerOrganizer(string name, string email, string phone,int UserID)
+        public int registerOrganizer(string name, string email, string phone, int UserID)
         {
-            var organizer = (from o in db.Organizers where  o.UserId.Equals(UserID) select o).FirstOrDefault();
+            var organizer = (from o in db.Organizers where o.UserId.Equals(UserID) select o).FirstOrDefault();
 
-            if(organizer==null)
+            if (organizer == null)
             {
                 Organizer newOrganizer = new Organizer();
                 newOrganizer.OrganizationName = name;
@@ -83,7 +83,7 @@ namespace VnedorConnect_Service
                 {
                     db.SubmitChanges();
                     return 1;
-                }catch(Exception e)
+                } catch (Exception e)
                 {
                     System.Diagnostics.Debug.WriteLine("REGISTER ERROR: " + e.GetBaseException().Message);
                     throw;
@@ -95,13 +95,13 @@ namespace VnedorConnect_Service
             }
         }
 
-        public int registerVendor(string name, string email, string category, string phone,int UserID)
+        public int registerVendor(string name, string email, string category, string phone, int UserID)
         {
             var vendor = (from v in db.Vendors
-                          where  v.UserId.Equals(UserID)
+                          where v.UserId.Equals(UserID)
                           select v).FirstOrDefault();
 
-            if(vendor==null)
+            if (vendor == null)
             {
                 Vendor newVendor = new Vendor();
                 newVendor.BusinesName = name;
@@ -115,7 +115,7 @@ namespace VnedorConnect_Service
                 {
                     db.SubmitChanges();
                     return 1;
-                }catch(Exception e)
+                } catch (Exception e)
                 {
                     System.Diagnostics.Debug.WriteLine("REGISTER ERROR: " + e.GetBaseException().Message);
                     throw;
@@ -130,7 +130,7 @@ namespace VnedorConnect_Service
         {
             var user = (from u in db.Users where u.UserId.Equals(id) select u).FirstOrDefault();
 
-            if(user != null)
+            if (user != null)
             {
                 User objUser = new User();
 
@@ -166,8 +166,8 @@ namespace VnedorConnect_Service
                  .Select(o => new OrganizerDTO
                  {
                      OrganizationName = o.OrganizationName,
-                     ContactEmail=o.ContactEmail,
-                     Phone=o.Phone
+                     ContactEmail = o.ContactEmail,
+                     Phone = o.Phone
                  })
             .FirstOrDefault();
         }
@@ -177,9 +177,9 @@ namespace VnedorConnect_Service
             List<User> users = new List<User>();
             dynamic user = (from u in db.Users select u);
 
-            if(user!=null)
+            if (user != null)
             {
-                foreach( User us in user)
+                foreach (User us in user)
                 {
                     User objUser = new User();
                     objUser.FirstName = us.FirstName;
@@ -217,8 +217,8 @@ namespace VnedorConnect_Service
         {
             var Event = (from e in db.Events where e.EventName.Equals(name) && e.EventDate.Equals(eventDate)
                          && e.Location.Equals(location) select e).FirstOrDefault();
-            
-            if(Event==null)
+
+            if (Event == null)
             {
                 Event newEvent = new Event();
                 newEvent.EventName = name;
@@ -235,7 +235,7 @@ namespace VnedorConnect_Service
                     db.SubmitChanges();
                     return 1;
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     System.Diagnostics.Debug.WriteLine("REGISTER ERROR: " + ex.GetBaseException().Message);
                     throw;
@@ -253,9 +253,9 @@ namespace VnedorConnect_Service
             List<Event> events = new List<Event>();
             dynamic tempEvent = (from e in db.Events where e.status.Equals("Upcoming") select e);
 
-            if(tempEvent!=null)
+            if (tempEvent != null)
             {
-                foreach(Event eve in tempEvent)
+                foreach (Event eve in tempEvent)
                 {
                     Event objEvent = new Event();
                     objEvent.EventId = eve.EventId;
@@ -278,13 +278,13 @@ namespace VnedorConnect_Service
             var tempEvent = (from e in db.Events where e.EventId.Equals(id) select e).FirstOrDefault();
             if (tempEvent != null)
             {
-                    Event objEvent = new Event();
-                    objEvent.EventName = tempEvent.EventName;
-                    objEvent.EventDate = tempEvent.EventDate;
-                    objEvent.Location = tempEvent.Location;
-                    objEvent.Description = tempEvent.Description;
-                    objEvent.MaxVendors = tempEvent.MaxVendors;
-                    objEvent.status = tempEvent.status;        
+                Event objEvent = new Event();
+                objEvent.EventName = tempEvent.EventName;
+                objEvent.EventDate = tempEvent.EventDate;
+                objEvent.Location = tempEvent.Location;
+                objEvent.Description = tempEvent.Description;
+                objEvent.MaxVendors = tempEvent.MaxVendors;
+                objEvent.status = tempEvent.status;
                 return objEvent;
             }
             else
@@ -355,7 +355,7 @@ namespace VnedorConnect_Service
         public int getTotalUpcomingEvents(int id)
         {
             var tot = (from e in db.Events where e.OrganizerId.Equals(id) && e.status.Equals("Upcoming") select e).Count();
-                return tot;
+            return tot;
         }
         public int getTotalVendorApplicationPerVendo(int id)
         {
@@ -371,7 +371,7 @@ namespace VnedorConnect_Service
         {
             var vendor = (from v in db.Vendors where v.UserId.Equals(userID) select v).FirstOrDefault();
 
-            if(vendor==null)
+            if (vendor == null)
             {
                 return null;
             }
@@ -390,7 +390,7 @@ namespace VnedorConnect_Service
                          where v.VendorId.Equals(vendorID) && v.EventId.Equals(eventID)
                          select v).FirstOrDefault();
 
-            if(apply==null)
+            if (apply == null)
             {
                 VendorApplication newApplication = new VendorApplication();
                 newApplication.VendorId = vendorID;
@@ -402,7 +402,7 @@ namespace VnedorConnect_Service
                 {
                     db.SubmitChanges();
                     return 1;
-                }catch(Exception ex)
+                } catch (Exception ex)
                 {
                     System.Diagnostics.Debug.WriteLine("REGISTER ERROR: " + ex.GetBaseException().Message);
                     throw;
@@ -428,11 +428,23 @@ namespace VnedorConnect_Service
                                     Location = ev.Location,
                                     VendorId = v.VendorId,
                                     Status = va.Status,
-                                    
+
                                     AppliedAt = (DateTime)va.AppliedAt
                                 }).ToList();
 
             return applications;
+        }
+        public List<AdminVendorReportDTO> VendorReport()
+        {
+            var ven = (from v in db.Vendors
+                       select new AdminVendorReportDTO
+                       {
+                           VendorID = v.VendorId,
+                           BusinessName = v.BusinesName,
+                           Category = v.Category,
+                           CreatedAt = (DateTime)v.CreatedAt
+                       }).ToList();
+            return ven;
         }
         public List<VendorApplicationDTO> GetApplicationsPerOrganizer(int OrgaID)
         {
@@ -458,6 +470,17 @@ namespace VnedorConnect_Service
                                }).ToList();
             return application;
         }
+        public int GetTotalDeclinedApplicationPerVendor(int id)
+        {
+            var ven = (from v in db.VendorApplications where v.VendorId.Equals(id) && v.Status.Equals("Declined") select v).Count();
+            return ven;
+        }
+        public int GetTotalApprovedApplicationPerVendor(int id)
+        {
+            var ven = (from v in db.VendorApplications where v.VendorId.Equals(id) && v.Status.Equals("Approved") select v).Count();
+            return ven;
+        }
+
         public int deleteApplication(int EventId)
         {
             var application = (from va in db.VendorApplications where va.ApplicationId.Equals(EventId) select va).FirstOrDefault();

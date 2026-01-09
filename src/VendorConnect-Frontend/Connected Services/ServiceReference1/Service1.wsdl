@@ -199,6 +199,24 @@
   <wsdl:message name="IService1_getUpcomingEvents_OutputMessage">
     <wsdl:part name="parameters" element="tns:getUpcomingEventsResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_VendorReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:VendorReport" />
+  </wsdl:message>
+  <wsdl:message name="IService1_VendorReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VendorReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetTotalDeclinedApplicationPerVendor_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTotalDeclinedApplicationPerVendor" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetTotalDeclinedApplicationPerVendor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTotalDeclinedApplicationPerVendorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetTotalApprovedApplicationPerVendor_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTotalApprovedApplicationPerVendor" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetTotalApprovedApplicationPerVendor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTotalApprovedApplicationPerVendorResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="RegisterUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/RegisterUser" message="tns:IService1_RegisterUser_InputMessage" />
@@ -327,6 +345,18 @@
     <wsdl:operation name="getUpcomingEvents">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/getUpcomingEvents" message="tns:IService1_getUpcomingEvents_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/getUpcomingEventsResponse" message="tns:IService1_getUpcomingEvents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VendorReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/VendorReport" message="tns:IService1_VendorReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/VendorReportResponse" message="tns:IService1_VendorReport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTotalDeclinedApplicationPerVendor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetTotalDeclinedApplicationPerVendor" message="tns:IService1_GetTotalDeclinedApplicationPerVendor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetTotalDeclinedApplicationPerVendorResponse" message="tns:IService1_GetTotalDeclinedApplicationPerVendor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTotalApprovedApplicationPerVendor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetTotalApprovedApplicationPerVendor" message="tns:IService1_GetTotalApprovedApplicationPerVendor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetTotalApprovedApplicationPerVendorResponse" message="tns:IService1_GetTotalApprovedApplicationPerVendor_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -612,6 +642,33 @@
     </wsdl:operation>
     <wsdl:operation name="getUpcomingEvents">
       <soap:operation soapAction="http://tempuri.org/IService1/getUpcomingEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VendorReport">
+      <soap:operation soapAction="http://tempuri.org/IService1/VendorReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTotalDeclinedApplicationPerVendor">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetTotalDeclinedApplicationPerVendor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTotalApprovedApplicationPerVendor">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetTotalApprovedApplicationPerVendor" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
