@@ -29,7 +29,7 @@
             </div>
             <div class="sidebar-menu">
                 <div class="nav-item">
-                    <a href="#" class="nav-link active">
+                    <a href="AdminDashoard.aspx" class="nav-link active">
                         <i class="fas fa-tachometer-alt"></i>
                         <span>Dashboard</span>
                     </a>
@@ -109,31 +109,32 @@
                                 <th scope="col" class="auto-style1">Business Name</th>
                                 <th scope="col" class="auto-style1">Category</th>
                                 <th scope="col" class="auto-style1">Register at</th>
-                                <th scope="col" class="auto-style1">Total Approved Appl</th>
-                                <th scope="col" class="auto-style1">Total Declined Appl</th>
+                                <th scope="col" class="auto-style1">Total Approved Applications</th>
+                                <th scope="col" class="auto-style1">Total Declined Applications</th>
                                 <th scope="col" class="auto-style1">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <asp:Repeater ID="RepeaterReport" runat="server" >
+                            <asp:Repeater ID="RepeaterReport" runat="server"
+                                OnItemDataBound="RepeaterReport_ItemDataBound">
                                 <itemtemplate>
                                     <tr>
                                         <td><%# Eval("BusinessName") %></td>
-
                                         <td><%# Eval("Category") %></td>
                                         <td>
-                                            <%# Convert.ToDateTime(Eval("CreatedAt")).ToString("d MMM yyyy").ToUpper() %>
+                                            <%# Convert.ToDateTime(Eval("CreatedAt"))
+                    .ToString("d MMM yyyy").ToUpper() %>
                                         </td>
-                                        <td runat="server" id="TotApproved">
-                                           
-                                        </td>
-                                        <td runat="server" id="TotDeclined"></td>
                                         <td>
-                                            
+                                            <asp:Literal ID="litApproved" runat="server" />
+                                        </td>
+                                        <td>
+                                            <asp:Literal ID="litDeclined" runat="server" />
                                         </td>
                                     </tr>
                                 </itemtemplate>
                             </asp:Repeater>
+
                         </tbody>
 
                     </table>
