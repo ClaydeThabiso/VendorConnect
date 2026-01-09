@@ -17,9 +17,11 @@ namespace VendorConnect_Frontend
                 Service1Client client = new Service1Client();
                 var GetTotalVendors = client.totalVendors();
                 var GetTotalOrga = client.totalOrganizers();
+                var getUpcoming = client.getUpcomingEvents();
 
                 DisplayVendors.InnerText = Convert.ToString(GetTotalVendors);
                 DisplayOrga.InnerText = Convert.ToString(GetTotalOrga);
+                displayUpcomingEvents.InnerText = Convert.ToString(getUpcoming);
                 client.Close();
                 
                

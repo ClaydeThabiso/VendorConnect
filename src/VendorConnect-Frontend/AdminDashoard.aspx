@@ -111,26 +111,26 @@
                     
                     <div class="card">
                         <div class="card-body">
-                            <div class="card-icon events">
-                                <i class="fas fa-calendar-alt"></i>
-                            </div>
-                            <div class="card-title">Active Events</div>
-                            <div class="card-value">28</div>
-                            <div class="card-change positive">
-                                <i class="fas fa-arrow-up me-1"></i> 5% increase
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-body">
                             <div class="card-icon organizers">
                                 <i class="fas fa-users"></i>
                             </div>
-                            <div class="card-title">Organizers</div>
+                            <div class="card-title">Total Organizers</div>
                             <div class="card-value" runat="server" id="DisplayOrga"></div>
                             <div class="card-change positive">
                                 <i class="fas fa-arrow-up me-1"></i> 8% increase
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="card">
+                        <div class="card-body">
+                            <div class="card-icon events">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="card-title">Upcoming Events</div>
+                            <div class="card-value" runat="server" id="displayUpcomingEvents"></div>
+                            <div class="card-change positive">
+                                <i class="fas fa-arrow-up me-1"></i> 5% increase
                             </div>
                         </div>
                     </div>

@@ -1929,6 +1929,12 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/updateOrganizerProfile", ReplyAction="http://tempuri.org/IService1/updateOrganizerProfileResponse")]
         System.Threading.Tasks.Task<bool> updateOrganizerProfileAsync(int id, string FirstName, string LastName, string password, string email, string OrganizationName, string ContactEmail, string phone);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getUpcomingEvents", ReplyAction="http://tempuri.org/IService1/getUpcomingEventsResponse")]
+        int getUpcomingEvents();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getUpcomingEvents", ReplyAction="http://tempuri.org/IService1/getUpcomingEventsResponse")]
+        System.Threading.Tasks.Task<int> getUpcomingEventsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2204,6 +2210,14 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<bool> updateOrganizerProfileAsync(int id, string FirstName, string LastName, string password, string email, string OrganizationName, string ContactEmail, string phone) {
             return base.Channel.updateOrganizerProfileAsync(id, FirstName, LastName, password, email, OrganizationName, ContactEmail, phone);
+        }
+        
+        public int getUpcomingEvents() {
+            return base.Channel.getUpcomingEvents();
+        }
+        
+        public System.Threading.Tasks.Task<int> getUpcomingEventsAsync() {
+            return base.Channel.getUpcomingEventsAsync();
         }
     }
 }

@@ -103,7 +103,9 @@ namespace VnedorConnect_Service
 
         [OperationContract]
         bool updateOrganizerProfile(int id, string FirstName, string LastName, string password,string email, string OrganizationName, string ContactEmail, string phone);
-        
+
+        [OperationContract]
+        int getUpcomingEvents();
         
     }
     [DataContract]

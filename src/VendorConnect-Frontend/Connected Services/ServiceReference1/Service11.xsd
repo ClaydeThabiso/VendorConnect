@@ -466,4 +466,16 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="getUpcomingEvents">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getUpcomingEventsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getUpcomingEventsResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

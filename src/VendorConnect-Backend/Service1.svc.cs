@@ -196,6 +196,11 @@ namespace VnedorConnect_Service
                 return null;
             }
         }
+        public int getUpcomingEvents()
+        {
+            var totUpcoming = (from e in db.Events where e.status.Equals("Upcoming") select e).Count();
+            return totUpcoming;
+        }
 
         public int totalVendors()
         {

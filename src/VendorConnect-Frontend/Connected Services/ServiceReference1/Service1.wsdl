@@ -193,6 +193,12 @@
   <wsdl:message name="IService1_updateOrganizerProfile_OutputMessage">
     <wsdl:part name="parameters" element="tns:updateOrganizerProfileResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_getUpcomingEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUpcomingEvents" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getUpcomingEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUpcomingEventsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="RegisterUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/RegisterUser" message="tns:IService1_RegisterUser_InputMessage" />
@@ -317,6 +323,10 @@
     <wsdl:operation name="updateOrganizerProfile">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/updateOrganizerProfile" message="tns:IService1_updateOrganizerProfile_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/updateOrganizerProfileResponse" message="tns:IService1_updateOrganizerProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getUpcomingEvents">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getUpcomingEvents" message="tns:IService1_getUpcomingEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getUpcomingEventsResponse" message="tns:IService1_getUpcomingEvents_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -593,6 +603,15 @@
     </wsdl:operation>
     <wsdl:operation name="updateOrganizerProfile">
       <soap:operation soapAction="http://tempuri.org/IService1/updateOrganizerProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUpcomingEvents">
+      <soap:operation soapAction="http://tempuri.org/IService1/getUpcomingEvents" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
