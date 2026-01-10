@@ -141,7 +141,7 @@
                                                 CommandName="Deactivate"
                                                 CommandArgument='<%# Eval("UserID") %>'
                                                   Visible='<%# Eval("IsActive").ToString() == "True" %>' />
-                                                />
+                                               
 
                                             <asp:Button ID="btnActivate"
                                                 runat="server"
@@ -150,7 +150,7 @@
                                                 CommandName="Activate"
                                                 CommandArgument='<%# Eval("UserID") %>'
                                                   Visible='<%# Eval("IsActive").ToString() == "false" %>' />
-                                                />
+                                                
                                         </td>
 
                                     </tr>
