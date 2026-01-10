@@ -117,7 +117,7 @@ namespace VnedorConnect_Service
         int GetTotalApprovedApplicationPerVendor(int id);
 
         [OperationContract]
-        int DeleteUser(int id);
+        int DeactivateUser(int id);
         
     }
     [DataContract]

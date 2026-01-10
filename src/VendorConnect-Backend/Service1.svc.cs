@@ -568,9 +568,47 @@ namespace VnedorConnect_Service
 
             return null;
         }
-        public int DeleteUser(int id)
+        public int DeactivateUser(int id)
         {
-            var 
+            var user = (from u in db.Users where u.UserId == id select u).FirstOrDefault();
+            if(user!=null)
+            {
+                user.IsActive = false;
+            }
+            else
+            {
+                return 0;
+            }
+
+            var vendor = (from v in db.Vendors where v.UserId == id select v).FirstOrDefault();
+            if(vendor!=null)
+            {
+                vendor.IsActive = false;
+            }
+            else
+            {
+                return 0;
+            }
+
+            var orga = (from o in db.Organizers where o.UserId == id select o).FirstOrDefault();
+            if(orga!=null)
+            {
+                orga.IsActive = false;
+            }
+            else
+            {
+                return 0;
+            }
+            try
+            {
+                db.SubmitChanges();
+                return 1;
+            }
+            catch(Exception ex)
+            {
+                ex.GetBaseException();
+                return -1;
+            }
         }
         public int getApprovedApplication(int eventId)
         {
