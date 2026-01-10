@@ -1807,6 +1807,9 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         private System.DateTime CreatedAtField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsActiveField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int UserIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1857,6 +1860,19 @@ namespace VendorConnect_Frontend.ServiceReference1 {
                 if ((this.CreatedAtField.Equals(value) != true)) {
                     this.CreatedAtField = value;
                     this.RaisePropertyChanged("CreatedAt");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsActive {
+            get {
+                return this.IsActiveField;
+            }
+            set {
+                if ((this.IsActiveField.Equals(value) != true)) {
+                    this.IsActiveField = value;
+                    this.RaisePropertyChanged("IsActive");
                 }
             }
         }
@@ -2116,6 +2132,12 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeactivateUser", ReplyAction="http://tempuri.org/IService1/DeactivateUserResponse")]
         System.Threading.Tasks.Task<int> DeactivateUserAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ActivateUser", ReplyAction="http://tempuri.org/IService1/ActivateUserResponse")]
+        int ActivateUser(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ActivateUser", ReplyAction="http://tempuri.org/IService1/ActivateUserResponse")]
+        System.Threading.Tasks.Task<int> ActivateUserAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2431,6 +2453,14 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<int> DeactivateUserAsync(int id) {
             return base.Channel.DeactivateUserAsync(id);
+        }
+        
+        public int ActivateUser(int id) {
+            return base.Channel.ActivateUser(id);
+        }
+        
+        public System.Threading.Tasks.Task<int> ActivateUserAsync(int id) {
+            return base.Channel.ActivateUserAsync(id);
         }
     }
 }

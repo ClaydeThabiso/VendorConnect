@@ -443,7 +443,8 @@ namespace VnedorConnect_Service
                            VendorID = v.VendorId,
                            BusinessName = v.BusinesName,
                            Category = v.Category,
-                           CreatedAt = (DateTime)v.CreatedAt
+                           CreatedAt = (DateTime)v.CreatedAt,
+                           IsActive=v.IsActive
                        }).ToList();
             return ven;
         }
@@ -597,6 +598,34 @@ namespace VnedorConnect_Service
                 db.SubmitChanges();
                 return 1;
            
+        }
+        public int ActivateUser(int id)
+        {
+            var user = (from u in db.Users where u.UserId == id select u).FirstOrDefault();
+            if (user != null)
+            {
+                user.IsActive = true;
+            }
+            else
+            {
+                return 0;
+            }
+
+            var vendor = (from v in db.Vendors where v.UserId == id select v).FirstOrDefault();
+            if (vendor != null)
+            {
+                vendor.IsActive = true;
+            }
+
+
+            var orga = (from o in db.Organizers where o.UserId == id select o).FirstOrDefault();
+            if (orga != null)
+            {
+                orga.IsActive = true;
+            }
+
+            db.SubmitChanges();
+            return 1;
         }
         public int getApprovedApplication(int eventId)
         {

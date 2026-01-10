@@ -136,12 +136,20 @@
                                         <td>
                                              <asp:Button ID="btnDeactivate"
                                                 runat="server"
-                                               
                                                 CssClass="btn btn-danger btn-sm ms-1"
                                                 Text="Deactivate"
                                                 CommandName="Deactivate"
                                                 CommandArgument='<%# Eval("UserID") %>'
                                                   Visible='<%# Eval("IsActive").ToString() == "True" %>' />
+                                                />
+
+                                            <asp:Button ID="btnActivate"
+                                                runat="server"
+                                                CssClass="btn btn-sucess btn-sm ms-1"
+                                                Text="Activate"
+                                                CommandName="Activate"
+                                                CommandArgument='<%# Eval("UserID") %>'
+                                                  Visible='<%# Eval("IsActive").ToString() == "false" %>' />
                                                 />
                                         </td>
 

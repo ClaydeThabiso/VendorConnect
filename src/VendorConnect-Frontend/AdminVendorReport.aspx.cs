@@ -51,10 +51,10 @@ namespace VendorConnect_Frontend
         }
         protected void RepeaterReport_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            if(e.CommandName== "Deactivate")
-            {
-                Service1Client client = new Service1Client();
-                int userId =Convert.ToInt32(e.CommandArgument);
+            Service1Client client = new Service1Client();
+            int userId = Convert.ToInt32(e.CommandArgument);
+            if (e.CommandName== "Deactivate")
+            { 
                 int result = client.DeactivateUser(userId);
                 if(result==1)
                 {
@@ -83,8 +83,41 @@ namespace VendorConnect_Frontend
                        true
                    );
                 }
-                client.Close();
+                
             }
+            else if (e.CommandName == "Activate")
+            {
+                int result = client.ActivateUser(userId);
+                if (result == 1)
+                {
+                    ScriptManager.RegisterStartupScript(
+                       this, this.GetType(),
+                       "successAlert",
+                       "alert('Successfully activated !');",
+                       true
+                   );
+                }
+                else if (result == 0)
+                {
+                    ScriptManager.RegisterStartupScript(
+                       this, this.GetType(),
+                       "Alert",
+                       "alert('User doesnt exist!');",
+                       true
+                   );
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(
+                       this, this.GetType(),
+                       "Alert",
+                       "alert('Unsuccessfully!');",
+                       true
+                   );
+                }
+
+            }
+            client.Close();
         }
 
     }

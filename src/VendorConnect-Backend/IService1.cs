@@ -118,6 +118,9 @@ namespace VnedorConnect_Service
 
         [OperationContract]
         int DeactivateUser(int id);
+
+        [OperationContract]
+        int ActivateUser(int id);
         
     }
     [DataContract]
