@@ -568,6 +568,10 @@ namespace VnedorConnect_Service
 
             return null;
         }
+        public int DeleteUser(int id)
+        {
+            var 
+        }
         public int getApprovedApplication(int eventId)
         {
             var application = (from va in db.VendorApplications where va.EventId==eventId && va.Status == "Approved" select va).Count();
