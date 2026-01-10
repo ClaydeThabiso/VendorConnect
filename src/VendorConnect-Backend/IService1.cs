@@ -280,6 +280,8 @@ namespace VnedorConnect_Service
     public class AdminVendorReportDTO
     {
         [DataMember]
+        public int UserID { get; set; }
+        [DataMember]
         public int VendorID { get; set; }
 
         [DataMember]
@@ -290,6 +292,9 @@ namespace VnedorConnect_Service
 
         [DataMember]
         public DateTime CreatedAt { get; set; }
+
+        [DataMember]
+        public bool IsActive { get; set; }
     }
 
 }

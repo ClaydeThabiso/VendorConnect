@@ -84,10 +84,13 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> CreatedAtField;
+        private System.DateTime CreatedAtField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string FirstNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsActiveField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LastNameField;
@@ -121,7 +124,7 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CreatedAt {
+        public System.DateTime CreatedAt {
             get {
                 return this.CreatedAtField;
             }
@@ -142,6 +145,19 @@ namespace VendorConnect_Frontend.ServiceReference1 {
                 if ((object.ReferenceEquals(this.FirstNameField, value) != true)) {
                     this.FirstNameField = value;
                     this.RaisePropertyChanged("FirstName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsActive {
+            get {
+                return this.IsActiveField;
+            }
+            set {
+                if ((this.IsActiveField.Equals(value) != true)) {
+                    this.IsActiveField = value;
+                    this.RaisePropertyChanged("IsActive");
                 }
             }
         }
@@ -260,10 +276,13 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         private string ContactEmailField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> CreatedAtField;
+        private System.DateTime CreatedAtField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.Event> EventsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsActiveField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string OrganizationNameField;
@@ -304,7 +323,7 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CreatedAt {
+        public System.DateTime CreatedAt {
             get {
                 return this.CreatedAtField;
             }
@@ -325,6 +344,19 @@ namespace VendorConnect_Frontend.ServiceReference1 {
                 if ((object.ReferenceEquals(this.EventsField, value) != true)) {
                     this.EventsField = value;
                     this.RaisePropertyChanged("Events");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsActive {
+            get {
+                return this.IsActiveField;
+            }
+            set {
+                if ((this.IsActiveField.Equals(value) != true)) {
+                    this.IsActiveField = value;
+                    this.RaisePropertyChanged("IsActive");
                 }
             }
         }
@@ -423,7 +455,10 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         private string ContactEmailField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> CreatedAtField;
+        private System.DateTime CreatedAtField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsActiveField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.Payment> PaymentsField;
@@ -493,7 +528,7 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CreatedAt {
+        public System.DateTime CreatedAt {
             get {
                 return this.CreatedAtField;
             }
@@ -501,6 +536,19 @@ namespace VendorConnect_Frontend.ServiceReference1 {
                 if ((this.CreatedAtField.Equals(value) != true)) {
                     this.CreatedAtField = value;
                     this.RaisePropertyChanged("CreatedAt");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsActive {
+            get {
+                return this.IsActiveField;
+            }
+            set {
+                if ((this.IsActiveField.Equals(value) != true)) {
+                    this.IsActiveField = value;
+                    this.RaisePropertyChanged("IsActive");
                 }
             }
         }
@@ -1759,6 +1807,9 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         private System.DateTime CreatedAtField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int UserIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int VendorIDField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -1806,6 +1857,19 @@ namespace VendorConnect_Frontend.ServiceReference1 {
                 if ((this.CreatedAtField.Equals(value) != true)) {
                     this.CreatedAtField = value;
                     this.RaisePropertyChanged("CreatedAt");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UserID {
+            get {
+                return this.UserIDField;
+            }
+            set {
+                if ((this.UserIDField.Equals(value) != true)) {
+                    this.UserIDField = value;
+                    this.RaisePropertyChanged("UserID");
                 }
             }
         }
@@ -2046,6 +2110,12 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTotalApprovedApplicationPerVendor", ReplyAction="http://tempuri.org/IService1/GetTotalApprovedApplicationPerVendorResponse")]
         System.Threading.Tasks.Task<int> GetTotalApprovedApplicationPerVendorAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeactivateUser", ReplyAction="http://tempuri.org/IService1/DeactivateUserResponse")]
+        int DeactivateUser(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeactivateUser", ReplyAction="http://tempuri.org/IService1/DeactivateUserResponse")]
+        System.Threading.Tasks.Task<int> DeactivateUserAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2353,6 +2423,14 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<int> GetTotalApprovedApplicationPerVendorAsync(int id) {
             return base.Channel.GetTotalApprovedApplicationPerVendorAsync(id);
+        }
+        
+        public int DeactivateUser(int id) {
+            return base.Channel.DeactivateUser(id);
+        }
+        
+        public System.Threading.Tasks.Task<int> DeactivateUserAsync(int id) {
+            return base.Channel.DeactivateUserAsync(id);
         }
     }
 }

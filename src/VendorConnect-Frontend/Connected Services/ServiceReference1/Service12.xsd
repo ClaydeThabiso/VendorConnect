@@ -10,8 +10,9 @@
   <xs:element name="UserDTO" nillable="true" type="tns:UserDTO" />
   <xs:complexType name="User">
     <xs:sequence>
-      <xs:element minOccurs="0" name="CreatedAt" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedAt" type="xs:dateTime" />
       <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
       <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Organizers" nillable="true" type="tns:ArrayOfOrganizer" />
       <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
@@ -31,8 +32,9 @@
   <xs:complexType name="Organizer">
     <xs:sequence>
       <xs:element minOccurs="0" name="ContactEmail" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CreatedAt" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedAt" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Events" nillable="true" type="tns:ArrayOfEvent" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
       <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="OrganizerId" type="xs:int" />
       <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
@@ -90,7 +92,8 @@
       <xs:element minOccurs="0" name="BusinesName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ContactEmail" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CreatedAt" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedAt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
       <xs:element minOccurs="0" name="Payments" nillable="true" type="tns:ArrayOfPayment" />
       <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />
@@ -203,6 +206,7 @@
       <xs:element minOccurs="0" name="BusinessName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CreatedAt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
       <xs:element minOccurs="0" name="VendorID" type="xs:int" />
     </xs:sequence>
   </xs:complexType>

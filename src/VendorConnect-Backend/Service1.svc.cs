@@ -439,6 +439,7 @@ namespace VnedorConnect_Service
             var ven = (from v in db.Vendors
                        select new AdminVendorReportDTO
                        {
+                           UserID=v.UserId,
                            VendorID = v.VendorId,
                            BusinessName = v.BusinesName,
                            Category = v.Category,
@@ -585,30 +586,17 @@ namespace VnedorConnect_Service
             {
                 vendor.IsActive = false;
             }
-            else
-            {
-                return 0;
-            }
+           
 
             var orga = (from o in db.Organizers where o.UserId == id select o).FirstOrDefault();
             if(orga!=null)
             {
                 orga.IsActive = false;
             }
-            else
-            {
-                return 0;
-            }
-            try
-            {
+         
                 db.SubmitChanges();
                 return 1;
-            }
-            catch(Exception ex)
-            {
-                ex.GetBaseException();
-                return -1;
-            }
+           
         }
         public int getApprovedApplication(int eventId)
         {

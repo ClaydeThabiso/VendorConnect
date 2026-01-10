@@ -17,6 +17,9 @@
         .auto-style1 {
             height: 25px;
         }
+        .auto-style2 {
+            height: 36px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -116,7 +119,7 @@
                         </thead>
                         <tbody>
                             <asp:Repeater ID="RepeaterReport" runat="server"
-                                OnItemDataBound="RepeaterReport_ItemDataBound">
+                                OnItemDataBound="RepeaterReport_ItemDataBound" OnItemCommand="RepeaterReport_ItemCommand">
                                 <itemtemplate>
                                     <tr>
                                         <td><%# Eval("BusinessName") %></td>
@@ -130,6 +133,18 @@
                                         <td>
                                             <asp:Literal ID="litDeclined" runat="server" />
                                         </td>
+                                        <td>
+                                             <asp:Button ID="btnDeactivate"
+                                                runat="server"
+                                               
+                                                CssClass="btn btn-danger btn-sm ms-1"
+                                                Text="Deactivate"
+                                                CommandName="Deactivate"
+                                                CommandArgument='<%# Eval("UserID") %>'
+                                                  Visible='<%# Eval("IsActive").ToString() == "True" %>' />
+                                                />
+                                        </td>
+
                                     </tr>
                                 </itemtemplate>
                             </asp:Repeater>

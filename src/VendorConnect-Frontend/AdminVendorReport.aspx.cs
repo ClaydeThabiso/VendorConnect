@@ -29,6 +29,7 @@ namespace VendorConnect_Frontend
         }
         protected void RepeaterReport_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
+            Service1Client client = new Service1Client();
             if (e.Item.ItemType == ListItemType.Item ||
                 e.Item.ItemType == ListItemType.AlternatingItem)
             {
@@ -37,14 +38,51 @@ namespace VendorConnect_Frontend
                 Literal litApproved = (Literal)e.Item.FindControl("litApproved");
                 Literal litDeclined = (Literal)e.Item.FindControl("litDeclined");
 
-                Service1Client client = new Service1Client();
+               
 
                 int approved = client.GetTotalApprovedApplicationPerVendor(data.VendorID);
                 int declined = client.GetTotalDeclinedApplicationPerVendor(data.VendorID);
 
                 litApproved.Text = approved.ToString();
                 litDeclined.Text = declined.ToString();
+            }
 
+            client.Close();
+        }
+        protected void RepeaterReport_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if(e.CommandName== "Deactivate")
+            {
+                Service1Client client = new Service1Client();
+                int userId =Convert.ToInt32(e.CommandArgument);
+                int result = client.DeactivateUser(userId);
+                if(result==1)
+                {
+                    ScriptManager.RegisterStartupScript(
+                       this, this.GetType(),
+                       "successAlert",
+                       "alert('Successfully deactivated !');",
+                       true
+                   );
+                }
+                else if(result==0)
+                {
+                    ScriptManager.RegisterStartupScript(
+                       this, this.GetType(),
+                       "Alert",
+                       "alert('User doesnt exist!');",
+                       true
+                   );
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(
+                       this, this.GetType(),
+                       "Alert",
+                       "alert('Unsuccessfully!');",
+                       true
+                   );
+                }
                 client.Close();
             }
         }
