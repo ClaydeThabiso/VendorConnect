@@ -643,7 +643,7 @@ namespace VnedorConnect_Service
         {
             DateTime today = DateTime.Now.Date;
 
-            if (eve.status != "Cancelled") // Don't touch cancelled events
+            if (eve.status != "Cancelled") 
             {
                 if (eve.EventDate.Date < today)
                 {
