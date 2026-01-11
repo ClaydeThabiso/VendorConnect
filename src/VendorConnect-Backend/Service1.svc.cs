@@ -459,6 +459,7 @@ namespace VnedorConnect_Service
                             UserID = o.UserId,
                             OrganizerID = o.OrganizerId,
                             CreatedAt=o.CreatedAt,
+                            IsActive=o.IsActive,
                             OrganizationName=o.OrganizationName
                         }).ToList();
             return orga;
