@@ -444,7 +444,10 @@ namespace VnedorConnect_Service
                            BusinessName = v.BusinesName,
                            Category = v.Category,
                            CreatedAt = (DateTime)v.CreatedAt,
-                           IsActive=v.IsActive
+                           IsActive=v.IsActive,
+                           TotalApproved= (from va in db.VendorApplications where va.VendorId==v.VendorId && v.Status.Equals("Approved") select v).Count(),
+            TotalDecline = (from va in db.VendorApplications where va.VendorId==v.VendorId && va.Status.Equals("Declined") select v).Count()
+
                        }).ToList();
             return ven;
         }

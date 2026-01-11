@@ -141,18 +141,16 @@
                                                 CommandName="Deactivate"
                                                 CommandArgument='<%# Eval("UserID") %>'
                                                   Visible='<%# Eval("IsActive").ToString() == "True" %>' />
-                                               
 
                                             <asp:Button ID="btnActivate"
                                                 runat="server"
-                                                CssClass="btn btn-sucess btn-sm ms-1"
+                                                CssClass="btn btn-primary btn-sm ms-1"
                                                 Text="Activate"
                                                 CommandName="Activate"
                                                 CommandArgument='<%# Eval("UserID") %>'
-                                                  Visible='<%# Eval("IsActive").ToString() == "false" %>' />
+                                                  Visible='<%# Eval("IsActive").ToString() == "False" %>' />
                                                 
                                         </td>
-
                                     </tr>
                                 </itemtemplate>
                             </asp:Repeater>

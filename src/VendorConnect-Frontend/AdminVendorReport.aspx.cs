@@ -14,19 +14,17 @@ namespace VendorConnect_Frontend
         {
             if(!IsPostBack)
             {
-                Service1Client client = new Service1Client();
-                var getInfo = client.VendorReport();
-                
-                if (getInfo != null)
-                {
-                    
-                    RepeaterReport.DataSource = getInfo;
-                    RepeaterReport.DataBind();
-                }
-               
-                client.Close();
+                LoadVendorReport();
             }
         }
+        private void LoadVendorReport()
+        {
+            Service1Client client = new Service1Client();
+            RepeaterReport.DataSource = client.VendorReport();
+            RepeaterReport.DataBind();
+            client.Close();
+        }
+
         protected void RepeaterReport_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             Service1Client client = new Service1Client();
@@ -58,6 +56,7 @@ namespace VendorConnect_Frontend
                 int result = client.DeactivateUser(userId);
                 if(result==1)
                 {
+                    LoadVendorReport();
                     ScriptManager.RegisterStartupScript(
                        this, this.GetType(),
                        "successAlert",
@@ -90,6 +89,7 @@ namespace VendorConnect_Frontend
                 int result = client.ActivateUser(userId);
                 if (result == 1)
                 {
+                    LoadVendorReport();
                     ScriptManager.RegisterStartupScript(
                        this, this.GetType(),
                        "successAlert",

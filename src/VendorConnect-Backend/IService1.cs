@@ -111,12 +111,6 @@ namespace VnedorConnect_Service
         List<AdminVendorReportDTO> VendorReport();
 
         [OperationContract]
-        int GetTotalDeclinedApplicationPerVendor(int id);
-
-        [OperationContract]
-        int GetTotalApprovedApplicationPerVendor(int id);
-
-        [OperationContract]
         int DeactivateUser(int id);
 
         [OperationContract]
@@ -298,6 +292,12 @@ namespace VnedorConnect_Service
 
         [DataMember]
         public bool IsActive { get; set; }
+
+        [DataMember]
+        public int TotalApproved { get; set; }
+
+        [DataMember]
+        public int TotalDecline { get; set; }
     }
 
 }
