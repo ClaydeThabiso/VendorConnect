@@ -119,7 +119,7 @@
                         </thead>
                         <tbody>
                             <asp:Repeater ID="RepeaterReport" runat="server"
-                                OnItemDataBound="RepeaterReport_ItemDataBound" OnItemCommand="RepeaterReport_ItemCommand">
+                                OnItemCommand="RepeaterReport_ItemCommand">
                                 <itemtemplate>
                                     <tr>
                                         <td><%# Eval("BusinessName") %></td>
@@ -128,10 +128,10 @@
                                             <%# Convert.ToDateTime(Eval("CreatedAt")).ToString("d MMM yyyy").ToUpper() %>
                                         </td>
                                         <td>
-                                            <asp:Literal ID="litApproved" runat="server" />
+                                           <%# Eval("TotalApproved") %>
                                         </td>
                                         <td>
-                                            <asp:Literal ID="litDeclined" runat="server" />
+                                            <%# Eval("TotalDecline") %>
                                         </td>
                                         <td>
                                              <asp:Button ID="btnDeactivate"

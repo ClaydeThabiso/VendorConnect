@@ -1810,6 +1810,12 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         private bool IsActiveField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TotalApprovedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TotalDeclineField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int UserIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1873,6 +1879,32 @@ namespace VendorConnect_Frontend.ServiceReference1 {
                 if ((this.IsActiveField.Equals(value) != true)) {
                     this.IsActiveField = value;
                     this.RaisePropertyChanged("IsActive");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TotalApproved {
+            get {
+                return this.TotalApprovedField;
+            }
+            set {
+                if ((this.TotalApprovedField.Equals(value) != true)) {
+                    this.TotalApprovedField = value;
+                    this.RaisePropertyChanged("TotalApproved");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TotalDecline {
+            get {
+                return this.TotalDeclineField;
+            }
+            set {
+                if ((this.TotalDeclineField.Equals(value) != true)) {
+                    this.TotalDeclineField = value;
+                    this.RaisePropertyChanged("TotalDecline");
                 }
             }
         }
@@ -2114,18 +2146,6 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/VendorReport", ReplyAction="http://tempuri.org/IService1/VendorReportResponse")]
         System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.AdminVendorReportDTO>> VendorReportAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTotalDeclinedApplicationPerVendor", ReplyAction="http://tempuri.org/IService1/GetTotalDeclinedApplicationPerVendorResponse")]
-        int GetTotalDeclinedApplicationPerVendor(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTotalDeclinedApplicationPerVendor", ReplyAction="http://tempuri.org/IService1/GetTotalDeclinedApplicationPerVendorResponse")]
-        System.Threading.Tasks.Task<int> GetTotalDeclinedApplicationPerVendorAsync(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTotalApprovedApplicationPerVendor", ReplyAction="http://tempuri.org/IService1/GetTotalApprovedApplicationPerVendorResponse")]
-        int GetTotalApprovedApplicationPerVendor(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTotalApprovedApplicationPerVendor", ReplyAction="http://tempuri.org/IService1/GetTotalApprovedApplicationPerVendorResponse")]
-        System.Threading.Tasks.Task<int> GetTotalApprovedApplicationPerVendorAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeactivateUser", ReplyAction="http://tempuri.org/IService1/DeactivateUserResponse")]
         int DeactivateUser(int id);
@@ -2429,22 +2449,6 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.AdminVendorReportDTO>> VendorReportAsync() {
             return base.Channel.VendorReportAsync();
-        }
-        
-        public int GetTotalDeclinedApplicationPerVendor(int id) {
-            return base.Channel.GetTotalDeclinedApplicationPerVendor(id);
-        }
-        
-        public System.Threading.Tasks.Task<int> GetTotalDeclinedApplicationPerVendorAsync(int id) {
-            return base.Channel.GetTotalDeclinedApplicationPerVendorAsync(id);
-        }
-        
-        public int GetTotalApprovedApplicationPerVendor(int id) {
-            return base.Channel.GetTotalApprovedApplicationPerVendor(id);
-        }
-        
-        public System.Threading.Tasks.Task<int> GetTotalApprovedApplicationPerVendorAsync(int id) {
-            return base.Channel.GetTotalApprovedApplicationPerVendorAsync(id);
         }
         
         public int DeactivateUser(int id) {

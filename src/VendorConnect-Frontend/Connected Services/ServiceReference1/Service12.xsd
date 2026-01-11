@@ -207,6 +207,8 @@
       <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CreatedAt" type="xs:dateTime" />
       <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TotalApproved" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalDecline" type="xs:int" />
       <xs:element minOccurs="0" name="UserID" type="xs:int" />
       <xs:element minOccurs="0" name="VendorID" type="xs:int" />
     </xs:sequence>

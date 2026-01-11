@@ -445,8 +445,8 @@ namespace VnedorConnect_Service
                            Category = v.Category,
                            CreatedAt = (DateTime)v.CreatedAt,
                            IsActive=v.IsActive,
-                           TotalApproved= (from va in db.VendorApplications where va.VendorId==v.VendorId && v.Status.Equals("Approved") select v).Count(),
-            TotalDecline = (from va in db.VendorApplications where va.VendorId==v.VendorId && va.Status.Equals("Declined") select v).Count()
+                           TotalApproved= (from va in db.VendorApplications where va.VendorId==v.VendorId && va.Status.Equals("Approved") select v).Count(),
+                           TotalDecline = (from va in db.VendorApplications where va.VendorId==v.VendorId && va.Status.Equals("Declined") select v).Count()
 
                        }).ToList();
             return ven;
@@ -475,16 +475,7 @@ namespace VnedorConnect_Service
                                }).ToList();
             return application;
         }
-        public int GetTotalDeclinedApplicationPerVendor(int id)
-        {
-            var ven = (from v in db.VendorApplications where v.VendorId.Equals(id) && v.Status.Equals("Declined") select v).Count();
-            return ven;
-        }
-        public int GetTotalApprovedApplicationPerVendor(int id)
-        {
-            var ven = (from v in db.VendorApplications where v.VendorId.Equals(id) && v.Status.Equals("Approved") select v).Count();
-            return ven;
-        }
+       
 
         public int deleteApplication(int EventId)
         {

@@ -205,18 +205,6 @@
   <wsdl:message name="IService1_VendorReport_OutputMessage">
     <wsdl:part name="parameters" element="tns:VendorReportResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_GetTotalDeclinedApplicationPerVendor_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetTotalDeclinedApplicationPerVendor" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetTotalDeclinedApplicationPerVendor_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetTotalDeclinedApplicationPerVendorResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetTotalApprovedApplicationPerVendor_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetTotalApprovedApplicationPerVendor" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetTotalApprovedApplicationPerVendor_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetTotalApprovedApplicationPerVendorResponse" />
-  </wsdl:message>
   <wsdl:message name="IService1_DeactivateUser_InputMessage">
     <wsdl:part name="parameters" element="tns:DeactivateUser" />
   </wsdl:message>
@@ -361,14 +349,6 @@
     <wsdl:operation name="VendorReport">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/VendorReport" message="tns:IService1_VendorReport_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/VendorReportResponse" message="tns:IService1_VendorReport_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetTotalDeclinedApplicationPerVendor">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetTotalDeclinedApplicationPerVendor" message="tns:IService1_GetTotalDeclinedApplicationPerVendor_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetTotalDeclinedApplicationPerVendorResponse" message="tns:IService1_GetTotalDeclinedApplicationPerVendor_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetTotalApprovedApplicationPerVendor">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetTotalApprovedApplicationPerVendor" message="tns:IService1_GetTotalApprovedApplicationPerVendor_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetTotalApprovedApplicationPerVendorResponse" message="tns:IService1_GetTotalApprovedApplicationPerVendor_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="DeactivateUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeactivateUser" message="tns:IService1_DeactivateUser_InputMessage" />
@@ -671,24 +651,6 @@
     </wsdl:operation>
     <wsdl:operation name="VendorReport">
       <soap:operation soapAction="http://tempuri.org/IService1/VendorReport" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetTotalDeclinedApplicationPerVendor">
-      <soap:operation soapAction="http://tempuri.org/IService1/GetTotalDeclinedApplicationPerVendor" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetTotalApprovedApplicationPerVendor">
-      <soap:operation soapAction="http://tempuri.org/IService1/GetTotalApprovedApplicationPerVendor" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
