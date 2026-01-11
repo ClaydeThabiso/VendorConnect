@@ -490,6 +490,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="OragnizerReport">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OragnizerReportResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/VnedorConnect_Service" minOccurs="0" name="OragnizerReportResult" nillable="true" type="q17:ArrayOfAdminOragnizerReportDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="DeactivateUser">
     <xs:complexType>
       <xs:sequence>

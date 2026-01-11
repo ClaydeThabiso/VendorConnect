@@ -451,6 +451,18 @@ namespace VnedorConnect_Service
                        }).ToList();
             return ven;
         }
+        public List<AdminOragnizerReportDTO> OragnizerReport()
+        {
+            var orga = (from o in db.Organizers
+                        select new AdminOragnizerReportDTO
+                        {
+                            UserID = o.UserId,
+                            OrganizerID = o.OrganizerId,
+                            CreatedAt=o.CreatedAt,
+                            OrganizationName=o.OrganizationName
+                        }).ToList();
+            return orga;
+        }
         public List<VendorApplicationDTO> GetApplicationsPerOrganizer(int OrgaID)
         {
             var application = (from o in db.Organizers

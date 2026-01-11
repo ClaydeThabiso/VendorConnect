@@ -214,4 +214,20 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="AdminVendorReportDTO" nillable="true" type="tns:AdminVendorReportDTO" />
+  <xs:complexType name="ArrayOfAdminOragnizerReportDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AdminOragnizerReportDTO" nillable="true" type="tns:AdminOragnizerReportDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAdminOragnizerReportDTO" nillable="true" type="tns:ArrayOfAdminOragnizerReportDTO" />
+  <xs:complexType name="AdminOragnizerReportDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedAt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizerID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AdminOragnizerReportDTO" nillable="true" type="tns:AdminOragnizerReportDTO" />
 </xs:schema>

@@ -111,6 +111,9 @@ namespace VnedorConnect_Service
         List<AdminVendorReportDTO> VendorReport();
 
         [OperationContract]
+        List<AdminOragnizerReportDTO> OragnizerReport();
+
+        [OperationContract]
         int DeactivateUser(int id);
 
         [OperationContract]
@@ -299,6 +302,24 @@ namespace VnedorConnect_Service
         [DataMember]
         public int TotalDecline { get; set; }
     }
+    public class AdminOragnizerReportDTO
+    {
+        [DataMember]
+        public int OrganizerID { get; set; }
+
+        [DataMember]
+        public int UserID { get; set; }
+
+        [DataMember]
+        public string OrganizationName { get; set; }
+
+        [DataMember]
+        public DateTime CreatedAt { get; set; }
+
+        [DataMember]
+        public bool IsActive { get; set; }
+    }
+
 
 }
 
