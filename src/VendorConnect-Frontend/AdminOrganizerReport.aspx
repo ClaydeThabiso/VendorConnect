@@ -37,7 +37,7 @@
                     </a>
                 </div>
                 <div class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="AdminVendorReport.aspx" class="nav-link">
                         <i class="fas fa-store"></i>
                         <span>Vendors</span>
                     </a>
