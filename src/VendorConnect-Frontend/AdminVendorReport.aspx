@@ -50,7 +50,7 @@
                     </a>
                 </div>
                 <div class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="AdminOrganizerReport.aspx" class="nav-link">
                         <i class="fas fa-users"></i>
                         <span>Organizers</span>
                     </a>
