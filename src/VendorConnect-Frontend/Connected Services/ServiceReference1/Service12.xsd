@@ -246,6 +246,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="ApprovalRate" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EventDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EventId" type="xs:int" />
       <xs:element minOccurs="0" name="EventLocation" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EventName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EventStatus" nillable="true" type="xs:string" />

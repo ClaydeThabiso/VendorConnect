@@ -2166,6 +2166,9 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         private System.DateTime EventDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int EventIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string EventLocationField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -2218,6 +2221,19 @@ namespace VendorConnect_Frontend.ServiceReference1 {
                 if ((this.EventDateField.Equals(value) != true)) {
                     this.EventDateField = value;
                     this.RaisePropertyChanged("EventDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int EventId {
+            get {
+                return this.EventIdField;
+            }
+            set {
+                if ((this.EventIdField.Equals(value) != true)) {
+                    this.EventIdField = value;
+                    this.RaisePropertyChanged("EventId");
                 }
             }
         }

@@ -485,8 +485,8 @@ namespace VnedorConnect_Service
                           EventStatus = e.status,
                           OrganizationName = (from o in db.Organizers where o.OrganizerId == e.OrganizerId select o.OrganizationName).FirstOrDefault(),
                           TotalApplied=(from va in db.VendorApplications where va.EventId==e.EventId select va).Count(),
-                          TotalApproved=(from va in db.VendorApplications where va.EventId==e.EventId && va.Status.Equals("Approved") select va).Count(),
-                          TotalDeclined=(from va in db.VendorApplications where va.EventId==e.EventId && va.Status.Equals("Declined") select va).Count(),
+                          TotalApproved=(from va in db.VendorApplications where va.EventId==e.EventId && va.Status=="Approved" select va).Count(),
+                          TotalDeclined=(from va in db.VendorApplications where va.EventId==e.EventId && va.Status=="Declined" select va).Count(),
                          
                       }).ToList();
             return ev;
