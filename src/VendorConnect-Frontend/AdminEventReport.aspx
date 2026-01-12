@@ -135,7 +135,7 @@
                                         <td><%# Eval("TotalApplied") %></td>
                                         <td><%# Eval("TotalApproved") %></td>
                                         <td><%# Eval("TotalDeclined") %></td>
-                                        <td><%# Eval("ApprovalRate") %>%</td>
+                                        <td><%# Eval("ApprovalRate") %></td>
                                     </tr>
                                 </itemtemplate>
                             </asp:Repeater>

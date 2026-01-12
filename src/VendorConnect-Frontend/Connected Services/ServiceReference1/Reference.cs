@@ -2160,7 +2160,7 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal ApprovalRateField;
+        private string ApprovalRateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime EventDateField;
@@ -2197,12 +2197,12 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal ApprovalRate {
+        public string ApprovalRate {
             get {
                 return this.ApprovalRateField;
             }
             set {
-                if ((this.ApprovalRateField.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this.ApprovalRateField, value) != true)) {
                     this.ApprovalRateField = value;
                     this.RaisePropertyChanged("ApprovalRate");
                 }

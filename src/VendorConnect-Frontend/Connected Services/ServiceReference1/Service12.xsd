@@ -244,7 +244,7 @@
   <xs:element name="ArrayOfAdminEventReportDTO" nillable="true" type="tns:ArrayOfAdminEventReportDTO" />
   <xs:complexType name="AdminEventReportDTO">
     <xs:sequence>
-      <xs:element minOccurs="0" name="ApprovalRate" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ApprovalRate" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EventDate" type="xs:dateTime" />
       <xs:element minOccurs="0" name="EventLocation" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EventName" nillable="true" type="xs:string" />

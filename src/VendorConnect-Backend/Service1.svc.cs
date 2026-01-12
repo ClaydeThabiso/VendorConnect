@@ -487,8 +487,7 @@ namespace VnedorConnect_Service
                           TotalApplied=(from va in db.VendorApplications where va.EventId==e.EventId select va).Count(),
                           TotalApproved=(from va in db.VendorApplications where va.EventId==e.EventId && va.Status.Equals("Approved") select va).Count(),
                           TotalDeclined=(from va in db.VendorApplications where va.EventId==e.EventId && va.Status.Equals("Declined") select va).Count(),
-                          ApprovalRate= (from va in db.VendorApplications where va.EventId == e.EventId && va.Status.Equals("Approved") select va).Count()/
-                                        ((from va in db.VendorApplications where va.EventId == e.EventId && va.Status.Equals("Approved") select va).Count()*100)
+                         
                       }).ToList();
             return ev;
         }

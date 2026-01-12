@@ -344,6 +344,7 @@ namespace VnedorConnect_Service
     [DataContract]
     public class AdminEventReportDTO
     {
+        [DataMember]
         public int EventId { get; set; }
         [DataMember]
         public string EventName { get; set; }
@@ -370,7 +371,8 @@ namespace VnedorConnect_Service
         public int TotalDeclined { get; set; }
 
         [DataMember]
-        public string ApprovalRate { 
+        public string ApprovalRate 
+        { 
             get
             {
                 if (TotalApplied == 0)
