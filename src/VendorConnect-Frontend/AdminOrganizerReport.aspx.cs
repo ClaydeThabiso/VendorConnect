@@ -23,8 +23,29 @@ namespace VendorConnect_Frontend
             {
                 RepeaterReport.DataSource = client.OragnizerReport();
                 RepeaterReport.DataBind();
+                
             }
         }
+        protected void RepeaterReport_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item ||
+                e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                var data = (AdminOragnizerReportDTO)e.Item.DataItem;
+
+                Literal litStatus = (Literal)e.Item.FindControl("Status");
+                if(data.IsActive==true)
+                {
+                    litStatus.Text = "<span class='badge bg-success'>Active</span>"; ;
+                }
+                else if(data.IsActive==false)
+                {
+                    litStatus.Text = "<span class='badge bg-danger'>Inactive</span>";
+
+                }
+            }
+        }
+
         protected void RepeaterReport_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             using (Service1Client client = new Service1Client())
@@ -32,6 +53,7 @@ namespace VendorConnect_Frontend
                 int userId = Convert.ToInt32(e.CommandArgument);
                 if (e.CommandName == "Deactivate")
                 {
+                    
                     int result = client.DeactivateUser(userId);
                     if (result == 1)
                     {

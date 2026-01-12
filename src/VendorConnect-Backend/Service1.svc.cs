@@ -467,8 +467,7 @@ namespace VnedorConnect_Service
                             CompletedEvents=(from e in db.Events where e.OrganizerId==o.OrganizerId && e.status.Equals("Completed") select e).Count(),
                             UpcomingEvents=(from e in db.Events where e.OrganizerId==o.OrganizerId && e.status.Equals("Upcoming") select e).Count(),
                             ApprovedVendors=(from va in db.VendorApplications join e in db.Events on va.EventId equals e.EventId
-                                             join org in db.Organizers on e.OrganizerId equals org.OrganizerId
-                                             where va.Status.Equals("Approved") select va).Count()
+                                             where va.Status.Equals("Approved") && e.OrganizerId==o.OrganizerId select va).Count()
 
                         }).ToList();
             return orga;

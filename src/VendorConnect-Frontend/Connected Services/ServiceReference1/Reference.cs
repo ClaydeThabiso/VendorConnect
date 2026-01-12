@@ -1955,7 +1955,16 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ApprovedVendorsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CompletedEventsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime CreatedAtField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool IsActiveField;
@@ -1965,6 +1974,12 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int OrganizerIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TotalEventsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int UpcomingEventsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int UserIDField;
@@ -1980,6 +1995,32 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ApprovedVendors {
+            get {
+                return this.ApprovedVendorsField;
+            }
+            set {
+                if ((this.ApprovedVendorsField.Equals(value) != true)) {
+                    this.ApprovedVendorsField = value;
+                    this.RaisePropertyChanged("ApprovedVendors");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CompletedEvents {
+            get {
+                return this.CompletedEventsField;
+            }
+            set {
+                if ((this.CompletedEventsField.Equals(value) != true)) {
+                    this.CompletedEventsField = value;
+                    this.RaisePropertyChanged("CompletedEvents");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.DateTime CreatedAt {
             get {
                 return this.CreatedAtField;
@@ -1988,6 +2029,19 @@ namespace VendorConnect_Frontend.ServiceReference1 {
                 if ((this.CreatedAtField.Equals(value) != true)) {
                     this.CreatedAtField = value;
                     this.RaisePropertyChanged("CreatedAt");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Email {
+            get {
+                return this.EmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
+                    this.EmailField = value;
+                    this.RaisePropertyChanged("Email");
                 }
             }
         }
@@ -2027,6 +2081,32 @@ namespace VendorConnect_Frontend.ServiceReference1 {
                 if ((this.OrganizerIDField.Equals(value) != true)) {
                     this.OrganizerIDField = value;
                     this.RaisePropertyChanged("OrganizerID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TotalEvents {
+            get {
+                return this.TotalEventsField;
+            }
+            set {
+                if ((this.TotalEventsField.Equals(value) != true)) {
+                    this.TotalEventsField = value;
+                    this.RaisePropertyChanged("TotalEvents");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UpcomingEvents {
+            get {
+                return this.UpcomingEventsField;
+            }
+            set {
+                if ((this.UpcomingEventsField.Equals(value) != true)) {
+                    this.UpcomingEventsField = value;
+                    this.RaisePropertyChanged("UpcomingEvents");
                 }
             }
         }

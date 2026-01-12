@@ -121,7 +121,7 @@
                         </thead>
                         <tbody>
                             <asp:Repeater ID="RepeaterReport" runat="server"
-                                OnItemCommand="RepeaterReport_ItemCommand">
+                                OnItemCommand="RepeaterReport_ItemCommand"  OnItemDataBound="RepeaterReport_ItemDataBound">
                                 <itemtemplate>
                                     <tr>
                                         <td><%# Eval("OrganizationName") %></td>
@@ -134,7 +134,7 @@
                                         <td><%# Eval("UpcomingEvents") %></td>
                                         <td><%# Eval("ApprovedVendors") %></td>
                                         <td>
-                                            <asp:Label runat="server" ID="Status"></asp:Label>
+                                            <asp:Literal runat="server" ID="Status"></asp:Literal>
                                         </td>
                                         <td>
                                              <asp:Button ID="btnDeactivate"
