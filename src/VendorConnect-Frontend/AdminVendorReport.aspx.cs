@@ -25,6 +25,25 @@ namespace VendorConnect_Frontend
                 RepeaterReport.DataBind();
             }
         }
+        protected void RepeaterReport_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item ||
+                e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                var data = (AdminVendorReportDTO)e.Item.DataItem;
+
+                Literal litStatus = (Literal)e.Item.FindControl("Status");
+                if (data.IsActive == true)
+                {
+                    litStatus.Text = "<span class='badge bg-success'>Active</span>"; ;
+                }
+                else if (data.IsActive == false)
+                {
+                    litStatus.Text = "<span class='badge bg-danger'>Inactive</span>";
+
+                }
+            }
+        }
         protected void RepeaterReport_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             using (Service1Client client = new Service1Client())

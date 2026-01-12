@@ -110,19 +110,22 @@
                         <thead>
                             <tr>
                                 <th scope="col" class="auto-style1">Business Name</th>
+                                <th scope="col" class="auto-style1">Email</th>
                                 <th scope="col" class="auto-style1">Category</th>
                                 <th scope="col" class="auto-style1">Register at</th>
                                 <th scope="col" class="auto-style1">Total Approved Applications</th>
                                 <th scope="col" class="auto-style1">Total Declined Applications</th>
+                                <th scope="col" class="auto-style1"></th>
                                 <th scope="col" class="auto-style1">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             <asp:Repeater ID="RepeaterReport" runat="server"
-                                OnItemCommand="RepeaterReport_ItemCommand">
+                                OnItemCommand="RepeaterReport_ItemCommand"  OnItemDataBound="RepeaterReport_ItemDataBound">
                                 <itemtemplate>
                                     <tr>
                                         <td><%# Eval("BusinessName") %></td>
+                                        <td><%# Eval("Email") %></td>
                                         <td><%# Eval("Category") %></td>
                                         <td>
                                             <%# Convert.ToDateTime(Eval("CreatedAt")).ToString("d MMM yyyy").ToUpper() %>
@@ -132,6 +135,9 @@
                                         </td>
                                         <td>
                                             <%# Eval("TotalDecline") %>
+                                        </td>
+                                        <td>
+                                             <asp:Literal runat="server" ID="Status"></asp:Literal>
                                         </td>
                                         <td>
                                              <asp:Button ID="btnDeactivate"

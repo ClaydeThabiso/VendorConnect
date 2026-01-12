@@ -288,6 +288,9 @@ namespace VnedorConnect_Service
         public string BusinessName { get; set; }
 
         [DataMember]
+        public string Email { get; set; }
+
+        [DataMember]
         public string Category { get; set; }
 
         [DataMember]
