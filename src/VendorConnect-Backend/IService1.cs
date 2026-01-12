@@ -114,6 +114,9 @@ namespace VnedorConnect_Service
         List<AdminOragnizerReportDTO> OragnizerReport();
 
         [OperationContract]
+        List<AdminEventReportDTO> EventReport();
+
+        [OperationContract]
         int DeactivateUser(int id);
 
         [OperationContract]
