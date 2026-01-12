@@ -441,6 +441,7 @@ namespace VnedorConnect_Service
                        {
                            UserID=v.UserId,
                            VendorID = v.VendorId,
+                           Email=v.ContactEmail,
                            BusinessName = v.BusinesName,
                            Category = v.Category,
                            CreatedAt = (DateTime)v.CreatedAt,
