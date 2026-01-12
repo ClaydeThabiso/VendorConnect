@@ -77,6 +77,7 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="AdminDashoard.aspx" />
+    <Content Include="AdminEventReport.aspx" />
     <Content Include="AdminOrganizerReport.aspx" />
     <Content Include="AdminVendorReport.aspx" />
     <Content Include="CreateEvent.aspx" />
@@ -103,6 +104,13 @@
     </Compile>
     <Compile Include="AdminDashoard.aspx.designer.cs">
       <DependentUpon>AdminDashoard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminEventReport.aspx.cs">
+      <DependentUpon>AdminEventReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminEventReport.aspx.designer.cs">
+      <DependentUpon>AdminEventReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminOrganizerReport.aspx.cs">
       <DependentUpon>AdminOrganizerReport.aspx</DependentUpon>
@@ -257,6 +265,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\ServiceReference1\VendorConnect_Frontend.ServiceReference1.AdminOragnizerReportDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServiceReference1\VendorConnect_Frontend.ServiceReference1.AdminEventReportDTO.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="packages.config" />
