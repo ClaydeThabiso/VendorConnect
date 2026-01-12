@@ -502,6 +502,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="EventReport">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EventReportResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/VnedorConnect_Service" minOccurs="0" name="EventReportResult" nillable="true" type="q18:ArrayOfAdminEventReportDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="DeactivateUser">
     <xs:complexType>
       <xs:sequence>

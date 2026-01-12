@@ -2150,6 +2150,179 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdminEventReportDTO", Namespace="http://schemas.datacontract.org/2004/07/VnedorConnect_Service")]
+    [System.SerializableAttribute()]
+    public partial class AdminEventReportDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal ApprovalRateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime EventDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EventLocationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EventNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EventStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OrganizationNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TotalAppliedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TotalApprovedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TotalDeclinedField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal ApprovalRate {
+            get {
+                return this.ApprovalRateField;
+            }
+            set {
+                if ((this.ApprovalRateField.Equals(value) != true)) {
+                    this.ApprovalRateField = value;
+                    this.RaisePropertyChanged("ApprovalRate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime EventDate {
+            get {
+                return this.EventDateField;
+            }
+            set {
+                if ((this.EventDateField.Equals(value) != true)) {
+                    this.EventDateField = value;
+                    this.RaisePropertyChanged("EventDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EventLocation {
+            get {
+                return this.EventLocationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EventLocationField, value) != true)) {
+                    this.EventLocationField = value;
+                    this.RaisePropertyChanged("EventLocation");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EventName {
+            get {
+                return this.EventNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EventNameField, value) != true)) {
+                    this.EventNameField = value;
+                    this.RaisePropertyChanged("EventName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EventStatus {
+            get {
+                return this.EventStatusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EventStatusField, value) != true)) {
+                    this.EventStatusField = value;
+                    this.RaisePropertyChanged("EventStatus");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OrganizationName {
+            get {
+                return this.OrganizationNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OrganizationNameField, value) != true)) {
+                    this.OrganizationNameField = value;
+                    this.RaisePropertyChanged("OrganizationName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TotalApplied {
+            get {
+                return this.TotalAppliedField;
+            }
+            set {
+                if ((this.TotalAppliedField.Equals(value) != true)) {
+                    this.TotalAppliedField = value;
+                    this.RaisePropertyChanged("TotalApplied");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TotalApproved {
+            get {
+                return this.TotalApprovedField;
+            }
+            set {
+                if ((this.TotalApprovedField.Equals(value) != true)) {
+                    this.TotalApprovedField = value;
+                    this.RaisePropertyChanged("TotalApproved");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TotalDeclined {
+            get {
+                return this.TotalDeclinedField;
+            }
+            set {
+                if ((this.TotalDeclinedField.Equals(value) != true)) {
+                    this.TotalDeclinedField = value;
+                    this.RaisePropertyChanged("TotalDeclined");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1 {
@@ -2357,6 +2530,12 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/OragnizerReport", ReplyAction="http://tempuri.org/IService1/OragnizerReportResponse")]
         System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.AdminOragnizerReportDTO>> OragnizerReportAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/EventReport", ReplyAction="http://tempuri.org/IService1/EventReportResponse")]
+        System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.AdminEventReportDTO> EventReport();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/EventReport", ReplyAction="http://tempuri.org/IService1/EventReportResponse")]
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.AdminEventReportDTO>> EventReportAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeactivateUser", ReplyAction="http://tempuri.org/IService1/DeactivateUserResponse")]
         int DeactivateUser(int id);
@@ -2668,6 +2847,14 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.AdminOragnizerReportDTO>> OragnizerReportAsync() {
             return base.Channel.OragnizerReportAsync();
+        }
+        
+        public System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.AdminEventReportDTO> EventReport() {
+            return base.Channel.EventReport();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.AdminEventReportDTO>> EventReportAsync() {
+            return base.Channel.EventReportAsync();
         }
         
         public int DeactivateUser(int id) {

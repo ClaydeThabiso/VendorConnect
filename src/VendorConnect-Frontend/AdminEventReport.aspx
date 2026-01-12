@@ -108,52 +108,34 @@
                     <table class="table table-hover ">
                         <thead>
                             <tr>
+                                <th scope="col" class="auto-style1">Event Name</th>
+                                <th scope="col" class="auto-style1">Event Date</th>
+                                <th scope="col" class="auto-style1">Event Location</th>
                                 <th scope="col" class="auto-style1">Organization Name</th>
-                                <th scope="col" class="auto-style1">Email</th>
-                                <th scope="col" class="auto-style1">Joined</th>
-                                <th scope="col" class="auto-style1">Total Events</th>
-                                 <th scope="col" class="auto-style1">Completed</th>
-                                 <th scope="col" class="auto-style1">Upcoming</th>
-                                 <th scope="col" class="auto-style1">Vendors Approved</th>
-                                 <th scope="col" class="auto-style1">Status</th>
-                                <th scope="col" class="auto-style1">Actions</th>
+                                <th scope="col" class="auto-style1"> Event Status</th>
+                                 <th scope="col" class="auto-style1">Total Applied Vendors</th>
+                                 <th scope="col" class="auto-style1">Total Approved</th>
+                                 <th scope="col" class="auto-style1">Total Declined</th>
+                                 <th scope="col" class="auto-style1">Approval Rate</th>
+                                
                             </tr>
                         </thead>
                         <tbody>
                             <asp:Repeater ID="RepeaterReport" runat="server"
-                                OnItemCommand="RepeaterReport_ItemCommand"  OnItemDataBound="RepeaterReport_ItemDataBound">
+                                >
                                 <itemtemplate>
                                     <tr>
+                                        <td><%# Eval("EventName") %></td>
+                                        <td>
+                                            <%# Convert.ToDateTime(Eval("EventDate")).ToString("d MMM yyyy").ToUpper() %>
+                                        </td>
+                                         <td><%# Eval("EventLocation") %></td>
                                         <td><%# Eval("OrganizationName") %></td>
-                                        <td><%# Eval("Email") %></td>
-                                        <td>
-                                            <%# Convert.ToDateTime(Eval("CreatedAt")).ToString("d MMM yyyy").ToUpper() %>
-                                        </td>
-                                        <td><%# Eval("TotalEvents") %></td>
-                                        <td><%# Eval("CompletedEvents") %></td>
-                                        <td><%# Eval("UpcomingEvents") %></td>
-                                        <td><%# Eval("ApprovedVendors") %></td>
-                                        <td>
-                                            <asp:Literal runat="server" ID="Status"></asp:Literal>
-                                        </td>
-                                        <td>
-                                             <asp:Button ID="btnDeactivate"
-                                                runat="server"
-                                                CssClass="btn btn-danger btn-sm ms-1"
-                                                Text="Deactivate"
-                                                CommandName="Deactivate"
-                                                CommandArgument='<%# Eval("UserID") %>'
-                                                  Visible='<%# Eval("IsActive").ToString() == "True" %>' />
-
-                                            <asp:Button ID="btnActivate"
-                                                runat="server"
-                                                CssClass="btn btn-primary btn-sm ms-1"
-                                                Text="Activate"
-                                                CommandName="Activate"
-                                                CommandArgument='<%# Eval("UserID") %>'
-                                                  Visible='<%# Eval("IsActive").ToString() == "False" %>' />
-                                                
-                                        </td>
+                                        <td><%# Eval("EventStatus") %></td>
+                                        <td><%# Eval("TotalApplied") %></td>
+                                        <td><%# Eval("TotalApproved") %></td>
+                                        <td><%# Eval("TotalDeclined") %></td>
+                                        <td><%# Eval("ApprovalRate") %>%</td>
                                     </tr>
                                 </itemtemplate>
                             </asp:Repeater>

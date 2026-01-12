@@ -211,6 +211,12 @@
   <wsdl:message name="IService1_OragnizerReport_OutputMessage">
     <wsdl:part name="parameters" element="tns:OragnizerReportResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_EventReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:EventReport" />
+  </wsdl:message>
+  <wsdl:message name="IService1_EventReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EventReportResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_DeactivateUser_InputMessage">
     <wsdl:part name="parameters" element="tns:DeactivateUser" />
   </wsdl:message>
@@ -359,6 +365,10 @@
     <wsdl:operation name="OragnizerReport">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/OragnizerReport" message="tns:IService1_OragnizerReport_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/OragnizerReportResponse" message="tns:IService1_OragnizerReport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EventReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/EventReport" message="tns:IService1_EventReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/EventReportResponse" message="tns:IService1_EventReport_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="DeactivateUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeactivateUser" message="tns:IService1_DeactivateUser_InputMessage" />
@@ -670,6 +680,15 @@
     </wsdl:operation>
     <wsdl:operation name="OragnizerReport">
       <soap:operation soapAction="http://tempuri.org/IService1/OragnizerReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EventReport">
+      <soap:operation soapAction="http://tempuri.org/IService1/EventReport" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
