@@ -458,6 +458,7 @@ namespace VnedorConnect_Service
                         {
                             UserID = o.UserId,
                             OrganizerID = o.OrganizerId,
+                            Email=o.ContactEmail,
                             CreatedAt=o.CreatedAt,
                             IsActive=o.IsActive,
                             OrganizationName=o.OrganizationName,

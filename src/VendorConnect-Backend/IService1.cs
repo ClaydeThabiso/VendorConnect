@@ -314,6 +314,9 @@ namespace VnedorConnect_Service
         public string OrganizationName { get; set; }
 
         [DataMember]
+        public string Email { get; set; }
+
+        [DataMember]
         public DateTime CreatedAt { get; set; }
 
         [DataMember]

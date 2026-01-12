@@ -109,7 +109,13 @@
                         <thead>
                             <tr>
                                 <th scope="col" class="auto-style1">Organization Name</th>
-                                <th scope="col" class="auto-style1">Register at</th>
+                                <th scope="col" class="auto-style1">Email</th>
+                                <th scope="col" class="auto-style1">Joined</th>
+                                <th scope="col" class="auto-style1">Total Events</th>
+                                 <th scope="col" class="auto-style1">Completed</th>
+                                 <th scope="col" class="auto-style1">Upcoming</th>
+                                 <th scope="col" class="auto-style1">Vendors Approved</th>
+                                 <th scope="col" class="auto-style1">Status</th>
                                 <th scope="col" class="auto-style1">Actions</th>
                             </tr>
                         </thead>
