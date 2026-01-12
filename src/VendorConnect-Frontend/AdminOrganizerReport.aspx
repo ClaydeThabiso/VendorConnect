@@ -125,8 +125,16 @@
                                 <itemtemplate>
                                     <tr>
                                         <td><%# Eval("OrganizationName") %></td>
+                                        <td><%# Eval("Email") %></td>
                                         <td>
                                             <%# Convert.ToDateTime(Eval("CreatedAt")).ToString("d MMM yyyy").ToUpper() %>
+                                        </td>
+                                        <td><%# Eval("TotalEvents") %></td>
+                                        <td><%# Eval("CompletedEvents") %></td>
+                                        <td><%# Eval("UpcomingEvents") %></td>
+                                        <td><%# Eval("ApprovedVendors") %></td>
+                                        <td>
+                                            <asp:Label runat="server" ID="Status"></asp:Label>
                                         </td>
                                         <td>
                                              <asp:Button ID="btnDeactivate"
