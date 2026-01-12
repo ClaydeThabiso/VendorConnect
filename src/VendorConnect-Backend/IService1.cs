@@ -318,6 +318,18 @@ namespace VnedorConnect_Service
 
         [DataMember]
         public bool IsActive { get; set; }
+
+        [DataMember]
+        public int TotalEvents { get; set; }
+
+        [DataMember]
+        public int CompletedEvents { get; set; }
+
+        [DataMember]
+        public int UpcomingEvents { get; set; }
+
+        [DataMember]
+        public int ApprovedVendors { get; set; }
     }
 
 

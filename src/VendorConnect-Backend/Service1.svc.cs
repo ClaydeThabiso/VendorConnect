@@ -445,11 +445,11 @@ namespace VnedorConnect_Service
                            Category = v.Category,
                            CreatedAt = (DateTime)v.CreatedAt,
                            IsActive=v.IsActive,
-                           TotalApproved= (from va in db.VendorApplications where va.VendorId==v.VendorId && va.Status.Equals("Approved") select v).Count(),
-                           TotalDecline = (from va in db.VendorApplications where va.VendorId==v.VendorId && va.Status.Equals("Declined") select v).Count()
+                           TotalApproved= (from va in db.VendorApplications where va.VendorId==v.VendorId && va.Status.Equals("Approved") select va).Count(),
+                           TotalDecline = (from va in db.VendorApplications where va.VendorId==v.VendorId && va.Status.Equals("Declined") select va).Count()
 
                        }).ToList();
-            return ven;
+            return ven; 
         }
         public List<AdminOragnizerReportDTO> OragnizerReport()
         {
@@ -460,7 +460,15 @@ namespace VnedorConnect_Service
                             OrganizerID = o.OrganizerId,
                             CreatedAt=o.CreatedAt,
                             IsActive=o.IsActive,
-                            OrganizationName=o.OrganizationName
+                            OrganizationName=o.OrganizationName,
+
+                            TotalEvents=(from e in db.Events where e.OrganizerId==o.OrganizerId select e).Count(),
+                            CompletedEvents=(from e in db.Events where e.OrganizerId==o.OrganizerId && e.status.Equals("Completed") select e).Count(),
+                            UpcomingEvents=(from e in db.Events where e.OrganizerId==o.OrganizerId && e.status.Equals("Upcoming") select e).Count(),
+                            ApprovedVendors=(from va in db.VendorApplications join e in db.Events on va.EventId equals e.EventId
+                                             join org in db.Organizers on e.OrganizerId equals org.OrganizerId
+                                             where va.Status.Equals("Approved") select va).Count()
+
                         }).ToList();
             return orga;
         }
