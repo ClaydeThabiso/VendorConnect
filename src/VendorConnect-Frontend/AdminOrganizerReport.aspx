@@ -43,7 +43,7 @@
                     </a>
                 </div>
                 <div class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="AdminEventReport.aspx" class="nav-link">
                         <i class="fas fa-calendar-alt"></i>
                         <span>All Events</span>
                     </a>
