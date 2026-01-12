@@ -338,6 +338,39 @@ namespace VnedorConnect_Service
         public int ApprovedVendors { get; set; }
     }
 
+    [DataContract]
+    public class AdminEventReportDTO
+    {
+        public int EventId { get; set; }
+        [DataMember]
+        public string EventName { get; set; }
+
+        [DataMember]
+        public DateTime EventDate { get; set; }
+
+        [DataMember]
+        public string OrganizationName { get; set; }
+
+        [DataMember]
+        public string EventStatus { get; set; }
+
+        [DataMember]
+        public string EventLocation { get; set; }
+
+        [DataMember]
+        public int TotalApplied { get; set; }
+
+        [DataMember]
+        public int TotalApproved { get; set; }
+
+        [DataMember]
+        public int TotalDeclined { get; set; }
+
+        [DataMember]
+        public decimal ApprovalRate { get; set; }
+    }
+
+
 
 }
 
