@@ -118,8 +118,6 @@
                                 <th scope="col" class="auto-style1">Total Applied Vendors</th>
                                 <th scope="col" class="auto-style1">Total Approved</th>
                                 <th scope="col" class="auto-style1">Total Declined</th>
-                                <th scope="col" class="auto-style1">Approval Rate</th>
-
                             </tr>
                         </thead>
                         <tbody>
