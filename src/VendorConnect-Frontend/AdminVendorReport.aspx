@@ -115,7 +115,7 @@
                                 <th scope="col" class="auto-style1">Register at</th>
                                 <th scope="col" class="auto-style1">Total Approved Applications</th>
                                 <th scope="col" class="auto-style1">Total Declined Applications</th>
-                                <th scope="col" class="auto-style1"></th>
+                                <th scope="col" class="auto-style1">Status</th>
                                 <th scope="col" class="auto-style1">Actions</th>
                             </tr>
                         </thead>
