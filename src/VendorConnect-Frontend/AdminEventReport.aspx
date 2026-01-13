@@ -134,8 +134,8 @@
                                         <td><%# Eval("OrganizationName") %></td>
                                         <td>
                                             <span class='badge 
-                                            <%# Eval("EventStatus").ToString() == "Completed" ? "bg-secondary" :
-                                                Eval("EventStatus").ToString() == "Active" ? "bg-success" :
+                                            <%# Eval("EventStatus").ToString() == "Completed" ? "bg-sucess" :
+                                                Eval("EventStatus").ToString() == "Active" ? "bg-primary" :
                                                 Eval("EventStatus").ToString() == "Cancelled" ? "bg-danger" :
                                                 "bg-warning" %>'>
                                                 <%# Eval("EventStatus") %>
