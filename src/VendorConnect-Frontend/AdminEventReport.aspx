@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="AdminEventReport.aspx.cs" Inherits="VendorConnect_Frontend.AdminEventReport" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="DashboardStyling" runat="server">
@@ -16,6 +17,7 @@
         .auto-style1 {
             height: 25px;
         }
+
         .auto-style2 {
             height: 36px;
         }
@@ -112,30 +114,40 @@
                                 <th scope="col" class="auto-style1">Event Date</th>
                                 <th scope="col" class="auto-style1">Event Location</th>
                                 <th scope="col" class="auto-style1">Organization Name</th>
-                                <th scope="col" class="auto-style1"> Event Status</th>
-                                 <th scope="col" class="auto-style1">Total Applied Vendors</th>
-                                 <th scope="col" class="auto-style1">Total Approved</th>
-                                 <th scope="col" class="auto-style1">Total Declined</th>
-                                 <th scope="col" class="auto-style1">Approval Rate</th>
-                                
+                                <th scope="col" class="auto-style1">Event Status</th>
+                                <th scope="col" class="auto-style1">Total Applied Vendors</th>
+                                <th scope="col" class="auto-style1">Total Approved</th>
+                                <th scope="col" class="auto-style1">Total Declined</th>
+                                <th scope="col" class="auto-style1">Approval Rate</th>
+
                             </tr>
                         </thead>
                         <tbody>
-                            <asp:Repeater ID="RepeaterReport" runat="server"
-                                >
+                            <asp:Repeater ID="RepeaterReport" runat="server">
                                 <itemtemplate>
                                     <tr>
                                         <td><%# Eval("EventName") %></td>
                                         <td>
                                             <%# Convert.ToDateTime(Eval("EventDate")).ToString("d MMM yyyy").ToUpper() %>
                                         </td>
-                                         <td><%# Eval("EventLocation") %></td>
+                                        <td><%# Eval("EventLocation") %></td>
                                         <td><%# Eval("OrganizationName") %></td>
-                                        <td><%# Eval("EventStatus") %></td>
+                                        <td>
+                                            <span class='badge 
+                                            <%# Eval("EventStatus").ToString() == "Completed" ? "bg-secondary" :
+                                                Eval("EventStatus").ToString() == "Active" ? "bg-success" :
+                                                Eval("EventStatus").ToString() == "Cancelled" ? "bg-danger" :
+                                                "bg-warning" %>'>
+                                                <%# Eval("EventStatus") %>
+                                            </span>
+                                        </td>
+
                                         <td><%# Eval("TotalApplied") %></td>
                                         <td><%# Eval("TotalApproved") %></td>
                                         <td><%# Eval("TotalDeclined") %></td>
-                                        <td><%# Eval("ApprovalRate") %></td>
+                                        <td>
+                                        </td>
+
                                     </tr>
                                 </itemtemplate>
                             </asp:Repeater>

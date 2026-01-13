@@ -371,15 +371,8 @@ namespace VnedorConnect_Service
         public int TotalDeclined { get; set; }
 
         [DataMember]
-        public string ApprovalRate 
-        { 
-            get
-            {
-                if (TotalApplied == 0)
-                    return "N/A";
-                return (TotalApproved * 100 / TotalApplied) + "%";
-            }
-        }
+        public string ApprovalRate { get; set; } 
+        
     }
 
 
