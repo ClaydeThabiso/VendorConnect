@@ -52,7 +52,7 @@ namespace VnedorConnect_Service
             var tempUser = (from u in db.Users
                             where
          u.Username.Equals(username) &&
-         u.Password.Equals(HashedPassword)
+         u.Password.Equals(HashedPassword) && u.IsActive.Equals(true)
                             select u).FirstOrDefault();
 
             // If no user found, return null
