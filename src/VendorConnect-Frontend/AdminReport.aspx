@@ -157,7 +157,7 @@
                 </div>
 
                 <!-- Recent Activity Section -->
-                <h3 class="section-title">Recent Activity</h3>
+                <h3 class="section-title">Report overview</h3>
                 <div class="recent-activity">
                     <div class="row mt-4">
 
@@ -273,7 +273,7 @@
                     datasets: [{
                         label: 'Total Applications',
                         data: appData.map(x => x.TotalApplications),
-                        backgroundColor: '#3f51b5'
+                        backgroundColor: ['#ff9800', '#2196f3', '#4caf50', '#f44336', '#3f51b5']
                     }]
                 },
                 options: {
