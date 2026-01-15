@@ -13,6 +13,7 @@ namespace VendorConnect_Frontend
     {
         protected string EventStatusJson = "{}";
         protected string EventApplicationsJson = "[]";
+        protected string TopEventsJson = "[]";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -41,10 +42,12 @@ namespace VendorConnect_Frontend
             {
                 var status = client.GetEventStatusChart();
                 var apps = client.GetEventApplicationsChart();
+                var topEvents = client.GetTopAppliedEvents();
 
                 JavaScriptSerializer js = new JavaScriptSerializer();
                 EventStatusJson = js.Serialize(status);
                 EventApplicationsJson = js.Serialize(apps);
+                TopEventsJson = js.Serialize(topEvents);
             }
         }
 
