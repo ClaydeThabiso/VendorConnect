@@ -838,18 +838,30 @@ namespace VnedorConnect_Service
         }
         public List<MonthlyEventsDTO> GetMonthlyEventsTrend()
         {
-            var data = db.Events
+            // Step 1: Group in the database by year and month
+            var groupedData = db.Events
                 .GroupBy(e => new { e.EventDate.Year, e.EventDate.Month })
-                .Select(g => new MonthlyEventsDTO
+                .Select(g => new
                 {
-                    Month = g.Key.Year + "-" + g.Key.Month.ToString("D2"),
+                    Year = g.Key.Year,
+                    Month = g.Key.Month,
                     TotalEvents = g.Count()
                 })
-                .OrderBy(x => x.Month)
+                .ToList(); // fetch into memory
+
+            // Step 2: Format month name and year in memory
+            var result = groupedData
+                .Select(x => new MonthlyEventsDTO
+                {
+                    Month = new DateTime(x.Year, x.Month, 1).ToString("MMM yyyy"), // "Jan 2026"
+            TotalEvents = x.TotalEvents
+                })
+                .OrderBy(x => DateTime.ParseExact(x.Month, "MMM yyyy", null)) // optional, ensure correct order
                 .ToList();
 
-            return data;
+            return result;
         }
+
 
 
 
