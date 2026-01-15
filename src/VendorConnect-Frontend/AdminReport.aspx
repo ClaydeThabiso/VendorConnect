@@ -159,46 +159,48 @@
                 <!-- Recent Activity Section -->
                 <h3 class="section-title">Report overview</h3>
                 <div class="recent-activity">
-                    <div class="row mt-4">
-
-                        <div class="col-md-6">
-                            <div class="card">
+                    <div class="row g-4 mt-4">
+                        <!-- Event Status Overview -->
+                        <div class="col-lg-6 col-md-12">
+                            <div class="card h-100">
                                 <div class="card-body">
                                     <h5 class="card-title">Event Status Overview</h5>
-                                    <canvas id="eventStatusChart"></canvas>
+                                    <canvas id="eventStatusChart" style="min-height: 250px;"></canvas>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md-6">
-                            <div class="card">
+                        <!-- Vendor Applications Per Event -->
+                        <div class="col-lg-6 col-md-12">
+                            <div class="card h-100">
                                 <div class="card-body">
                                     <h5 class="card-title">Vendor Applications Per Event</h5>
-                                    <canvas id="applicationsChart"></canvas>
+                                    <canvas id="applicationsChart" style="min-height: 250px;"></canvas>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md-6 mt-4">
-                            <div class="card">
+                        <!-- Top 5 Most Applied Events -->
+                        <div class="col-lg-6 col-md-12">
+                            <div class="card h-100">
                                 <div class="card-body">
                                     <h5 class="card-title">Top 5 Most Applied Events</h5>
-                                    <canvas id="topEventsChart"></canvas>
+                                    <canvas id="topEventsChart" style="min-height: 250px;"></canvas>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md-12 mt-4">
-                            <div class="card">
+                        <!-- Monthly Events Trend -->
+                        <div class="col-lg-6 col-md-12">
+                            <div class="card h-100">
                                 <div class="card-body">
                                     <h5 class="card-title">Monthly Events Trend</h5>
-                                    <canvas id="monthlyEventsChart"></canvas>
+                                    <canvas id="monthlyEventsChart" style="min-height: 250px;"></canvas>
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
+
 
                 </div>
             </div>
@@ -206,12 +208,12 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        
+
         document.querySelector('.toggle-sidebar').addEventListener('click', function () {
             document.querySelector('.sidebar').classList.toggle('active');
         });
 
-        
+
         document.addEventListener('click', function (event) {
             const sidebar = document.querySelector('.sidebar');
             const toggleBtn = document.querySelector('.toggle-sidebar');
@@ -223,13 +225,13 @@
             }
         });
 
-        
+
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function () {
                 document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
                 this.classList.add('active');
 
-                
+
                 if (window.innerWidth <= 992) {
                     document.querySelector('.sidebar').classList.remove('active');
                 }
@@ -242,13 +244,13 @@
             const statusData = <%= EventStatusJson %>;
             const appData = <%= EventApplicationsJson %>;
 
-            
+
             if (!statusData || !appData) {
                 console.error("Chart data missing");
                 return;
             }
 
-            
+
             new Chart(document.getElementById('eventStatusChart'), {
                 type: 'doughnut',
                 data: {
@@ -265,7 +267,7 @@
                 }
             });
 
-            
+
             new Chart(document.getElementById('applicationsChart'), {
                 type: 'bar',
                 data: {
@@ -284,7 +286,7 @@
                 }
             });
 
-            
+
             const topEventsData = <%= TopEventsJson %>;
 
             new Chart(document.getElementById('topEventsChart'), {
@@ -299,7 +301,7 @@
                 },
                 options: {
                     responsive: true,
-                    indexAxis: 'y', 
+                    indexAxis: 'y',
                     scales: {
                         x: { beginAtZero: true }
                     }
