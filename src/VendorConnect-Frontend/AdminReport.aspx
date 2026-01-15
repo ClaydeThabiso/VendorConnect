@@ -185,7 +185,7 @@
             </div>
         </div>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         // Toggle sidebar on mobile
         document.querySelector('.toggle-sidebar').addEventListener('click', function () {
@@ -218,48 +218,56 @@
         });
 
 
-        const statusData = <%= EventStatusJson %>;
-        const appData = <%= EventApplicationsJson %>;
+        window.onload = function () {
 
-        // EVENT STATUS DOUGHNUT
-        new Chart(document.getElementById('eventStatusChart'), {
-            type: 'doughnut',
-            data: {
-                labels: ['Upcoming', 'Active', 'Completed', 'Cancelled'],
-                datasets: [{
-                    data: [
-                        statusData.Upcoming,
-                        statusData.Active,
-                        statusData.Completed,
-                        statusData.Cancelled
-                    ],
-                    backgroundColor: ['#ff9800', '#2196f3', '#4caf50', '#f44336']
-                }]
+            const statusData = <%= EventStatusJson %>;
+            const appData = <%= EventApplicationsJson %>;
+
+            // SAFETY CHECK
+            if (!statusData || !appData) {
+                console.error("Chart data missing");
+                return;
             }
-        });
 
-        // APPLICATIONS BAR CHART
-        new Chart(document.getElementById('applicationsChart'), {
-            type: 'bar',
-            data: {
-                labels: appData.map(x => x.EventName),
-                datasets: [{
-                    label: 'Total Applications',
-                    data: appData.map(x => x.TotalApplications),
-                    backgroundColor: '#3f51b5'
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+            // EVENT STATUS DOUGHNUT
+            new Chart(document.getElementById('eventStatusChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Upcoming', 'Active', 'Completed', 'Cancelled'],
+                    datasets: [{
+                        data: [
+                            statusData.Upcoming,
+                            statusData.Active,
+                            statusData.Completed,
+                            statusData.Cancelled
+                        ],
+                        backgroundColor: ['#ff9800', '#2196f3', '#4caf50', '#f44336']
+                    }]
+                }
+            });
+
+            // APPLICATIONS BAR CHART
+            new Chart(document.getElementById('applicationsChart'), {
+                type: 'bar',
+                data: {
+                    labels: appData.map(x => x.EventName),
+                    datasets: [{
+                        label: 'Total Applications',
+                        data: appData.map(x => x.TotalApplications),
+                        backgroundColor: '#3f51b5'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: { beginAtZero: true }
                     }
                 }
-            }
-        });
+            });
+        };
 
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
 
 </asp:Content>
 

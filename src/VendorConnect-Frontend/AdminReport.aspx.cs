@@ -11,8 +11,9 @@ namespace VendorConnect_Frontend
 {
     public partial class AdminReport : System.Web.UI.Page
     {
-        protected string EventStatusJson;
-        protected string EventApplicationsJson;
+        protected string EventStatusJson = "{}";
+        protected string EventApplicationsJson = "[]";
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
