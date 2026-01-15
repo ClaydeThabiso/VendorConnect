@@ -125,6 +125,9 @@ namespace VnedorConnect_Service
         [OperationContract]
         EventReportsDashboardDTO GetEventReportsDashboard();
 
+        [OperationContract]
+        EventStatusChartDTO GetEventStatusChart()
+
 
     }
     [DataContract]
@@ -419,6 +422,33 @@ namespace VnedorConnect_Service
         [DataMember]
         public List<int> ApprovalRates { get; set; }
     }
+
+    [DataContract]
+    public class EventStatusChartDTO
+    {
+        [DataMember]
+        public int Upcoming { get; set; }
+
+        [DataMember]
+        public int Active { get; set; }
+
+        [DataMember]
+        public int Completed { get; set; }
+
+        [DataMember]
+        public int Cancelled { get; set; }
+    }
+    [DataContract]
+    public class EventApplicationsChartDTO
+    {
+        [DataMember]
+        public string EventName { get; set; }
+
+        [DataMember]
+        public int TotalApplications { get; set; }
+    }
+
+
 
 
 
