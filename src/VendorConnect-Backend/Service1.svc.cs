@@ -821,6 +821,36 @@ namespace VnedorConnect_Service
                             .Count(v => v.EventId == e.EventId)
                     }).ToList();
         }
+        public List<TopEventApplicationsDTO> GetTopAppliedEvents()
+        {
+            var data = (from e in db.Events
+                        select new TopEventApplicationsDTO
+                        {
+                            EventName = e.EventName,
+                            TotalApplications = db.VendorApplications
+                                .Count(v => v.EventId == e.EventId)
+                        })
+                        .OrderByDescending(x => x.TotalApplications)
+                        .Take(5)
+                        .ToList();
+
+            return data;
+        }
+        public List<MonthlyEventsDTO> GetMonthlyEventsTrend()
+        {
+            var data = db.Events
+                .GroupBy(e => new { e.EventDate.Year, e.EventDate.Month })
+                .Select(g => new MonthlyEventsDTO
+                {
+                    Month = g.Key.Year + "-" + g.Key.Month.ToString("D2"),
+                    TotalEvents = g.Count()
+                })
+                .OrderBy(x => x.Month)
+                .ToList();
+
+            return data;
+        }
+
 
 
 

@@ -131,6 +131,11 @@ namespace VnedorConnect_Service
         [OperationContract]
         List<EventApplicationsChartDTO> GetEventApplicationsChart();
 
+        [OperationContract]
+        List<TopEventApplicationsDTO> GetTopAppliedEvents();
+        [OperationContract]
+        List<MonthlyEventsDTO> GetMonthlyEventsTrend();
+
 
     }
     [DataContract]
@@ -450,6 +455,26 @@ namespace VnedorConnect_Service
         [DataMember]
         public int TotalApplications { get; set; }
     }
+    [DataContract]
+    public class TopEventApplicationsDTO
+    {
+        [DataMember]
+        public string EventName { get; set; }
+
+        [DataMember]
+        public int TotalApplications { get; set; }
+    }
+    [DataContract]
+    public class MonthlyEventsDTO
+    {
+        [DataMember]
+        public string Month { get; set; }
+
+        [DataMember]
+        public int TotalEvents { get; set; }
+    }
+
+
 
 
 

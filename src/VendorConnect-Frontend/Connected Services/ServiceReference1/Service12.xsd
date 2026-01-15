@@ -295,4 +295,30 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="EventApplicationsChartDTO" nillable="true" type="tns:EventApplicationsChartDTO" />
+  <xs:complexType name="ArrayOfTopEventApplicationsDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TopEventApplicationsDTO" nillable="true" type="tns:TopEventApplicationsDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTopEventApplicationsDTO" nillable="true" type="tns:ArrayOfTopEventApplicationsDTO" />
+  <xs:complexType name="TopEventApplicationsDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EventName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalApplications" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TopEventApplicationsDTO" nillable="true" type="tns:TopEventApplicationsDTO" />
+  <xs:complexType name="ArrayOfMonthlyEventsDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MonthlyEventsDTO" nillable="true" type="tns:MonthlyEventsDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMonthlyEventsDTO" nillable="true" type="tns:ArrayOfMonthlyEventsDTO" />
+  <xs:complexType name="MonthlyEventsDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Month" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalEvents" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MonthlyEventsDTO" nillable="true" type="tns:MonthlyEventsDTO" />
 </xs:schema>
