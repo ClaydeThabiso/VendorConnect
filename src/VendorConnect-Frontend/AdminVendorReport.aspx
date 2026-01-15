@@ -62,7 +62,7 @@
                     </a>
                 </div>
                 <div class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="AdminReport.aspx" class="nav-link">
                         <i class="fas fa-chart-bar"></i>
                         <span>Reports</span>
                     </a>
