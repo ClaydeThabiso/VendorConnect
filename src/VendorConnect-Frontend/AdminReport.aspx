@@ -179,6 +179,16 @@
                             </div>
                         </div>
 
+                        <div class="col-md-6 mt-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Top 5 Most Applied Events</h5>
+                                    <canvas id="topEventsChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
 
                 </div>
@@ -264,10 +274,31 @@
                     }
                 }
             });
+
+            const topEventsData = <%= TopEventsJson %>;
+
+            new Chart(document.getElementById('topEventsChart'), {
+                type: 'bar',
+                data: {
+                    labels: topEventsData.map(x => x.EventName),
+                    datasets: [{
+                        label: 'Applications',
+                        data: topEventsData.map(x => x.TotalApplications),
+                        backgroundColor: '#ff9800'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    indexAxis: 'y', // horizontal bar (🔥 looks better)
+                    scales: {
+                        x: { beginAtZero: true }
+                    }
+                }
+            });
         };
 
     </script>
-    
+
 
 </asp:Content>
 
