@@ -95,59 +95,66 @@
             <!-- Content Area -->
             <div class="content-area">
                 <!-- Dashboard Cards -->
-                <div class="dashboard-cards">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="card-icon vendors">
-                                <i class="fas fa-store"></i>
-                            </div>
-                            <div class="card-title">Total Vendors</div>
-                            <div class="card-value" runat="server" id="DisplayVendors"></div>
-                            <div class="card-change positive">
-                                <i class="fas fa-arrow-up me-1"></i> 12% increase
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="card-icon organizers">
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <div class="card-title">Total Organizers</div>
-                            <div class="card-value" runat="server" id="DisplayOrga"></div>
-                            <div class="card-change positive">
-                                <i class="fas fa-arrow-up me-1"></i> 8% increase
-                            </div>
-                        </div>
-                    </div>
+               <div class="dashboard-cards">
 
-                     <div class="card">
-                        <div class="card-body">
-                            <div class="card-icon events">
-                                <i class="fas fa-calendar-alt"></i>
-                            </div>
-                            <div class="card-title">Upcoming Events</div>
-                            <div class="card-value" runat="server" id="displayUpcomingEvents"></div>
-                            <div class="card-change positive">
-                                <i class="fas fa-arrow-up me-1"></i> 5% increase
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="card-icon payments">
-                                <i class="fas fa-credit-card"></i>
-                            </div>
-                            <div class="card-title">Revenue</div>
-                            <div class="card-value">$24,580</div>
-                            <div class="card-change positive">
-                                <i class="fas fa-arrow-up me-1"></i> 15% increase
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <!-- Total Events -->
+    <div class="card">
+        <div class="card-body">
+            <div class="card-icon events">
+                <i class="fas fa-calendar-alt"></i>
+            </div>
+            <div class="card-title">Total Events</div>
+            <div class="card-value" runat="server" id="DisplayTotalEvents"></div>
+            <div class="card-change positive">
+                <i class="fas fa-arrow-up me-1"></i> Tracking live
+            </div>
+        </div>
+    </div>
+
+    <!-- Active Events -->
+    <div class="card">
+        <div class="card-body">
+            <div class="card-icon events">
+                <i class="fas fa-bolt"></i>
+            </div>
+            <div class="card-title">Active Events</div>
+            <div class="card-value" runat="server" id="DisplayActiveEvents"></div>
+            <div class="card-change positive">
+                <i class="fas fa-arrow-up me-1"></i> Real-time
+            </div>
+        </div>
+    </div>
+
+    <!-- Completed Events -->
+    <div class="card">
+        <div class="card-body">
+            <div class="card-icon organizers">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="card-title">Completed Events</div>
+            <div class="card-value" runat="server" id="DisplayCompletedEvents"></div>
+            <div class="card-change positive">
+                <i class="fas fa-arrow-up me-1"></i> Updated
+            </div>
+        </div>
+    </div>
+
+    <!-- Total Vendor Applications -->
+    <div class="card">
+        <div class="card-body">
+            <div class="card-icon payments">
+                <i class="fas fa-file-alt"></i>
+            </div>
+            <div class="card-title">Vendor Applications</div>
+            <div class="card-value" runat="server" id="DisplayApplications"></div>
+            <div class="card-change positive">
+                <i class="fas fa-arrow-up me-1"></i> Today’s stats
+            </div>
+        </div>
+    </div>
+
+</div>
+
                 
                 <!-- Recent Activity Section -->
                 <h3 class="section-title">Recent Activity</h3>

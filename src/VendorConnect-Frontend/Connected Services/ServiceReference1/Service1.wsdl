@@ -5,6 +5,7 @@
       <xsd:import schemaLocation="http://localhost:58671/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:58671/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:58671/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/VnedorConnect_Service" />
+      <xsd:import schemaLocation="http://localhost:58671/Service1.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IService1_RegisterUser_InputMessage">
@@ -229,6 +230,12 @@
   <wsdl:message name="IService1_ActivateUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:ActivateUserResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetEventReportsDashboard_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEventReportsDashboard" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetEventReportsDashboard_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEventReportsDashboardResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="RegisterUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/RegisterUser" message="tns:IService1_RegisterUser_InputMessage" />
@@ -377,6 +384,10 @@
     <wsdl:operation name="ActivateUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/ActivateUser" message="tns:IService1_ActivateUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/ActivateUserResponse" message="tns:IService1_ActivateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEventReportsDashboard">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetEventReportsDashboard" message="tns:IService1_GetEventReportsDashboard_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetEventReportsDashboardResponse" message="tns:IService1_GetEventReportsDashboard_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -707,6 +718,15 @@
     </wsdl:operation>
     <wsdl:operation name="ActivateUser">
       <soap:operation soapAction="http://tempuri.org/IService1/ActivateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEventReportsDashboard">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetEventReportsDashboard" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

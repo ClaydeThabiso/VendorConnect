@@ -2339,6 +2339,195 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EventReportsDashboardDTO", Namespace="http://schemas.datacontract.org/2004/07/VnedorConnect_Service")]
+    [System.SerializableAttribute()]
+    public partial class EventReportsDashboardDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ActiveEventsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.ObjectModel.Collection<int> ApplicationsPerEventField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.ObjectModel.Collection<int> ApprovalRatesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CancelledEventsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CompletedEventsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.ObjectModel.Collection<string> EventNamesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TotalApplicationsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TotalApprovedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TotalDeclinedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TotalEventsField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ActiveEvents {
+            get {
+                return this.ActiveEventsField;
+            }
+            set {
+                if ((this.ActiveEventsField.Equals(value) != true)) {
+                    this.ActiveEventsField = value;
+                    this.RaisePropertyChanged("ActiveEvents");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.Collection<int> ApplicationsPerEvent {
+            get {
+                return this.ApplicationsPerEventField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ApplicationsPerEventField, value) != true)) {
+                    this.ApplicationsPerEventField = value;
+                    this.RaisePropertyChanged("ApplicationsPerEvent");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.Collection<int> ApprovalRates {
+            get {
+                return this.ApprovalRatesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ApprovalRatesField, value) != true)) {
+                    this.ApprovalRatesField = value;
+                    this.RaisePropertyChanged("ApprovalRates");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CancelledEvents {
+            get {
+                return this.CancelledEventsField;
+            }
+            set {
+                if ((this.CancelledEventsField.Equals(value) != true)) {
+                    this.CancelledEventsField = value;
+                    this.RaisePropertyChanged("CancelledEvents");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CompletedEvents {
+            get {
+                return this.CompletedEventsField;
+            }
+            set {
+                if ((this.CompletedEventsField.Equals(value) != true)) {
+                    this.CompletedEventsField = value;
+                    this.RaisePropertyChanged("CompletedEvents");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.Collection<string> EventNames {
+            get {
+                return this.EventNamesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EventNamesField, value) != true)) {
+                    this.EventNamesField = value;
+                    this.RaisePropertyChanged("EventNames");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TotalApplications {
+            get {
+                return this.TotalApplicationsField;
+            }
+            set {
+                if ((this.TotalApplicationsField.Equals(value) != true)) {
+                    this.TotalApplicationsField = value;
+                    this.RaisePropertyChanged("TotalApplications");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TotalApproved {
+            get {
+                return this.TotalApprovedField;
+            }
+            set {
+                if ((this.TotalApprovedField.Equals(value) != true)) {
+                    this.TotalApprovedField = value;
+                    this.RaisePropertyChanged("TotalApproved");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TotalDeclined {
+            get {
+                return this.TotalDeclinedField;
+            }
+            set {
+                if ((this.TotalDeclinedField.Equals(value) != true)) {
+                    this.TotalDeclinedField = value;
+                    this.RaisePropertyChanged("TotalDeclined");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TotalEvents {
+            get {
+                return this.TotalEventsField;
+            }
+            set {
+                if ((this.TotalEventsField.Equals(value) != true)) {
+                    this.TotalEventsField = value;
+                    this.RaisePropertyChanged("TotalEvents");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1 {
@@ -2564,6 +2753,12 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ActivateUser", ReplyAction="http://tempuri.org/IService1/ActivateUserResponse")]
         System.Threading.Tasks.Task<int> ActivateUserAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetEventReportsDashboard", ReplyAction="http://tempuri.org/IService1/GetEventReportsDashboardResponse")]
+        VendorConnect_Frontend.ServiceReference1.EventReportsDashboardDTO GetEventReportsDashboard();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetEventReportsDashboard", ReplyAction="http://tempuri.org/IService1/GetEventReportsDashboardResponse")]
+        System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.EventReportsDashboardDTO> GetEventReportsDashboardAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2887,6 +3082,14 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<int> ActivateUserAsync(int id) {
             return base.Channel.ActivateUserAsync(id);
+        }
+        
+        public VendorConnect_Frontend.ServiceReference1.EventReportsDashboardDTO GetEventReportsDashboard() {
+            return base.Channel.GetEventReportsDashboard();
+        }
+        
+        public System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.EventReportsDashboardDTO> GetEventReportsDashboardAsync() {
+            return base.Channel.GetEventReportsDashboardAsync();
         }
     }
 }

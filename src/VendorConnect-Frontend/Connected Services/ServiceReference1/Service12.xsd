@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/VnedorConnect_Service" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VnedorConnect_Service" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:58671/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:58671/Service1.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:complexType name="UserDTO">
     <xs:sequence>
       <xs:element minOccurs="0" name="Id" type="xs:int" />
@@ -257,4 +258,19 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="AdminEventReportDTO" nillable="true" type="tns:AdminEventReportDTO" />
+  <xs:complexType name="EventReportsDashboardDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActiveEvents" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ApplicationsPerEvent" nillable="true" type="q1:ArrayOfint" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ApprovalRates" nillable="true" type="q2:ArrayOfint" />
+      <xs:element minOccurs="0" name="CancelledEvents" type="xs:int" />
+      <xs:element minOccurs="0" name="CompletedEvents" type="xs:int" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="EventNames" nillable="true" type="q3:ArrayOfstring" />
+      <xs:element minOccurs="0" name="TotalApplications" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalApproved" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalDeclined" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalEvents" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EventReportsDashboardDTO" nillable="true" type="tns:EventReportsDashboardDTO" />
 </xs:schema>

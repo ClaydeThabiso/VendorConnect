@@ -15,30 +15,39 @@ namespace VendorConnect_Frontend
     {
 
         /// <summary>
-        /// DisplayVendors control.
+        /// DisplayTotalEvents control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DisplayVendors;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DisplayTotalEvents;
 
         /// <summary>
-        /// DisplayOrga control.
+        /// DisplayActiveEvents control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DisplayOrga;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DisplayActiveEvents;
 
         /// <summary>
-        /// displayUpcomingEvents control.
+        /// DisplayCompletedEvents control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl displayUpcomingEvents;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DisplayCompletedEvents;
+
+        /// <summary>
+        /// DisplayApplications control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DisplayApplications;
     }
 }
