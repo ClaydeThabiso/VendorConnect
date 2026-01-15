@@ -13,5 +13,32 @@ namespace VendorConnect_Frontend
 
     public partial class AdminReport
     {
+
+        /// <summary>
+        /// DisplayVendors control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DisplayVendors;
+
+        /// <summary>
+        /// DisplayOrga control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DisplayOrga;
+
+        /// <summary>
+        /// displayUpcomingEvents control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl displayUpcomingEvents;
     }
 }
