@@ -79,6 +79,7 @@
     <Content Include="AdminDashoard.aspx" />
     <Content Include="AdminEventReport.aspx" />
     <Content Include="AdminOrganizerReport.aspx" />
+    <Content Include="AdminReport.aspx" />
     <Content Include="AdminVendorReport.aspx" />
     <Content Include="CreateEvent.aspx" />
     <Content Include="Events.aspx" />
@@ -118,6 +119,13 @@
     </Compile>
     <Compile Include="AdminOrganizerReport.aspx.designer.cs">
       <DependentUpon>AdminOrganizerReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminReport.aspx.cs">
+      <DependentUpon>AdminReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminReport.aspx.designer.cs">
+      <DependentUpon>AdminReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminVendorReport.aspx.cs">
       <DependentUpon>AdminVendorReport.aspx</DependentUpon>
@@ -268,6 +276,18 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\ServiceReference1\VendorConnect_Frontend.ServiceReference1.AdminEventReportDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\ServiceReference1\Service14.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\ServiceReference1\VendorConnect_Frontend.ServiceReference1.EventReportsDashboardDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServiceReference1\VendorConnect_Frontend.ServiceReference1.EventApplicationsChartDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServiceReference1\VendorConnect_Frontend.ServiceReference1.EventStatusChartDTO.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="packages.config" />

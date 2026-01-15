@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="AdminReport.aspx.cs" Inherits="VendorConnect_Frontend.AdminReport" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="DashboardStyling" runat="server">
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <!-- Google Fonts -->
     <link
@@ -11,7 +12,7 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-           <link href="css/Admin.css" rel="stylesheet" />
+    <link href="css/Admin.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="dashboard-container">
@@ -72,7 +73,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Main Content -->
         <div class="main-content">
             <!-- Header -->
@@ -91,75 +92,95 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Content Area -->
             <div class="content-area">
                 <!-- Dashboard Cards -->
-               <div class="dashboard-cards">
+                <div class="dashboard-cards">
 
-    <!-- Total Events -->
-    <div class="card">
-        <div class="card-body">
-            <div class="card-icon events">
-                <i class="fas fa-calendar-alt"></i>
-            </div>
-            <div class="card-title">Total Events</div>
-            <div class="card-value" runat="server" id="DisplayTotalEvents"></div>
-            <div class="card-change positive">
-                <i class="fas fa-arrow-up me-1"></i> Tracking live
-            </div>
-        </div>
-    </div>
+                    <!-- Total Events -->
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-icon events">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="card-title">Total Events</div>
+                            <div class="card-value" runat="server" id="DisplayTotalEvents"></div>
+                            <div class="card-change positive">
+                                <i class="fas fa-arrow-up me-1"></i>Tracking live
+                            </div>
+                        </div>
+                    </div>
 
-    <!-- Active Events -->
-    <div class="card">
-        <div class="card-body">
-            <div class="card-icon events">
-                <i class="fas fa-bolt"></i>
-            </div>
-            <div class="card-title">Active Events</div>
-            <div class="card-value" runat="server" id="DisplayActiveEvents"></div>
-            <div class="card-change positive">
-                <i class="fas fa-arrow-up me-1"></i> Real-time
-            </div>
-        </div>
-    </div>
+                    <!-- Active Events -->
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-icon events">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div class="card-title">Active Events</div>
+                            <div class="card-value" runat="server" id="DisplayActiveEvents"></div>
+                            <div class="card-change positive">
+                                <i class="fas fa-arrow-up me-1"></i>Real-time
+                            </div>
+                        </div>
+                    </div>
 
-    <!-- Completed Events -->
-    <div class="card">
-        <div class="card-body">
-            <div class="card-icon organizers">
-                <i class="fas fa-check-circle"></i>
-            </div>
-            <div class="card-title">Completed Events</div>
-            <div class="card-value" runat="server" id="DisplayCompletedEvents"></div>
-            <div class="card-change positive">
-                <i class="fas fa-arrow-up me-1"></i> Updated
-            </div>
-        </div>
-    </div>
+                    <!-- Completed Events -->
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-icon organizers">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="card-title">Completed Events</div>
+                            <div class="card-value" runat="server" id="DisplayCompletedEvents"></div>
+                            <div class="card-change positive">
+                                <i class="fas fa-arrow-up me-1"></i>Updated
+                            </div>
+                        </div>
+                    </div>
 
-    <!-- Total Vendor Applications -->
-    <div class="card">
-        <div class="card-body">
-            <div class="card-icon payments">
-                <i class="fas fa-file-alt"></i>
-            </div>
-            <div class="card-title">Vendor Applications</div>
-            <div class="card-value" runat="server" id="DisplayApplications"></div>
-            <div class="card-change positive">
-                <i class="fas fa-arrow-up me-1"></i> Today’s stats
-            </div>
-        </div>
-    </div>
+                    <!-- Total Vendor Applications -->
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-icon payments">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <div class="card-title">Vendor Applications</div>
+                            <div class="card-value" runat="server" id="DisplayApplications"></div>
+                            <div class="card-change positive">
+                                <i class="fas fa-arrow-up me-1"></i>Today’s stats
+                            </div>
+                        </div>
+                    </div>
 
-</div>
+                </div>
 
-                
                 <!-- Recent Activity Section -->
                 <h3 class="section-title">Recent Activity</h3>
                 <div class="recent-activity">
-              
+                    <div class="row mt-4">
+
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Event Status Overview</h5>
+                                    <canvas id="eventStatusChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Vendor Applications Per Event</h5>
+                                    <canvas id="applicationsChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -195,6 +216,48 @@
                 }
             });
         });
+
+
+        const statusData = <%= EventStatusJson %>;
+        const appData = <%= EventApplicationsJson %>;
+
+        // EVENT STATUS DOUGHNUT
+        new Chart(document.getElementById('eventStatusChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Upcoming', 'Active', 'Completed', 'Cancelled'],
+                datasets: [{
+                    data: [
+                        statusData.Upcoming,
+                        statusData.Active,
+                        statusData.Completed,
+                        statusData.Cancelled
+                    ],
+                    backgroundColor: ['#ff9800', '#2196f3', '#4caf50', '#f44336']
+                }]
+            }
+        });
+
+        // APPLICATIONS BAR CHART
+        new Chart(document.getElementById('applicationsChart'), {
+            type: 'bar',
+            data: {
+                labels: appData.map(x => x.EventName),
+                datasets: [{
+                    label: 'Total Applications',
+                    data: appData.map(x => x.TotalApplications),
+                    backgroundColor: '#3f51b5'
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
     </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
