@@ -760,6 +760,48 @@ namespace VnedorConnect_Service
                 return false;
             }
         }
+        public EventReportsDashboardDTO GetEventReportsDashboard()
+        {
+            var events = db.Events.ToList();
+
+            var dto = new EventReportsDashboardDTO
+            {
+                TotalEvents = events.Count,
+                ActiveEvents = events.Count(e => e.status == "Active"),
+                CompletedEvents = events.Count(e => e.status == "Completed"),
+                CancelledEvents = events.Count(e => e.status == "Cancelled"),
+
+                EventNames = new List<string>(),
+                ApplicationsPerEvent = new List<int>(),
+                ApprovalRates = new List<int>()
+            };
+
+            foreach (var ev in events)
+            {
+                int totalApplied = db.VendorApplications
+                    .Count(v => v.EventId == ev.EventId);
+
+                int approved = db.VendorApplications
+                    .Count(v => v.EventId == ev.EventId && v.Status == "Approved");
+
+                int declined = db.VendorApplications
+                    .Count(v => v.EventId == ev.EventId && v.Status == "Declined");
+
+                dto.TotalApplications += totalApplied;
+                dto.TotalApproved += approved;
+                dto.TotalDeclined += declined;
+
+                dto.EventNames.Add(ev.EventName);
+                dto.ApplicationsPerEvent.Add(totalApplied);
+
+                // SAFE approval rate
+                int rate = totalApplied == 0 ? 0 : (approved * 100 / totalApplied);
+                dto.ApprovalRates.Add(rate);
+            }
+
+            return dto;
+        }
+
 
     }
 }

@@ -121,7 +121,11 @@ namespace VnedorConnect_Service
 
         [OperationContract]
         int ActivateUser(int id);
-        
+
+        [OperationContract]
+        EventReportsDashboardDTO GetEventReportsDashboard();
+
+
     }
     [DataContract]
     public class UserDTO
@@ -374,6 +378,50 @@ namespace VnedorConnect_Service
         public string ApprovalRate { get; set; } 
         
     }
+    [DataContract]
+    public class EventReportsDashboardDTO
+    {
+        /* ===== KPI COUNTS ===== */
+
+        [DataMember]
+        public int TotalEvents { get; set; }
+
+        [DataMember]
+        public int ActiveEvents { get; set; }
+
+        [DataMember]
+        public int CompletedEvents { get; set; }
+
+        [DataMember]
+        public int CancelledEvents { get; set; }
+
+
+        /* ===== APPLICATION TOTALS ===== */
+
+        [DataMember]
+        public int TotalApplications { get; set; }
+
+        [DataMember]
+        public int TotalApproved { get; set; }
+
+        [DataMember]
+        public int TotalDeclined { get; set; }
+
+
+        /* ===== CHART DATA ===== */
+
+        [DataMember]
+        public List<string> EventNames { get; set; }
+
+        [DataMember]
+        public List<int> ApplicationsPerEvent { get; set; }
+
+        [DataMember]
+        public List<int> ApprovalRates { get; set; }
+    }
+
+
+
 
 
 
