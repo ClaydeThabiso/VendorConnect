@@ -24,7 +24,7 @@
             </div>
             <div class="sidebar-menu">
                 <div class="nav-item">
-                    <a href="#" class="nav-link active">
+                    <a href="AdminDashoard.aspx" class="nav-link active">
                         <i class="fas fa-tachometer-alt"></i>
                         <span>Dashboard</span>
                     </a>
