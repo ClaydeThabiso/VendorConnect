@@ -126,7 +126,10 @@ namespace VnedorConnect_Service
         EventReportsDashboardDTO GetEventReportsDashboard();
 
         [OperationContract]
-        EventStatusChartDTO GetEventStatusChart()
+        EventStatusChartDTO GetEventStatusChart();
+
+        [OperationContract]
+        List<EventApplicationsChartDTO> GetEventApplicationsChart();
 
 
     }

@@ -801,6 +801,28 @@ namespace VnedorConnect_Service
 
             return dto;
         }
+        public EventStatusChartDTO GetEventStatusChart()
+        {
+            return new EventStatusChartDTO
+            {
+                Upcoming = db.Events.Count(e => e.status == "Upcoming"),
+                Active = db.Events.Count(e => e.status == "Active"),
+                Completed = db.Events.Count(e => e.status == "Completed"),
+                Cancelled = db.Events.Count(e => e.status == "Cancelled")
+            };
+        }
+        public List<EventApplicationsChartDTO> GetEventApplicationsChart()
+        {
+            return (from e in db.Events
+                    select new EventApplicationsChartDTO
+                    {
+                        EventName = e.EventName,
+                        TotalApplications = db.VendorApplications
+                            .Count(v => v.EventId == e.EventId)
+                    }).ToList();
+        }
+
+
 
 
     }
