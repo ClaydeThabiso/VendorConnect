@@ -236,6 +236,18 @@
   <wsdl:message name="IService1_GetEventReportsDashboard_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetEventReportsDashboardResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetEventStatusChart_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEventStatusChart" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetEventStatusChart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEventStatusChartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetEventApplicationsChart_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEventApplicationsChart" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetEventApplicationsChart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEventApplicationsChartResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="RegisterUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/RegisterUser" message="tns:IService1_RegisterUser_InputMessage" />
@@ -388,6 +400,14 @@
     <wsdl:operation name="GetEventReportsDashboard">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetEventReportsDashboard" message="tns:IService1_GetEventReportsDashboard_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetEventReportsDashboardResponse" message="tns:IService1_GetEventReportsDashboard_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEventStatusChart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetEventStatusChart" message="tns:IService1_GetEventStatusChart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetEventStatusChartResponse" message="tns:IService1_GetEventStatusChart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEventApplicationsChart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetEventApplicationsChart" message="tns:IService1_GetEventApplicationsChart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetEventApplicationsChartResponse" message="tns:IService1_GetEventApplicationsChart_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -727,6 +747,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetEventReportsDashboard">
       <soap:operation soapAction="http://tempuri.org/IService1/GetEventReportsDashboard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEventStatusChart">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetEventStatusChart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEventApplicationsChart">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetEventApplicationsChart" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

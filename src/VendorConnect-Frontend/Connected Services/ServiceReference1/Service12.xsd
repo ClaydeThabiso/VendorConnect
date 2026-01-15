@@ -273,4 +273,26 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="EventReportsDashboardDTO" nillable="true" type="tns:EventReportsDashboardDTO" />
+  <xs:complexType name="EventStatusChartDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Active" type="xs:int" />
+      <xs:element minOccurs="0" name="Cancelled" type="xs:int" />
+      <xs:element minOccurs="0" name="Completed" type="xs:int" />
+      <xs:element minOccurs="0" name="Upcoming" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EventStatusChartDTO" nillable="true" type="tns:EventStatusChartDTO" />
+  <xs:complexType name="ArrayOfEventApplicationsChartDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EventApplicationsChartDTO" nillable="true" type="tns:EventApplicationsChartDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEventApplicationsChartDTO" nillable="true" type="tns:ArrayOfEventApplicationsChartDTO" />
+  <xs:complexType name="EventApplicationsChartDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EventName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalApplications" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EventApplicationsChartDTO" nillable="true" type="tns:EventApplicationsChartDTO" />
 </xs:schema>

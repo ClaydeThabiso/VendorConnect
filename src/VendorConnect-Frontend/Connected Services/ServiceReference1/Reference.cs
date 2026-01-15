@@ -2528,6 +2528,160 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EventStatusChartDTO", Namespace="http://schemas.datacontract.org/2004/07/VnedorConnect_Service")]
+    [System.SerializableAttribute()]
+    public partial class EventStatusChartDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ActiveField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CancelledField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CompletedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int UpcomingField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Active {
+            get {
+                return this.ActiveField;
+            }
+            set {
+                if ((this.ActiveField.Equals(value) != true)) {
+                    this.ActiveField = value;
+                    this.RaisePropertyChanged("Active");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Cancelled {
+            get {
+                return this.CancelledField;
+            }
+            set {
+                if ((this.CancelledField.Equals(value) != true)) {
+                    this.CancelledField = value;
+                    this.RaisePropertyChanged("Cancelled");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Completed {
+            get {
+                return this.CompletedField;
+            }
+            set {
+                if ((this.CompletedField.Equals(value) != true)) {
+                    this.CompletedField = value;
+                    this.RaisePropertyChanged("Completed");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Upcoming {
+            get {
+                return this.UpcomingField;
+            }
+            set {
+                if ((this.UpcomingField.Equals(value) != true)) {
+                    this.UpcomingField = value;
+                    this.RaisePropertyChanged("Upcoming");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EventApplicationsChartDTO", Namespace="http://schemas.datacontract.org/2004/07/VnedorConnect_Service")]
+    [System.SerializableAttribute()]
+    public partial class EventApplicationsChartDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EventNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TotalApplicationsField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EventName {
+            get {
+                return this.EventNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EventNameField, value) != true)) {
+                    this.EventNameField = value;
+                    this.RaisePropertyChanged("EventName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TotalApplications {
+            get {
+                return this.TotalApplicationsField;
+            }
+            set {
+                if ((this.TotalApplicationsField.Equals(value) != true)) {
+                    this.TotalApplicationsField = value;
+                    this.RaisePropertyChanged("TotalApplications");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1 {
@@ -2759,6 +2913,18 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetEventReportsDashboard", ReplyAction="http://tempuri.org/IService1/GetEventReportsDashboardResponse")]
         System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.EventReportsDashboardDTO> GetEventReportsDashboardAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetEventStatusChart", ReplyAction="http://tempuri.org/IService1/GetEventStatusChartResponse")]
+        VendorConnect_Frontend.ServiceReference1.EventStatusChartDTO GetEventStatusChart();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetEventStatusChart", ReplyAction="http://tempuri.org/IService1/GetEventStatusChartResponse")]
+        System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.EventStatusChartDTO> GetEventStatusChartAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetEventApplicationsChart", ReplyAction="http://tempuri.org/IService1/GetEventApplicationsChartResponse")]
+        System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.EventApplicationsChartDTO> GetEventApplicationsChart();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetEventApplicationsChart", ReplyAction="http://tempuri.org/IService1/GetEventApplicationsChartResponse")]
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.EventApplicationsChartDTO>> GetEventApplicationsChartAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -3090,6 +3256,22 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.EventReportsDashboardDTO> GetEventReportsDashboardAsync() {
             return base.Channel.GetEventReportsDashboardAsync();
+        }
+        
+        public VendorConnect_Frontend.ServiceReference1.EventStatusChartDTO GetEventStatusChart() {
+            return base.Channel.GetEventStatusChart();
+        }
+        
+        public System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.EventStatusChartDTO> GetEventStatusChartAsync() {
+            return base.Channel.GetEventStatusChartAsync();
+        }
+        
+        public System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.EventApplicationsChartDTO> GetEventApplicationsChart() {
+            return base.Channel.GetEventApplicationsChart();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.EventApplicationsChartDTO>> GetEventApplicationsChartAsync() {
+            return base.Channel.GetEventApplicationsChartAsync();
         }
     }
 }
