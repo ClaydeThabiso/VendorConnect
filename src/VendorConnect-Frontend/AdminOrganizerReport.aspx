@@ -103,7 +103,7 @@
             <!-- Content Area -->
             <div class="content-area">
                 <!-- Recent Activity Section -->
-                <h3 class="section-title">Vendor Report</h3>
+                <h3 class="section-title">Organizers Report</h3>
                 <div class="recent-activity">
                     <table class="table table-hover ">
                         <thead>
