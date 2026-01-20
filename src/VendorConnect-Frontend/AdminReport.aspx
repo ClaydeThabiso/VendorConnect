@@ -179,6 +179,15 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-6 mt-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Top Organizers by Events</h5>
+                                    <canvas id="organizerEventsChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
 
                         <!-- Top 5 Most Applied Events -->
                         <div class="col-lg-6 col-md-12">
@@ -330,6 +339,28 @@
                     }
                 }
             });
+
+            const organizerEventsData = <%= OrganizerEventsJson %>;
+
+            new Chart(document.getElementById('organizerEventsChart'), {
+                type: 'bar',
+                data: {
+                    labels: organizerEventsData.map(x => x.OrganizationName),
+                    datasets: [{
+                        label: 'Total Events',
+                        data: organizerEventsData.map(x => x.TotalEvents),
+                        backgroundColor: '#673ab7'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    indexAxis: 'y',
+                    scales: {
+                        x: { beginAtZero: true }
+                    }
+                }
+            });
+
 
         };
 
