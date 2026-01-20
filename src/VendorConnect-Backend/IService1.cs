@@ -473,6 +473,16 @@ namespace VnedorConnect_Service
         [DataMember]
         public int TotalEvents { get; set; }
     }
+    [DataContract]
+    public class OrganizerEventsDTO
+    {
+        [DataMember]
+        public string OrganizationName { get; set; }
+
+        [DataMember]
+        public int TotalEvents { get; set; }
+    }
+
 
 
 
