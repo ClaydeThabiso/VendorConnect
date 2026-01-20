@@ -12,6 +12,12 @@ namespace VendorConnect_Frontend
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserID"] == null || (char)Session["LoggedIn"] != 'O')
+            {
+                Response.Redirect("Login.aspx");
+                return;
+            }
+
             if (!IsPostBack)
             {
                 Service1Client client = new Service1Client();
