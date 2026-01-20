@@ -260,6 +260,12 @@
   <wsdl:message name="IService1_GetMonthlyEventsTrend_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetMonthlyEventsTrendResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetTopOrganizersByEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTopOrganizersByEvents" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetTopOrganizersByEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTopOrganizersByEventsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="RegisterUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/RegisterUser" message="tns:IService1_RegisterUser_InputMessage" />
@@ -428,6 +434,10 @@
     <wsdl:operation name="GetMonthlyEventsTrend">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetMonthlyEventsTrend" message="tns:IService1_GetMonthlyEventsTrend_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetMonthlyEventsTrendResponse" message="tns:IService1_GetMonthlyEventsTrend_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTopOrganizersByEvents">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetTopOrganizersByEvents" message="tns:IService1_GetTopOrganizersByEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetTopOrganizersByEventsResponse" message="tns:IService1_GetTopOrganizersByEvents_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -803,6 +813,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetMonthlyEventsTrend">
       <soap:operation soapAction="http://tempuri.org/IService1/GetMonthlyEventsTrend" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTopOrganizersByEvents">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetTopOrganizersByEvents" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -15,6 +15,7 @@ namespace VendorConnect_Frontend
         protected string EventApplicationsJson = "[]";
         protected string TopEventsJson = "[]";
         protected string MonthlyEventsJson = "[]";
+        protected string OrganizerEventsJson = "[]";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -45,12 +46,15 @@ namespace VendorConnect_Frontend
                 var apps = client.GetEventApplicationsChart();
                 var topEvents = client.GetTopAppliedEvents();
                 var monthly = client.GetMonthlyEventsTrend();
+                var organizers = client.GetTopOrganizersByEvents();
+               
 
                 JavaScriptSerializer js = new JavaScriptSerializer();
                 EventStatusJson = js.Serialize(status);
                 EventApplicationsJson = js.Serialize(apps);
                 TopEventsJson = js.Serialize(topEvents);
                 MonthlyEventsJson = js.Serialize(monthly);
+                OrganizerEventsJson = js.Serialize(organizers);
             }
         }
 

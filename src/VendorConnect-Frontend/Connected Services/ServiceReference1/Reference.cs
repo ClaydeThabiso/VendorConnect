@@ -2804,6 +2804,67 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OrganizerEventsDTO", Namespace="http://schemas.datacontract.org/2004/07/VnedorConnect_Service")]
+    [System.SerializableAttribute()]
+    public partial class OrganizerEventsDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OrganizationNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TotalEventsField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OrganizationName {
+            get {
+                return this.OrganizationNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OrganizationNameField, value) != true)) {
+                    this.OrganizationNameField = value;
+                    this.RaisePropertyChanged("OrganizationName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TotalEvents {
+            get {
+                return this.TotalEventsField;
+            }
+            set {
+                if ((this.TotalEventsField.Equals(value) != true)) {
+                    this.TotalEventsField = value;
+                    this.RaisePropertyChanged("TotalEvents");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1 {
@@ -3059,6 +3120,12 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetMonthlyEventsTrend", ReplyAction="http://tempuri.org/IService1/GetMonthlyEventsTrendResponse")]
         System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.MonthlyEventsDTO>> GetMonthlyEventsTrendAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTopOrganizersByEvents", ReplyAction="http://tempuri.org/IService1/GetTopOrganizersByEventsResponse")]
+        System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.OrganizerEventsDTO> GetTopOrganizersByEvents();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTopOrganizersByEvents", ReplyAction="http://tempuri.org/IService1/GetTopOrganizersByEventsResponse")]
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.OrganizerEventsDTO>> GetTopOrganizersByEventsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -3422,6 +3489,14 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.MonthlyEventsDTO>> GetMonthlyEventsTrendAsync() {
             return base.Channel.GetMonthlyEventsTrendAsync();
+        }
+        
+        public System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.OrganizerEventsDTO> GetTopOrganizersByEvents() {
+            return base.Channel.GetTopOrganizersByEvents();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.OrganizerEventsDTO>> GetTopOrganizersByEventsAsync() {
+            return base.Channel.GetTopOrganizersByEventsAsync();
         }
     }
 }
