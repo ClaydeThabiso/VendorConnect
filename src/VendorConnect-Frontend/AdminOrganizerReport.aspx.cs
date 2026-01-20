@@ -12,7 +12,13 @@ namespace VendorConnect_Frontend
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (Session["UserID"] == null || (char)Session["LoggedIn"] != 'A')
+            {
+                Response.Redirect("Login.aspx");
+                return;
+            }
+
+            if (!IsPostBack)
             {
                 LoadOrganizerReport();
             }
