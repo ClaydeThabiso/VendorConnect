@@ -861,6 +861,21 @@ namespace VnedorConnect_Service
 
             return result;
         }
+        public List<OrganizerEventsDTO> GetTopOrganizersByEvents()
+        {
+            var data = (from o in db.Organizers
+                        select new OrganizerEventsDTO
+                        {
+                            OrganizationName = o.OrganizationName,
+                            TotalEvents = db.Events.Count(e => e.OrganizerId == o.OrganizerId)
+                        })
+                        .OrderByDescending(x => x.TotalEvents)
+                        .Take(5)
+                        .ToList();
+
+            return data;
+        }
+
 
 
 

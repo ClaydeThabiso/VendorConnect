@@ -133,8 +133,13 @@ namespace VnedorConnect_Service
 
         [OperationContract]
         List<TopEventApplicationsDTO> GetTopAppliedEvents();
+
         [OperationContract]
         List<MonthlyEventsDTO> GetMonthlyEventsTrend();
+
+        [OperationContract]
+        List<OrganizerEventsDTO> GetTopOrganizersByEvents();
+
 
 
     }
