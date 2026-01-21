@@ -91,62 +91,51 @@
                 <!-- Dashboard Cards -->
                 <h3 class="section-title">Event Report</h3>
                 <div class="recent-activity">
-                    <table class="table table-hover ">
+                     <table class="table table-hover ">
                         <thead>
                             <tr>
-                                <th scope="col">Event Name</th>
-                                <th scope="col">Event Date</th>
-                                <th scope="col">Event Location</th>
-                                <th scope="col">Max Vendors</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">Actions</th>
+                                <th scope="col" class="auto-style1">Event Name</th>
+                                <th scope="col" class="auto-style1">Event Date</th>
+                                <th scope="col" class="auto-style1">Event Location</th>
+                                <th scope="col" class="auto-style1">Organization Name</th>
+                                <th scope="col" class="auto-style1">Event Status</th>
+                                <th scope="col" class="auto-style1">Total Applied Vendors</th>
+                                <th scope="col" class="auto-style1">Total Approved</th>
+                                <th scope="col" class="auto-style1">Total Declined</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <asp:Repeater runat="server" ID="RepeaterEvents" OnItemCommand="RepeaterEvents_ItemCommand" OnItemDataBound="RepeaterEvents_ItemDataBound">
-                                <ItemTemplate>
+                            <asp:Repeater ID="RepeaterReport" runat="server">
+                                <itemtemplate>
                                     <tr>
                                         <td><%# Eval("EventName") %></td>
-
                                         <td>
                                             <%# Convert.ToDateTime(Eval("EventDate")).ToString("d MMM yyyy").ToUpper() %>
                                         </td>
-                                        <td><%# Eval("Location") %></td>
+                                        <td><%# Eval("EventLocation") %></td>
+                                        <td><%# Eval("OrganizationName") %></td>
                                         <td>
-                                            <asp:Literal ID="MaxVendorLiteral" runat="server"></asp:Literal>
+                                            <span class='badge 
+                                            <%# Eval("EventStatus").ToString() == "Completed" ? "bg-sucess" :
+                                                Eval("EventStatus").ToString() == "Active" ? "bg-primary" :
+                                                Eval("EventStatus").ToString() == "Cancelled" ? "bg-danger" :
+                                                "bg-warning" %>'>
+                                                <%# Eval("EventStatus") %>
+                                            </span>
                                         </td>
+
+                                        <td><%# Eval("TotalApplied") %></td>
+                                        <td><%# Eval("TotalApproved") %></td>
+                                        <td><%# Eval("TotalDeclined") %></td>
                                         <td>
-                                            <span class="badge <%# 
-                                                        Eval("Status").ToString() == "Completed" ? "bg-secondary" :
-                                                        Eval("Status").ToString() == "Active" ? "bg-success" :
-                                                         Eval("Status").ToString()=="Cancelled" ? "bg-danger" :
-                                                         "bg-warning" %>">
-                                                        <%# Eval("Status") %>
-                                                    </span>                      
-
                                         </td>
-                                        <td>
-                                            <asp:Button ID="btnManage"
-                                                runat="server"
-                                                CssClass="btn btn-outline-primary btn-sm ms-1"
-                                                Text="Manage"
-                                                CommandName="Manage"
-                                                CommandArgument='<%# Eval("EventId") + "|" + Eval("MaxVendors") %>' 
-                                                 Visible='<%# Eval("Status").ToString() != "Completed" && Eval("Status").ToString() != "Cancelled"%>'/>
 
-                                             <asp:PlaceHolder runat="server" Visible='<%# Eval("Status").ToString()  != "Upcoming" %>'>
-                                                        <span class="badge <%# Eval("Status").ToString() == "Active" ? "bg-success" :
-                                                                Eval("Status").ToString() == "Cancelled" ? "bg-danger" :
-                                                                "bg-secondary" %>">
-                                                            <%# Eval("Status") %>
-                                                        </span>
-                                                    </asp:PlaceHolder>
-
-                                        </td>
                                     </tr>
-                                </ItemTemplate>
+                                </itemtemplate>
                             </asp:Repeater>
+
                         </tbody>
+
                     </table>
                 </div>
             </div>

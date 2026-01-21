@@ -33,12 +33,12 @@ namespace VendorConnect_Frontend
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl OrgaNames;
 
         /// <summary>
-        /// RepeaterEvents control.
+        /// RepeaterReport control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RepeaterEvents;
+        protected global::System.Web.UI.WebControls.Repeater RepeaterReport;
     }
 }
