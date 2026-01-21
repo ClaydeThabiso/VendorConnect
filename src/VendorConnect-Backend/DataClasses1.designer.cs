@@ -51,6 +51,9 @@ namespace VnedorConnect_Service
     partial void InsertOrganizer(Organizer instance);
     partial void UpdateOrganizer(Organizer instance);
     partial void DeleteOrganizer(Organizer instance);
+    partial void InsertNotification(Notification instance);
+    partial void UpdateNotification(Notification instance);
+    partial void DeleteNotification(Notification instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -136,6 +139,14 @@ namespace VnedorConnect_Service
 			get
 			{
 				return this.GetTable<Organizer>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Notification> Notification
+		{
+			get
+			{
+				return this.GetTable<Notification>();
 			}
 		}
 	}
@@ -2131,6 +2142,236 @@ namespace VnedorConnect_Service
 		{
 			this.SendPropertyChanging();
 			entity.Organizer = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Notification")]
+	public partial class Notification : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _NotificationId;
+		
+		private int _UserId;
+		
+		private char _Role;
+		
+		private string _Title;
+		
+		private string _Message;
+		
+		private string _RedirectURL;
+		
+		private bool _IsRead;
+		
+		private System.DateTime _CreatedAt;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnNotificationIdChanging(int value);
+    partial void OnNotificationIdChanged();
+    partial void OnUserIdChanging(int value);
+    partial void OnUserIdChanged();
+    partial void OnRoleChanging(char value);
+    partial void OnRoleChanged();
+    partial void OnTitleChanging(string value);
+    partial void OnTitleChanged();
+    partial void OnMessageChanging(string value);
+    partial void OnMessageChanged();
+    partial void OnRedirectURLChanging(string value);
+    partial void OnRedirectURLChanged();
+    partial void OnIsReadChanging(bool value);
+    partial void OnIsReadChanged();
+    partial void OnCreatedAtChanging(System.DateTime value);
+    partial void OnCreatedAtChanged();
+    #endregion
+		
+		public Notification()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NotificationId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int NotificationId
+		{
+			get
+			{
+				return this._NotificationId;
+			}
+			set
+			{
+				if ((this._NotificationId != value))
+				{
+					this.OnNotificationIdChanging(value);
+					this.SendPropertyChanging();
+					this._NotificationId = value;
+					this.SendPropertyChanged("NotificationId");
+					this.OnNotificationIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="Int NOT NULL")]
+		public int UserId
+		{
+			get
+			{
+				return this._UserId;
+			}
+			set
+			{
+				if ((this._UserId != value))
+				{
+					this.OnUserIdChanging(value);
+					this.SendPropertyChanging();
+					this._UserId = value;
+					this.SendPropertyChanged("UserId");
+					this.OnUserIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Role", DbType="Char(1) NOT NULL")]
+		public char Role
+		{
+			get
+			{
+				return this._Role;
+			}
+			set
+			{
+				if ((this._Role != value))
+				{
+					this.OnRoleChanging(value);
+					this.SendPropertyChanging();
+					this._Role = value;
+					this.SendPropertyChanged("Role");
+					this.OnRoleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Title
+		{
+			get
+			{
+				return this._Title;
+			}
+			set
+			{
+				if ((this._Title != value))
+				{
+					this.OnTitleChanging(value);
+					this.SendPropertyChanging();
+					this._Title = value;
+					this.SendPropertyChanged("Title");
+					this.OnTitleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Message", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Message
+		{
+			get
+			{
+				return this._Message;
+			}
+			set
+			{
+				if ((this._Message != value))
+				{
+					this.OnMessageChanging(value);
+					this.SendPropertyChanging();
+					this._Message = value;
+					this.SendPropertyChanged("Message");
+					this.OnMessageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RedirectURL", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string RedirectURL
+		{
+			get
+			{
+				return this._RedirectURL;
+			}
+			set
+			{
+				if ((this._RedirectURL != value))
+				{
+					this.OnRedirectURLChanging(value);
+					this.SendPropertyChanging();
+					this._RedirectURL = value;
+					this.SendPropertyChanged("RedirectURL");
+					this.OnRedirectURLChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsRead", DbType="Bit NOT NULL")]
+		public bool IsRead
+		{
+			get
+			{
+				return this._IsRead;
+			}
+			set
+			{
+				if ((this._IsRead != value))
+				{
+					this.OnIsReadChanging(value);
+					this.SendPropertyChanging();
+					this._IsRead = value;
+					this.SendPropertyChanged("IsRead");
+					this.OnIsReadChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedAt", DbType="DateTime2 NOT NULL")]
+		public System.DateTime CreatedAt
+		{
+			get
+			{
+				return this._CreatedAt;
+			}
+			set
+			{
+				if ((this._CreatedAt != value))
+				{
+					this.OnCreatedAtChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedAt = value;
+					this.SendPropertyChanged("CreatedAt");
+					this.OnCreatedAtChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }
