@@ -143,6 +143,13 @@ namespace VnedorConnect_Service
         [OperationContract]
         List<OrganizerEventReportDTO> GetEventReportperOrganizer(int id);
 
+        [OperationContract]
+        void SendNotification(
+    int userId,
+    char role,
+    string title,
+    string message,
+    string link = null);
 
 
     }

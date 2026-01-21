@@ -893,12 +893,41 @@ namespace VnedorConnect_Service
 
             return data;
         }
+        public void SendNotification(
+    int userId,
+    char role,
+    string title,
+    string message,
+    string link = null)
+        {
+            var not = (from n in db.Notification select n);
+                     
+            if(not!=null)
+            {
+                Notification n = new Notification
+                {
+                    UserId = userId,
+                    Role = role,
+                    Title = title,
+                    Message = message,
+                    RedirectURL = link,
+                    IsRead = false,
+                    CreatedAt = DateTime.Now
+                };
+                try
+                {
+                    db.Notification.InsertOnSubmit(n);
+                    db.SubmitChanges();
+                }
+                catch (Exception ex)
+                {
+                    ex.GetBaseException();
+                }
+            }
+            
 
-
-
-
-
-
+           
+        }
 
     }
 }
