@@ -502,9 +502,6 @@ namespace VnedorConnect_Service
         public DateTime EventDate { get; set; }
 
         [DataMember]
-        public string OrganizationName { get; set; }
-
-        [DataMember]
         public string EventStatus { get; set; }
 
         [DataMember]
