@@ -2865,6 +2865,163 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OrganizerEventReportDTO", Namespace="http://schemas.datacontract.org/2004/07/VnedorConnect_Service")]
+    [System.SerializableAttribute()]
+    public partial class OrganizerEventReportDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime EventDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int EventIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EventLocationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EventNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EventStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TotalAppliedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TotalApprovedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TotalDeclinedField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime EventDate {
+            get {
+                return this.EventDateField;
+            }
+            set {
+                if ((this.EventDateField.Equals(value) != true)) {
+                    this.EventDateField = value;
+                    this.RaisePropertyChanged("EventDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int EventId {
+            get {
+                return this.EventIdField;
+            }
+            set {
+                if ((this.EventIdField.Equals(value) != true)) {
+                    this.EventIdField = value;
+                    this.RaisePropertyChanged("EventId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EventLocation {
+            get {
+                return this.EventLocationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EventLocationField, value) != true)) {
+                    this.EventLocationField = value;
+                    this.RaisePropertyChanged("EventLocation");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EventName {
+            get {
+                return this.EventNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EventNameField, value) != true)) {
+                    this.EventNameField = value;
+                    this.RaisePropertyChanged("EventName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EventStatus {
+            get {
+                return this.EventStatusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EventStatusField, value) != true)) {
+                    this.EventStatusField = value;
+                    this.RaisePropertyChanged("EventStatus");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TotalApplied {
+            get {
+                return this.TotalAppliedField;
+            }
+            set {
+                if ((this.TotalAppliedField.Equals(value) != true)) {
+                    this.TotalAppliedField = value;
+                    this.RaisePropertyChanged("TotalApplied");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TotalApproved {
+            get {
+                return this.TotalApprovedField;
+            }
+            set {
+                if ((this.TotalApprovedField.Equals(value) != true)) {
+                    this.TotalApprovedField = value;
+                    this.RaisePropertyChanged("TotalApproved");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TotalDeclined {
+            get {
+                return this.TotalDeclinedField;
+            }
+            set {
+                if ((this.TotalDeclinedField.Equals(value) != true)) {
+                    this.TotalDeclinedField = value;
+                    this.RaisePropertyChanged("TotalDeclined");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1 {
@@ -3126,6 +3283,12 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTopOrganizersByEvents", ReplyAction="http://tempuri.org/IService1/GetTopOrganizersByEventsResponse")]
         System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.OrganizerEventsDTO>> GetTopOrganizersByEventsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetEventReportperOrganizer", ReplyAction="http://tempuri.org/IService1/GetEventReportperOrganizerResponse")]
+        System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.OrganizerEventReportDTO> GetEventReportperOrganizer(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetEventReportperOrganizer", ReplyAction="http://tempuri.org/IService1/GetEventReportperOrganizerResponse")]
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.OrganizerEventReportDTO>> GetEventReportperOrganizerAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -3497,6 +3660,14 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.OrganizerEventsDTO>> GetTopOrganizersByEventsAsync() {
             return base.Channel.GetTopOrganizersByEventsAsync();
+        }
+        
+        public System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.OrganizerEventReportDTO> GetEventReportperOrganizer(int id) {
+            return base.Channel.GetEventReportperOrganizer(id);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.OrganizerEventReportDTO>> GetEventReportperOrganizerAsync(int id) {
+            return base.Channel.GetEventReportperOrganizerAsync(id);
         }
     }
 }

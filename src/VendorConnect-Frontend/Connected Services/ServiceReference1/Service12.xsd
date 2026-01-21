@@ -334,4 +334,23 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="OrganizerEventsDTO" nillable="true" type="tns:OrganizerEventsDTO" />
+  <xs:complexType name="ArrayOfOrganizerEventReportDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrganizerEventReportDTO" nillable="true" type="tns:OrganizerEventReportDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrganizerEventReportDTO" nillable="true" type="tns:ArrayOfOrganizerEventReportDTO" />
+  <xs:complexType name="OrganizerEventReportDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EventDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EventId" type="xs:int" />
+      <xs:element minOccurs="0" name="EventLocation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EventName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EventStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalApplied" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalApproved" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalDeclined" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrganizerEventReportDTO" nillable="true" type="tns:OrganizerEventReportDTO" />
 </xs:schema>
