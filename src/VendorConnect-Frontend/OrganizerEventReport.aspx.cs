@@ -46,7 +46,8 @@ namespace VendorConnect_Frontend
                     OrgaNames.InnerText = "Demo";
                     initials.InnerText = "DD";
                 }
-                RepeaterReport.DataSource = client.GetEventReportperOrganizer(userID);
+                int organizerID = Convert.ToInt32(Session["OrganizerId"]);
+                RepeaterReport.DataSource = client.GetEventReportperOrganizer(organizerID);
                 RepeaterReport.DataBind();
             }
         }

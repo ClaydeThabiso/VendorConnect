@@ -91,6 +91,7 @@
     <Content Include="ManageEvent.aspx" />
     <Content Include="OrganizerApplications.aspx" />
     <Content Include="OrganizerDashboard.aspx" />
+    <Content Include="OrganizerEventReport.aspx" />
     <Content Include="OrganizerProfile.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="VendorApplications.aspx" />
@@ -202,6 +203,13 @@
     <Compile Include="OrganizerDashboard.aspx.designer.cs">
       <DependentUpon>OrganizerDashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="OrganizerEventReport.aspx.cs">
+      <DependentUpon>OrganizerEventReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrganizerEventReport.aspx.designer.cs">
+      <DependentUpon>OrganizerEventReport.aspx</DependentUpon>
+    </Compile>
     <Compile Include="OrganizerProfile.aspx.cs">
       <DependentUpon>OrganizerProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -297,6 +305,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\ServiceReference1\VendorConnect_Frontend.ServiceReference1.OrganizerEventsDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServiceReference1\VendorConnect_Frontend.ServiceReference1.OrganizerEventReportDTO.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="packages.config" />
