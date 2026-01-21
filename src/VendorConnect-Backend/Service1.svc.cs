@@ -491,6 +491,24 @@ namespace VnedorConnect_Service
                       }).ToList();
             return ev;
         }
+        public List<OrganizerEventReportDTO> GetEventReportperOrganizer(int id)
+        {
+            var eve = (from e in db.Events
+                      where e.OrganizerId.Equals(id)
+                      select new OrganizerEventReportDTO
+                      {
+                          EventId = e.EventId,
+                          EventName = e.EventName,
+                          EventDate = e.EventDate,
+                          EventLocation = e.Location,
+                          EventStatus = e.status,
+                          TotalApplied = (from va in db.VendorApplications where va.EventId == e.EventId select va).Count(),
+                          TotalApproved = (from va in db.VendorApplications where va.EventId == e.EventId && va.Status == "Approved" select va).Count(),
+                          TotalDeclined = (from va in db.VendorApplications where va.EventId == e.EventId && va.Status == "Declined" select va).Count(),
+
+                      }).ToList();
+            return eve;
+        }
         public List<VendorApplicationDTO> GetApplicationsPerOrganizer(int OrgaID)
         {
             var application = (from o in db.Organizers

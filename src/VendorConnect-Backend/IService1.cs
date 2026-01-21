@@ -140,6 +140,9 @@ namespace VnedorConnect_Service
         [OperationContract]
         List<OrganizerEventsDTO> GetTopOrganizersByEvents();
 
+        [OperationContract]
+        List<OrganizerEventReportDTO> GetEventReportperOrganizer(int id);
+
 
 
     }
