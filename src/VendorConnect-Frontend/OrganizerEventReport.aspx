@@ -97,7 +97,6 @@
                                 <th scope="col" class="auto-style1">Event Name</th>
                                 <th scope="col" class="auto-style1">Event Date</th>
                                 <th scope="col" class="auto-style1">Event Location</th>
-                                <th scope="col" class="auto-style1">Organization Name</th>
                                 <th scope="col" class="auto-style1">Event Status</th>
                                 <th scope="col" class="auto-style1">Total Applied Vendors</th>
                                 <th scope="col" class="auto-style1">Total Approved</th>
@@ -113,7 +112,7 @@
                                             <%# Convert.ToDateTime(Eval("EventDate")).ToString("d MMM yyyy").ToUpper() %>
                                         </td>
                                         <td><%# Eval("EventLocation") %></td>
-                                        <td><%# Eval("OrganizationName") %></td>
+                                       
                                         <td>
                                             <span class='badge 
                                             <%# Eval("EventStatus").ToString() == "Completed" ? "bg-sucess" :
