@@ -3022,6 +3022,131 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="NotificationDTO", Namespace="http://schemas.datacontract.org/2004/07/VnedorConnect_Service")]
+    [System.SerializableAttribute()]
+    public partial class NotificationDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime CreatedAtField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsReadField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MessageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int NotificationIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RedirectUrlField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TitleField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime CreatedAt {
+            get {
+                return this.CreatedAtField;
+            }
+            set {
+                if ((this.CreatedAtField.Equals(value) != true)) {
+                    this.CreatedAtField = value;
+                    this.RaisePropertyChanged("CreatedAt");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsRead {
+            get {
+                return this.IsReadField;
+            }
+            set {
+                if ((this.IsReadField.Equals(value) != true)) {
+                    this.IsReadField = value;
+                    this.RaisePropertyChanged("IsRead");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Message {
+            get {
+                return this.MessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MessageField, value) != true)) {
+                    this.MessageField = value;
+                    this.RaisePropertyChanged("Message");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int NotificationId {
+            get {
+                return this.NotificationIdField;
+            }
+            set {
+                if ((this.NotificationIdField.Equals(value) != true)) {
+                    this.NotificationIdField = value;
+                    this.RaisePropertyChanged("NotificationId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RedirectUrl {
+            get {
+                return this.RedirectUrlField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RedirectUrlField, value) != true)) {
+                    this.RedirectUrlField = value;
+                    this.RaisePropertyChanged("RedirectUrl");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Title {
+            get {
+                return this.TitleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
+                    this.TitleField = value;
+                    this.RaisePropertyChanged("Title");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1 {
@@ -3289,6 +3414,30 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetEventReportperOrganizer", ReplyAction="http://tempuri.org/IService1/GetEventReportperOrganizerResponse")]
         System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.OrganizerEventReportDTO>> GetEventReportperOrganizerAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SendNotification", ReplyAction="http://tempuri.org/IService1/SendNotificationResponse")]
+        void SendNotification(int userId, char role, string title, string message, string link);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SendNotification", ReplyAction="http://tempuri.org/IService1/SendNotificationResponse")]
+        System.Threading.Tasks.Task SendNotificationAsync(int userId, char role, string title, string message, string link);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUserNotifications", ReplyAction="http://tempuri.org/IService1/GetUserNotificationsResponse")]
+        System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.NotificationDTO> GetUserNotifications(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUserNotifications", ReplyAction="http://tempuri.org/IService1/GetUserNotificationsResponse")]
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.NotificationDTO>> GetUserNotificationsAsync(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUnreadNotificationCount", ReplyAction="http://tempuri.org/IService1/GetUnreadNotificationCountResponse")]
+        int GetUnreadNotificationCount(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUnreadNotificationCount", ReplyAction="http://tempuri.org/IService1/GetUnreadNotificationCountResponse")]
+        System.Threading.Tasks.Task<int> GetUnreadNotificationCountAsync(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/MarkNotificationAsRead", ReplyAction="http://tempuri.org/IService1/MarkNotificationAsReadResponse")]
+        void MarkNotificationAsRead(int notificationId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/MarkNotificationAsRead", ReplyAction="http://tempuri.org/IService1/MarkNotificationAsReadResponse")]
+        System.Threading.Tasks.Task MarkNotificationAsReadAsync(int notificationId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -3668,6 +3817,38 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.OrganizerEventReportDTO>> GetEventReportperOrganizerAsync(int id) {
             return base.Channel.GetEventReportperOrganizerAsync(id);
+        }
+        
+        public void SendNotification(int userId, char role, string title, string message, string link) {
+            base.Channel.SendNotification(userId, role, title, message, link);
+        }
+        
+        public System.Threading.Tasks.Task SendNotificationAsync(int userId, char role, string title, string message, string link) {
+            return base.Channel.SendNotificationAsync(userId, role, title, message, link);
+        }
+        
+        public System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.NotificationDTO> GetUserNotifications(int userId) {
+            return base.Channel.GetUserNotifications(userId);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.NotificationDTO>> GetUserNotificationsAsync(int userId) {
+            return base.Channel.GetUserNotificationsAsync(userId);
+        }
+        
+        public int GetUnreadNotificationCount(int userId) {
+            return base.Channel.GetUnreadNotificationCount(userId);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetUnreadNotificationCountAsync(int userId) {
+            return base.Channel.GetUnreadNotificationCountAsync(userId);
+        }
+        
+        public void MarkNotificationAsRead(int notificationId) {
+            base.Channel.MarkNotificationAsRead(notificationId);
+        }
+        
+        public System.Threading.Tasks.Task MarkNotificationAsReadAsync(int notificationId) {
+            return base.Channel.MarkNotificationAsReadAsync(notificationId);
         }
     }
 }

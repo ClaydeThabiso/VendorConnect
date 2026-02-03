@@ -353,4 +353,21 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="OrganizerEventReportDTO" nillable="true" type="tns:OrganizerEventReportDTO" />
+  <xs:complexType name="ArrayOfNotificationDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="NotificationDTO" nillable="true" type="tns:NotificationDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNotificationDTO" nillable="true" type="tns:ArrayOfNotificationDTO" />
+  <xs:complexType name="NotificationDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedAt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IsRead" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NotificationId" type="xs:int" />
+      <xs:element minOccurs="0" name="RedirectUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NotificationDTO" nillable="true" type="tns:NotificationDTO" />
 </xs:schema>

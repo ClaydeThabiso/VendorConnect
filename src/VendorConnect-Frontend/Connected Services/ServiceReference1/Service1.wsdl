@@ -272,6 +272,30 @@
   <wsdl:message name="IService1_GetEventReportperOrganizer_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetEventReportperOrganizerResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_SendNotification_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendNotification" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SendNotification_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendNotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUserNotifications_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserNotifications" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUserNotifications_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserNotificationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUnreadNotificationCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnreadNotificationCount" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUnreadNotificationCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnreadNotificationCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MarkNotificationAsRead_InputMessage">
+    <wsdl:part name="parameters" element="tns:MarkNotificationAsRead" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MarkNotificationAsRead_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MarkNotificationAsReadResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="RegisterUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/RegisterUser" message="tns:IService1_RegisterUser_InputMessage" />
@@ -448,6 +472,22 @@
     <wsdl:operation name="GetEventReportperOrganizer">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetEventReportperOrganizer" message="tns:IService1_GetEventReportperOrganizer_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetEventReportperOrganizerResponse" message="tns:IService1_GetEventReportperOrganizer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendNotification">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SendNotification" message="tns:IService1_SendNotification_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SendNotificationResponse" message="tns:IService1_SendNotification_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserNotifications">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetUserNotifications" message="tns:IService1_GetUserNotifications_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetUserNotificationsResponse" message="tns:IService1_GetUserNotifications_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnreadNotificationCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetUnreadNotificationCount" message="tns:IService1_GetUnreadNotificationCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetUnreadNotificationCountResponse" message="tns:IService1_GetUnreadNotificationCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MarkNotificationAsRead">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/MarkNotificationAsRead" message="tns:IService1_MarkNotificationAsRead_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/MarkNotificationAsReadResponse" message="tns:IService1_MarkNotificationAsRead_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -841,6 +881,42 @@
     </wsdl:operation>
     <wsdl:operation name="GetEventReportperOrganizer">
       <soap:operation soapAction="http://tempuri.org/IService1/GetEventReportperOrganizer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendNotification">
+      <soap:operation soapAction="http://tempuri.org/IService1/SendNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserNotifications">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetUserNotifications" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnreadNotificationCount">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetUnreadNotificationCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MarkNotificationAsRead">
+      <soap:operation soapAction="http://tempuri.org/IService1/MarkNotificationAsRead" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

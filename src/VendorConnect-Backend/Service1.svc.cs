@@ -913,7 +913,7 @@ namespace VnedorConnect_Service
                     CreatedAt = DateTime.Now
                 };
 
-                db.Notification.InsertOnSubmit(n);
+                db.Notifications.InsertOnSubmit(n);
                 db.SubmitChanges();
             }
             catch (Exception)
@@ -924,7 +924,7 @@ namespace VnedorConnect_Service
         public List<NotificationDTO> GetUserNotifications(int userId)
         {
             var notifications =
-                (from n in db.Notification
+                (from n in db.Notifications
                  where n.UserId == userId
                  orderby n.CreatedAt descending
                  select new NotificationDTO
@@ -934,19 +934,19 @@ namespace VnedorConnect_Service
                      Message = n.Message,
                      RedirectUrl = n.RedirectURL,
                      IsRead = n.IsRead,
-                     CreatedAt = n.CreatedAt
+                     CreatedAt = (DateTime)n.CreatedAt
                  }).ToList();
 
             return notifications;
         }
         public int GetUnreadNotificationCount(int userId)
         {
-            return db.Notification
+            return db.Notifications
                      .Count(n => n.UserId == userId && n.IsRead == false);
         }
         public void MarkNotificationAsRead(int notificationId)
         {
-            var notif = db.Notification
+            var notif = db.Notifications
                           .FirstOrDefault(n => n.NotificationId == notificationId);
 
             if (notif != null)
