@@ -939,6 +939,12 @@ namespace VnedorConnect_Service
 
             return notifications;
         }
+        public int GetUnreadNotificationCount(int userId)
+        {
+            return db.Notification
+                     .Count(n => n.UserId == userId && n.IsRead == false);
+        }
+
 
 
 

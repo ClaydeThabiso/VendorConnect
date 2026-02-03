@@ -149,6 +149,10 @@ namespace VnedorConnect_Service
         [OperationContract]
         List<NotificationDTO> GetUserNotifications(int userId);
 
+        [OperationContract]
+        int GetUnreadNotificationCount(int userId);
+
+
 
 
     }
