@@ -898,11 +898,9 @@ namespace VnedorConnect_Service
     char role,
     string title,
     string message,
-    string link = null)
+    string redirectUrl)
         {
-            var not = (from n in db.Notification select n);
-                     
-            if(not!=null)
+            try
             {
                 Notification n = new Notification
                 {
@@ -910,24 +908,20 @@ namespace VnedorConnect_Service
                     Role = role,
                     Title = title,
                     Message = message,
-                    RedirectURL = link,
+                    RedirectURL = redirectUrl,
                     IsRead = false,
                     CreatedAt = DateTime.Now
                 };
-                try
-                {
-                    db.Notification.InsertOnSubmit(n);
-                    db.SubmitChanges();
-                }
-                catch (Exception ex)
-                {
-                    ex.GetBaseException();
-                }
-            }
-            
 
-           
+                db.Notification.InsertOnSubmit(n);
+                db.SubmitChanges();
+            }
+            catch (Exception)
+            {
+                throw new FaultException("Unable to send notification.");
+            }
         }
+
 
     }
 }
