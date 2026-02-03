@@ -319,6 +319,14 @@ h1, h2, h3, h4, h5, h6 {
     border-bottom: 2px solid var(--secondary);
     display: inline-block;
 }
+.dropdown-item:hover {
+    background-color: #f5f7fa;
+}
+
+.dropdown-item.fw-bold {
+    background-color: #eef3ff;
+}
+
 
 /* Additional styling for better visual hierarchy */
 .btn-primary {

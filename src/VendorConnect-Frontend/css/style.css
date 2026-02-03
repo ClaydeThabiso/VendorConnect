@@ -32,6 +32,13 @@ h1, h2, h3, h4, h5, h6 {
     padding: 20px;
     width: 100%;
 }
+.dropdown-item:hover {
+    background-color: #f5f7fa;
+}
+
+.dropdown-item.fw-bold {
+    background-color: #eef3ff;
+}
 
 .login-card {
     border-radius: 16px;
