@@ -77,6 +77,7 @@ namespace VnedorConnect_Service
                 newOrganizer.ContactEmail = email;
                 newOrganizer.Phone = phone;
                 newOrganizer.UserId = UserID;
+                newOrganizer.IsActive = true;
 
                 db.Organizers.InsertOnSubmit(newOrganizer);
                 try
