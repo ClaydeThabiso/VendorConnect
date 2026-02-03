@@ -23,7 +23,7 @@ namespace VendorConnect_Frontend
 
             using (Service1Client client = new Service1Client())
             {
-                var notifications = client.GetUserNotifications(userId);
+                dynamic notifications = client.GetUserNotifications(userId);
                 var unreadCount = client.GetUnreadNotificationCount(userId);
 
                 RepeaterNotifications.DataSource = notifications;

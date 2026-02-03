@@ -651,7 +651,7 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> CreatedAtField;
+        private System.DateTime CreatedAtField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DescriptionField;
@@ -697,7 +697,7 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CreatedAt {
+        public System.DateTime CreatedAt {
             get {
                 return this.CreatedAtField;
             }
@@ -1064,7 +1064,7 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         private int ApplicationIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> AppliedAtField;
+        private System.DateTime AppliedAtField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private VendorConnect_Frontend.ServiceReference1.Event EventField;
@@ -1108,7 +1108,7 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> AppliedAt {
+        public System.DateTime AppliedAt {
             get {
                 return this.AppliedAtField;
             }
@@ -1221,7 +1221,7 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         private int ApplicationIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> AssignedAtField;
+        private System.DateTime AssignedAtField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int AssignmentIdField;
@@ -1256,7 +1256,7 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> AssignedAt {
+        public System.DateTime AssignedAt {
             get {
                 return this.AssignedAtField;
             }
