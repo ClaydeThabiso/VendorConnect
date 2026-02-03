@@ -944,6 +944,18 @@ namespace VnedorConnect_Service
             return db.Notification
                      .Count(n => n.UserId == userId && n.IsRead == false);
         }
+        public void MarkNotificationAsRead(int notificationId)
+        {
+            var notif = db.Notification
+                          .FirstOrDefault(n => n.NotificationId == notificationId);
+
+            if (notif != null)
+            {
+                notif.IsRead = true;
+                db.SubmitChanges();
+            }
+        }
+
 
 
 

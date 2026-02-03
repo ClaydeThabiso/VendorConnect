@@ -152,6 +152,10 @@ namespace VnedorConnect_Service
         [OperationContract]
         int GetUnreadNotificationCount(int userId);
 
+        [OperationContract]
+        void MarkNotificationAsRead(int notificationId);
+
+
 
 
 
