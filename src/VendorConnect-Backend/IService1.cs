@@ -520,6 +520,28 @@ namespace VnedorConnect_Service
 
         
     }
+    [DataContract]
+    public class NotificationDTO
+    {
+        [DataMember]
+        public int NotificationId { get; set; }
+
+        [DataMember]
+        public string Title { get; set; }
+
+        [DataMember]
+        public string Message { get; set; }
+
+        [DataMember]
+        public string RedirectUrl { get; set; }
+
+        [DataMember]
+        public bool IsRead { get; set; }
+
+        [DataMember]
+        public DateTime CreatedAt { get; set; }
+    }
+
 
 
 
