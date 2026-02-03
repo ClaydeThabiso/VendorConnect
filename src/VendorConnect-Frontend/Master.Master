@@ -8,45 +8,43 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
-      <asp:ContentPlaceHolder ID="DashboardStyling" runat="server">
+    <asp:ContentPlaceHolder ID="DashboardStyling" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                <div class="dropdown me-3">
-    <a class="btn position-relative"
-       href="#"
-       role="button"
-       id="notificationDropdown"
-       data-bs-toggle="dropdown"
-       aria-expanded="false">
+                 <div class="dropdown me-3">
+                    <a class="btn position-relative"
+                        href="#"
+                        role="button"
+                        id="notificationDropdown"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false">
 
-        <i class="fas fa-bell fa-lg"></i>
+                        <i class="fas fa-bell fa-lg"></i>
 
-        <!-- Badge -->
-        <span id="notifCount"
-              runat="server"
-              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-              visible="false">
-        </span>
-    </a>
+                        <!-- Badge -->
+                        <span id="notifCount"
+                            runat="server"
+                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                            visible="false"></span>
+                    </a>
 
-    <ul class="dropdown-menu dropdown-menu-end p-2"
-        style="width: 320px; max-height: 400px; overflow-y: auto;">
-        
-        <asp:Repeater ID="RepeaterNotifications"
-            runat="server"
-            OnItemCommand="RepeaterNotifications_ItemCommand">
+                    <ul class="dropdown-menu dropdown-menu-end p-2"
+                        style="width: 320px; max-height: 400px; overflow-y: auto;">
 
-            <ItemTemplate>
-                <li class="dropdown-item <%# (bool)Eval("IsRead") ? "" : "fw-bold" %>">
-                    <asp:LinkButton
-                        runat="server"
-                        CssClass="text-decoration-none text-dark w-100"
-                        CommandName="Open"
-                        CommandArgument='<%# Eval("NotificationId") + "|" + Eval("RedirectUrl") %>'>
+                        <asp:Repeater ID="RepeaterNotifications"
+                            runat="server"
+                            OnItemCommand="RepeaterNotifications_ItemCommand">
+
+                            <ItemTemplate>
+                                <li class="dropdown-item <%# (bool)Eval("IsRead") ? "" : "fw-bold" %>">
+                                    <asp:LinkButton
+                                        runat="server"
+                                        CssClass="text-decoration-none text-dark w-100"
+                                        CommandName="Open"
+                                        CommandArgument='<%# Eval("NotificationId") + "|" + Eval("RedirectUrl") %>'>
 
                         <div>
                             <div><%# Eval("Title") %></div>
@@ -55,22 +53,23 @@
                             </small>
                         </div>
 
-                    </asp:LinkButton>
-                </li>
-            </ItemTemplate>
+                                    </asp:LinkButton>
+                                </li>
+                            </ItemTemplate>
 
-        </asp:Repeater>
+                        </asp:Repeater>
 
-        <li><hr class="dropdown-divider" /></li>
-        <li class="text-center">
-            <a href="Notifications.aspx" class="dropdown-item text-primary">
-                View all notifications
-            </a>
-        </li>
+                        <li>
+                            <hr class="dropdown-divider" />
+                        </li>
+                        <li class="text-center">
+                            <a href="Notifications.aspx" class="dropdown-item text-primary">View all notifications
+                            </a>
+                        </li>
 
-    </ul>
-</div>
-
+                    </ul>
+                </div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
     </form>

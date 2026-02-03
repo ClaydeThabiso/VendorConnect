@@ -120,6 +120,7 @@ namespace VendorConnect_Frontend
         {
             Service1Client client = new Service1Client();
             var applicationId = Convert.ToInt32(e.CommandArgument);
+            var vendorId = Convert.ToInt32(Session["VendorID"]);
             if (e.CommandName=="Accept")
             {
                
@@ -127,6 +128,7 @@ namespace VendorConnect_Frontend
 
                 if(acceptApplication !=null)
                 {
+                    client.SendNotification(vendorId, 'V', "Application Approved", "Your appliction is approved", "VendorApplication.aspx");
                     ScriptManager.RegisterStartupScript(
                         this, this.GetType(),
                         "successAlert",
@@ -151,6 +153,7 @@ namespace VendorConnect_Frontend
                 var declineApplication = client.DeclineApplication(applicationId);
                 if(declineApplication !=null)
                 {
+                    client.SendNotification(vendorId, 'V', "Application declined", "Your appliction is declined", "VendorApplication.aspx");
                     ScriptManager.RegisterStartupScript(
                        this, this.GetType(),
                        "successAlert",
