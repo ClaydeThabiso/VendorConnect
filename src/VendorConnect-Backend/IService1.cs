@@ -146,6 +146,10 @@ namespace VnedorConnect_Service
         [OperationContract]
         void SendNotification(int userId,char role,string title,string message,string link = null);
 
+        [OperationContract]
+        List<NotificationDTO> GetUserNotifications(int userId);
+
+
 
     }
     [DataContract]
