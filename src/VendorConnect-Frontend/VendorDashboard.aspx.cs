@@ -82,6 +82,11 @@ namespace VendorConnect_Frontend
                 dynamic notifications = client.GetUserNotifications(userId, (char)Session["LoggedIn"]);
                 var unreadCount = client.GetUnreadNotificationCount(userId);
 
+                if (notifications == null)
+                {
+                    throw new Exception("Notifications returned NULL");
+                }
+
                 RepeaterNotifications.DataSource = notifications;
                 RepeaterNotifications.DataBind();
 
