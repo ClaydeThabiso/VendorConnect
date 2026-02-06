@@ -8,12 +8,7 @@ using VendorConnect_Frontend.ServiceReference1;
 
 namespace VendorConnect_Frontend
 {
-    public static class UserTypes
-    {
-        public const char Vendor = 'V';
-        public const char Organizer = 'O';
-        public const char Admin = 'A';
-    }
+   
 
     public partial class VendorDashboard : System.Web.UI.Page
     {
@@ -84,7 +79,7 @@ namespace VendorConnect_Frontend
 
             using (Service1Client client = new Service1Client())
             {
-                dynamic notifications = client.GetUserNotifications(userId);
+                dynamic notifications = client.GetUserNotifications(userId, (char)Session["LoggedIn"]);
                 var unreadCount = client.GetUnreadNotificationCount(userId);
 
                 RepeaterNotifications.DataSource = notifications;

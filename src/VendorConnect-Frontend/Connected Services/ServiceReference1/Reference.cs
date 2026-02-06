@@ -3422,10 +3422,10 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         System.Threading.Tasks.Task SendNotificationAsync(int userId, char role, string title, string message, string link);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUserNotifications", ReplyAction="http://tempuri.org/IService1/GetUserNotificationsResponse")]
-        System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.NotificationDTO> GetUserNotifications(int userId);
+        System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.NotificationDTO> GetUserNotifications(int userId, char role);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUserNotifications", ReplyAction="http://tempuri.org/IService1/GetUserNotificationsResponse")]
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.NotificationDTO>> GetUserNotificationsAsync(int userId);
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.NotificationDTO>> GetUserNotificationsAsync(int userId, char role);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUnreadNotificationCount", ReplyAction="http://tempuri.org/IService1/GetUnreadNotificationCountResponse")]
         int GetUnreadNotificationCount(int userId);
@@ -3827,12 +3827,12 @@ namespace VendorConnect_Frontend.ServiceReference1 {
             return base.Channel.SendNotificationAsync(userId, role, title, message, link);
         }
         
-        public System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.NotificationDTO> GetUserNotifications(int userId) {
-            return base.Channel.GetUserNotifications(userId);
+        public System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.NotificationDTO> GetUserNotifications(int userId, char role) {
+            return base.Channel.GetUserNotifications(userId, role);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.NotificationDTO>> GetUserNotificationsAsync(int userId) {
-            return base.Channel.GetUserNotificationsAsync(userId);
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.NotificationDTO>> GetUserNotificationsAsync(int userId, char role) {
+            return base.Channel.GetUserNotificationsAsync(userId, role);
         }
         
         public int GetUnreadNotificationCount(int userId) {
