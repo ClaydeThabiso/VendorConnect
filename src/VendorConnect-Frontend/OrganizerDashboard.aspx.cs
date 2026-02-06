@@ -22,7 +22,7 @@ namespace VendorConnect_Frontend
             if (!IsPostBack)
             {
                 Service1Client client = new Service1Client();
-                LoadNotifications();
+                
                 int userID = Convert.ToInt32(Session["UserID"]);
                 var u = client.GetUser(userID);
                 if (u != null)
@@ -62,7 +62,9 @@ namespace VendorConnect_Frontend
                 {
                     RepeaterEvents = null;
                 }
-               
+
+                LoadNotifications();
+
                 client.Close();
             }
         }
@@ -147,7 +149,7 @@ namespace VendorConnect_Frontend
                 {
                     client.MarkNotificationAsRead(notificationId);
                 }
-
+                LoadNotifications();
                 if (!string.IsNullOrEmpty(redirectUrl))
                     Response.Redirect(redirectUrl);
             }
