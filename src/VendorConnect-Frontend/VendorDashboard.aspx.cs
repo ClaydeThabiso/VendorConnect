@@ -8,6 +8,13 @@ using VendorConnect_Frontend.ServiceReference1;
 
 namespace VendorConnect_Frontend
 {
+    public static class UserTypes
+    {
+        public const char Vendor = 'V';
+        public const char Organizer = 'O';
+        public const char Admin = 'A';
+    }
+
     public partial class VendorDashboard : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)

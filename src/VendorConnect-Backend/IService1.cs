@@ -147,7 +147,7 @@ namespace VnedorConnect_Service
         void SendNotification(int userId,char role,string title,string message,string link = null);
 
         [OperationContract]
-        List<NotificationDTO> GetUserNotifications(int userId);
+        List<NotificationDTO> GetUserNotifications(int userId,char role);
 
         [OperationContract]
         int GetUnreadNotificationCount(int userId);

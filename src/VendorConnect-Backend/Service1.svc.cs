@@ -926,11 +926,11 @@ namespace VnedorConnect_Service
                 throw new FaultException("Unable to send notification.");
             }
         }
-        public List<NotificationDTO> GetUserNotifications(int userId)
+        public List<NotificationDTO> GetUserNotifications(int userId ,char role)
         {
             var notifications =
                 (from n in db.Notifications
-                 where n.UserId == userId
+                 where n.UserId == userId && n.Role==role
                  orderby n.CreatedAt descending
                  select new NotificationDTO
                  {
