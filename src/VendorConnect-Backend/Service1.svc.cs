@@ -155,6 +155,7 @@ namespace VnedorConnect_Service
                .Where(v => v.VendorId == id)
                .Select(v => new VendorDTO
                {
+                   UserID=v.UserId,
                    BusinessName = v.BusinesName,
                    ContactEmail = v.ContactEmail,
                    Category = v.Category,
@@ -168,6 +169,7 @@ namespace VnedorConnect_Service
                  .Where(o => o.OrganizerId == id)
                  .Select(o => new OrganizerDTO
                  {
+                     UserId=o.UserId,
                      OrganizationName = o.OrganizationName,
                      ContactEmail = o.ContactEmail,
                      Phone = o.Phone
