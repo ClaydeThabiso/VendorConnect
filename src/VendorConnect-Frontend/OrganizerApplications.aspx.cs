@@ -118,64 +118,94 @@ namespace VendorConnect_Frontend
 
         protected void VendorApplicationsRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            Service1Client client = new Service1Client();
-            var applicationId = Convert.ToInt32(e.CommandArgument);
-          
-            if (e.CommandName=="Accept")
+            using (Service1Client client = new Service1Client())
             {
-               
-                var acceptApplication = client.AccepptApplication(applicationId);
-                var vendorId = acceptApplication.VendorId;
+                int applicationId = Convert.ToInt32(e.CommandArgument);
 
-                if (acceptApplication !=null)
+                if (e.CommandName == "Accept")
                 {
-                    client.SendNotification(vendorId, 'V', "Application Approved", "Your appliction is approved", "VendorApplication.aspx");
-                    ScriptManager.RegisterStartupScript(
-                        this, this.GetType(),
-                        "successAlert",
-                        "alert('Successfully accepted the application!');",
-                        true
-                    );
+                    var acceptApplication = client.AccepptApplication(applicationId);
+
+                    if (acceptApplication != null)
+                    {
+                        int vendorId = acceptApplication.VendorId;
+
+                        var vendor = client.GetVendor(vendorId); 
+
+                        if (vendor != null)
+                        {
+                            int vendorUserId = vendor.UserID;
+
+                            client.SendNotification(
+                                vendorUserId,
+                                'V',
+                                "Application Approved",
+                                "Your application has been approved",
+                                "VendorApplication.aspx"
+                            );
+
+                            ScriptManager.RegisterStartupScript(
+                                this, this.GetType(),
+                                "successAlert",
+                                "alert('Successfully accepted the application!');",
+                                true
+                            );
+                        }
+                    }
+                    else
+                    {
+                        ScriptManager.RegisterStartupScript(
+                            this, this.GetType(),
+                            "technicalIssue",
+                            "alert('Couldn't accept application!');",
+                            true
+                        );
+                    }
                 }
-                else {
-                    ScriptManager.RegisterStartupScript(
-                        this, this.GetType(),
-                        "technicalIssue",
-                        "alert('Couldnt accept application!');",
-                        true
-                    );
+                else if (e.CommandName == "Decline")
+                {
+                    var declineApplication = client.DeclineApplication(applicationId);
+
+                    if (declineApplication != null)
+                    {
+                        int vendorId = declineApplication.VendorId;
+
+                        var vendor = client.GetVendor(vendorId);
+
+                        if (vendor != null)
+                        {
+                            int vendorUserId = vendor.UserID;
+
+                            client.SendNotification(
+                                vendorUserId,
+                                'V',
+                                "Application Declined",
+                                "Your application has been declined",
+                                "VendorApplication.aspx"
+                            );
+
+                            ScriptManager.RegisterStartupScript(
+                                this, this.GetType(),
+                                "successAlert",
+                                "alert('Successfully declined the application!');",
+                                true
+                            );
+                        }
+                    }
+                    else
+                    {
+                        ScriptManager.RegisterStartupScript(
+                            this, this.GetType(),
+                            "technicalIssue",
+                            "alert('Couldn't decline application!');",
+                            true
+                        );
+                    }
                 }
 
-                
+                BindApplications();
             }
-            else if(e.CommandName=="Decline")
-            {
-               
-                var declineApplication = client.DeclineApplication(applicationId);
-                var vendorId = declineApplication.VendorId;
-                if (declineApplication !=null)
-                {
-                    client.SendNotification(vendorId, 'V', "Application declined", "Your appliction is declined", "VendorApplication.aspx");
-                    ScriptManager.RegisterStartupScript(
-                       this, this.GetType(),
-                       "successAlert",
-                       "alert('Successfully declined the application!');",
-                       true
-                   );
-                }
-                else
-                {
-                    ScriptManager.RegisterStartupScript(
-                       this, this.GetType(),
-                       "technicalIssue",
-                       "alert('Couldnt accept application!');",
-                       true
-                   );
-                }
-            }
-
-            BindApplications();
-            client.Close();
         }
+
     }
 }
