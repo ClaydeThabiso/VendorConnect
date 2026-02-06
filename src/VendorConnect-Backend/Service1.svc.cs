@@ -28,6 +28,7 @@ namespace VnedorConnect_Service
                 newUser.Username = username;
                 newUser.Password = HashedPassword;
                 newUser.Role = role;
+                newUser.IsActive = true;
 
                 db.Users.InsertOnSubmit(newUser);
                 try
@@ -110,6 +111,7 @@ namespace VnedorConnect_Service
                 newVendor.Phone = phone;
                 newVendor.Category = category;
                 newVendor.UserId = UserID;
+                newVendor.IsActive = true;
 
                 db.Vendors.InsertOnSubmit(newVendor);
                 try
