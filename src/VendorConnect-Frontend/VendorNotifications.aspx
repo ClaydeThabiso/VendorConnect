@@ -121,11 +121,17 @@
                                     <!-- RIGHT -->
                                     <asp:LinkButton
                                         runat="server"
-                                        CssClass="btn btn-outline-primary btn-sm"
+                                        CssClass='<%# (bool)Eval("IsRead") 
+        ? "btn btn-outline-secondary btn-sm disabled" 
+        : "btn btn-outline-primary btn-sm" %>'
                                         CommandName="Open"
-                                        CommandArgument='<%# Eval("NotificationId") + "|" + Eval("RedirectUrl") %>'>
-                        Open
+                                        CommandArgument='<%# Eval("NotificationId") + "|" + Eval("RedirectUrl") %>'
+                                        Enabled='<%# !(bool)Eval("IsRead") %>'>
+
+    <%# (bool)Eval("IsRead") ? "Read" : "Mark as read" %>
+
                                     </asp:LinkButton>
+
 
                                 </div>
                             </div>

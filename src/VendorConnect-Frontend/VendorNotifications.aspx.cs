@@ -52,16 +52,14 @@ namespace VendorConnect_Frontend
                 string[] args = e.CommandArgument.ToString().Split('|');
 
                 int notificationId = Convert.ToInt32(args[0]);
-                string redirectUrl = args.Length > 1 ? args[1] : null;
-
                 using (Service1Client client = new Service1Client())
                 {
                     client.MarkNotificationAsRead(notificationId);
                 }
+
                 LoadNotifications();
-                if (!string.IsNullOrEmpty(redirectUrl))
-                    Response.Redirect(redirectUrl);
             }
         }
+
     }
 }
