@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="OrganizerNotifications.aspx.cs" Inherits="VendorConnect_Frontend.OrganizerNotifications" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="DashboardStyling" runat="server">
@@ -90,7 +91,7 @@
             <div class="content-area">
                 <h3 class="section-title">Notifications</h3>
                 <div class="recent-activity">
-                <asp:Repeater ID="RepeaterNotifications"
+                    <asp:Repeater ID="RepeaterNotifications"
                         runat="server"
                         OnItemCommand="RepeaterNotifications_ItemCommand">
 

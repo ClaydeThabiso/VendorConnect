@@ -15,44 +15,6 @@
     <link href="css/Admin.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <div class="dropdown mt-3" style="position: relative;">
-    <a class="btn position-relative"
-       href="#"
-       role="button"
-       id="notificationDropdown"
-       data-bs-toggle="dropdown"
-       aria-expanded="false">
-        <i class="fas fa-bell fa-lg"></i>
-        <span id="notifCount"
-              runat="server"
-              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-              visible="false"></span>
-    </a>
-
-    <div class="dropdown-menu dropdown-menu-end p-2"
-         style="width: 320px; max-height: 400px; overflow-y: auto;">
-        
-        <asp:Repeater ID="RepeaterNotifications"
-                      runat="server"
-                      OnItemCommand="RepeaterNotifications_ItemCommand">
-            <ItemTemplate>
-                <asp:LinkButton runat="server"
-                                CssClass='dropdown-item <%# (bool)Eval("IsRead") ? "" : "fw-bold" %>'
-                                CommandName="Open"
-                                CommandArgument='<%# Eval("NotificationId") + "|" + Eval("RedirectUrl") %>'>
-                    <div>
-                        <div><%# Eval("Title") %></div>
-                        <small class="text-muted"><%# Eval("CreatedAt", "{0:dd MMM yyyy HH:mm}") %></small>
-                    </div>
-                </asp:LinkButton>
-            </ItemTemplate>
-        </asp:Repeater>
-
-        <hr class="dropdown-divider" />
-        <a href="Notifications.aspx" class="dropdown-item text-primary text-center">View all notifications</a>
-    </div>
-</div>
-
     <div class="dashboard-container">
         <!-- Sidebar Navigation -->
         <div class="sidebar">
@@ -121,6 +83,20 @@
                             <div class="fw-bold" runat="server" id="OrgaNames"></div>
                             <small class="text-muted">Event Organizer</small>
                         </div>
+                    </div>
+                    <div class="user-avatar" style="position: relative;">
+                        <a class="btn position-relative"
+                            href="VendorNotifications.aspx"
+                            role="button"
+                            id="notificationDropdown"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fas fa-bell fa-lg"></i>
+                            <span id="Span1"
+                                runat="server"
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                                visible="false"></span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -218,8 +194,8 @@
                                                         Eval("Status").ToString() == "Active" ? "bg-success" :
                                                          Eval("Status").ToString()=="Cancelled" ? "bg-danger" :
                                                          "bg-warning" %>">
-                                                        <%# Eval("Status") %>
-                                                    </span>                      
+                                                <%# Eval("Status") %>
+                                            </span>
 
                                         </td>
                                         <td>
@@ -228,16 +204,16 @@
                                                 CssClass="btn btn-outline-primary btn-sm ms-1"
                                                 Text="Manage"
                                                 CommandName="Manage"
-                                                CommandArgument='<%# Eval("EventId") + "|" + Eval("MaxVendors") %>' 
-                                                 Visible='<%# Eval("Status").ToString() != "Completed" && Eval("Status").ToString() != "Cancelled"%>'/>
+                                                CommandArgument='<%# Eval("EventId") + "|" + Eval("MaxVendors") %>'
+                                                Visible='<%# Eval("Status").ToString() != "Completed" && Eval("Status").ToString() != "Cancelled"%>' />
 
-                                             <asp:PlaceHolder runat="server" Visible='<%# Eval("Status").ToString()  != "Upcoming" %>'>
-                                                        <span class="badge <%# Eval("Status").ToString() == "Active" ? "bg-success" :
+                                            <asp:PlaceHolder runat="server" Visible='<%# Eval("Status").ToString()  != "Upcoming" %>'>
+                                                <span class="badge <%# Eval("Status").ToString() == "Active" ? "bg-success" :
                                                                 Eval("Status").ToString() == "Cancelled" ? "bg-danger" :
                                                                 "bg-secondary" %>">
-                                                            <%# Eval("Status") %>
-                                                        </span>
-                                                    </asp:PlaceHolder>
+                                                    <%# Eval("Status") %>
+                                                </span>
+                                            </asp:PlaceHolder>
 
                                         </td>
                                     </tr>
