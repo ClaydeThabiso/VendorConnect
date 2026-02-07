@@ -309,6 +309,7 @@ namespace VnedorConnect_Service
                 {
                     UpdateEventStatus(eve);
                     Event objEvent = new Event();
+                    objEvent.OrganizerId = eve.OrganizerId;
                     objEvent.EventId = eve.EventId;
                     objEvent.EventName = eve.EventName;
                     objEvent.EventDate = eve.EventDate;
