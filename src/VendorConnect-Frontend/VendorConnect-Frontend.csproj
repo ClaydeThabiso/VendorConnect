@@ -96,6 +96,7 @@
     <Content Include="Register.aspx" />
     <Content Include="VendorApplications.aspx" />
     <Content Include="VendorDashboard.aspx" />
+    <Content Include="VendorNotifications.aspx" />
     <Content Include="VendorProfile.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -238,6 +239,13 @@
     </Compile>
     <Compile Include="VendorDashboard.aspx.designer.cs">
       <DependentUpon>VendorDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VendorNotifications.aspx.cs">
+      <DependentUpon>VendorNotifications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VendorNotifications.aspx.designer.cs">
+      <DependentUpon>VendorNotifications.aspx</DependentUpon>
     </Compile>
     <Compile Include="VendorProfile.aspx.cs">
       <DependentUpon>VendorProfile.aspx</DependentUpon>

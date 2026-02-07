@@ -17,7 +17,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="dropdown mt-3" style="position: relative;">
         <a class="btn position-relative"
-            href="#"
+            href="VendorNotifications.aspx"
             role="button"
             id="notificationDropdown"
             data-bs-toggle="dropdown"
@@ -28,29 +28,6 @@
                 class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
                 visible="false"></span>
         </a>
-
-        <div class="dropdown-menu dropdown-menu-end p-2"
-            style="width: 320px; max-height: 400px; overflow-y: auto;">
-
-            <asp:Repeater ID="RepeaterNotifications"
-                runat="server"
-                OnItemCommand="RepeaterNotifications_ItemCommand">
-                <ItemTemplate>
-                    <asp:LinkButton runat="server"
-                        CssClass='dropdown-item <%# (bool)Eval("IsRead") ? "" : "fw-bold" %>'
-                        CommandName="Open"
-                        CommandArgument='<%# Eval("NotificationId") + "|" + Eval("RedirectUrl") %>'>
-                    <div>
-                        <div><%# Eval("Title") %></div>
-                        <small class="text-muted"><%# Eval("CreatedAt", "{0:dd MMM yyyy HH:mm}") %></small>
-                    </div>
-                    </asp:LinkButton>
-                </ItemTemplate>
-            </asp:Repeater>
-
-            <hr class="dropdown-divider" />
-            <a href="Notifications.aspx" class="dropdown-item text-primary text-center">View all notifications</a>
-        </div>
     </div>
 
     <div class="dashboard-container">
