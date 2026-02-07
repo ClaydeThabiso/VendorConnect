@@ -29,11 +29,22 @@ namespace VendorConnect_Frontend
             using (Service1Client client = new Service1Client())
             {
                 dynamic notifications = client.GetUserNotifications(userId, (char)Session["LoggedIn"]);
-                var unreadCount = client.GetUnreadNotificationCount(userId);
-                RepeaterNotifications.DataSource = notifications;
-                RepeaterNotifications.DataBind();
+
+                if (notifications != null && notifications.Count > 0)
+                {
+                    RepeaterNotifications.DataSource = notifications;
+                    RepeaterNotifications.DataBind();
+                    pnlNoNotifications.Visible = false;
+                }
+                else
+                {
+                    RepeaterNotifications.DataSource = null;
+                    RepeaterNotifications.DataBind();
+                    pnlNoNotifications.Visible = true;
+                }
             }
         }
+
         protected void RepeaterNotifications_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             if (e.CommandName == "Open")

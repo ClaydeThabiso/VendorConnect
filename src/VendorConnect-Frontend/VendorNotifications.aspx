@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="VendorNotifications.aspx.cs" Inherits="VendorConnect_Frontend.VendorNotifications" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="DashboardStyling" runat="server">
@@ -90,24 +91,56 @@
             <div class="content-area">
 
                 <!-- Recent Activity Section -->
-                <h3 class="section-title">Upcoming events</h3>
+                <h3 class="section-title">Notifictions</h3>
                 <div class="recent-activity">
-                       <asp:Repeater ID="RepeaterNotifications"
-                runat="server"
-                OnItemCommand="RepeaterNotifications_ItemCommand">
-                <ItemTemplate>
-                    <asp:LinkButton runat="server"
-                        CssClass='dropdown-item <%# (bool)Eval("IsRead") ? "" : "fw-bold" %>'
-                        CommandName="Open"
-                        CommandArgument='<%# Eval("NotificationId") + "|" + Eval("RedirectUrl") %>'>
-                    <div>
-                        <div><%# Eval("Title") %></div>
-                        <small class="text-muted"><%# Eval("CreatedAt", "{0:dd MMM yyyy HH:mm}") %></small>
-                    </div>
-                    </asp:LinkButton>
-                </ItemTemplate>
-            </asp:Repeater>
+
+                    <asp:Repeater ID="RepeaterNotifications"
+                        runat="server"
+                        OnItemCommand="RepeaterNotifications_ItemCommand">
+
+                        <ItemTemplate>
+                            <div class="card mb-2 notification-card <%# (bool)Eval("IsRead") ? "" : "border-primary" %>">
+                                <div class="card-body d-flex align-items-start justify-content-between">
+
+                                    <!-- LEFT -->
+                                    <div class="d-flex">
+                                        <div class="me-3">
+                                            <i class="fas fa-bell fa-lg text-primary"></i>
+                                        </div>
+
+                                        <div>
+                                            <div class="<%# (bool)Eval("IsRead") ? "" : "fw-bold" %>">
+                                                <%# Eval("Title") %>
+                                            </div>
+                                            <small class="text-muted">
+                                                <%# Eval("CreatedAt", "{0:dd MMM yyyy HH:mm}") %>
+                                            </small>
+                                        </div>
+                                    </div>
+
+                                    <!-- RIGHT -->
+                                    <asp:LinkButton
+                                        runat="server"
+                                        CssClass="btn btn-outline-primary btn-sm"
+                                        CommandName="Open"
+                                        CommandArgument='<%# Eval("NotificationId") + "|" + Eval("RedirectUrl") %>'>
+                        Open
+                                    </asp:LinkButton>
+
+                                </div>
+                            </div>
+                        </ItemTemplate>
+
+                    </asp:Repeater>
+
+                    <!-- EMPTY STATE -->
+                    <asp:Panel ID="pnlNoNotifications" runat="server" Visible="false" CssClass="text-center text-muted mt-4">
+                        <i class="fas fa-inbox fa-2x mb-2"></i>
+                        <p>No notifications yet</p>
+                    </asp:Panel>
+
                 </div>
+
             </div>
         </div>
     </div>
