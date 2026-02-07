@@ -30,24 +30,8 @@ namespace VendorConnect_Frontend
             {
                 dynamic notifications = client.GetUserNotifications(userId, (char)Session["LoggedIn"]);
                 var unreadCount = client.GetUnreadNotificationCount(userId);
-
-
-
-
-
-
                 RepeaterNotifications.DataSource = notifications;
                 RepeaterNotifications.DataBind();
-
-                if (unreadCount > 0)
-                {
-                    notifCount.Visible = true;
-                    notifCount.InnerText = unreadCount.ToString();
-                }
-                else
-                {
-                    notifCount.Visible = false;
-                }
             }
         }
         protected void RepeaterNotifications_ItemCommand(object source, RepeaterCommandEventArgs e)
