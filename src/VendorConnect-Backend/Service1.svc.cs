@@ -284,6 +284,7 @@ namespace VnedorConnect_Service
             if (tempEvent != null)
             {
                 Event objEvent = new Event();
+                objEvent.OrganizerId = tempEvent.OrganizerId;
                 objEvent.EventName = tempEvent.EventName;
                 objEvent.EventDate = tempEvent.EventDate;
                 objEvent.Location = tempEvent.Location;
