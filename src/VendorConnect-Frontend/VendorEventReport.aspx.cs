@@ -57,6 +57,9 @@ namespace VendorConnect_Frontend
                 var analytics = client.GetVendorAnalytics(vendorId);
 
                 displayTotAppli.InnerText = analytics.TotalApplications.ToString();
+                displayApproved.InnerText = analytics.Approved.ToString();
+                displayPending.InnerText = analytics.Pending.ToString();
+                displayDeclined.InnerText = analytics.Declined.ToString();
 
                 // Send data to JS
                 ViewState["Approved"] = analytics.Approved;
