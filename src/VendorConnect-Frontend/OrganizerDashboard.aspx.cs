@@ -62,7 +62,28 @@ namespace VendorConnect_Frontend
                 {
                     RepeaterEvents = null;
                 }
+                LoadNotifications();
                 client.Close();
+            }
+        }
+        private void LoadNotifications()
+        {
+            int userId = Convert.ToInt32(Session["UserID"]);
+
+            using (Service1Client client = new Service1Client())
+            {
+
+                var unreadCount = client.GetUnreadNotificationCount(userId);
+
+                if (unreadCount > 0)
+                {
+                    notifCount.Visible = true;
+                    notifCount.InnerText = unreadCount.ToString();
+                }
+                else
+                {
+                    notifCount.Visible = false;
+                }
             }
         }
 

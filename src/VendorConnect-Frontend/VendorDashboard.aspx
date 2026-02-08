@@ -84,20 +84,20 @@
                             <small class="text-muted">Vendor</small>
                         </div>
                     </div>
-                     <div class="user-avatar" style="position: relative;">
-        <a class="btn position-relative"
-            href="VendorNotifications.aspx"
-            role="button"
-            id="notificationDropdown"
-            data-bs-toggle="dropdown"
-            aria-expanded="false">
-            <i class="fas fa-bell fa-lg"></i>
-            <span id="notifCount"
-                runat="server"
-                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-                visible="false"></span>
-        </a>
-    </div>
+                    <div class="user-avatar" style="position: relative;">
+                        <a class="btn position-relative"
+                            href="VendorNotifications.aspx"
+                            role="button"
+                            id="notificationDropdown"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fas fa-bell fa-lg"></i>
+                            <span id="notifCount"
+                                runat="server"
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                                visible="false"></span>
+                        </a>
+                    </div>
                 </div>
             </div>
 

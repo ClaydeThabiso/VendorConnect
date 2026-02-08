@@ -86,13 +86,13 @@
                     </div>
                     <div class="user-avatar" style="position: relative;">
                         <a class="btn position-relative"
-                            href="VendorNotifications.aspx"
+                            href="OrganizerNotifications.aspx"
                             role="button"
                             id="notificationDropdown"
                             data-bs-toggle="dropdown"
                             aria-expanded="false">
                             <i class="fas fa-bell fa-lg"></i>
-                            <span id="Span1"
+                            <span id="notifCount"
                                 runat="server"
                                 class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
                                 visible="false"></span>
