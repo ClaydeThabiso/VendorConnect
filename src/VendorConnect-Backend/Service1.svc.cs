@@ -301,7 +301,7 @@ namespace VnedorConnect_Service
         public List<Event> GetEventPerOrganizer(int id)
         {
             List<Event> events = new List<Event>();
-            dynamic tempEvent = (from e in db.Events where e.OrganizerId.Equals(id) select e);
+            dynamic tempEvent = (from e in db.Events where e.OrganizerId.Equals(id) orderby e.CreatedAt descending select e);
 
             if (tempEvent != null)
             {
@@ -437,6 +437,7 @@ namespace VnedorConnect_Service
             var applications = (from va in db.VendorApplications
                                 join ev in db.Events on va.EventId equals ev.EventId
                                 join v in db.Vendors on va.VendorId equals v.VendorId
+                                orderby va.AppliedAt descending
                                 where va.VendorId == vendorID
                                 select new VendorApplicationDTO
                                 {
