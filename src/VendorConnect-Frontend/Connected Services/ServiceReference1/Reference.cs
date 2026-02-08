@@ -3208,6 +3208,176 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="VendorAnalyticsDTO", Namespace="http://schemas.datacontract.org/2004/07/VnedorConnect_Service")]
+    [System.SerializableAttribute()]
+    public partial class VendorAnalyticsDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ApprovedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int DeclinedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.MonthlyApplicationDTO> MonthlyStatsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int PendingField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TotalApplicationsField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Approved {
+            get {
+                return this.ApprovedField;
+            }
+            set {
+                if ((this.ApprovedField.Equals(value) != true)) {
+                    this.ApprovedField = value;
+                    this.RaisePropertyChanged("Approved");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Declined {
+            get {
+                return this.DeclinedField;
+            }
+            set {
+                if ((this.DeclinedField.Equals(value) != true)) {
+                    this.DeclinedField = value;
+                    this.RaisePropertyChanged("Declined");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.MonthlyApplicationDTO> MonthlyStats {
+            get {
+                return this.MonthlyStatsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MonthlyStatsField, value) != true)) {
+                    this.MonthlyStatsField = value;
+                    this.RaisePropertyChanged("MonthlyStats");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Pending {
+            get {
+                return this.PendingField;
+            }
+            set {
+                if ((this.PendingField.Equals(value) != true)) {
+                    this.PendingField = value;
+                    this.RaisePropertyChanged("Pending");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TotalApplications {
+            get {
+                return this.TotalApplicationsField;
+            }
+            set {
+                if ((this.TotalApplicationsField.Equals(value) != true)) {
+                    this.TotalApplicationsField = value;
+                    this.RaisePropertyChanged("TotalApplications");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MonthlyApplicationDTO", Namespace="http://schemas.datacontract.org/2004/07/VnedorConnect_Service")]
+    [System.SerializableAttribute()]
+    public partial class MonthlyApplicationDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MonthField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Count {
+            get {
+                return this.CountField;
+            }
+            set {
+                if ((this.CountField.Equals(value) != true)) {
+                    this.CountField = value;
+                    this.RaisePropertyChanged("Count");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Month {
+            get {
+                return this.MonthField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MonthField, value) != true)) {
+                    this.MonthField = value;
+                    this.RaisePropertyChanged("Month");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1 {
@@ -3505,6 +3675,12 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetOrganizerPerEvent", ReplyAction="http://tempuri.org/IService1/GetOrganizerPerEventResponse")]
         System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.OrganizeEventDTO>> GetOrganizerPerEventAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetVendorAnalytics", ReplyAction="http://tempuri.org/IService1/GetVendorAnalyticsResponse")]
+        VendorConnect_Frontend.ServiceReference1.VendorAnalyticsDTO GetVendorAnalytics(int vendorId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetVendorAnalytics", ReplyAction="http://tempuri.org/IService1/GetVendorAnalyticsResponse")]
+        System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.VendorAnalyticsDTO> GetVendorAnalyticsAsync(int vendorId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -3924,6 +4100,14 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.OrganizeEventDTO>> GetOrganizerPerEventAsync(int id) {
             return base.Channel.GetOrganizerPerEventAsync(id);
+        }
+        
+        public VendorConnect_Frontend.ServiceReference1.VendorAnalyticsDTO GetVendorAnalytics(int vendorId) {
+            return base.Channel.GetVendorAnalytics(vendorId);
+        }
+        
+        public System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.VendorAnalyticsDTO> GetVendorAnalyticsAsync(int vendorId) {
+            return base.Channel.GetVendorAnalyticsAsync(vendorId);
         }
     }
 }

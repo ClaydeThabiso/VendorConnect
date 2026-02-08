@@ -383,4 +383,27 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="OrganizeEventDTO" nillable="true" type="tns:OrganizeEventDTO" />
+  <xs:complexType name="VendorAnalyticsDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Approved" type="xs:int" />
+      <xs:element minOccurs="0" name="Declined" type="xs:int" />
+      <xs:element minOccurs="0" name="MonthlyStats" nillable="true" type="tns:ArrayOfMonthlyApplicationDTO" />
+      <xs:element minOccurs="0" name="Pending" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalApplications" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VendorAnalyticsDTO" nillable="true" type="tns:VendorAnalyticsDTO" />
+  <xs:complexType name="ArrayOfMonthlyApplicationDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MonthlyApplicationDTO" nillable="true" type="tns:MonthlyApplicationDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMonthlyApplicationDTO" nillable="true" type="tns:ArrayOfMonthlyApplicationDTO" />
+  <xs:complexType name="MonthlyApplicationDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Count" type="xs:int" />
+      <xs:element minOccurs="0" name="Month" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MonthlyApplicationDTO" nillable="true" type="tns:MonthlyApplicationDTO" />
 </xs:schema>

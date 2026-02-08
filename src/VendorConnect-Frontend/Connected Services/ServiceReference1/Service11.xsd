@@ -699,4 +699,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetVendorAnalytics">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="vendorId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVendorAnalyticsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/VnedorConnect_Service" minOccurs="0" name="GetVendorAnalyticsResult" nillable="true" type="q30:VendorAnalyticsDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

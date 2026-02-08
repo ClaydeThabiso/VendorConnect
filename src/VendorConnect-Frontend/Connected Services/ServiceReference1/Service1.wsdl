@@ -302,6 +302,12 @@
   <wsdl:message name="IService1_GetOrganizerPerEvent_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetOrganizerPerEventResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetVendorAnalytics_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVendorAnalytics" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetVendorAnalytics_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVendorAnalyticsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="RegisterUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/RegisterUser" message="tns:IService1_RegisterUser_InputMessage" />
@@ -498,6 +504,10 @@
     <wsdl:operation name="GetOrganizerPerEvent">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetOrganizerPerEvent" message="tns:IService1_GetOrganizerPerEvent_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetOrganizerPerEventResponse" message="tns:IService1_GetOrganizerPerEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorAnalytics">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetVendorAnalytics" message="tns:IService1_GetVendorAnalytics_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetVendorAnalyticsResponse" message="tns:IService1_GetVendorAnalytics_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -936,6 +946,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetOrganizerPerEvent">
       <soap:operation soapAction="http://tempuri.org/IService1/GetOrganizerPerEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorAnalytics">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetVendorAnalytics" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
