@@ -64,9 +64,22 @@ namespace VendorConnect_Frontend
                 var vendorId = client.GetVendorByUserId(userId);
 
                 var applied = client.EventApplication(vendorId.VendorID, eventId);
+
+               
                 if(applied==1)
                 {
-                   ScriptManager.RegisterStartupScript(
+                    var organizer = client.GetOrganizerByUserId(userId);
+                    
+                    if(organizer!=null)
+                    {
+                        var organizerId = organizer.OrganizerId;
+                        var organizerUserId = client.GetEventPerOrganizer(organizerId);
+                        if(organizerUserId!=null)
+                        {
+                            
+                        }
+                    }
+                    ScriptManager.RegisterStartupScript(
                         this, this.GetType(),
                         "successAlert",
                         "alert('Successfully applied for the event!');",

@@ -92,6 +92,7 @@
     <Content Include="OrganizerApplications.aspx" />
     <Content Include="OrganizerDashboard.aspx" />
     <Content Include="OrganizerEventReport.aspx" />
+    <Content Include="OrganizerNotifications.aspx" />
     <Content Include="OrganizerProfile.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="VendorApplications.aspx" />
@@ -210,6 +211,13 @@
     </Compile>
     <Compile Include="OrganizerEventReport.aspx.designer.cs">
       <DependentUpon>OrganizerEventReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrganizerNotifications.aspx.cs">
+      <DependentUpon>OrganizerNotifications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrganizerNotifications.aspx.designer.cs">
+      <DependentUpon>OrganizerNotifications.aspx</DependentUpon>
     </Compile>
     <Compile Include="OrganizerProfile.aspx.cs">
       <DependentUpon>OrganizerProfile.aspx</DependentUpon>

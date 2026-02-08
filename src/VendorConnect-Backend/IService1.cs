@@ -169,6 +169,16 @@ namespace VnedorConnect_Service
         [DataMember]
         public char UserType { get; set; }
     }
+    [DataContract]
+    public class OrganizeEventDTO
+    { 
+        [DataMember]
+        public int OrganizerId { get; set; }
+
+        [DataMember]
+        public int EventId { get; set; }
+    }
+
 
     [DataContract]
     public class OrganizerDTO
