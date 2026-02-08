@@ -370,4 +370,17 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="NotificationDTO" nillable="true" type="tns:NotificationDTO" />
+  <xs:complexType name="ArrayOfOrganizeEventDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrganizeEventDTO" nillable="true" type="tns:OrganizeEventDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrganizeEventDTO" nillable="true" type="tns:ArrayOfOrganizeEventDTO" />
+  <xs:complexType name="OrganizeEventDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EventId" type="xs:int" />
+      <xs:element minOccurs="0" name="OrganizerId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrganizeEventDTO" nillable="true" type="tns:OrganizeEventDTO" />
 </xs:schema>

@@ -68,23 +68,30 @@ namespace VendorConnect_Frontend
                
                 if(applied==1)
                 {
-                    var organizer = client.GetOrganizerByUserId(userId);
-                    
+                    var organizerEvent = client.GetEvent(eventId);
+                    var organizerEventId = organizerEvent.OrganizerId;
+                    var organizer = client.GetOrganizer(organizerEventId);
                     if(organizer!=null)
                     {
-                        var organizerId = organizer.OrganizerId;
-                        var organizerUserId = client.GetEventPerOrganizer(organizerId);
-                        if(organizerUserId!=null)
-                        {
-                            
-                        }
+                        var organizerUserId = organizer.UserId;
+
+                        client.SendNotification(organizerUserId, 'O', "Vendor Application", "New Vendor Application", "OrganizerApplications.aspx");
+                        ScriptManager.RegisterStartupScript(
+                           this, this.GetType(),
+                           "successAlert",
+                           "alert('Successfully applied for the event!');",
+                           true
+                       );
                     }
-                    ScriptManager.RegisterStartupScript(
-                        this, this.GetType(),
-                        "successAlert",
-                        "alert('Successfully applied for the event!');",
-                        true
-                    );
+                    else
+                    {
+                        ScriptManager.RegisterStartupScript(
+                          this, this.GetType(),
+                          "successAlert",
+                          "alert('Couldnt send notification');",
+                          true
+                      );
+                    }
                 }
                 else if(applied==0)
                 {
