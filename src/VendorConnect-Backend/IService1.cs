@@ -155,6 +155,9 @@ namespace VnedorConnect_Service
         [OperationContract]
         void MarkNotificationAsRead(int notificationId);
 
+        [OperationContract]
+        List<OrganizeEventDTO> GetOrganizerPerEvent(int id);
+
 
 
 
