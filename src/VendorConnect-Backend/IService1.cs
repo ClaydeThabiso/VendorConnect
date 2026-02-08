@@ -158,6 +158,9 @@ namespace VnedorConnect_Service
         [OperationContract]
         List<OrganizeEventDTO> GetOrganizerPerEvent(int id);
 
+        [OperationContract]
+        VendorAnalyticsDTO GetVendorAnalytics(int vendorId);
+
 
 
 
@@ -566,6 +569,23 @@ namespace VnedorConnect_Service
         [DataMember]
         public DateTime CreatedAt { get; set; }
     }
+    [DataContract]
+    public class VendorAnalyticsDTO
+    {
+        [DataMember] public int TotalApplications { get; set; }
+        [DataMember] public int Approved { get; set; }
+        [DataMember] public int Pending { get; set; }
+        [DataMember] public int Declined { get; set; }
+        [DataMember] public List<MonthlyApplicationDTO> MonthlyStats { get; set; }
+    }
+    [DataContract]
+    public class MonthlyApplicationDTO
+    {
+        [DataMember] public string Month { get; set; }
+        [DataMember] public int Count { get; set; }
+    }
+
+
 
 
 

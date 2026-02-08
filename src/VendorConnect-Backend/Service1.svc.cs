@@ -975,10 +975,54 @@ namespace VnedorConnect_Service
                 db.SubmitChanges();
             }
         }
+        public VendorAnalyticsDTO GetVendorAnalytics(int vendorId)
+        {
+            var analytics = new VendorAnalyticsDTO
+            {
+                MonthlyStats = new List<MonthlyApplicationDTO>()
+            };
 
+            // TOTAL
+            analytics.TotalApplications = db.VendorApplications
+                .Count(a => a.VendorId == vendorId);
 
+            // APPROVED
+            analytics.Approved = db.VendorApplications
+                .Count(a => a.VendorId == vendorId && a.Status == "Approved");
 
+            // PENDING
+            analytics.Pending = db.VendorApplications
+                .Count(a => a.VendorId == vendorId && a.Status == "Pending");
 
+            // DECLINED
+            analytics.Declined = db.VendorApplications
+                .Count(a => a.VendorId == vendorId && a.Status == "Declined");
+
+            // MONTHLY STATS
+            var monthly = db.VendorApplications
+                .Where(a => a.VendorId == vendorId)
+                .GroupBy(a => new { a.AppliedAt.Year, a.AppliedAt.Month })
+                .OrderBy(g => g.Key.Year)
+                .ThenBy(g => g.Key.Month)
+                .Select(g => new
+                {
+                    Month = g.Key.Month,
+                    Year = g.Key.Year,
+                    Count = g.Count()
+                })
+                .ToList();
+
+            foreach (var m in monthly)
+            {
+                analytics.MonthlyStats.Add(new MonthlyApplicationDTO
+                {
+                    Month = new DateTime(m.Year, m.Month, 1).ToString("MMM"),
+                    Count = m.Count
+                });
+            }
+
+            return analytics;
+        }
 
     }
 }
