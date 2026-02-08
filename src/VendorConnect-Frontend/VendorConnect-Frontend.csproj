@@ -97,6 +97,7 @@
     <Content Include="Register.aspx" />
     <Content Include="VendorApplications.aspx" />
     <Content Include="VendorDashboard.aspx" />
+    <Content Include="VendorEventReport.aspx" />
     <Content Include="VendorNotifications.aspx" />
     <Content Include="VendorProfile.aspx" />
     <Content Include="Web.config" />
@@ -247,6 +248,13 @@
     </Compile>
     <Compile Include="VendorDashboard.aspx.designer.cs">
       <DependentUpon>VendorDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VendorEventReport.aspx.cs">
+      <DependentUpon>VendorEventReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VendorEventReport.aspx.designer.cs">
+      <DependentUpon>VendorEventReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="VendorNotifications.aspx.cs">
       <DependentUpon>VendorNotifications.aspx</DependentUpon>
