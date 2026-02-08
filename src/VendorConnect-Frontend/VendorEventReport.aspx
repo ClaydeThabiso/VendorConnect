@@ -200,7 +200,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title">Applications Over Time</h5>
-                                    <canvas id="applicationsChart" height="220"></canvas>
+                                    <canvas id="monthlyChart" height="220"></canvas>
                                 </div>
                             </div>
                         </div>
@@ -211,8 +211,9 @@
             </div>
         </div>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
+        // Toggle sidebar on mobile
         // Toggle sidebar on mobile
         document.querySelector('.toggle-sidebar').addEventListener('click', function () {
             document.querySelector('.sidebar').classList.toggle('active');
@@ -239,6 +240,38 @@
                 // Close sidebar on mobile after selection
                 if (window.innerWidth <= 992) {
                     document.querySelector('.sidebar').classList.remove('active');
+                }
+            });
+
+            const statusChart = new Chart(document.getElementById('statusChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Approved', 'Pending', 'Declined'],
+                    datasets: [{
+                        data: [
+                    <%= ViewState["Approved"] %>,
+                    <%= ViewState["Pending"] %>,
+                    <%= ViewState["Declined"] %>
+                ]
+            }]
+        }
+    });
+
+            const monthlyData = <%= 
+        new System.Web.Script.Serialization.JavaScriptSerializer()
+        .Serialize(ViewState["MonthlyStats"]) %>;
+
+            const labels = monthlyData.map(m => m.Month);
+            const values = monthlyData.map(m => m.Count);
+
+            new Chart(document.getElementById('monthlyChart'), {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Applications per Month',
+                        data: values
+                    }]
                 }
             });
         });
