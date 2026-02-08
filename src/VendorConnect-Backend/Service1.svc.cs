@@ -327,6 +327,18 @@ namespace VnedorConnect_Service
                 return null;
             }
         }
+        public List<OrganizeEventDTO> GetOrganizerPerEvent(int id)
+        {
+            var eve = (from e in db.Events
+                       where e.OrganizerId.Equals(id)
+                       select new OrganizeEventDTO
+                       {
+                           OrganizerId=e.OrganizerId,
+                           EventId=e.EventId
+                       }).ToList();
+
+            return eve;
+        }
         public int CancelEvent(int eventId)
         {
             var ev = db.Events.FirstOrDefault(e => e.EventId == eventId);
