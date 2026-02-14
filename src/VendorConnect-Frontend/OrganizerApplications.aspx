@@ -183,6 +183,10 @@
                             </div>
                         </ItemTemplate>
                     </asp:Repeater>
+                    <asp:Panel ID="pnlNoNotifications" runat="server" Visible="false" CssClass="text-center text-muted mt-4">
+                        <i class="fas fa-inbox fa-2x mb-2"></i>
+                        <p>No Applications yet</p>
+                    </asp:Panel>
                 </div>
 
             </div>

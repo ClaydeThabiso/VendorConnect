@@ -104,8 +104,19 @@ namespace VendorConnect_Frontend
                                                    .Where(a => a.EventId == eventId)
                                                    .ToList();
 
-                        nestedRepeater.DataSource = applicationsForEvent;
-                        nestedRepeater.DataBind();
+                        if(applicationsForEvent!=null)
+                        {
+                            nestedRepeater.DataSource = applicationsForEvent;
+                            nestedRepeater.DataBind();
+                            pnlNoNotifications.Visible = false;
+                        }
+                        else
+                        {
+                            nestedRepeater.DataSource = null;
+                            nestedRepeater.DataBind();
+                            pnlNoNotifications.Visible = true;
+                        }
+                        
                     }
                     finally
                     {

@@ -982,6 +982,19 @@ namespace VnedorConnect_Service
                 MonthlyStats = new List<MonthlyApplicationDTO>()
             };
 
+            analytics.MonthlyOutcomes = db.VendorApplications
+            .Where(a => a.VendorId == vendorId)
+            .GroupBy(a => new { a.AppliedAt.Year, a.AppliedAt.Month })
+            .Select(g => new MonthlyOutcomeDTO
+            {
+                Month = g.Key.Year + "-" + g.Key.Month,
+                Approved = g.Count(x => x.Status == "Approved"),
+                Declined = g.Count(x => x.Status == "Declined")
+            })
+            .OrderBy(x => x.Month)
+            .ToList();
+
+
             // TOTAL
             analytics.TotalApplications = db.VendorApplications
                 .Count(a => a.VendorId == vendorId);

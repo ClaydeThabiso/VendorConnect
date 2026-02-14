@@ -47,8 +47,19 @@ namespace VendorConnect_Frontend
                 }
 
                 dynamic AllEvents = client.GetEvents();
-                EventsRepeater.DataSource = AllEvents;
-                EventsRepeater.DataBind();
+                if(AllEvents!=null)
+                {
+                    EventsRepeater.DataSource = AllEvents;
+                    EventsRepeater.DataBind();
+                    pnlNoNotifications.Visible = false;
+                }
+                else
+                {
+                    EventsRepeater.DataSource = null;
+                    EventsRepeater.DataBind();
+                    pnlNoNotifications.Visible = true;
+                }
+                
 
                 client.Close();
             }

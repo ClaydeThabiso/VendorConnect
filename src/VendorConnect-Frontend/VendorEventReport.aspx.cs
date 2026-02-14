@@ -66,6 +66,8 @@ namespace VendorConnect_Frontend
                 ViewState["Pending"] = analytics.Pending;
                 ViewState["Declined"] = analytics.Declined;
                 ViewState["MonthlyStats"] = analytics.MonthlyStats;
+                ViewState["MonthlyOutcomes"] = analytics.MonthlyOutcomes;
+
             }
         }
 

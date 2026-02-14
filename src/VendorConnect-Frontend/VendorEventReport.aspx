@@ -148,41 +148,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Upcoming Events -->
-                    <h3 class="section-title mt-4">Upcoming Events</h3>
-
-                    <div class="recent-activity">
-                        <asp:Repeater runat="server" ID="UpcomingEvents">
-                            <itemtemplate>
-                                <div class="activity-item">
-                                    <div class="activity-icon" style="background-color: var(--primary);">
-                                        <i class="fas fa-calendar-check"></i>
-                                    </div>
-
-                                    <div class="activity-details">
-                                        <div class="activity-title"><%# Eval("EventName") %></div>
-
-                                        <div class="activity-time">
-                                            <i class="bi bi-geo-alt"></i>
-                                            <%# Eval("Location") %>
-                                        </div>
-
-                                        <div class="activity-time">
-                                            <i class="bi bi-calendar"></i>
-                                            <%# Convert.ToDateTime(Eval("EventDate"))
-                                   .ToString("dd MMM yyyy") %>
-                                        </div>
-                                    </div>
-
-                                    <span class="badge bg-success">Approved
-                                    </span>
-                                </div>
-                            </itemtemplate>
-                        </asp:Repeater>
-                    </div>
-
-                    
                     <h3 class="section-title mt-5">Application Analytics</h3>
 
                     <div class="row">
@@ -201,6 +166,15 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Applications Over Time</h5>
                                     <canvas id="monthlyChart" height="220"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Monthly outcome</h5>
+                                    <canvas id="outcomeTrendChart" height="220"></canvas>
                                 </div>
                             </div>
                         </div>
@@ -252,10 +226,10 @@
                     <%= ViewState["Approved"] %>,
                     <%= ViewState["Pending"] %>,
                     <%= ViewState["Declined"] %>
-                ]
-            }]
-        }
-    });
+                        ]
+                    }]
+                }
+            });
 
             const monthlyData = <%= 
         new System.Web.Script.Serialization.JavaScriptSerializer()
@@ -272,6 +246,33 @@
                         label: 'Applications per Month',
                         data: values
                     }]
+                }
+            });
+
+            const outcomes = <%= 
+        new System.Web.Script.Serialization.JavaScriptSerializer()
+        .Serialize(ViewState["MonthlyOutcomes"]) %>;
+
+            const months = outcomes.map(o => o.Month);
+            const approved = outcomes.map(o => o.Approved);
+            const declined = outcomes.map(o => o.Declined);
+
+            new Chart(document.getElementById('outcomeTrendChart'), {
+                type: 'line',
+                data: {
+                    labels: months,
+                    datasets: [
+                        {
+                            label: 'Approved',
+                            data: approved,
+                            tension: 0.3
+                        },
+                        {
+                            label: 'Declined',
+                            data: declined,
+                            tension: 0.3
+                        }
+                    ]
                 }
             });
         });

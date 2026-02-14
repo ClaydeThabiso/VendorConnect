@@ -3224,6 +3224,9 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         private int DeclinedField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.MonthlyOutcomeDTO> MonthlyOutcomesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.MonthlyApplicationDTO> MonthlyStatsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -3269,6 +3272,19 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.MonthlyOutcomeDTO> MonthlyOutcomes {
+            get {
+                return this.MonthlyOutcomesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MonthlyOutcomesField, value) != true)) {
+                    this.MonthlyOutcomesField = value;
+                    this.RaisePropertyChanged("MonthlyOutcomes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.MonthlyApplicationDTO> MonthlyStats {
             get {
                 return this.MonthlyStatsField;
@@ -3303,6 +3319,83 @@ namespace VendorConnect_Frontend.ServiceReference1 {
                 if ((this.TotalApplicationsField.Equals(value) != true)) {
                     this.TotalApplicationsField = value;
                     this.RaisePropertyChanged("TotalApplications");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MonthlyOutcomeDTO", Namespace="http://schemas.datacontract.org/2004/07/VnedorConnect_Service")]
+    [System.SerializableAttribute()]
+    public partial class MonthlyOutcomeDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ApprovedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int DeclinedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MonthField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Approved {
+            get {
+                return this.ApprovedField;
+            }
+            set {
+                if ((this.ApprovedField.Equals(value) != true)) {
+                    this.ApprovedField = value;
+                    this.RaisePropertyChanged("Approved");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Declined {
+            get {
+                return this.DeclinedField;
+            }
+            set {
+                if ((this.DeclinedField.Equals(value) != true)) {
+                    this.DeclinedField = value;
+                    this.RaisePropertyChanged("Declined");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Month {
+            get {
+                return this.MonthField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MonthField, value) != true)) {
+                    this.MonthField = value;
+                    this.RaisePropertyChanged("Month");
                 }
             }
         }

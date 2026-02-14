@@ -577,6 +577,10 @@ namespace VnedorConnect_Service
         [DataMember] public int Pending { get; set; }
         [DataMember] public int Declined { get; set; }
         [DataMember] public List<MonthlyApplicationDTO> MonthlyStats { get; set; }
+
+        [DataMember]
+        public List<MonthlyOutcomeDTO> MonthlyOutcomes { get; set; }
+
     }
     [DataContract]
     public class MonthlyApplicationDTO
@@ -584,6 +588,14 @@ namespace VnedorConnect_Service
         [DataMember] public string Month { get; set; }
         [DataMember] public int Count { get; set; }
     }
+    [DataContract]
+    public class MonthlyOutcomeDTO
+    {
+        [DataMember] public string Month { get; set; }
+        [DataMember] public int Approved { get; set; }
+        [DataMember] public int Declined { get; set; }
+    }
+
 
 
 
