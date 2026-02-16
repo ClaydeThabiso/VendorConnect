@@ -437,8 +437,8 @@ namespace VnedorConnect_Service
             var applications = (from va in db.VendorApplications
                                 join ev in db.Events on va.EventId equals ev.EventId
                                 join v in db.Vendors on va.VendorId equals v.VendorId
-                                orderby va.AppliedAt descending
                                 where va.VendorId == vendorID
+                                orderby va.AppliedAt descending
                                 select new VendorApplicationDTO
                                 {
                                     ApplicationId = va.ApplicationId,
