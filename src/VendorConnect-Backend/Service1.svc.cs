@@ -994,17 +994,6 @@ namespace VnedorConnect_Service
             .OrderBy(x => x.Month)
             .ToList();
 
-            if (analytics.TotalApplications == 0)
-            {
-                analytics.ApprovalRate = 0;
-            }
-            else
-            {
-                analytics.ApprovalRate =
-                    (int)(((double)analytics.Approved / analytics.TotalApplications) * 100);
-            }
-
-
 
             // TOTAL
             analytics.TotalApplications = db.VendorApplications
@@ -1047,6 +1036,20 @@ namespace VnedorConnect_Service
 
             return analytics;
         }
+        public int GetVendorApprovalRate(int vendorId)
+        {
+            int total = db.VendorApplications
+                .Count(a => a.VendorId == vendorId);
+
+            if (total == 0)
+                return 0;
+
+            int approved = db.VendorApplications
+                .Count(a => a.VendorId == vendorId && a.Status == "Approved");
+
+            return (int)(((double)approved / total) * 100);
+        }
+
 
     }
 }
