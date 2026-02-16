@@ -415,6 +415,7 @@ namespace VnedorConnect_Service
                 newApplication.VendorId = vendorID;
                 newApplication.EventId = eventID;
                 newApplication.Status = "Pending";
+                newApplication.AppliedAt = DateTime.Now;
 
                 db.VendorApplications.InsertOnSubmit(newApplication);
                 try
