@@ -46,6 +46,8 @@ namespace VendorConnect_Frontend
                     OrgaNames.InnerText = "Demo";
                     initials.InnerText = "DD";
                 }
+                var getTotPending = client.CountPendingApplicationPerOrganizer(Convert.ToInt32(Session["OrganizerId"]));
+                displayPendingAppl.InnerText = Convert.ToString(getTotPending);
 
                 var getTotalUpcomingEevnts = client.getTotalUpcomingEvents(Convert.ToInt32(Session["OrganizerId"]));
                 displayUpcomingEve.InnerText = Convert.ToString(getTotalUpcomingEevnts);

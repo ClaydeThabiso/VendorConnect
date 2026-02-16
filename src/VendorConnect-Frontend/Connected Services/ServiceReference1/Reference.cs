@@ -3796,6 +3796,12 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetVendorAnalytics", ReplyAction="http://tempuri.org/IService1/GetVendorAnalyticsResponse")]
         System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.VendorAnalyticsDTO> GetVendorAnalyticsAsync(int vendorId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CountPendingApplicationPerOrganizer", ReplyAction="http://tempuri.org/IService1/CountPendingApplicationPerOrganizerResponse")]
+        int CountPendingApplicationPerOrganizer(int orgId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CountPendingApplicationPerOrganizer", ReplyAction="http://tempuri.org/IService1/CountPendingApplicationPerOrganizerResponse")]
+        System.Threading.Tasks.Task<int> CountPendingApplicationPerOrganizerAsync(int orgId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -4231,6 +4237,14 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.VendorAnalyticsDTO> GetVendorAnalyticsAsync(int vendorId) {
             return base.Channel.GetVendorAnalyticsAsync(vendorId);
+        }
+        
+        public int CountPendingApplicationPerOrganizer(int orgId) {
+            return base.Channel.CountPendingApplicationPerOrganizer(orgId);
+        }
+        
+        public System.Threading.Tasks.Task<int> CountPendingApplicationPerOrganizerAsync(int orgId) {
+            return base.Channel.CountPendingApplicationPerOrganizerAsync(orgId);
         }
     }
 }

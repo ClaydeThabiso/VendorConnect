@@ -314,6 +314,12 @@
   <wsdl:message name="IService1_GetVendorAnalytics_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetVendorAnalyticsResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_CountPendingApplicationPerOrganizer_InputMessage">
+    <wsdl:part name="parameters" element="tns:CountPendingApplicationPerOrganizer" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CountPendingApplicationPerOrganizer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CountPendingApplicationPerOrganizerResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="RegisterUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/RegisterUser" message="tns:IService1_RegisterUser_InputMessage" />
@@ -518,6 +524,10 @@
     <wsdl:operation name="GetVendorAnalytics">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetVendorAnalytics" message="tns:IService1_GetVendorAnalytics_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetVendorAnalyticsResponse" message="tns:IService1_GetVendorAnalytics_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CountPendingApplicationPerOrganizer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CountPendingApplicationPerOrganizer" message="tns:IService1_CountPendingApplicationPerOrganizer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CountPendingApplicationPerOrganizerResponse" message="tns:IService1_CountPendingApplicationPerOrganizer_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -974,6 +984,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetVendorAnalytics">
       <soap:operation soapAction="http://tempuri.org/IService1/GetVendorAnalytics" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountPendingApplicationPerOrganizer">
+      <soap:operation soapAction="http://tempuri.org/IService1/CountPendingApplicationPerOrganizer" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

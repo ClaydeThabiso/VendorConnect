@@ -727,4 +727,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="CountPendingApplicationPerOrganizer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="orgId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CountPendingApplicationPerOrganizerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CountPendingApplicationPerOrganizerResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

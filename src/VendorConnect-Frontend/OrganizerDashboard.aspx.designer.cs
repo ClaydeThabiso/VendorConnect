@@ -66,7 +66,7 @@ namespace VendorConnect_Frontend
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl displayPending Appl;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl displayPendingAppl;
         
         /// <summary>
         /// btnCreate control.
