@@ -159,7 +159,7 @@
                 </div>
 
                 <!-- Recent Activity Section -->
-                <h3 class="section-title">Upcoming events</h3>
+                <h3 class="section-title">Applications</h3>
                 <div class="recent-activity">
                     <asp:Repeater runat="server" ID="UpcomingEvents">
                         <ItemTemplate>
