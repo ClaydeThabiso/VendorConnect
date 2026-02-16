@@ -3647,6 +3647,12 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getTotAcceptVendorApplication", ReplyAction="http://tempuri.org/IService1/getTotAcceptVendorApplicationResponse")]
         System.Threading.Tasks.Task<int> getTotAcceptVendorApplicationAsync(int id);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetVendorApprovalRate", ReplyAction="http://tempuri.org/IService1/GetVendorApprovalRateResponse")]
+        int GetVendorApprovalRate(int vendorId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetVendorApprovalRate", ReplyAction="http://tempuri.org/IService1/GetVendorApprovalRateResponse")]
+        System.Threading.Tasks.Task<int> GetVendorApprovalRateAsync(int vendorId);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CancelEvent", ReplyAction="http://tempuri.org/IService1/CancelEventResponse")]
         int CancelEvent(int eventId);
         
@@ -4025,6 +4031,14 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<int> getTotAcceptVendorApplicationAsync(int id) {
             return base.Channel.getTotAcceptVendorApplicationAsync(id);
+        }
+        
+        public int GetVendorApprovalRate(int vendorId) {
+            return base.Channel.GetVendorApprovalRate(vendorId);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetVendorApprovalRateAsync(int vendorId) {
+            return base.Channel.GetVendorApprovalRateAsync(vendorId);
         }
         
         public int CancelEvent(int eventId) {

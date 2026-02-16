@@ -164,6 +164,12 @@
   <wsdl:message name="IService1_getTotAcceptVendorApplication_OutputMessage">
     <wsdl:part name="parameters" element="tns:getTotAcceptVendorApplicationResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetVendorApprovalRate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVendorApprovalRate" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetVendorApprovalRate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVendorApprovalRateResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_CancelEvent_InputMessage">
     <wsdl:part name="parameters" element="tns:CancelEvent" />
   </wsdl:message>
@@ -412,6 +418,10 @@
     <wsdl:operation name="getTotAcceptVendorApplication">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/getTotAcceptVendorApplication" message="tns:IService1_getTotAcceptVendorApplication_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/getTotAcceptVendorApplicationResponse" message="tns:IService1_getTotAcceptVendorApplication_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorApprovalRate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetVendorApprovalRate" message="tns:IService1_GetVendorApprovalRate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetVendorApprovalRateResponse" message="tns:IService1_GetVendorApprovalRate_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CancelEvent">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/CancelEvent" message="tns:IService1_CancelEvent_InputMessage" />
@@ -739,6 +749,15 @@
     </wsdl:operation>
     <wsdl:operation name="getTotAcceptVendorApplication">
       <soap:operation soapAction="http://tempuri.org/IService1/getTotAcceptVendorApplication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorApprovalRate">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetVendorApprovalRate" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
