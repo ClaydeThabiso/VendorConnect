@@ -90,7 +90,7 @@ namespace VnedorConnect_Service
         int getTotAcceptVendorApplication(int id);
 
         [OperationContract]
-        int GetVendorApprovalRate(int vendorId)
+        int GetVendorApprovalRate(int vendorId);
 
         [OperationContract]
         int CancelEvent(int eventId);
