@@ -164,6 +164,9 @@ namespace VnedorConnect_Service
         [OperationContract]
         VendorAnalyticsDTO GetVendorAnalytics(int vendorId);
 
+        [OperationContract]
+        int CountPendingApplicationPerOrganizer(int orgId);
+
 
 
 

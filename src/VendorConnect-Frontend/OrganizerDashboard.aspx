@@ -136,10 +136,10 @@
                             <div class="card-icon organizers">
                                 <i class="fas fa-users"></i>
                             </div>
-                            <div class="card-title">Active Vendors</div>
-                            <div class="card-value">67</div>
+                            <div class="card-title">Pending Application</div>
+                            <div class="card-value" runat="server" id="displayPendingAppl"></div>
                             <div class="card-change positive">
-                                <i class="fas fa-arrow-up me-1"></i>8% increase
+                                <i class="fas fa-arrow-up me-1"></i>Awaiting approval
                             </div>
                         </div>
                     </div>

@@ -221,7 +221,7 @@ namespace VnedorConnect_Service
         public int CreateEvent(string name, DateTime eventDate, string location, int maxVendors, string description, int OrganizerID)
         {
             var Event = (from e in db.Events where e.EventName.Equals(name) && e.EventDate.Equals(eventDate)
-                         && e.Location.Equals(location) orderby e.EventDate descending select e).FirstOrDefault();
+                         && e.Location.Equals(location)  select e).FirstOrDefault();
 
             if (Event == null)
             {
@@ -233,6 +233,7 @@ namespace VnedorConnect_Service
                 newEvent.Description = description;
                 newEvent.OrganizerId = OrganizerID;
                 newEvent.status = "Active";
+                newEvent.CreatedAt = DateTime.Now;
 
                 db.Events.InsertOnSubmit(newEvent);
                 try
@@ -1050,6 +1051,18 @@ namespace VnedorConnect_Service
                 .Count(a => a.VendorId == vendorId && a.Status == "Approved");
 
             return (int)(((double)approved / total) * 100);
+        }
+
+        public int CountPendingApplicationPerOrganizer(int orgId)
+        {
+            var application = (from o in db.Organizers
+                               join ev in db.Events on o.OrganizerId equals ev.OrganizerId
+                               join v in db.VendorApplications on ev.EventId equals v.EventId
+                               where o.OrganizerId.Equals(orgId) && v.Status.Equals("Pending")
+                               select v).Count();
+            return application;
+
+
         }
 
 
