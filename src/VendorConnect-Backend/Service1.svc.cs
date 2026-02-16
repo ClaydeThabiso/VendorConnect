@@ -535,7 +535,8 @@ namespace VnedorConnect_Service
                                join e in db.Events on o.OrganizerId equals e.OrganizerId
                                join va in db.VendorApplications on e.EventId equals va.EventId
                                join v in db.Vendors on va.VendorId equals v.VendorId
-                               where o.OrganizerId == OrgaID && e.status!="Completed" 
+                               where o.OrganizerId == OrgaID && e.status!="Completed"
+                               orderby va.AppliedAt descending
                                select new VendorApplicationDTO
                                {
                                    ApplicationId = va.ApplicationId,
