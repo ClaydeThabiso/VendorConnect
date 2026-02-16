@@ -994,6 +994,17 @@ namespace VnedorConnect_Service
             .OrderBy(x => x.Month)
             .ToList();
 
+            if (analytics.TotalApplications == 0)
+            {
+                analytics.ApprovalRate = 0;
+            }
+            else
+            {
+                analytics.ApprovalRate =
+                    (int)(((double)analytics.Approved / analytics.TotalApplications) * 100);
+            }
+
+
 
             // TOTAL
             analytics.TotalApplications = db.VendorApplications

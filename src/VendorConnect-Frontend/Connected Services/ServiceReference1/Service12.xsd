@@ -385,6 +385,7 @@
   <xs:element name="OrganizeEventDTO" nillable="true" type="tns:OrganizeEventDTO" />
   <xs:complexType name="VendorAnalyticsDTO">
     <xs:sequence>
+      <xs:element minOccurs="0" name="ApprovalRate" type="xs:int" />
       <xs:element minOccurs="0" name="Approved" type="xs:int" />
       <xs:element minOccurs="0" name="Declined" type="xs:int" />
       <xs:element minOccurs="0" name="MonthlyOutcomes" nillable="true" type="tns:ArrayOfMonthlyOutcomeDTO" />

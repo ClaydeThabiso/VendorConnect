@@ -62,6 +62,9 @@ namespace VendorConnect_Frontend
                     UpcomingEvents.DataSource = null;
                 }
 
+                var analytics = client.GetVendorAnalytics(VendorID);
+                displayApprovalRate.InnerText = Convert.ToString(analytics.ApprovalRate + "%");
+
                 var totEvents = client.getTotAcceptVendorApplication(VendorID);
                 displayTotEve.InnerText = Convert.ToString(totEvents);
 

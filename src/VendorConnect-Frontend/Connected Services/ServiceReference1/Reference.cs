@@ -3218,6 +3218,9 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ApprovalRateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ApprovedField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -3242,6 +3245,19 @@ namespace VendorConnect_Frontend.ServiceReference1 {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ApprovalRate {
+            get {
+                return this.ApprovalRateField;
+            }
+            set {
+                if ((this.ApprovalRateField.Equals(value) != true)) {
+                    this.ApprovalRateField = value;
+                    this.RaisePropertyChanged("ApprovalRate");
+                }
             }
         }
         

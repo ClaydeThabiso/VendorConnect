@@ -110,10 +110,10 @@
                             <div class="card-icon vendors">
                                 <i class="fas fa-store"></i>
                             </div>
-                            <div class="card-title">Total Vendors</div>
-                            <div class="card-value">142</div>
+                            <div class="card-title">Approval Rate</div>
+                            <div class="card-value" runat="server" id="displayApprovalRate"></div>
                             <div class="card-change positive">
-                                <i class="fas fa-arrow-up me-1"></i>12% increase
+                                <i class="fas fa-arrow-up me-1"></i>Based on all applications
                             </div>
                         </div>
                     </div>
@@ -123,10 +123,10 @@
                             <div class="card-icon events">
                                 <i class="fas fa-calendar-alt"></i>
                             </div>
-                            <div class="card-title">All Events</div>
+                            <div class="card-title">Approved Events</div>
                             <div class="card-value" runat="server" id="displayTotEve"></div>
                             <div class="card-change positive">
-                                <i class="fas fa-arrow-up me-1"></i>5% increase
+                               Updated
                             </div>
                         </div>
                     </div>
@@ -136,10 +136,10 @@
                             <div class="card-icon organizers">
                                 <i class="fas fa-users"></i>
                             </div>
-                            <div class="card-title">Applications</div>
+                            <div class="card-title">All Applications</div>
                             <div class="card-value" runat="server" id="displayTotAppli"></div>
                             <div class="card-change positive">
-                                <i class="fas fa-arrow-up me-1"></i>8% increase
+                        
                             </div>
                         </div>
                     </div>

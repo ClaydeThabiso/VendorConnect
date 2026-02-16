@@ -573,6 +573,10 @@ namespace VnedorConnect_Service
     public class VendorAnalyticsDTO
     {
         [DataMember] public int TotalApplications { get; set; }
+
+        [DataMember]
+        public int ApprovalRate { get; set; }
+
         [DataMember] public int Approved { get; set; }
         [DataMember] public int Pending { get; set; }
         [DataMember] public int Declined { get; set; }
