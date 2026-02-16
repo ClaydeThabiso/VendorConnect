@@ -221,7 +221,7 @@ namespace VnedorConnect_Service
         public int CreateEvent(string name, DateTime eventDate, string location, int maxVendors, string description, int OrganizerID)
         {
             var Event = (from e in db.Events where e.EventName.Equals(name) && e.EventDate.Equals(eventDate)
-                         && e.Location.Equals(location) select e).FirstOrDefault();
+                         && e.Location.Equals(location) orderby e.EventDate descending select e).FirstOrDefault();
 
             if (Event == null)
             {
