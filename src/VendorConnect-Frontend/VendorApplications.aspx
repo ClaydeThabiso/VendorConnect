@@ -47,7 +47,7 @@
                     </a>
                 </div>
                 <div class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="VendorEventReport.aspx" class="nav-link">
                         <i class="bi bi-clipboard-data"></i>
                         <span>Analytics</span>
                     </a>
