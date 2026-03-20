@@ -152,46 +152,7 @@
                 <!-- Recent Activity Section -->
                 <h3 class="section-title">Recent Activity</h3>
                 <div class="recent-activity">
-                    <div class="activity-item">
-                        <div class="activity-icon" style="background-color: var(--primary);">
-                            <i class="fas fa-user-plus"></i>
-                        </div>
-                        <div class="activity-details">
-                            <div class="activity-title">New vendor registered</div>
-                            <div class="activity-time">5 minutes ago</div>
-                        </div>
-                        <span class="badge bg-success">New</span>
-                    </div>
-                    
-                    <div class="activity-item">
-                        <div class="activity-icon" style="background-color: var(--secondary);">
-                            <i class="fas fa-calendar-check"></i>
-                        </div>
-                        <div class="activity-details">
-                            <div class="activity-title">Event "Tech Conference 2023" approved</div>
-                            <div class="activity-time">1 hour ago</div>
-                        </div>
-                    </div>
-                    
-                    <div class="activity-item">
-                        <div class="activity-icon" style="background-color: #ff9800;">
-                            <i class="fas fa-money-bill-wave"></i>
-                        </div>
-                        <div class="activity-details">
-                            <div class="activity-title">Payment received from XYZ Corp</div>
-                            <div class="activity-time">2 hours ago</div>
-                        </div>
-                    </div>
-                    
-                    <div class="activity-item">
-                        <div class="activity-icon" style="background-color: #9c27b0;">
-                            <i class="fas fa-file-invoice"></i>
-                        </div>
-                        <div class="activity-details">
-                            <div class="activity-title">Monthly report generated</div>
-                            <div class="activity-time">5 hours ago</div>
-                        </div>
-                    </div>
+                  
                 </div>
             </div>
         </div>
