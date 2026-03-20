@@ -113,7 +113,7 @@
                             <div class="card-title">Total Events</div>
                             <div class="card-value" runat="server" id="totalEvent"></div>
                             <div class="card-change positive">
-                                <i class="fas fa-arrow-up me-1"></i>12% increase
+                                <i class="fas fa-arrow-up me-1"></i>Updated
                             </div>
                         </div>
                     </div>
@@ -126,7 +126,7 @@
                             <div class="card-title">Upcoming Events</div>
                             <div class="card-value" runat="server" id="displayUpcomingEve"></div>
                             <div class="card-change positive">
-                                <i class="fas fa-arrow-up me-1"></i>5% increase
+                                <i class="fas fa-arrow-up me-1"></i>Still to come
                             </div>
                         </div>
                     </div>
