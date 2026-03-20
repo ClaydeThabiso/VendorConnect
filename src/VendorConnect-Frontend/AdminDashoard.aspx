@@ -104,7 +104,7 @@
                             <div class="card-title">Total Vendors</div>
                             <div class="card-value" runat="server" id="DisplayVendors"></div>
                             <div class="card-change positive">
-                                <i class="fas fa-arrow-up me-1"></i> 12% increase
+                                <i class="fas fa-arrow-up me-1"></i>Recently Updated
                             </div>
                         </div>
                     </div>
@@ -117,7 +117,7 @@
                             <div class="card-title">Total Organizers</div>
                             <div class="card-value" runat="server" id="DisplayOrga"></div>
                             <div class="card-change positive">
-                                <i class="fas fa-arrow-up me-1"></i> 8% increase
+                                <i class="fas fa-arrow-up me-1"></i>More Organizers
                             </div>
                         </div>
                     </div>
@@ -130,7 +130,7 @@
                             <div class="card-title">Upcoming Events</div>
                             <div class="card-value" runat="server" id="displayUpcomingEvents"></div>
                             <div class="card-change positive">
-                                <i class="fas fa-arrow-up me-1"></i> 5% increase
+                                <i class="fas fa-arrow-up me-1"></i> Still to come
                             </div>
                         </div>
                     </div>
