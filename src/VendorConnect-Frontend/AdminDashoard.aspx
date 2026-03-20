@@ -14,61 +14,6 @@
            <link href="css/Admin.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <div class="dropdown me-3">
-                    <a class="btn position-relative"
-                        href="#"
-                        role="button"
-                        id="notificationDropdown"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false">
-
-                        <i class="fas fa-bell fa-lg"></i>
-
-                        <!-- Badge -->
-                        <span id="notifCount"
-                            runat="server"
-                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-                            visible="false"></span>
-                    </a>
-
-                    <ul class="dropdown-menu dropdown-menu-end p-2"
-                        style="width: 320px; max-height: 400px; overflow-y: auto;">
-
-                        <asp:Repeater ID="RepeaterNotifications"
-                            runat="server"
-                            OnItemCommand="RepeaterNotifications_ItemCommand">
-
-                            <ItemTemplate>
-                                <li class="dropdown-item <%# (bool)Eval("IsRead") ? "" : "fw-bold" %>">
-                                    <asp:LinkButton
-                                        runat="server"
-                                        CssClass="text-decoration-none text-dark w-100"
-                                        CommandName="Open"
-                                        CommandArgument='<%# Eval("NotificationId") + "|" + Eval("RedirectUrl") %>'>
-
-                        <div>
-                            <div><%# Eval("Title") %></div>
-                            <small class="text-muted">
-                                <%# Eval("CreatedAt", "{0:dd MMM yyyy HH:mm}") %>
-                            </small>
-                        </div>
-
-                                    </asp:LinkButton>
-                                </li>
-                            </ItemTemplate>
-
-                        </asp:Repeater>
-
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li>
-                        <li class="text-center">
-                            <a href="Notifications.aspx" class="dropdown-item text-primary">View all notifications
-                            </a>
-                        </li>
-
-                    </ul>
-                </div>
     <div class="dashboard-container">
         <!-- Sidebar Navigation -->
         <div class="sidebar">
