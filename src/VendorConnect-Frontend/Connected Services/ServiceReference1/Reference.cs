@@ -3753,10 +3753,10 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         System.Threading.Tasks.Task<int> CancelEventAsync(int eventId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateEvent", ReplyAction="http://tempuri.org/IService1/UpdateEventResponse")]
-        int UpdateEvent(int eventId, string name, System.DateTime date, string location, string description, int maxVendors);
+        int UpdateEvent(int eventId, string name, System.DateTime date, string location, string description, int maxVendors, decimal fee);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateEvent", ReplyAction="http://tempuri.org/IService1/UpdateEventResponse")]
-        System.Threading.Tasks.Task<int> UpdateEventAsync(int eventId, string name, System.DateTime date, string location, string description, int maxVendors);
+        System.Threading.Tasks.Task<int> UpdateEventAsync(int eventId, string name, System.DateTime date, string location, string description, int maxVendors, decimal fee);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getTotalUpcomingEvents", ReplyAction="http://tempuri.org/IService1/getTotalUpcomingEventsResponse")]
         int getTotalUpcomingEvents(int id);
@@ -4166,12 +4166,12 @@ namespace VendorConnect_Frontend.ServiceReference1 {
             return base.Channel.CancelEventAsync(eventId);
         }
         
-        public int UpdateEvent(int eventId, string name, System.DateTime date, string location, string description, int maxVendors) {
-            return base.Channel.UpdateEvent(eventId, name, date, location, description, maxVendors);
+        public int UpdateEvent(int eventId, string name, System.DateTime date, string location, string description, int maxVendors, decimal fee) {
+            return base.Channel.UpdateEvent(eventId, name, date, location, description, maxVendors, fee);
         }
         
-        public System.Threading.Tasks.Task<int> UpdateEventAsync(int eventId, string name, System.DateTime date, string location, string description, int maxVendors) {
-            return base.Channel.UpdateEventAsync(eventId, name, date, location, description, maxVendors);
+        public System.Threading.Tasks.Task<int> UpdateEventAsync(int eventId, string name, System.DateTime date, string location, string description, int maxVendors, decimal fee) {
+            return base.Channel.UpdateEventAsync(eventId, name, date, location, description, maxVendors, fee);
         }
         
         public int getTotalUpcomingEvents(int id) {

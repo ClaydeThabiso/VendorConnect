@@ -68,7 +68,7 @@ namespace VendorConnect_Frontend
             int eventId = Convert.ToInt32(Request.QueryString["EventId"]);
             Service1Client client = new Service1Client();
 
-            var result = client.UpdateEvent(eventId, EventName.Value, Convert.ToDateTime(EventDate.Value), EventLocation.Value, EventDescription.Value, Convert.ToInt32(NumVendors.Value));
+            var result = client.UpdateEvent(eventId, EventName.Value, Convert.ToDateTime(EventDate.Value), EventLocation.Value, EventDescription.Value, Convert.ToInt32(NumVendors.Value),Convert.ToDecimal(fee.Value));
 
             if(result==1)
             {

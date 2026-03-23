@@ -96,7 +96,7 @@ namespace VnedorConnect_Service
         int CancelEvent(int eventId);
 
         [OperationContract]
-        int UpdateEvent(int eventId, string name, DateTime date, string location, string description, int maxVendors);
+        int UpdateEvent(int eventId, string name, DateTime date, string location, string description, int maxVendors,decimal fee);
 
         [OperationContract]
         int getTotalUpcomingEvents(int id);

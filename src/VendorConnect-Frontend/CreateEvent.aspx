@@ -201,6 +201,11 @@
                                 <input type="text" class="form-control ps-5" id="NumVendors"
                                     placeholder="Number of vendors" runat="server">
                             </div>
+                             <div class="mb-3 input-icon">
+                                <i class="fas fa-money-bill"></i>
+                                <input type="text" class="form-control ps-5" id="fee"
+                                    placeholder="Vendor Payment Fee" runat="server">
+                            </div>
                              <asp:Label runat="server" ID="lblMsg" Text=" " class="m-1"></asp:Label>
                             <asp:Button id="btnCreateEvent" class="btn btn-primary w-100 mt-4" runat="server" Text="+ Create" OnClick="btnCreateEvent_Click"/> 
                         </div>

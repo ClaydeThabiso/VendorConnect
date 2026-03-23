@@ -414,6 +414,7 @@
         <xs:element minOccurs="0" name="location" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="maxVendors" type="xs:int" />
+        <xs:element minOccurs="0" name="fee" type="xs:decimal" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -59,8 +59,9 @@ namespace VendorConnect_Frontend
             var EDesc = EventDescription.Value;
             var numVendor = NumVendors.Value;
             var ELocation = EventLocation.Value;
+            var Fee = Convert.ToDecimal(fee.Value);
             var orgaID=Convert.ToInt32(Session["OrganizerId"]);
-            var createEvent = client.CreateEvent(EName, Convert.ToDateTime(EDate), ELocation, Convert.ToInt32(numVendor), EDesc, orgaID);
+            var createEvent = client.CreateEvent(EName, Convert.ToDateTime(EDate), ELocation, Convert.ToInt32(numVendor), EDesc, orgaID,Fee);
             if(createEvent== 1)
             {
                 ScriptManager.RegisterStartupScript(
