@@ -218,7 +218,7 @@ namespace VnedorConnect_Service
             return totaOrg;
         }
 
-        public int CreateEvent(string name, DateTime eventDate, string location, int maxVendors, string description, int OrganizerID)
+        public int CreateEvent(string name, DateTime eventDate, string location, int maxVendors, string description, int OrganizerID,decimal fee)
         {
             var Event = (from e in db.Events where e.EventName.Equals(name) && e.EventDate.Equals(eventDate)
                          && e.Location.Equals(location)  select e).FirstOrDefault();
@@ -234,6 +234,7 @@ namespace VnedorConnect_Service
                 newEvent.OrganizerId = OrganizerID;
                 newEvent.status = "Active";
                 newEvent.CreatedAt = DateTime.Now;
+                newEvent.Fee = fee;
 
                 db.Events.InsertOnSubmit(newEvent);
                 try

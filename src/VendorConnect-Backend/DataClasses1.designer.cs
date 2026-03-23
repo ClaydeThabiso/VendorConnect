@@ -42,9 +42,6 @@ namespace VnedorConnect_Service
     partial void InsertVendorApplication(VendorApplication instance);
     partial void UpdateVendorApplication(VendorApplication instance);
     partial void DeleteVendorApplication(VendorApplication instance);
-    partial void InsertEvent(Event instance);
-    partial void UpdateEvent(Event instance);
-    partial void DeleteEvent(Event instance);
     partial void InsertNotification(Notification instance);
     partial void UpdateNotification(Notification instance);
     partial void DeleteNotification(Notification instance);
@@ -54,6 +51,9 @@ namespace VnedorConnect_Service
     partial void InsertPayment(Payment instance);
     partial void UpdatePayment(Payment instance);
     partial void DeletePayment(Payment instance);
+    partial void InsertEvent(Event instance);
+    partial void UpdateEvent(Event instance);
+    partial void DeleteEvent(Event instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -118,14 +118,6 @@ namespace VnedorConnect_Service
 			}
 		}
 		
-		public System.Data.Linq.Table<Event> Events
-		{
-			get
-			{
-				return this.GetTable<Event>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Notification> Notifications
 		{
 			get
@@ -147,6 +139,14 @@ namespace VnedorConnect_Service
 			get
 			{
 				return this.GetTable<Payment>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Event> Events
+		{
+			get
+			{
+				return this.GetTable<Event>();
 			}
 		}
 	}
@@ -1307,357 +1307,6 @@ namespace VnedorConnect_Service
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Events")]
-	public partial class Event : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _EventId;
-		
-		private int _OrganizerId;
-		
-		private string _EventName;
-		
-		private System.DateTime _EventDate;
-		
-		private string _Location;
-		
-		private int _MaxVendors;
-		
-		private string _Description;
-		
-		private System.DateTime _CreatedAt;
-		
-		private string _status;
-		
-		private EntitySet<VendorApplication> _VendorApplications;
-		
-		private EntitySet<Payment> _Payments;
-		
-		private EntityRef<Organizer> _Organizer;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnEventIdChanging(int value);
-    partial void OnEventIdChanged();
-    partial void OnOrganizerIdChanging(int value);
-    partial void OnOrganizerIdChanged();
-    partial void OnEventNameChanging(string value);
-    partial void OnEventNameChanged();
-    partial void OnEventDateChanging(System.DateTime value);
-    partial void OnEventDateChanged();
-    partial void OnLocationChanging(string value);
-    partial void OnLocationChanged();
-    partial void OnMaxVendorsChanging(int value);
-    partial void OnMaxVendorsChanged();
-    partial void OnDescriptionChanging(string value);
-    partial void OnDescriptionChanged();
-    partial void OnCreatedAtChanging(System.DateTime value);
-    partial void OnCreatedAtChanged();
-    partial void OnstatusChanging(string value);
-    partial void OnstatusChanged();
-    #endregion
-		
-		public Event()
-		{
-			this._VendorApplications = new EntitySet<VendorApplication>(new Action<VendorApplication>(this.attach_VendorApplications), new Action<VendorApplication>(this.detach_VendorApplications));
-			this._Payments = new EntitySet<Payment>(new Action<Payment>(this.attach_Payments), new Action<Payment>(this.detach_Payments));
-			this._Organizer = default(EntityRef<Organizer>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EventId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int EventId
-		{
-			get
-			{
-				return this._EventId;
-			}
-			set
-			{
-				if ((this._EventId != value))
-				{
-					this.OnEventIdChanging(value);
-					this.SendPropertyChanging();
-					this._EventId = value;
-					this.SendPropertyChanged("EventId");
-					this.OnEventIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrganizerId", DbType="Int NOT NULL")]
-		public int OrganizerId
-		{
-			get
-			{
-				return this._OrganizerId;
-			}
-			set
-			{
-				if ((this._OrganizerId != value))
-				{
-					if (this._Organizer.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnOrganizerIdChanging(value);
-					this.SendPropertyChanging();
-					this._OrganizerId = value;
-					this.SendPropertyChanged("OrganizerId");
-					this.OnOrganizerIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EventName", DbType="VarChar(150) NOT NULL", CanBeNull=false)]
-		public string EventName
-		{
-			get
-			{
-				return this._EventName;
-			}
-			set
-			{
-				if ((this._EventName != value))
-				{
-					this.OnEventNameChanging(value);
-					this.SendPropertyChanging();
-					this._EventName = value;
-					this.SendPropertyChanged("EventName");
-					this.OnEventNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EventDate", DbType="DateTime NOT NULL")]
-		public System.DateTime EventDate
-		{
-			get
-			{
-				return this._EventDate;
-			}
-			set
-			{
-				if ((this._EventDate != value))
-				{
-					this.OnEventDateChanging(value);
-					this.SendPropertyChanging();
-					this._EventDate = value;
-					this.SendPropertyChanged("EventDate");
-					this.OnEventDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Location", DbType="VarChar(150) NOT NULL", CanBeNull=false)]
-		public string Location
-		{
-			get
-			{
-				return this._Location;
-			}
-			set
-			{
-				if ((this._Location != value))
-				{
-					this.OnLocationChanging(value);
-					this.SendPropertyChanging();
-					this._Location = value;
-					this.SendPropertyChanged("Location");
-					this.OnLocationChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaxVendors", DbType="Int NOT NULL")]
-		public int MaxVendors
-		{
-			get
-			{
-				return this._MaxVendors;
-			}
-			set
-			{
-				if ((this._MaxVendors != value))
-				{
-					this.OnMaxVendorsChanging(value);
-					this.SendPropertyChanging();
-					this._MaxVendors = value;
-					this.SendPropertyChanged("MaxVendors");
-					this.OnMaxVendorsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string Description
-		{
-			get
-			{
-				return this._Description;
-			}
-			set
-			{
-				if ((this._Description != value))
-				{
-					this.OnDescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._Description = value;
-					this.SendPropertyChanged("Description");
-					this.OnDescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedAt", DbType="DateTime2 NOT NULL")]
-		public System.DateTime CreatedAt
-		{
-			get
-			{
-				return this._CreatedAt;
-			}
-			set
-			{
-				if ((this._CreatedAt != value))
-				{
-					this.OnCreatedAtChanging(value);
-					this.SendPropertyChanging();
-					this._CreatedAt = value;
-					this.SendPropertyChanged("CreatedAt");
-					this.OnCreatedAtChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="VarChar(50)")]
-		public string status
-		{
-			get
-			{
-				return this._status;
-			}
-			set
-			{
-				if ((this._status != value))
-				{
-					this.OnstatusChanging(value);
-					this.SendPropertyChanging();
-					this._status = value;
-					this.SendPropertyChanged("status");
-					this.OnstatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Event_VendorApplication", Storage="_VendorApplications", ThisKey="EventId", OtherKey="EventId")]
-		public EntitySet<VendorApplication> VendorApplications
-		{
-			get
-			{
-				return this._VendorApplications;
-			}
-			set
-			{
-				this._VendorApplications.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Event_Payment", Storage="_Payments", ThisKey="EventId", OtherKey="EventId")]
-		public EntitySet<Payment> Payments
-		{
-			get
-			{
-				return this._Payments;
-			}
-			set
-			{
-				this._Payments.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Organizer_Event", Storage="_Organizer", ThisKey="OrganizerId", OtherKey="OrganizerId", IsForeignKey=true)]
-		public Organizer Organizer
-		{
-			get
-			{
-				return this._Organizer.Entity;
-			}
-			set
-			{
-				Organizer previousValue = this._Organizer.Entity;
-				if (((previousValue != value) 
-							|| (this._Organizer.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Organizer.Entity = null;
-						previousValue.Events.Remove(this);
-					}
-					this._Organizer.Entity = value;
-					if ((value != null))
-					{
-						value.Events.Add(this);
-						this._OrganizerId = value.OrganizerId;
-					}
-					else
-					{
-						this._OrganizerId = default(int);
-					}
-					this.SendPropertyChanged("Organizer");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_VendorApplications(VendorApplication entity)
-		{
-			this.SendPropertyChanging();
-			entity.Event = this;
-		}
-		
-		private void detach_VendorApplications(VendorApplication entity)
-		{
-			this.SendPropertyChanging();
-			entity.Event = null;
-		}
-		
-		private void attach_Payments(Payment entity)
-		{
-			this.SendPropertyChanging();
-			entity.Event = this;
-		}
-		
-		private void detach_Payments(Payment entity)
-		{
-			this.SendPropertyChanging();
-			entity.Event = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Notification")]
 	public partial class Notification : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2085,9 +1734,9 @@ namespace VnedorConnect_Service
 		
 		private string _Status;
 		
-		private EntityRef<Event> _Event;
-		
 		private EntityRef<Vendor> _Vendor;
+		
+		private EntityRef<Event> _Event;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2113,8 +1762,8 @@ namespace VnedorConnect_Service
 		
 		public Payment()
 		{
-			this._Event = default(EntityRef<Event>);
 			this._Vendor = default(EntityRef<Vendor>);
+			this._Event = default(EntityRef<Event>);
 			OnCreated();
 		}
 		
@@ -2286,40 +1935,6 @@ namespace VnedorConnect_Service
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Event_Payment", Storage="_Event", ThisKey="EventId", OtherKey="EventId", IsForeignKey=true)]
-		public Event Event
-		{
-			get
-			{
-				return this._Event.Entity;
-			}
-			set
-			{
-				Event previousValue = this._Event.Entity;
-				if (((previousValue != value) 
-							|| (this._Event.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Event.Entity = null;
-						previousValue.Payments.Remove(this);
-					}
-					this._Event.Entity = value;
-					if ((value != null))
-					{
-						value.Payments.Add(this);
-						this._EventId = value.EventId;
-					}
-					else
-					{
-						this._EventId = default(int);
-					}
-					this.SendPropertyChanged("Event");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Vendor_Payment", Storage="_Vendor", ThisKey="VendorId", OtherKey="VendorId", IsForeignKey=true)]
 		public Vendor Vendor
 		{
@@ -2354,6 +1969,40 @@ namespace VnedorConnect_Service
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Event_Payment", Storage="_Event", ThisKey="EventId", OtherKey="EventId", IsForeignKey=true)]
+		public Event Event
+		{
+			get
+			{
+				return this._Event.Entity;
+			}
+			set
+			{
+				Event previousValue = this._Event.Entity;
+				if (((previousValue != value) 
+							|| (this._Event.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Event.Entity = null;
+						previousValue.Payments.Remove(this);
+					}
+					this._Event.Entity = value;
+					if ((value != null))
+					{
+						value.Payments.Add(this);
+						this._EventId = value.EventId;
+					}
+					else
+					{
+						this._EventId = default(int);
+					}
+					this.SendPropertyChanged("Event");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2372,6 +2021,381 @@ namespace VnedorConnect_Service
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Events")]
+	public partial class Event : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _EventId;
+		
+		private int _OrganizerId;
+		
+		private string _EventName;
+		
+		private System.DateTime _EventDate;
+		
+		private string _Location;
+		
+		private int _MaxVendors;
+		
+		private string _Description;
+		
+		private System.DateTime _CreatedAt;
+		
+		private string _status;
+		
+		private System.Nullable<decimal> _Fee;
+		
+		private EntitySet<VendorApplication> _VendorApplications;
+		
+		private EntitySet<Payment> _Payments;
+		
+		private EntityRef<Organizer> _Organizer;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnEventIdChanging(int value);
+    partial void OnEventIdChanged();
+    partial void OnOrganizerIdChanging(int value);
+    partial void OnOrganizerIdChanged();
+    partial void OnEventNameChanging(string value);
+    partial void OnEventNameChanged();
+    partial void OnEventDateChanging(System.DateTime value);
+    partial void OnEventDateChanged();
+    partial void OnLocationChanging(string value);
+    partial void OnLocationChanged();
+    partial void OnMaxVendorsChanging(int value);
+    partial void OnMaxVendorsChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    partial void OnCreatedAtChanging(System.DateTime value);
+    partial void OnCreatedAtChanged();
+    partial void OnstatusChanging(string value);
+    partial void OnstatusChanged();
+    partial void OnFeeChanging(System.Nullable<decimal> value);
+    partial void OnFeeChanged();
+    #endregion
+		
+		public Event()
+		{
+			this._VendorApplications = new EntitySet<VendorApplication>(new Action<VendorApplication>(this.attach_VendorApplications), new Action<VendorApplication>(this.detach_VendorApplications));
+			this._Payments = new EntitySet<Payment>(new Action<Payment>(this.attach_Payments), new Action<Payment>(this.detach_Payments));
+			this._Organizer = default(EntityRef<Organizer>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EventId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int EventId
+		{
+			get
+			{
+				return this._EventId;
+			}
+			set
+			{
+				if ((this._EventId != value))
+				{
+					this.OnEventIdChanging(value);
+					this.SendPropertyChanging();
+					this._EventId = value;
+					this.SendPropertyChanged("EventId");
+					this.OnEventIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrganizerId", DbType="Int NOT NULL")]
+		public int OrganizerId
+		{
+			get
+			{
+				return this._OrganizerId;
+			}
+			set
+			{
+				if ((this._OrganizerId != value))
+				{
+					if (this._Organizer.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrganizerIdChanging(value);
+					this.SendPropertyChanging();
+					this._OrganizerId = value;
+					this.SendPropertyChanged("OrganizerId");
+					this.OnOrganizerIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EventName", DbType="VarChar(150) NOT NULL", CanBeNull=false)]
+		public string EventName
+		{
+			get
+			{
+				return this._EventName;
+			}
+			set
+			{
+				if ((this._EventName != value))
+				{
+					this.OnEventNameChanging(value);
+					this.SendPropertyChanging();
+					this._EventName = value;
+					this.SendPropertyChanged("EventName");
+					this.OnEventNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EventDate", DbType="DateTime NOT NULL")]
+		public System.DateTime EventDate
+		{
+			get
+			{
+				return this._EventDate;
+			}
+			set
+			{
+				if ((this._EventDate != value))
+				{
+					this.OnEventDateChanging(value);
+					this.SendPropertyChanging();
+					this._EventDate = value;
+					this.SendPropertyChanged("EventDate");
+					this.OnEventDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Location", DbType="VarChar(150) NOT NULL", CanBeNull=false)]
+		public string Location
+		{
+			get
+			{
+				return this._Location;
+			}
+			set
+			{
+				if ((this._Location != value))
+				{
+					this.OnLocationChanging(value);
+					this.SendPropertyChanging();
+					this._Location = value;
+					this.SendPropertyChanged("Location");
+					this.OnLocationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaxVendors", DbType="Int NOT NULL")]
+		public int MaxVendors
+		{
+			get
+			{
+				return this._MaxVendors;
+			}
+			set
+			{
+				if ((this._MaxVendors != value))
+				{
+					this.OnMaxVendorsChanging(value);
+					this.SendPropertyChanging();
+					this._MaxVendors = value;
+					this.SendPropertyChanged("MaxVendors");
+					this.OnMaxVendorsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedAt", DbType="DateTime2 NOT NULL")]
+		public System.DateTime CreatedAt
+		{
+			get
+			{
+				return this._CreatedAt;
+			}
+			set
+			{
+				if ((this._CreatedAt != value))
+				{
+					this.OnCreatedAtChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedAt = value;
+					this.SendPropertyChanged("CreatedAt");
+					this.OnCreatedAtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="VarChar(50)")]
+		public string status
+		{
+			get
+			{
+				return this._status;
+			}
+			set
+			{
+				if ((this._status != value))
+				{
+					this.OnstatusChanging(value);
+					this.SendPropertyChanging();
+					this._status = value;
+					this.SendPropertyChanged("status");
+					this.OnstatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fee", DbType="Decimal(10,2)")]
+		public System.Nullable<decimal> Fee
+		{
+			get
+			{
+				return this._Fee;
+			}
+			set
+			{
+				if ((this._Fee != value))
+				{
+					this.OnFeeChanging(value);
+					this.SendPropertyChanging();
+					this._Fee = value;
+					this.SendPropertyChanged("Fee");
+					this.OnFeeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Event_VendorApplication", Storage="_VendorApplications", ThisKey="EventId", OtherKey="EventId")]
+		public EntitySet<VendorApplication> VendorApplications
+		{
+			get
+			{
+				return this._VendorApplications;
+			}
+			set
+			{
+				this._VendorApplications.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Event_Payment", Storage="_Payments", ThisKey="EventId", OtherKey="EventId")]
+		public EntitySet<Payment> Payments
+		{
+			get
+			{
+				return this._Payments;
+			}
+			set
+			{
+				this._Payments.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Organizer_Event", Storage="_Organizer", ThisKey="OrganizerId", OtherKey="OrganizerId", IsForeignKey=true)]
+		public Organizer Organizer
+		{
+			get
+			{
+				return this._Organizer.Entity;
+			}
+			set
+			{
+				Organizer previousValue = this._Organizer.Entity;
+				if (((previousValue != value) 
+							|| (this._Organizer.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Organizer.Entity = null;
+						previousValue.Events.Remove(this);
+					}
+					this._Organizer.Entity = value;
+					if ((value != null))
+					{
+						value.Events.Add(this);
+						this._OrganizerId = value.OrganizerId;
+					}
+					else
+					{
+						this._OrganizerId = default(int);
+					}
+					this.SendPropertyChanged("Organizer");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_VendorApplications(VendorApplication entity)
+		{
+			this.SendPropertyChanging();
+			entity.Event = this;
+		}
+		
+		private void detach_VendorApplications(VendorApplication entity)
+		{
+			this.SendPropertyChanging();
+			entity.Event = null;
+		}
+		
+		private void attach_Payments(Payment entity)
+		{
+			this.SendPropertyChanging();
+			entity.Event = this;
+		}
+		
+		private void detach_Payments(Payment entity)
+		{
+			this.SendPropertyChanging();
+			entity.Event = null;
 		}
 	}
 }
