@@ -605,6 +605,15 @@ namespace VnedorConnect_Service
         [DataMember] public int Approved { get; set; }
         [DataMember] public int Declined { get; set; }
     }
+    [DataContract]
+    public class PaymentDTO
+    {
+        [DataMember] public int PaymentId { get; set; }
+        [DataMember] public int VendorId { get; set; }
+        [DataMember] public int EventId { get; set; }
+        [DataMember] public decimal Amount { get; set; }
+        [DataMember] public string Status { get; set; }
+    }
 
 
 
