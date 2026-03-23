@@ -293,6 +293,7 @@ namespace VnedorConnect_Service
                 objEvent.Description = tempEvent.Description;
                 objEvent.MaxVendors = tempEvent.MaxVendors;
                 objEvent.status = tempEvent.status;
+                objEvent.Fee = tempEvent.Fee;
                 return objEvent;
             }
             else

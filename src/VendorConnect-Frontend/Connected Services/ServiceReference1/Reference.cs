@@ -666,6 +666,9 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         private string EventNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> FeeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LocationField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -757,6 +760,19 @@ namespace VendorConnect_Frontend.ServiceReference1 {
                 if ((object.ReferenceEquals(this.EventNameField, value) != true)) {
                     this.EventNameField = value;
                     this.RaisePropertyChanged("EventName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> Fee {
+            get {
+                return this.FeeField;
+            }
+            set {
+                if ((this.FeeField.Equals(value) != true)) {
+                    this.FeeField = value;
+                    this.RaisePropertyChanged("Fee");
                 }
             }
         }
@@ -872,7 +888,10 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal AmountField;
+        private System.Nullable<decimal> AmountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime CreatedAtField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private VendorConnect_Frontend.ServiceReference1.Event EventField;
@@ -881,16 +900,7 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         private int EventIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal OrganizerRevenueField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> PaymentDateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int PaymentIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal PlatformFeeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string StatusField;
@@ -912,7 +922,7 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal Amount {
+        public System.Nullable<decimal> Amount {
             get {
                 return this.AmountField;
             }
@@ -920,6 +930,19 @@ namespace VendorConnect_Frontend.ServiceReference1 {
                 if ((this.AmountField.Equals(value) != true)) {
                     this.AmountField = value;
                     this.RaisePropertyChanged("Amount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime CreatedAt {
+            get {
+                return this.CreatedAtField;
+            }
+            set {
+                if ((this.CreatedAtField.Equals(value) != true)) {
+                    this.CreatedAtField = value;
+                    this.RaisePropertyChanged("CreatedAt");
                 }
             }
         }
@@ -951,32 +974,6 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal OrganizerRevenue {
-            get {
-                return this.OrganizerRevenueField;
-            }
-            set {
-                if ((this.OrganizerRevenueField.Equals(value) != true)) {
-                    this.OrganizerRevenueField = value;
-                    this.RaisePropertyChanged("OrganizerRevenue");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> PaymentDate {
-            get {
-                return this.PaymentDateField;
-            }
-            set {
-                if ((this.PaymentDateField.Equals(value) != true)) {
-                    this.PaymentDateField = value;
-                    this.RaisePropertyChanged("PaymentDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public int PaymentId {
             get {
                 return this.PaymentIdField;
@@ -985,19 +982,6 @@ namespace VendorConnect_Frontend.ServiceReference1 {
                 if ((this.PaymentIdField.Equals(value) != true)) {
                     this.PaymentIdField = value;
                     this.RaisePropertyChanged("PaymentId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal PlatformFee {
-            get {
-                return this.PlatformFeeField;
-            }
-            set {
-                if ((this.PlatformFeeField.Equals(value) != true)) {
-                    this.PlatformFeeField = value;
-                    this.RaisePropertyChanged("PlatformFee");
                 }
             }
         }
@@ -3487,6 +3471,115 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="VendorPayemntDTO", Namespace="http://schemas.datacontract.org/2004/07/VnedorConnect_Service")]
+    [System.SerializableAttribute()]
+    public partial class VendorPayemntDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int EventIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EventNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int PaymentIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int VendorIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int EventId {
+            get {
+                return this.EventIdField;
+            }
+            set {
+                if ((this.EventIdField.Equals(value) != true)) {
+                    this.EventIdField = value;
+                    this.RaisePropertyChanged("EventId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EventName {
+            get {
+                return this.EventNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EventNameField, value) != true)) {
+                    this.EventNameField = value;
+                    this.RaisePropertyChanged("EventName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int PaymentId {
+            get {
+                return this.PaymentIdField;
+            }
+            set {
+                if ((this.PaymentIdField.Equals(value) != true)) {
+                    this.PaymentIdField = value;
+                    this.RaisePropertyChanged("PaymentId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StatusField, value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int VendorId {
+            get {
+                return this.VendorIdField;
+            }
+            set {
+                if ((this.VendorIdField.Equals(value) != true)) {
+                    this.VendorIdField = value;
+                    this.RaisePropertyChanged("VendorId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1 {
@@ -3552,10 +3645,10 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         System.Threading.Tasks.Task<int> totalOrganizersAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateEvent", ReplyAction="http://tempuri.org/IService1/CreateEventResponse")]
-        int CreateEvent(string name, System.DateTime eventDate, string location, int maxVendors, string description, int OrganizerID);
+        int CreateEvent(string name, System.DateTime eventDate, string location, int maxVendors, string description, int OrganizerID, decimal fee);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreateEvent", ReplyAction="http://tempuri.org/IService1/CreateEventResponse")]
-        System.Threading.Tasks.Task<int> CreateEventAsync(string name, System.DateTime eventDate, string location, int maxVendors, string description, int OrganizerID);
+        System.Threading.Tasks.Task<int> CreateEventAsync(string name, System.DateTime eventDate, string location, int maxVendors, string description, int OrganizerID, decimal fee);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetEvents", ReplyAction="http://tempuri.org/IService1/GetEventsResponse")]
         System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.Event> GetEvents();
@@ -3802,6 +3895,24 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CountPendingApplicationPerOrganizer", ReplyAction="http://tempuri.org/IService1/CountPendingApplicationPerOrganizerResponse")]
         System.Threading.Tasks.Task<int> CountPendingApplicationPerOrganizerAsync(int orgId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreatePayment", ReplyAction="http://tempuri.org/IService1/CreatePaymentResponse")]
+        void CreatePayment(int vendorId, int eventId, decimal amount);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreatePayment", ReplyAction="http://tempuri.org/IService1/CreatePaymentResponse")]
+        System.Threading.Tasks.Task CreatePaymentAsync(int vendorId, int eventId, decimal amount);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CompletePayment", ReplyAction="http://tempuri.org/IService1/CompletePaymentResponse")]
+        void CompletePayment(int paymentId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CompletePayment", ReplyAction="http://tempuri.org/IService1/CompletePaymentResponse")]
+        System.Threading.Tasks.Task CompletePaymentAsync(int paymentId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetVendorPayemnts", ReplyAction="http://tempuri.org/IService1/GetVendorPayemntsResponse")]
+        System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.VendorPayemntDTO> GetVendorPayemnts(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetVendorPayemnts", ReplyAction="http://tempuri.org/IService1/GetVendorPayemntsResponse")]
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.VendorPayemntDTO>> GetVendorPayemntsAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -3911,12 +4022,12 @@ namespace VendorConnect_Frontend.ServiceReference1 {
             return base.Channel.totalOrganizersAsync();
         }
         
-        public int CreateEvent(string name, System.DateTime eventDate, string location, int maxVendors, string description, int OrganizerID) {
-            return base.Channel.CreateEvent(name, eventDate, location, maxVendors, description, OrganizerID);
+        public int CreateEvent(string name, System.DateTime eventDate, string location, int maxVendors, string description, int OrganizerID, decimal fee) {
+            return base.Channel.CreateEvent(name, eventDate, location, maxVendors, description, OrganizerID, fee);
         }
         
-        public System.Threading.Tasks.Task<int> CreateEventAsync(string name, System.DateTime eventDate, string location, int maxVendors, string description, int OrganizerID) {
-            return base.Channel.CreateEventAsync(name, eventDate, location, maxVendors, description, OrganizerID);
+        public System.Threading.Tasks.Task<int> CreateEventAsync(string name, System.DateTime eventDate, string location, int maxVendors, string description, int OrganizerID, decimal fee) {
+            return base.Channel.CreateEventAsync(name, eventDate, location, maxVendors, description, OrganizerID, fee);
         }
         
         public System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.Event> GetEvents() {
@@ -4245,6 +4356,30 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<int> CountPendingApplicationPerOrganizerAsync(int orgId) {
             return base.Channel.CountPendingApplicationPerOrganizerAsync(orgId);
+        }
+        
+        public void CreatePayment(int vendorId, int eventId, decimal amount) {
+            base.Channel.CreatePayment(vendorId, eventId, amount);
+        }
+        
+        public System.Threading.Tasks.Task CreatePaymentAsync(int vendorId, int eventId, decimal amount) {
+            return base.Channel.CreatePaymentAsync(vendorId, eventId, amount);
+        }
+        
+        public void CompletePayment(int paymentId) {
+            base.Channel.CompletePayment(paymentId);
+        }
+        
+        public System.Threading.Tasks.Task CompletePaymentAsync(int paymentId) {
+            return base.Channel.CompletePaymentAsync(paymentId);
+        }
+        
+        public System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.VendorPayemntDTO> GetVendorPayemnts(int id) {
+            return base.Channel.GetVendorPayemnts(id);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.VendorPayemntDTO>> GetVendorPayemntsAsync(int id) {
+            return base.Channel.GetVendorPayemntsAsync(id);
         }
     }
 }
