@@ -90,18 +90,14 @@
             <!-- Content Area -->
             <div class="content-area">
                 <!-- Recent Activity Section -->
-                <h3 class="section-title">Event Report</h3>
+                <h3 class="section-title">Payment Report</h3>
                 <div class="recent-activity">
                     <table class="table table-hover ">
                         <thead>
                             <tr>
                                 <th scope="col" class="auto-style1">Event Name</th>
-                                <th scope="col" class="auto-style1">Event Date</th>
-                                <th scope="col" class="auto-style1">Event Location</th>
-                                <th scope="col" class="auto-style1">Event Status</th>
-                                <th scope="col" class="auto-style1">Total Applied Vendors</th>
-                                <th scope="col" class="auto-style1">Total Approved</th>
-                                <th scope="col" class="auto-style1">Total Declined</th>
+                                <th scope="col" class="auto-style1">Payment Status</th>
+                                <th scope="col" class="auto-style1">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -109,25 +105,18 @@
                                 <ItemTemplate>
                                     <tr>
                                         <td><%# Eval("EventName") %></td>
+                                        <td> <span class="badge <%# 
+                                                        Eval("Status").ToString() == "Paid" ? "bg-success" : "bg-secondary" %>">
+                                    <%# Eval("Status") %></td>
                                         <td>
-                                            <%# Convert.ToDateTime(Eval("EventDate")).ToString("d MMM yyyy").ToUpper() %>
+                                            <asp:Button ID="btnDeactivate"
+                                                runat="server"
+                                                CssClass="btn btn-danger btn-sm ms-1"
+                                                Text="Pay"
+                                                CommandName="Pay"
+                                                CommandArgument='<%# Eval("PaymentId") %>'
+                                                  Visible='<%# Eval("Status").ToString() == "Pending" %>' />
                                         </td>
-                                        <td><%# Eval("EventLocation") %></td>
-
-                                        <td>
-                                            <span class='badge 
-                                            <%# Eval("EventStatus").ToString() == "Completed" ? "bg-sucess" :
-                                                Eval("EventStatus").ToString() == "Active" ? "bg-primary" :
-                                                Eval("EventStatus").ToString() == "Cancelled" ? "bg-danger" :
-                                                "bg-warning" %>'>
-                                                <%# Eval("EventStatus") %>
-                                            </span>
-                                        </td>
-
-                                        <td><%# Eval("TotalApplied") %></td>
-                                        <td><%# Eval("TotalApproved") %></td>
-                                        <td><%# Eval("TotalDeclined") %></td>
-                                        <td></td>
 
                                     </tr>
                                 </ItemTemplate>
