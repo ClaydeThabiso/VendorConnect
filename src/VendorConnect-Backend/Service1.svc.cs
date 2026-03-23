@@ -1066,6 +1066,28 @@ namespace VnedorConnect_Service
 
 
         }
+        public void CreatePayment(int vendorId, int eventId, decimal amount)
+        {
+            Payment p = new Payment
+            {
+                VendorId = vendorId,
+                EventId = eventId,
+                Amount = amount,
+                Status = "Pending",
+                CreatedAt = DateTime.Now
+            };
+
+            db.Payments.InsertOnSubmit(p);
+            db.SubmitChanges();
+        }
+        public void CompletePayment(int paymentId)
+        {
+            var pay = (from p in db.Payments where p.PaymentId.Equals(paymentId) select p).FirstOrDefault();
+            if (pay != null)
+            {
+                pay.Status = "Paid";
+            }
+        }
 
 
     }
