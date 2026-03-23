@@ -42,7 +42,7 @@ namespace VnedorConnect_Service
         int totalOrganizers();
 
         [OperationContract]
-        int CreateEvent(string name, DateTime eventDate, string location, int maxVendors, string description, int OrganizerID);
+        int CreateEvent(string name, DateTime eventDate, string location, int maxVendors, string description, int OrganizerID,decimal fee);
 
         [OperationContract]
         List<Event> GetEvents();

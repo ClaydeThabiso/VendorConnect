@@ -738,6 +738,7 @@ namespace VnedorConnect_Service
                 ev.Location = location;
                 ev.Description = description;
                 ev.MaxVendors = maxVendors;
+                
 
                 db.SubmitChanges();
                 return 1;
