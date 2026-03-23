@@ -1088,6 +1088,25 @@ namespace VnedorConnect_Service
                 pay.Status = "Paid";
             }
         }
+        public List<VendorPayemntDTO> GetVendorPayemnts(int id)
+        {
+            var pay = (from v in db.Vendors
+                       join va in db.VendorApplications on v.VendorId equals va.VendorId
+                       join p in db.Payments on va.VendorId equals p.VendorId
+                       join e in db.Events on p.EventId equals e.EventId
+                       where v.VendorId.Equals(id)
+                       select new VendorPayemntDTO
+                       {
+                           VendorId = v.VendorId,
+                           EventId = e.EventId,
+                           EventName = e.EventName,
+                           PaymentId = p.PaymentId,
+                           Status = p.Status
+                       }).ToList();
+            return pay;
+
+
+        }
 
 
     }

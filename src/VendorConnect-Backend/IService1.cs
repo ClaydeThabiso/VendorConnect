@@ -173,6 +173,9 @@ namespace VnedorConnect_Service
         [OperationContract]
         void CompletePayment(int paymentId);
 
+        [OperationContract]
+        List<VendorPayemntDTO> GetVendorPayemnts(int id);
+
 
 
 
@@ -628,7 +631,7 @@ namespace VnedorConnect_Service
         [DataMember] public int PaymentId { get; set; }
         [DataMember] public int EventId { get; set; } 
         [DataMember] public string EventName { get; set; }
-        [DataMember] public int Status { get; set; }
+        [DataMember] public string Status { get; set; }
 
     }
 
