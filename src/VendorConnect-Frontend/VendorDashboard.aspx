@@ -48,7 +48,7 @@
                     </a>
                 </div>
                 <div class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="Payments.aspx" class="nav-link">
                         <i class="fas fa-credit-card"></i>
                         <span>Invoices</span>
                     </a>
