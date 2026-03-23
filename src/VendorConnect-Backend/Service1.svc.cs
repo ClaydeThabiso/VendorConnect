@@ -319,6 +319,7 @@ namespace VnedorConnect_Service
                     objEvent.Location = eve.Location;
                     objEvent.MaxVendors = eve.MaxVendors;
                     objEvent.status = eve.status;
+                    objEvent.Fee = eve.Fee;
 
                     events.Add(objEvent);
                 }
@@ -729,7 +730,7 @@ namespace VnedorConnect_Service
                 }
             }
         }
-        public int UpdateEvent(int eventId, string name, DateTime date, string location, string description, int maxVendors)
+        public int UpdateEvent(int eventId, string name, DateTime date, string location, string description, int maxVendors,decimal fee)
         {
             var ev = db.Events.FirstOrDefault(e => e.EventId == eventId);
 
@@ -740,7 +741,7 @@ namespace VnedorConnect_Service
                 ev.Location = location;
                 ev.Description = description;
                 ev.MaxVendors = maxVendors;
-                
+                ev.Fee = fee;
 
                 db.SubmitChanges();
                 return 1;
