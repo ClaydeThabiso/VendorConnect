@@ -63,6 +63,21 @@ namespace VendorConnect_Frontend
                 Service1Client client = new Service1Client();
                 var PaymentId = Convert.ToInt32(e.CommandArgument);
                 client.CompletePayment(PaymentId);
+                dynamic eventDetails = client.GetVendorPayemnts(Convert.ToInt32(Session["VendorID"]));
+
+               
+                var organizerEvent = client.GetEvent(eventId);
+                var organizerEventId = organizerEvent.OrganizerId;
+                var organizer = client.GetOrganizer(organizerEventId);
+                var organizerUserId = organizer.UserId;
+
+                client.SendNotification(organizerUserId, 'O', "Vendor Payment", "Payment received", "OrganizerApplications.aspx");
+                ScriptManager.RegisterStartupScript(
+                   this, this.GetType(),
+                   "successAlert",
+                   "alert('Successfully paid !');",
+                   true
+               );
                 LoadPayments();
                 client.Close();
             }

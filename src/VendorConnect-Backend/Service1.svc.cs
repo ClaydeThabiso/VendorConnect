@@ -1108,6 +1108,22 @@ namespace VnedorConnect_Service
 
             return pay;
         }
+        public PaymentDTO GetPaymentById(int paymentId)
+        {
+            var payment = db.Payments
+                .Where(p => p.PaymentId == paymentId)
+                .Select(p => new PaymentDTO
+                {
+                    PaymentId = p.PaymentId,
+                    VendorId = p.VendorId,
+                    EventId = p.EventId,
+                    Amount = (decimal)p.Amount,
+                    Status = p.Status
+                })
+                .FirstOrDefault();
+
+            return payment;
+        }
 
 
     }

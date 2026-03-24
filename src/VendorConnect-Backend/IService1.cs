@@ -176,7 +176,8 @@ namespace VnedorConnect_Service
         [OperationContract]
         List<VendorPayemntDTO> GetVendorPayemnts(int id);
 
-
+        [OperationContract]
+        PaymentDTO GetPaymentById(int paymentId);
 
 
 
