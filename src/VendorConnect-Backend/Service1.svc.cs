@@ -626,7 +626,7 @@ namespace VnedorConnect_Service
             {
                 try
                 {
-                    application.Status = "Approved";
+                    application.Status = "Awaiting Payment";
 
                     db.SubmitChanges();
 
@@ -1083,9 +1083,10 @@ namespace VnedorConnect_Service
             db.Payments.InsertOnSubmit(p);
             db.SubmitChanges();
         }
-        public void CompletePayment(int paymentId)
+        public void CompletePayment(int paymentId,int ApplicationId)
         {
-            var pay = (from p in db.Payments where p.PaymentId.Equals(paymentId) select p).FirstOrDefault();
+            var pay = (from p in db.Payments 
+                       where p.PaymentId.Equals(paymentId) select p).FirstOrDefault();
             if (pay != null)
             {
                 pay.Status = "Paid";
