@@ -146,6 +146,7 @@ namespace VendorConnect_Frontend
                         var eventFee = Convert.ToDecimal(eventdetails.Fee);
 
                         client.CreatePayment(vendorId, eventId, eventFee);
+                        
 
                         var vendor = client.GetVendor(vendorId); 
 
@@ -158,6 +159,13 @@ namespace VendorConnect_Frontend
                                 'V',
                                 "Application Approved",
                                 "Your application has been approved",
+                                "VendorApplication.aspx"
+                            );
+                            client.SendNotification(
+                                vendorUserId,
+                                'V',
+                                "Vendor Payment fee required",
+                                "Payment outstanding",
                                 "VendorApplication.aspx"
                             );
 
