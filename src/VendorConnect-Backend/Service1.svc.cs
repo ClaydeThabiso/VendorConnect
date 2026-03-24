@@ -1089,6 +1089,7 @@ namespace VnedorConnect_Service
             if (pay != null)
             {
                 pay.Status = "Paid";
+                db.SubmitChanges();
             }
         }
         public List<VendorPayemntDTO> GetVendorPayemnts(int id)

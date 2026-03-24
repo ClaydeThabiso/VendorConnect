@@ -106,7 +106,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <asp:Repeater ID="RepeaterReport" runat="server">
+                            <asp:Repeater ID="RepeaterReport" runat="server" OnItemCommand="RepeaterReport_ItemCommand">
                                 <ItemTemplate>
                                     <tr>
                                         <td><%# Eval("EventName") %></td>

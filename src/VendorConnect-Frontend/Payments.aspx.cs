@@ -45,9 +45,26 @@ namespace VendorConnect_Frontend
                     VendorNames.InnerText = Convert.ToString(u);
                     initials.InnerText = "DD";
                 }
-                var VendorId = Convert.ToInt32(Session["VendorID"]);
-                RepeaterReport.DataSource = client.GetVendorPayemnts(VendorId);
-                RepeaterReport.DataBind();
+                LoadPayments();
+            }
+        }
+        private void LoadPayments()
+        {
+            Service1Client client = new Service1Client();
+            var VendorId = Convert.ToInt32(Session["VendorID"]);
+            RepeaterReport.DataSource = client.GetVendorPayemnts(VendorId);
+            RepeaterReport.DataBind();
+            client.Close();
+        }
+        protected void RepeaterReport_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "Pay")
+            {
+                Service1Client client = new Service1Client();
+                var PaymentId = Convert.ToInt32(e.CommandArgument);
+                client.CompletePayment(PaymentId);
+                LoadPayments();
+                client.Close();
             }
         }
     }
