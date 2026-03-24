@@ -106,6 +106,10 @@
                                             <i class="bi bi-calendar"></i>
                                             <%# Convert.ToDateTime(Eval("EventDate")).ToString("d MMM yyyy").ToUpper() %>
                                         </div>
+                                         <div class="activity-time">
+                                            <i class="fas fa-money-bill"></i>
+                                            <%# Eval("Fee") %>
+                                        </div>
                                     </div>
                                     <asp:Button
                                         CssClass="btn btn-outline-primary btn-sm ms-2"

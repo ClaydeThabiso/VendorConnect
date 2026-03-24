@@ -270,6 +270,7 @@ namespace VnedorConnect_Service
                     objEvent.EventDate = eve.EventDate;
                     objEvent.Location = eve.Location;
                     objEvent.MaxVendors = eve.MaxVendors;
+                    objEvent.Fee = eve.Fee;
 
                     events.Add(objEvent);
                 }
