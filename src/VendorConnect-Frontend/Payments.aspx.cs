@@ -61,23 +61,43 @@ namespace VendorConnect_Frontend
             if (e.CommandName == "Pay")
             {
                 Service1Client client = new Service1Client();
-                var PaymentId = Convert.ToInt32(e.CommandArgument);
-                client.CompletePayment(PaymentId);
-                dynamic eventDetails = client.GetVendorPayemnts(Convert.ToInt32(Session["VendorID"]));
+
+                var paymentId = Convert.ToInt32(e.CommandArgument);
+
+                
+                client.CompletePayment(paymentId);
 
                
-                var organizerEvent = client.GetEvent(eventId);
-                var organizerEventId = organizerEvent.OrganizerId;
-                var organizer = client.GetOrganizer(organizerEventId);
-                var organizerUserId = organizer.UserId;
+                var payment = client.GetPaymentById(paymentId);
 
-                client.SendNotification(organizerUserId, 'O', "Vendor Payment", "Payment received", "OrganizerApplications.aspx");
+                if (payment != null)
+                {
+                    int eventId = payment.EventId;
+
+                    
+                    var eventDetails = client.GetEvent(eventId);
+                    var organizerId = eventDetails.OrganizerId;
+
+                    var organizer = client.GetOrganizer(organizerId);
+                    var organizerUserId = organizer.UserId;
+
+                    
+                    client.SendNotification(
+                        organizerUserId,
+                        'O',
+                        "Vendor Payment",
+                        "A vendor has completed payment for your event.",
+                        "OrganizerApplications.aspx"
+                    );
+                }
+
                 ScriptManager.RegisterStartupScript(
-                   this, this.GetType(),
-                   "successAlert",
-                   "alert('Successfully paid !');",
-                   true
-               );
+                    this, this.GetType(),
+                    "successAlert",
+                    "alert('Successfully paid!');",
+                    true
+                );
+
                 LoadPayments();
                 client.Close();
             }
