@@ -150,9 +150,9 @@
                                 <i class="fas fa-credit-card"></i>
                             </div>
                             <div class="card-title">Total Revenue</div>
-                            <div class="card-value">$24,580</div>
+                            <div class="card-value" runat="server" id="lblRevenue"></div>
                             <div class="card-change positive">
-                                <i class="fas fa-arrow-up me-1"></i>15% increase
+                                <i class="fas fa-arrow-up me-1"></i>From Vendor Payments
                             </div>
                         </div>
                     </div>

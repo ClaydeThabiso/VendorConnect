@@ -1145,6 +1145,17 @@ namespace VnedorConnect_Service
 
             return payment;
         }
+        public decimal GetOrganizerRevenue(int organizerId)
+        {
+            var revenue = (from p in db.Payments
+                           join va in db.VendorApplications on p.ApplicationId equals va.ApplicationId
+                           join e in db.Events on va.EventId equals e.EventId
+                           where e.OrganizerId == organizerId
+                                 && p.Status == "Paid"
+                           select p.Amount).Sum();
+
+            return revenue ?? 0;
+        }
 
 
     }

@@ -798,4 +798,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetOrganizerRevenue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="organizerId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrganizerRevenueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetOrganizerRevenueResult" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

@@ -49,6 +49,9 @@ namespace VendorConnect_Frontend
                 var getTotPending = client.CountPendingApplicationPerOrganizer(Convert.ToInt32(Session["OrganizerId"]));
                 displayPendingAppl.InnerText = Convert.ToString(getTotPending);
 
+                var getRevnue = client.GetOrganizerRevenue(Convert.ToInt32(Session["OrganizerId"]));
+                lblRevenue.InnerText = "R" + getRevnue;
+
                 var getTotalUpcomingEevnts = client.getTotalUpcomingEvents(Convert.ToInt32(Session["OrganizerId"]));
                 displayUpcomingEve.InnerText = Convert.ToString(getTotalUpcomingEevnts);
 

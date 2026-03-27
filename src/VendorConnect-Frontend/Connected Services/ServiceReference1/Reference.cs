@@ -4012,6 +4012,12 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPaymentById", ReplyAction="http://tempuri.org/IService1/GetPaymentByIdResponse")]
         System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.PaymentDTO> GetPaymentByIdAsync(int paymentId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetOrganizerRevenue", ReplyAction="http://tempuri.org/IService1/GetOrganizerRevenueResponse")]
+        decimal GetOrganizerRevenue(int organizerId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetOrganizerRevenue", ReplyAction="http://tempuri.org/IService1/GetOrganizerRevenueResponse")]
+        System.Threading.Tasks.Task<decimal> GetOrganizerRevenueAsync(int organizerId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -4487,6 +4493,14 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         public System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.PaymentDTO> GetPaymentByIdAsync(int paymentId) {
             return base.Channel.GetPaymentByIdAsync(paymentId);
+        }
+        
+        public decimal GetOrganizerRevenue(int organizerId) {
+            return base.Channel.GetOrganizerRevenue(organizerId);
+        }
+        
+        public System.Threading.Tasks.Task<decimal> GetOrganizerRevenueAsync(int organizerId) {
+            return base.Channel.GetOrganizerRevenueAsync(organizerId);
         }
     }
 }
