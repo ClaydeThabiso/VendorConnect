@@ -171,7 +171,7 @@ namespace VnedorConnect_Service
         void CreatePayment(int ApplicationId, decimal amount);
 
         [OperationContract]
-        PaymentDTO CompletePayment(int paymentId,int ApplicationId);
+        PaymentDTO CompletePayment(int paymentId);
 
         [OperationContract]
         List<VendorPayemntDTO> GetVendorPayemnts(int id);

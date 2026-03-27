@@ -1082,18 +1082,34 @@ namespace VnedorConnect_Service
             db.Payments.InsertOnSubmit(p);
             db.SubmitChanges();
         }
-        public PaymentDTO CompletePayment(int paymentId,int ApplicationId)
+        public PaymentDTO CompletePayment(int paymentId)
         {
-            var pay = (from p in db.Payments
-                       join va in db.VendorApplications on p.ApplicationId equals va.ApplicationId
-                       where p.PaymentId.Equals(paymentId) && va.ApplicationId.Equals(ApplicationId)
-                       select new PaymentDTO
-                       {
-                           Status = "Paid",
-                           ApplicationStatus="Approved"
-                       }).FirstOrDefault();
+            var payment = db.Payments
+                .FirstOrDefault(p => p.PaymentId == paymentId);
+
+            if (payment == null) return null;
+
+    
+            payment.Status = "Paid";
+
+            
+            var application = db.VendorApplications
+                .FirstOrDefault(a => a.ApplicationId == payment.ApplicationId);
+
+            if (application != null)
+            {
+                application.Status = "Approved"; // 🔥 IMPORTANT
+            }
+
             db.SubmitChanges();
-            return pay;
+
+            // 4️⃣ Return DTO
+            return new PaymentDTO
+            {
+                PaymentId = payment.PaymentId,
+                ApplicationId = payment.ApplicationId,
+                Status = payment.Status
+            };
         }
         public List<VendorPayemntDTO> GetVendorPayemnts(int id)
         {
