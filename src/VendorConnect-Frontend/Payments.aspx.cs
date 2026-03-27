@@ -64,7 +64,7 @@ namespace VendorConnect_Frontend
 
                 var paymentId = Convert.ToInt32(e.CommandArgument);
 
-                
+                var ApplicationDetails = client.GetApplicationPerVendor(Convert.ToInt32(Session["VendorID"]));
                 client.CompletePayment(paymentId);
 
                

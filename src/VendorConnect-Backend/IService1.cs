@@ -168,10 +168,10 @@ namespace VnedorConnect_Service
         int CountPendingApplicationPerOrganizer(int orgId);
 
         [OperationContract]
-        void CreatePayment(int vendorId, int eventId, decimal amount);
+        void CreatePayment(int ApplicationId, decimal amount);
 
         [OperationContract]
-        void CompletePayment(int paymentId,int ApplicationId);
+        PaymentDTO CompletePayment(int paymentId,int ApplicationId);
 
         [OperationContract]
         List<VendorPayemntDTO> GetVendorPayemnts(int id);
@@ -619,15 +619,16 @@ namespace VnedorConnect_Service
     public class PaymentDTO
     {
         [DataMember] public int PaymentId { get; set; }
-        [DataMember] public int VendorId { get; set; }
-        [DataMember] public int EventId { get; set; }
+       [DataMember] public int ApplicationId { get; set; }
         [DataMember] public decimal Amount { get; set; }
         [DataMember] public string Status { get; set; }
+        [DataMember] public string ApplicationStatus { get; set; }
     }
 
     [DataContract]
     public class VendorPayemntDTO
     {
+        [DataMember] public int ApplicationId { get; set; }
         [DataMember] public int VendorId { get; set; }
         [DataMember] public int PaymentId { get; set; }
         [DataMember] public int EventId { get; set; } 

@@ -461,8 +461,6 @@ namespace VnedorConnect_Service
 		
 		private EntitySet<VendorApplication> _VendorApplications;
 		
-		private EntitySet<Payment> _Payments;
-		
 		private EntityRef<User> _User;
 		
     #region Extensibility Method Definitions
@@ -490,7 +488,6 @@ namespace VnedorConnect_Service
 		public Vendor()
 		{
 			this._VendorApplications = new EntitySet<VendorApplication>(new Action<VendorApplication>(this.attach_VendorApplications), new Action<VendorApplication>(this.detach_VendorApplications));
-			this._Payments = new EntitySet<Payment>(new Action<Payment>(this.attach_Payments), new Action<Payment>(this.detach_Payments));
 			this._User = default(EntityRef<User>);
 			OnCreated();
 		}
@@ -672,19 +669,6 @@ namespace VnedorConnect_Service
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Vendor_Payment", Storage="_Payments", ThisKey="VendorId", OtherKey="VendorId")]
-		public EntitySet<Payment> Payments
-		{
-			get
-			{
-				return this._Payments;
-			}
-			set
-			{
-				this._Payments.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Vendor", Storage="_User", ThisKey="UserId", OtherKey="UserId", IsForeignKey=true)]
 		public User User
 		{
@@ -746,18 +730,6 @@ namespace VnedorConnect_Service
 		}
 		
 		private void detach_VendorApplications(VendorApplication entity)
-		{
-			this.SendPropertyChanging();
-			entity.Vendor = null;
-		}
-		
-		private void attach_Payments(Payment entity)
-		{
-			this.SendPropertyChanging();
-			entity.Vendor = this;
-		}
-		
-		private void detach_Payments(Payment entity)
 		{
 			this.SendPropertyChanging();
 			entity.Vendor = null;
@@ -1057,6 +1029,8 @@ namespace VnedorConnect_Service
 		
 		private EntitySet<VendorAssignment> _VendorAssignments;
 		
+		private EntitySet<Payment> _Payments;
+		
 		private EntityRef<Vendor> _Vendor;
 		
 		private EntityRef<Event> _Event;
@@ -1080,6 +1054,7 @@ namespace VnedorConnect_Service
 		public VendorApplication()
 		{
 			this._VendorAssignments = new EntitySet<VendorAssignment>(new Action<VendorAssignment>(this.attach_VendorAssignments), new Action<VendorAssignment>(this.detach_VendorAssignments));
+			this._Payments = new EntitySet<Payment>(new Action<Payment>(this.attach_Payments), new Action<Payment>(this.detach_Payments));
 			this._Vendor = default(EntityRef<Vendor>);
 			this._Event = default(EntityRef<Event>);
 			OnCreated();
@@ -1206,6 +1181,19 @@ namespace VnedorConnect_Service
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="VendorApplication_Payment", Storage="_Payments", ThisKey="ApplicationId", OtherKey="ApplicationId")]
+		public EntitySet<Payment> Payments
+		{
+			get
+			{
+				return this._Payments;
+			}
+			set
+			{
+				this._Payments.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Vendor_VendorApplication", Storage="_Vendor", ThisKey="VendorId", OtherKey="VendorId", IsForeignKey=true)]
 		public Vendor Vendor
 		{
@@ -1301,6 +1289,18 @@ namespace VnedorConnect_Service
 		}
 		
 		private void detach_VendorAssignments(VendorAssignment entity)
+		{
+			this.SendPropertyChanging();
+			entity.VendorApplication = null;
+		}
+		
+		private void attach_Payments(Payment entity)
+		{
+			this.SendPropertyChanging();
+			entity.VendorApplication = this;
+		}
+		
+		private void detach_Payments(Payment entity)
 		{
 			this.SendPropertyChanging();
 			entity.VendorApplication = null;
@@ -1740,8 +1740,6 @@ namespace VnedorConnect_Service
 		
 		private EntitySet<VendorApplication> _VendorApplications;
 		
-		private EntitySet<Payment> _Payments;
-		
 		private EntityRef<Organizer> _Organizer;
 		
     #region Extensibility Method Definitions
@@ -1773,7 +1771,6 @@ namespace VnedorConnect_Service
 		public Event()
 		{
 			this._VendorApplications = new EntitySet<VendorApplication>(new Action<VendorApplication>(this.attach_VendorApplications), new Action<VendorApplication>(this.detach_VendorApplications));
-			this._Payments = new EntitySet<Payment>(new Action<Payment>(this.attach_Payments), new Action<Payment>(this.detach_Payments));
 			this._Organizer = default(EntityRef<Organizer>);
 			OnCreated();
 		}
@@ -1995,19 +1992,6 @@ namespace VnedorConnect_Service
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Event_Payment", Storage="_Payments", ThisKey="EventId", OtherKey="EventId")]
-		public EntitySet<Payment> Payments
-		{
-			get
-			{
-				return this._Payments;
-			}
-			set
-			{
-				this._Payments.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Organizer_Event", Storage="_Organizer", ThisKey="OrganizerId", OtherKey="OrganizerId", IsForeignKey=true)]
 		public Organizer Organizer
 		{
@@ -2073,18 +2057,6 @@ namespace VnedorConnect_Service
 			this.SendPropertyChanging();
 			entity.Event = null;
 		}
-		
-		private void attach_Payments(Payment entity)
-		{
-			this.SendPropertyChanging();
-			entity.Event = this;
-		}
-		
-		private void detach_Payments(Payment entity)
-		{
-			this.SendPropertyChanging();
-			entity.Event = null;
-		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Payments")]
@@ -2095,9 +2067,7 @@ namespace VnedorConnect_Service
 		
 		private int _PaymentId;
 		
-		private int _VendorId;
-		
-		private int _EventId;
+		private int _ApplicationId;
 		
 		private System.Nullable<decimal> _Amount;
 		
@@ -2105,9 +2075,7 @@ namespace VnedorConnect_Service
 		
 		private System.DateTime _CreatedAt;
 		
-		private EntityRef<Event> _Event;
-		
-		private EntityRef<Vendor> _Vendor;
+		private EntityRef<VendorApplication> _VendorApplication;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2115,10 +2083,8 @@ namespace VnedorConnect_Service
     partial void OnCreated();
     partial void OnPaymentIdChanging(int value);
     partial void OnPaymentIdChanged();
-    partial void OnVendorIdChanging(int value);
-    partial void OnVendorIdChanged();
-    partial void OnEventIdChanging(int value);
-    partial void OnEventIdChanged();
+    partial void OnApplicationIdChanging(int value);
+    partial void OnApplicationIdChanged();
     partial void OnAmountChanging(System.Nullable<decimal> value);
     partial void OnAmountChanged();
     partial void OnStatusChanging(string value);
@@ -2129,8 +2095,7 @@ namespace VnedorConnect_Service
 		
 		public Payment()
 		{
-			this._Event = default(EntityRef<Event>);
-			this._Vendor = default(EntityRef<Vendor>);
+			this._VendorApplication = default(EntityRef<VendorApplication>);
 			OnCreated();
 		}
 		
@@ -2154,50 +2119,26 @@ namespace VnedorConnect_Service
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VendorId", DbType="Int NOT NULL")]
-		public int VendorId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApplicationId", DbType="Int NOT NULL")]
+		public int ApplicationId
 		{
 			get
 			{
-				return this._VendorId;
+				return this._ApplicationId;
 			}
 			set
 			{
-				if ((this._VendorId != value))
+				if ((this._ApplicationId != value))
 				{
-					if (this._Vendor.HasLoadedOrAssignedValue)
+					if (this._VendorApplication.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnVendorIdChanging(value);
+					this.OnApplicationIdChanging(value);
 					this.SendPropertyChanging();
-					this._VendorId = value;
-					this.SendPropertyChanged("VendorId");
-					this.OnVendorIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EventId", DbType="Int NOT NULL")]
-		public int EventId
-		{
-			get
-			{
-				return this._EventId;
-			}
-			set
-			{
-				if ((this._EventId != value))
-				{
-					if (this._Event.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnEventIdChanging(value);
-					this.SendPropertyChanging();
-					this._EventId = value;
-					this.SendPropertyChanged("EventId");
-					this.OnEventIdChanged();
+					this._ApplicationId = value;
+					this.SendPropertyChanged("ApplicationId");
+					this.OnApplicationIdChanged();
 				}
 			}
 		}
@@ -2262,70 +2203,36 @@ namespace VnedorConnect_Service
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Event_Payment", Storage="_Event", ThisKey="EventId", OtherKey="EventId", IsForeignKey=true)]
-		public Event Event
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="VendorApplication_Payment", Storage="_VendorApplication", ThisKey="ApplicationId", OtherKey="ApplicationId", IsForeignKey=true)]
+		public VendorApplication VendorApplication
 		{
 			get
 			{
-				return this._Event.Entity;
+				return this._VendorApplication.Entity;
 			}
 			set
 			{
-				Event previousValue = this._Event.Entity;
+				VendorApplication previousValue = this._VendorApplication.Entity;
 				if (((previousValue != value) 
-							|| (this._Event.HasLoadedOrAssignedValue == false)))
+							|| (this._VendorApplication.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._Event.Entity = null;
+						this._VendorApplication.Entity = null;
 						previousValue.Payments.Remove(this);
 					}
-					this._Event.Entity = value;
+					this._VendorApplication.Entity = value;
 					if ((value != null))
 					{
 						value.Payments.Add(this);
-						this._EventId = value.EventId;
+						this._ApplicationId = value.ApplicationId;
 					}
 					else
 					{
-						this._EventId = default(int);
+						this._ApplicationId = default(int);
 					}
-					this.SendPropertyChanged("Event");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Vendor_Payment", Storage="_Vendor", ThisKey="VendorId", OtherKey="VendorId", IsForeignKey=true)]
-		public Vendor Vendor
-		{
-			get
-			{
-				return this._Vendor.Entity;
-			}
-			set
-			{
-				Vendor previousValue = this._Vendor.Entity;
-				if (((previousValue != value) 
-							|| (this._Vendor.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Vendor.Entity = null;
-						previousValue.Payments.Remove(this);
-					}
-					this._Vendor.Entity = value;
-					if ((value != null))
-					{
-						value.Payments.Add(this);
-						this._VendorId = value.VendorId;
-					}
-					else
-					{
-						this._VendorId = default(int);
-					}
-					this.SendPropertyChanged("Vendor");
+					this.SendPropertyChanged("VendorApplication");
 				}
 			}
 		}

@@ -1069,12 +1069,11 @@ namespace VnedorConnect_Service
 
 
         }
-        public void CreatePayment(int vendorId, int eventId, decimal amount)
+        public void CreatePayment(int ApplicationId, decimal amount)
         {
             Payment p = new Payment
             {
-                VendorId = vendorId,
-                EventId = eventId,
+                ApplicationId = ApplicationId,
                 Amount = amount,
                 Status = "Pending",
                 CreatedAt = DateTime.Now
@@ -1083,24 +1082,29 @@ namespace VnedorConnect_Service
             db.Payments.InsertOnSubmit(p);
             db.SubmitChanges();
         }
-        public void CompletePayment(int paymentId,int ApplicationId)
+        public PaymentDTO CompletePayment(int paymentId,int ApplicationId)
         {
-            var pay = (from p in db.Payments 
-                       where p.PaymentId.Equals(paymentId) select p).FirstOrDefault();
-            if (pay != null)
-            {
-                pay.Status = "Paid";
-                db.SubmitChanges();
-            }
+            var pay = (from p in db.Payments
+                       join va in db.VendorApplications on p.ApplicationId equals va.ApplicationId
+                       where p.PaymentId.Equals(paymentId) && va.ApplicationId.Equals(ApplicationId)
+                       select new PaymentDTO
+                       {
+                           Status = "Paid",
+                           ApplicationStatus="Approved"
+                       }).FirstOrDefault();
+            db.SubmitChanges();
+            return pay;
         }
         public List<VendorPayemntDTO> GetVendorPayemnts(int id)
         {
             var pay = (from p in db.Payments
-                       join e in db.Events on p.EventId equals e.EventId
-                       where p.VendorId == id
+                       join va in db.VendorApplications on p.ApplicationId equals va.ApplicationId
+                       join e in db.Events on va.EventId equals e.EventId
+                       where va.VendorId == id
                        select new VendorPayemntDTO
                        {
-                           VendorId = p.VendorId,
+                           ApplicationId = p.ApplicationId,
+                           VendorId = va.VendorId,
                            EventId = e.EventId,
                            EventName = e.EventName,
                            PaymentId = p.PaymentId,
@@ -1116,8 +1120,7 @@ namespace VnedorConnect_Service
                 .Select(p => new PaymentDTO
                 {
                     PaymentId = p.PaymentId,
-                    VendorId = p.VendorId,
-                    EventId = p.EventId,
+                    ApplicationId=p.ApplicationId,
                     Amount = (decimal)p.Amount,
                     Status = p.Status
                 })

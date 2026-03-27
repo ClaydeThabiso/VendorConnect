@@ -461,9 +461,6 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         private bool IsActiveField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.Payment> PaymentsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PhoneField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -549,19 +546,6 @@ namespace VendorConnect_Frontend.ServiceReference1 {
                 if ((this.IsActiveField.Equals(value) != true)) {
                     this.IsActiveField = value;
                     this.RaisePropertyChanged("IsActive");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.Payment> Payments {
-            get {
-                return this.PaymentsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PaymentsField, value) != true)) {
-                    this.PaymentsField = value;
-                    this.RaisePropertyChanged("Payments");
                 }
             }
         }
@@ -679,9 +663,6 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int OrganizerIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.Payment> PaymentsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.VendorApplication> VendorApplicationsField;
@@ -830,19 +811,6 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.Payment> Payments {
-            get {
-                return this.PaymentsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PaymentsField, value) != true)) {
-                    this.PaymentsField = value;
-                    this.RaisePropertyChanged("Payments");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.VendorApplication> VendorApplications {
             get {
                 return this.VendorApplicationsField;
@@ -880,163 +848,6 @@ namespace VendorConnect_Frontend.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Payment", Namespace="http://schemas.datacontract.org/2004/07/VnedorConnect_Service")]
-    [System.SerializableAttribute()]
-    public partial class Payment : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<decimal> AmountField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime CreatedAtField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private VendorConnect_Frontend.ServiceReference1.Event EventField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int EventIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int PaymentIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string StatusField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private VendorConnect_Frontend.ServiceReference1.Vendor VendorField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int VendorIdField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> Amount {
-            get {
-                return this.AmountField;
-            }
-            set {
-                if ((this.AmountField.Equals(value) != true)) {
-                    this.AmountField = value;
-                    this.RaisePropertyChanged("Amount");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime CreatedAt {
-            get {
-                return this.CreatedAtField;
-            }
-            set {
-                if ((this.CreatedAtField.Equals(value) != true)) {
-                    this.CreatedAtField = value;
-                    this.RaisePropertyChanged("CreatedAt");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public VendorConnect_Frontend.ServiceReference1.Event Event {
-            get {
-                return this.EventField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EventField, value) != true)) {
-                    this.EventField = value;
-                    this.RaisePropertyChanged("Event");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int EventId {
-            get {
-                return this.EventIdField;
-            }
-            set {
-                if ((this.EventIdField.Equals(value) != true)) {
-                    this.EventIdField = value;
-                    this.RaisePropertyChanged("EventId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int PaymentId {
-            get {
-                return this.PaymentIdField;
-            }
-            set {
-                if ((this.PaymentIdField.Equals(value) != true)) {
-                    this.PaymentIdField = value;
-                    this.RaisePropertyChanged("PaymentId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Status {
-            get {
-                return this.StatusField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.StatusField, value) != true)) {
-                    this.StatusField = value;
-                    this.RaisePropertyChanged("Status");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public VendorConnect_Frontend.ServiceReference1.Vendor Vendor {
-            get {
-                return this.VendorField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.VendorField, value) != true)) {
-                    this.VendorField = value;
-                    this.RaisePropertyChanged("Vendor");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int VendorId {
-            get {
-                return this.VendorIdField;
-            }
-            set {
-                if ((this.VendorIdField.Equals(value) != true)) {
-                    this.VendorIdField = value;
-                    this.RaisePropertyChanged("VendorId");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="VendorApplication", Namespace="http://schemas.datacontract.org/2004/07/VnedorConnect_Service")]
     [System.SerializableAttribute()]
     public partial class VendorApplication : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -1055,6 +866,9 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int EventIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.Payment> PaymentsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string StatusField;
@@ -1131,6 +945,19 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.Payment> Payments {
+            get {
+                return this.PaymentsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PaymentsField, value) != true)) {
+                    this.PaymentsField = value;
+                    this.RaisePropertyChanged("Payments");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Status {
             get {
                 return this.StatusField;
@@ -1178,6 +1005,131 @@ namespace VendorConnect_Frontend.ServiceReference1 {
                 if ((this.VendorIdField.Equals(value) != true)) {
                     this.VendorIdField = value;
                     this.RaisePropertyChanged("VendorId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Payment", Namespace="http://schemas.datacontract.org/2004/07/VnedorConnect_Service")]
+    [System.SerializableAttribute()]
+    public partial class Payment : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> AmountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ApplicationIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime CreatedAtField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int PaymentIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private VendorConnect_Frontend.ServiceReference1.VendorApplication VendorApplicationField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> Amount {
+            get {
+                return this.AmountField;
+            }
+            set {
+                if ((this.AmountField.Equals(value) != true)) {
+                    this.AmountField = value;
+                    this.RaisePropertyChanged("Amount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ApplicationId {
+            get {
+                return this.ApplicationIdField;
+            }
+            set {
+                if ((this.ApplicationIdField.Equals(value) != true)) {
+                    this.ApplicationIdField = value;
+                    this.RaisePropertyChanged("ApplicationId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime CreatedAt {
+            get {
+                return this.CreatedAtField;
+            }
+            set {
+                if ((this.CreatedAtField.Equals(value) != true)) {
+                    this.CreatedAtField = value;
+                    this.RaisePropertyChanged("CreatedAt");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int PaymentId {
+            get {
+                return this.PaymentIdField;
+            }
+            set {
+                if ((this.PaymentIdField.Equals(value) != true)) {
+                    this.PaymentIdField = value;
+                    this.RaisePropertyChanged("PaymentId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StatusField, value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public VendorConnect_Frontend.ServiceReference1.VendorApplication VendorApplication {
+            get {
+                return this.VendorApplicationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.VendorApplicationField, value) != true)) {
+                    this.VendorApplicationField = value;
+                    this.RaisePropertyChanged("VendorApplication");
                 }
             }
         }
@@ -3473,27 +3425,27 @@ namespace VendorConnect_Frontend.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="VendorPayemntDTO", Namespace="http://schemas.datacontract.org/2004/07/VnedorConnect_Service")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PaymentDTO", Namespace="http://schemas.datacontract.org/2004/07/VnedorConnect_Service")]
     [System.SerializableAttribute()]
-    public partial class VendorPayemntDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class PaymentDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int EventIdField;
+        private decimal AmountField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EventNameField;
+        private int ApplicationIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ApplicationStatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int PaymentIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string StatusField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int VendorIdField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -3506,27 +3458,40 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int EventId {
+        public decimal Amount {
             get {
-                return this.EventIdField;
+                return this.AmountField;
             }
             set {
-                if ((this.EventIdField.Equals(value) != true)) {
-                    this.EventIdField = value;
-                    this.RaisePropertyChanged("EventId");
+                if ((this.AmountField.Equals(value) != true)) {
+                    this.AmountField = value;
+                    this.RaisePropertyChanged("Amount");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EventName {
+        public int ApplicationId {
             get {
-                return this.EventNameField;
+                return this.ApplicationIdField;
             }
             set {
-                if ((object.ReferenceEquals(this.EventNameField, value) != true)) {
-                    this.EventNameField = value;
-                    this.RaisePropertyChanged("EventName");
+                if ((this.ApplicationIdField.Equals(value) != true)) {
+                    this.ApplicationIdField = value;
+                    this.RaisePropertyChanged("ApplicationId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ApplicationStatus {
+            get {
+                return this.ApplicationStatusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ApplicationStatusField, value) != true)) {
+                    this.ApplicationStatusField = value;
+                    this.RaisePropertyChanged("ApplicationStatus");
                 }
             }
         }
@@ -3557,19 +3522,6 @@ namespace VendorConnect_Frontend.ServiceReference1 {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int VendorId {
-            get {
-                return this.VendorIdField;
-            }
-            set {
-                if ((this.VendorIdField.Equals(value) != true)) {
-                    this.VendorIdField = value;
-                    this.RaisePropertyChanged("VendorId");
-                }
-            }
-        }
-        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -3582,18 +3534,21 @@ namespace VendorConnect_Frontend.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PaymentDTO", Namespace="http://schemas.datacontract.org/2004/07/VnedorConnect_Service")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="VendorPayemntDTO", Namespace="http://schemas.datacontract.org/2004/07/VnedorConnect_Service")]
     [System.SerializableAttribute()]
-    public partial class PaymentDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class VendorPayemntDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal AmountField;
+        private int ApplicationIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int EventIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EventNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int PaymentIdField;
@@ -3615,14 +3570,14 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal Amount {
+        public int ApplicationId {
             get {
-                return this.AmountField;
+                return this.ApplicationIdField;
             }
             set {
-                if ((this.AmountField.Equals(value) != true)) {
-                    this.AmountField = value;
-                    this.RaisePropertyChanged("Amount");
+                if ((this.ApplicationIdField.Equals(value) != true)) {
+                    this.ApplicationIdField = value;
+                    this.RaisePropertyChanged("ApplicationId");
                 }
             }
         }
@@ -3636,6 +3591,19 @@ namespace VendorConnect_Frontend.ServiceReference1 {
                 if ((this.EventIdField.Equals(value) != true)) {
                     this.EventIdField = value;
                     this.RaisePropertyChanged("EventId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EventName {
+            get {
+                return this.EventNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EventNameField, value) != true)) {
+                    this.EventNameField = value;
+                    this.RaisePropertyChanged("EventName");
                 }
             }
         }
@@ -4006,16 +3974,16 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         System.Threading.Tasks.Task<int> CountPendingApplicationPerOrganizerAsync(int orgId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreatePayment", ReplyAction="http://tempuri.org/IService1/CreatePaymentResponse")]
-        void CreatePayment(int vendorId, int eventId, decimal amount);
+        void CreatePayment(int ApplicationId, decimal amount);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CreatePayment", ReplyAction="http://tempuri.org/IService1/CreatePaymentResponse")]
-        System.Threading.Tasks.Task CreatePaymentAsync(int vendorId, int eventId, decimal amount);
+        System.Threading.Tasks.Task CreatePaymentAsync(int ApplicationId, decimal amount);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CompletePayment", ReplyAction="http://tempuri.org/IService1/CompletePaymentResponse")]
-        void CompletePayment(int paymentId);
+        VendorConnect_Frontend.ServiceReference1.PaymentDTO CompletePayment(int paymentId, int ApplicationId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CompletePayment", ReplyAction="http://tempuri.org/IService1/CompletePaymentResponse")]
-        System.Threading.Tasks.Task CompletePaymentAsync(int paymentId);
+        System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.PaymentDTO> CompletePaymentAsync(int paymentId, int ApplicationId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetVendorPayemnts", ReplyAction="http://tempuri.org/IService1/GetVendorPayemntsResponse")]
         System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.VendorPayemntDTO> GetVendorPayemnts(int id);
@@ -4473,20 +4441,20 @@ namespace VendorConnect_Frontend.ServiceReference1 {
             return base.Channel.CountPendingApplicationPerOrganizerAsync(orgId);
         }
         
-        public void CreatePayment(int vendorId, int eventId, decimal amount) {
-            base.Channel.CreatePayment(vendorId, eventId, amount);
+        public void CreatePayment(int ApplicationId, decimal amount) {
+            base.Channel.CreatePayment(ApplicationId, amount);
         }
         
-        public System.Threading.Tasks.Task CreatePaymentAsync(int vendorId, int eventId, decimal amount) {
-            return base.Channel.CreatePaymentAsync(vendorId, eventId, amount);
+        public System.Threading.Tasks.Task CreatePaymentAsync(int ApplicationId, decimal amount) {
+            return base.Channel.CreatePaymentAsync(ApplicationId, amount);
         }
         
-        public void CompletePayment(int paymentId) {
-            base.Channel.CompletePayment(paymentId);
+        public VendorConnect_Frontend.ServiceReference1.PaymentDTO CompletePayment(int paymentId, int ApplicationId) {
+            return base.Channel.CompletePayment(paymentId, ApplicationId);
         }
         
-        public System.Threading.Tasks.Task CompletePaymentAsync(int paymentId) {
-            return base.Channel.CompletePaymentAsync(paymentId);
+        public System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.PaymentDTO> CompletePaymentAsync(int paymentId, int ApplicationId) {
+            return base.Channel.CompletePaymentAsync(paymentId, ApplicationId);
         }
         
         public System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.VendorPayemntDTO> GetVendorPayemnts(int id) {
