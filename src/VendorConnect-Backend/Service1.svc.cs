@@ -1131,16 +1131,17 @@ namespace VnedorConnect_Service
         }
         public PaymentDTO GetPaymentById(int paymentId)
         {
-            var payment = db.Payments
-                .Where(p => p.PaymentId == paymentId)
-                .Select(p => new PaymentDTO
-                {
-                    PaymentId = p.PaymentId,
-                    ApplicationId=p.ApplicationId,
-                    Amount = (decimal)p.Amount,
-                    Status = p.Status
-                })
-                .FirstOrDefault();
+            var payment = (from p in db.Payments
+                           join va in db.VendorApplications on p.ApplicationId equals va.ApplicationId
+                           select new PaymentDTO
+                           {
+                               PaymentId = p.PaymentId,
+                               ApplicationId = p.ApplicationId,
+                               EventId = va.EventId,
+                               Amount = (decimal)p.Amount,
+                               Status = p.Status
+                           })
+                           .FirstOrDefault(p => p.PaymentId == paymentId);
 
             return payment;
         }

@@ -3980,10 +3980,10 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         System.Threading.Tasks.Task CreatePaymentAsync(int ApplicationId, decimal amount);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CompletePayment", ReplyAction="http://tempuri.org/IService1/CompletePaymentResponse")]
-        VendorConnect_Frontend.ServiceReference1.PaymentDTO CompletePayment(int paymentId, int ApplicationId);
+        VendorConnect_Frontend.ServiceReference1.PaymentDTO CompletePayment(int paymentId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CompletePayment", ReplyAction="http://tempuri.org/IService1/CompletePaymentResponse")]
-        System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.PaymentDTO> CompletePaymentAsync(int paymentId, int ApplicationId);
+        System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.PaymentDTO> CompletePaymentAsync(int paymentId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetVendorPayemnts", ReplyAction="http://tempuri.org/IService1/GetVendorPayemntsResponse")]
         System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.VendorPayemntDTO> GetVendorPayemnts(int id);
@@ -4449,12 +4449,12 @@ namespace VendorConnect_Frontend.ServiceReference1 {
             return base.Channel.CreatePaymentAsync(ApplicationId, amount);
         }
         
-        public VendorConnect_Frontend.ServiceReference1.PaymentDTO CompletePayment(int paymentId, int ApplicationId) {
-            return base.Channel.CompletePayment(paymentId, ApplicationId);
+        public VendorConnect_Frontend.ServiceReference1.PaymentDTO CompletePayment(int paymentId) {
+            return base.Channel.CompletePayment(paymentId);
         }
         
-        public System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.PaymentDTO> CompletePaymentAsync(int paymentId, int ApplicationId) {
-            return base.Channel.CompletePaymentAsync(paymentId, ApplicationId);
+        public System.Threading.Tasks.Task<VendorConnect_Frontend.ServiceReference1.PaymentDTO> CompletePaymentAsync(int paymentId) {
+            return base.Channel.CompletePaymentAsync(paymentId);
         }
         
         public System.Collections.ObjectModel.Collection<VendorConnect_Frontend.ServiceReference1.VendorPayemntDTO> GetVendorPayemnts(int id) {

@@ -145,7 +145,7 @@ namespace VendorConnect_Frontend
                         var eventdetails = client.GetEvent(eventId);
                         var eventFee = Convert.ToDecimal(eventdetails.Fee);
 
-                        client.CreatePayment(vendorId, eventId, eventFee);
+                        client.CreatePayment(applicationId, eventFee);
                         
 
                         var vendor = client.GetVendor(vendorId); 
