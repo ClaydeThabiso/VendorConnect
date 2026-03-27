@@ -3442,6 +3442,9 @@ namespace VendorConnect_Frontend.ServiceReference1 {
         private string ApplicationStatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int EventIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int PaymentIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -3492,6 +3495,19 @@ namespace VendorConnect_Frontend.ServiceReference1 {
                 if ((object.ReferenceEquals(this.ApplicationStatusField, value) != true)) {
                     this.ApplicationStatusField = value;
                     this.RaisePropertyChanged("ApplicationStatus");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int EventId {
+            get {
+                return this.EventIdField;
+            }
+            set {
+                if ((this.EventIdField.Equals(value) != true)) {
+                    this.EventIdField = value;
+                    this.RaisePropertyChanged("EventId");
                 }
             }
         }

@@ -46,6 +46,7 @@ namespace VendorConnect_Frontend
                     initials.InnerText = "DD";
                 }
                 LoadPayments();
+                client.Close();
             }
         }
         private void LoadPayments()

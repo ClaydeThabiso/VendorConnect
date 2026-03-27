@@ -179,6 +179,8 @@ namespace VnedorConnect_Service
         [OperationContract]
         PaymentDTO GetPaymentById(int paymentId);
 
+        [OperationContract]
+        decimal GetOrganizerRevenue(int organizerId);
 
 
     }
@@ -619,7 +621,8 @@ namespace VnedorConnect_Service
     public class PaymentDTO
     {
         [DataMember] public int PaymentId { get; set; }
-       [DataMember] public int ApplicationId { get; set; }
+        [DataMember] public int EventId { get; set; }
+        [DataMember] public int ApplicationId { get; set; }
         [DataMember] public decimal Amount { get; set; }
         [DataMember] public string Status { get; set; }
         [DataMember] public string ApplicationStatus { get; set; }

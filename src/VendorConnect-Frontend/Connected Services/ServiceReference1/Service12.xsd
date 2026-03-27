@@ -423,6 +423,7 @@
       <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
       <xs:element minOccurs="0" name="ApplicationId" type="xs:int" />
       <xs:element minOccurs="0" name="ApplicationStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EventId" type="xs:int" />
       <xs:element minOccurs="0" name="PaymentId" type="xs:int" />
       <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
     </xs:sequence>
