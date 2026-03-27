@@ -1098,12 +1098,12 @@ namespace VnedorConnect_Service
 
             if (application != null)
             {
-                application.Status = "Approved"; // 🔥 IMPORTANT
+                application.Status = "Approved";
             }
 
             db.SubmitChanges();
 
-            // 4️⃣ Return DTO
+      
             return new PaymentDTO
             {
                 PaymentId = payment.PaymentId,
